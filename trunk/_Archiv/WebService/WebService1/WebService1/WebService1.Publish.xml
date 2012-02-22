@@ -1,0 +1,8 @@
+<publishData>
+  <publishTarget publishUrl="http://192.168.2.101:3405/">
+    <file relUrl="bin/WebService1.dll" publishTime="11/18/2010 23:05:39" />
+    <file relUrl="Web.config" publishTime="11/18/2010 23:05:41" />
+    <file relUrl="bin/WebService1.pdb" publishTime="11/18/2010 23:05:39" />
+    <file relUrl="Service1.asmx" publishTime="11/18/2010 23:00:11" />
+  </publishTarget>
+</publishData>

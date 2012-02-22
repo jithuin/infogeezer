@@ -1,0 +1,16 @@
+Build:
+- You will need a reference to the OpenNETCF 1.3  (OpenNETCF.dll, can be found at http://www.opennetcf.org) to build this solution.
+- Visual Studio is set to only (except exes and dlls) copy the english file to the device at the build, so make sure all resource files are on the device before launching it!
+- To build for the .Net Compact Framework you need to define the pre-compiler variable CF
+
+Notes:
+- I use an ImageAttribute to handle bitmaps transparency, you have to remember that the PPC don't have the same color quality than desktop, so the pink on the PPC is (r:248, g:0: b:248) and on the PC  (r:255, g:0: b:255).
+
+Comments:
+- All the stuff that is supposed to watch the resolution is a real mess. I've had the highest difficulty to make a system work between qvga, vga, square screens and desktop pc.
+- Even if I love the new features of c# 2.0, especially the Collestions.Generic, I stick using c# 1.0 simply because I sync over wifi, VS.net 2005 with AS 4 doesn't allow that. If there are good reasons to switch I can change my mind.
+
+Copyright
+    Until the project develops, I (Alexis Laf) retain all rights to the code contained in this package, except when marked otherwise.
+    
+http://www.pockethumanity.com

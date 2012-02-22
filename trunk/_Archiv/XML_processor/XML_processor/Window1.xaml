@@ -1,0 +1,31 @@
+﻿<Window x:Class="XML_processor.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*">
+                <ColumnDefinition.MinWidth>
+                    <Binding ElementName="btBrowse" Path="Width" Mode="OneWay">
+                    </Binding>
+                </ColumnDefinition.MinWidth>
+            </ColumnDefinition>
+            <ColumnDefinition Width="*">
+                <ColumnDefinition.MinWidth>
+                    <Binding ElementName="btParse" Path="Width" Mode="OneWay">
+                    </Binding>
+                </ColumnDefinition.MinWidth>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TreeView Grid.Row="1" HorizontalAlignment="Stretch" x:Name="treeView" Width="Auto" SelectedItemChanged="treeView_SelectedItemChanged" Margin="3"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="tbAttributes" Margin="3" TextWrapping="Wrap"></TextBlock>
+        <TextBox x:Name="tbFilePath" Margin="3"></TextBox>
+        <Button Grid.Column="1" Click="btBrowse_Click" x:Name="btBrowse" Margin="3">Browse...</Button>
+        <Button Grid.Column="2" Click="btParse_Click" x:Name="btParse" Margin="3">Parse</Button>
+    </Grid>
+</Window>

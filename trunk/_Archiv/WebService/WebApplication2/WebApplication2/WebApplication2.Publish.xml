@@ -1,0 +1,28 @@
+<publishData>
+  <publishTarget publishUrl="http://192.168.2.101:3405/">
+    <file relUrl="bin/WebApplication2.pdb" publishTime="11/21/2010 15:52:45" />
+    <file relUrl="bin/WebApplication2.dll" publishTime="11/21/2010 15:52:45" />
+    <file relUrl="WebService1.asmx" publishTime="11/18/2010 23:28:05" />
+    <file relUrl="WebForm1.aspx" publishTime="11/21/2010 15:52:45" />
+    <file relUrl="Web.config" publishTime="11/19/2010 01:06:26" />
+    <file relUrl="HTMLPage1.htm" publishTime="11/17/2010 01:40:31" />
+  </publishTarget>
+  <publishTarget publishUrl="http://localhost:3405/">
+    <file relUrl="bin/WebApplication2.pdb" publishTime="11/17/2010 01:40:32" />
+    <file relUrl="bin/WebApplication2.dll" publishTime="11/17/2010 01:40:32" />
+    <file relUrl="Default.aspx.cs" publishTime="11/17/2010 01:36:56" />
+    <file relUrl="Web.config" publishTime="11/17/2010 01:35:21" />
+    <file relUrl="Default.aspx" publishTime="11/17/2010 01:40:31" />
+    <file relUrl="Default.aspx.designer.cs" publishTime="11/17/2010 00:31:20" />
+    <file relUrl="WebApplication2.csproj" publishTime="11/17/2010 01:40:31" />
+    <file relUrl="HTMLPage1.htm" publishTime="11/17/2010 01:40:31" />
+    <file relUrl="WebApplication2.csproj.user" publishTime="11/17/2010 01:40:31" />
+    <file relUrl="Properties/AssemblyInfo.cs" publishTime="11/17/2010 00:29:33" />
+  </publishTarget>
+  <publishTarget publishUrl="http://localhost/">
+    <file relUrl="bin/WebApplication2.pdb" publishTime="11/17/2010 00:31:21" />
+    <file relUrl="bin/WebApplication2.dll" publishTime="11/17/2010 00:31:21" />
+    <file relUrl="Default.aspx" publishTime="11/17/2010 00:38:09" />
+    <file relUrl="Web.config" publishTime="11/17/2010 00:29:33" />
+  </publishTarget>
+</publishData>

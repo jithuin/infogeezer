@@ -1,0 +1,1 @@
+subst s: D:\_munka

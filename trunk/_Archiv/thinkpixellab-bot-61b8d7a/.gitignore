@@ -1,0 +1,10 @@
+_build
+obj
+*.user
+*.suo
+.DS_Store
+*.userprefs
+*.vs10x
+StyleCop.Cache
+Thumbs.db
+*.sln.docstates

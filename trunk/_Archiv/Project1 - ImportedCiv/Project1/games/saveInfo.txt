@@ -1,0 +1,33 @@
+
+version
+type...
+
+startedGame:
+	player
+	civ name
+	image
+	
+	options
+	slis
+
+startedScenario:
+	player
+	civ name
+	scenario name
+	image
+	
+	scenario goalType
+	scenario goalInd
+	
+	options
+	slis
+	
+Scenario:
+	scenario name
+	scenario description
+	image
+	
+	scenario goalType
+	scenario goalInd
+	
+core
