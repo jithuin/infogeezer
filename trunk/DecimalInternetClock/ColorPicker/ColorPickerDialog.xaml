@@ -1,0 +1,20 @@
+﻿<Window x:Class="ColorPicker.ColorPickerDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cp="clr-namespace:ColorPicker"
+        SizeToContent="WidthAndHeight"
+    Title="ColorPickerDialog"><!--Width="282" Height="150"-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <cp:ColorPickerControl Grid.ColumnSpan="2" x:Name="colorPicker" Padding="1"></cp:ColorPickerControl>
+        <Button Grid.Row="1"  IsDefault="True" Click="OK_Button_Click" Padding="1">OK</Button>
+        <Button Grid.Row="1" Grid.Column="1" IsCancel="True" Padding="1">Cancel</Button>
+    </Grid>
+</Window>

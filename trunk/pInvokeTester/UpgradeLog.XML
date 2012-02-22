@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="pInvokeTester">
+</Property><Property Name="Solution File" Value="D:\_Munka\SW_Fejl\_WC\pInvokeTester\pInvokeTester.sln">
+</Property><Property Name="Date" Value="2012. január 17.">
+</Property><Property Name="Time" Value="8:27:11">
+</Property></Properties><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ManagedWinapi.csproj" Description="Project file successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ManagedWinapi.csproj">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\AccessibleObjectListener.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\AccessibleObjectListener.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Contents\AccessibleWindowParser.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Contents\AccessibleWindowParser.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ExtendedFileInfo.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ExtendedFileInfo.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\CodepointRange.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\CodepointRange.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Hook.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Hook.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\InputBlocker.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\InputBlocker.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\JournalHook.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\JournalHook.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\KeyboardKey.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\KeyboardKey.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\LowLevelHook.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\LowLevelHook.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\MachineIdentifiers.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\MachineIdentifiers.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ProcessMemoryChunk.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ProcessMemoryChunk.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ShortcutBox.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ShortcutBox.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ShortcutBox.Designer.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ShortcutBox.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\PrivilegedActions.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\PrivilegedActions.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\SystemAccessibleObject.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\SystemAccessibleObject.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ApiHelper.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ApiHelper.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ClipboardNotifier.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ClipboardNotifier.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Contents\ContentParserRegistry.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Contents\ContentParserRegistry.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Contents\ListParser.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Contents\ListParser.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Contents\TextFieldParser.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Contents\TextFieldParser.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Contents\WindowContent.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Contents\WindowContent.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Contents\WindowContentParser.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Contents\WindowContentParser.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Crosshair.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Crosshair.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Crosshair.Designer.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Crosshair.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Mixer.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Mixer.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\MixerControl.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\MixerControl.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\MixerLine.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\MixerLine.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\PInvokeTypes.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\PInvokeTypes.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\SendKeysEscaper.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\SendKeysEscaper.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\EventDispatchingNativeWindow.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\EventDispatchingNativeWindow.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Hotkey.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Hotkey.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\LockKeyResetter.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\LockKeyResetter.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\SystemListBox.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\SystemListBox.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\SystemListView.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\SystemListView.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\SystemTreeView.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\SystemTreeView.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\SystemWindow.cs" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\SystemWindow.cs">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ManagedWinapiNativeHelper.dll" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ManagedWinapiNativeHelper.dll">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\Crosshair.resx" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\Crosshair.resx">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\crosshair.ico" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\crosshair.ico">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\crosshair.cur" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\crosshair.cur">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ShortcutBox.resx" Description="File successfully backed up as D:\_Munka\SW_Fejl\_WC\pInvokeTester\Backup\ShortcutBox.resx">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ManagedWinapi.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ManagedWinapi.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ManagedWinapi" Source="ManagedWinapi\ManagedWinapi\ManagedWinapi.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

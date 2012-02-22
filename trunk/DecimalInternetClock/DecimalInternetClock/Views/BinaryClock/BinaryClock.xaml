@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="DecimalInternetClock.BinaryClock"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:DecimalInternetClock"
+    Name="this">
+    <Viewbox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <my:BinaryClockSegment Grid.Column="0">
+                <my:BinaryClockSegment.HexTime>
+                    <Binding ElementName="this" Path="DecimalTime" Mode="OneWay" ConverterParameter="0">
+                        <Binding.Converter>
+                            <my:DoubleHexValueConverter></my:DoubleHexValueConverter>
+                        </Binding.Converter>
+                    </Binding>
+                </my:BinaryClockSegment.HexTime>
+                <!--<my:BinaryClockSegment.ForeColor>
+                    <Binding ElementName="this" Path="ForeColor" Mode="OneWay"></Binding>
+                </my:BinaryClockSegment.ForeColor>
+                <my:BinaryClockSegment.Transparency>
+                    <Binding ElementName="this" Path="Transparency" Mode="OneWay"></Binding>
+                </my:BinaryClockSegment.Transparency>-->
+            </my:BinaryClockSegment>
+            <my:BinaryClockSegment Grid.Column="1">
+                <my:BinaryClockSegment.HexTime>
+                    <Binding ElementName="this" Path="DecimalTime" Mode="OneWay" ConverterParameter="1">
+                        <Binding.Converter>
+                            <my:DoubleHexValueConverter></my:DoubleHexValueConverter>
+                        </Binding.Converter>
+                    </Binding>
+                </my:BinaryClockSegment.HexTime>
+                <!--<my:BinaryClockSegment.ForeColor>
+                    <Binding ElementName="this" Path="ForeColor" Mode="OneWay"></Binding>
+                </my:BinaryClockSegment.ForeColor>
+                <my:BinaryClockSegment.Transparency>
+                    <Binding ElementName="this" Path="Transparency" Mode="OneWay"></Binding>
+                </my:BinaryClockSegment.Transparency>-->
+            </my:BinaryClockSegment>
+            <my:BinaryClockSegment Grid.Column="2">
+                <my:BinaryClockSegment.HexTime>
+                    <Binding ElementName="this" Path="DecimalTime" Mode="OneWay" ConverterParameter="2">
+                        <Binding.Converter>
+                            <my:DoubleHexValueConverter></my:DoubleHexValueConverter>
+                        </Binding.Converter>
+                    </Binding>
+                </my:BinaryClockSegment.HexTime>
+                <!--<my:BinaryClockSegment.ForeColor>
+                    <Binding ElementName="this" Path="ForeColor" Mode="OneWay"></Binding>
+                </my:BinaryClockSegment.ForeColor>
+                <my:BinaryClockSegment.Transparency>
+                    <Binding ElementName="this" Path="Transparency" Mode="OneWay"></Binding>
+                </my:BinaryClockSegment.Transparency>-->
+            </my:BinaryClockSegment>
+            <my:BinaryClockSegment Grid.Column="3">
+                <my:BinaryClockSegment.HexTime>
+                    <Binding ElementName="this" Path="DecimalTime" Mode="OneWay" ConverterParameter="3">
+                        <Binding.Converter>
+                            <my:DoubleHexValueConverter></my:DoubleHexValueConverter>
+                        </Binding.Converter>
+                    </Binding>
+                </my:BinaryClockSegment.HexTime>
+                <!--<my:BinaryClockSegment.ForeColor>
+                    <Binding ElementName="this" Path="ForeColor" Mode="OneWay"></Binding>
+                </my:BinaryClockSegment.ForeColor>
+                <my:BinaryClockSegment.Transparency>
+                    <Binding ElementName="this" Path="Transparency" Mode="OneWay"></Binding>
+                </my:BinaryClockSegment.Transparency>-->
+            </my:BinaryClockSegment>
+            
+        </Grid>
+    </Viewbox>
+</UserControl>
