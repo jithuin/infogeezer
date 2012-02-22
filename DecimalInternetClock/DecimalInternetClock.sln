@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecimalInternetClock", "DecimalInternetClock\DecimalInternetClock.csproj", "{239BD0B2-A007-4538-85E4-6A98134965A0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{827F8C33-8118-48C7-AB3C-4864298396AD} = {827F8C33-8118-48C7-AB3C-4864298396AD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorPicker", "ColorPicker\ColorPicker.csproj", "{827F8C33-8118-48C7-AB3C-4864298396AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{239BD0B2-A007-4538-85E4-6A98134965A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239BD0B2-A007-4538-85E4-6A98134965A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239BD0B2-A007-4538-85E4-6A98134965A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239BD0B2-A007-4538-85E4-6A98134965A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827F8C33-8118-48C7-AB3C-4864298396AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
