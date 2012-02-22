@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="ScreenWorm.WormSegment"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:ScreenWorm"
+    x:Name="this" Background="Transparent" >
+    <Canvas>
+        <Ellipse Width="20" Height="20" Fill="{Binding ElementName=this, Path=Foreground}"/>
+            <!--<Ellipse.Stroke>
+                <Binding ElementName="this" Path="Foreground"/>
+            </Ellipse.Stroke>-->
+            <!--<Ellipse.Fill>
+                <Binding ElementName="this" Path="Foreground"/>
+            </Ellipse.Fill>-->
+        <!--</Ellipse>-->
+    </Canvas>
+</UserControl>

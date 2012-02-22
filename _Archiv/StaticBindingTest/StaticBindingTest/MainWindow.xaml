@@ -1,0 +1,25 @@
+﻿<Window x:Class="StaticBindingTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:storage="clr-namespace:StaticBindingTest.Storage"
+        Title="MainWindow" Height="350" Width="525">
+    <UniformGrid Rows="1">
+        <Button
+            Content="Hello"
+            IsEnabled="{Binding Source={x:Static storage:Manager.Instance}, Path=IsOnline}">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Style.Triggers>
+                        <DataTrigger Value="True">
+                            <DataTrigger.Binding>
+                                <Binding Source="{x:Static storage:Manager.Instance}" Path="IsOnline"/>
+                            </DataTrigger.Binding>
+                            <Setter Property="Background" Value="#8000FF00"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Click="ButtonClick">Toggle IsOnline</Button>
+    </UniformGrid>
+</Window>

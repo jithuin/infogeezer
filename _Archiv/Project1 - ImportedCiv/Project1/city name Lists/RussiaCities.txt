@@ -1,0 +1,32 @@
+﻿Moscow
+Saint Petersburg
+Petrozavodsk
+Tver
+Murmansk
+Arkhangelsk
+Nizhni Novgorod
+Ekaterinburg
+Chelyabinsk
+Volgograd
+Rostov
+Novorossisk
+Tuapse
+Sochi
+Astrakhan
+Omsk
+Novosibirsk
+Norilsk
+Krasnoyarsk
+Irkutsk
+Yakutsk
+Magadan
+Anadyr
+Khabarovsk
+Nakhodka
+Tula
+Vladivostok
+Yaroslavl
+Ryazan
+Anadyr
+Vologda
+Ivanovo

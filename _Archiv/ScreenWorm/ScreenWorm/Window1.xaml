@@ -1,0 +1,61 @@
+﻿<Window x:Class="ScreenWorm.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:ScreenWorm"
+    Title="Window1" x:Name="this" WindowState="Maximized"
+    WindowStyle="None" AllowsTransparency="True"
+         Foreground="GreenYellow">
+    <Window.Background>
+        Transparent
+    </Window.Background>
+    <!--<Window.Background>
+        #7F000000
+    </Window.Background>-->
+    <Window.Resources>
+        <Style TargetType="{x:Type my:Worm}" x:Key="moreWormStyle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=cbMore, Path=IsChecked}" Value="false">
+                    <DataTrigger.Setters>
+                        <Setter Property="Visibility" Value="Hidden"></Setter>
+                    </DataTrigger.Setters>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Window.ContextMenu>
+
+        <ContextMenu Name="contextMenu">
+            <MenuItem Header="Close" Click="ExitMenuItem_Click"></MenuItem>
+            <MenuItem>
+                <MenuItem.Header>
+                    <StackPanel Margin="3" Orientation="Horizontal">
+                        <CheckBox x:Name="cbMore" IsChecked="True"></CheckBox>
+                        <TextBlock Margin="3">More</TextBlock>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+        </ContextMenu>
+    </Window.ContextMenu>
+
+    <Grid DataContext="{Binding ElementName=this}">
+        <my:Worm Foreground="{Binding Path=Foreground}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+        <my:Worm Foreground="{Binding Path=Foreground}"
+                 Style="{Binding Source={StaticResource moreWormStyle}}"/>
+    </Grid>
+</Window>

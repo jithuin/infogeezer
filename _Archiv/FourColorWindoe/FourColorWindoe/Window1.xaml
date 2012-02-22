@@ -1,0 +1,53 @@
+﻿<Window x:Class="FourColorWindoe.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Window1" Height="100" Width="100"
+        Background="Black">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="btTemplate">
+            <Border Background="{TemplateBinding Background}">
+                <ContentPresenter></ContentPresenter>
+            </Border>
+        </ControlTemplate>
+                         
+        <Style x:Key="BoxStyle" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <Binding RelativeSource="{RelativeSource Self}"
+                                     Path="Foreground"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="false">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Template" Value="{StaticResource btTemplate}"></Setter>
+            <Setter Property="Opacity" Value="0.5"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid ButtonBase.Click="Button_Click" MouseLeave="Grid_MouseLeave">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Foreground="Red" 
+                Style="{StaticResource BoxStyle}" />
+        <Button Foreground="GreenYellow"
+                Grid.Column="1"
+                Style="{StaticResource BoxStyle}" />
+        <Button Foreground="Cyan" 
+                Grid.Row="1"
+                Style="{StaticResource BoxStyle}" />
+        <Button Foreground="Yellow" 
+                Grid.Column="1"
+                Grid.Row="1"
+                Style="{StaticResource BoxStyle}" />
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+<publishData>
+  <publishTarget publishUrl="http://192.168.2.101:80/">
+    <file relUrl="bin/WebApplication1.dll" publishTime="11/16/2010 23:51:16" />
+    <file relUrl="Default.aspx.cs" publishTime="11/16/2010 21:29:11" />
+    <file relUrl="Web.config" publishTime="11/16/2010 22:29:10" />
+    <file relUrl="Default.aspx" publishTime="11/16/2010 21:38:08" />
+    <file relUrl="Default.aspx.designer.cs" publishTime="11/16/2010 21:35:33" />
+    <file relUrl="bin/WebApplication1.pdb" publishTime="11/16/2010 23:51:16" />
+    <file relUrl="Properties/AssemblyInfo.cs" publishTime="11/16/2010 21:29:11" />
+    <file relUrl="WebApplication1.csproj.user" publishTime="11/16/2010 23:48:59" />
+    <file relUrl="WebApplication1.csproj" publishTime="11/16/2010 23:48:59" />
+  </publishTarget>
+  <publishTarget publishUrl="http://localhost/">
+    <file relUrl="bin/WebApplication1.pdb" publishTime="11/16/2010 23:51:16" />
+    <file relUrl="Default.aspx" publishTime="11/16/2010 21:38:08" />
+    <file relUrl="bin/WebApplication1.dll" publishTime="11/16/2010 23:51:16" />
+    <file relUrl="Web.config" publishTime="11/16/2010 22:29:10" />
+  </publishTarget>
+</publishData>

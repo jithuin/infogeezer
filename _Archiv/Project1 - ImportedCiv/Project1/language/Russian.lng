@@ -1,0 +1,390 @@
+﻿// Language:                Russian
+// For game version         v0.887
+// Translation version:     v0.870
+// Translated by:           stele
+// Translator e-mail:       support@stele.net
+
+Продолжить
+Новая игра
+Загрузить игру
+Загрузить карту
+Выход
+
+// new game
+Игрок
+Нация
+Сложность
+{0} ИИ
+Назад
+Далее
+Размер карты
+Размер материков
+% воды
+Возраст планеты
+Начать с хорошего места
+Обучающий режим
+Создать карту
+Custom nation...
+
+Файл
+Сохранить
+Сохранить как...
+Загрузить
+Настройки
+Основное меню
+
+Юнит
+Построить
+Действие
+
+Civ
+Наука
+Бюджет
+МИД
+Информация
+Satellites
+
+Тур
+
+//?
+?
+О...
+Энциклопедия
+Метки
+Создать здесь
+Переименовать
+Удалить
+
+Информация о {0}
+Информация о юните
+
+Next
+Prev
+
+Ok
+Cancel
+Да
+Нет
+BC
+AD
+{0} золотом
+{0}  {1} был уничтожен {2}.
+Очень жаль, но Вы уничтожены {0}.
+Юниты не сделали всех своих шагов закончить тур?
+Шпион
+
+// new
+Перемирие
+Прекратить огонь
+Война
+Союз
+Protected
+Protector
+
+Ваш союзник
+Ваш враг
+
+Их союзник
+Их враг
+
+{0} turn ago
+{0} turns ago
+
+Мирный
+Воинственный
+
+{0} золото / тур
+{0} turn left
+{0} turns left
+
+Запас
+Армия
+Наука
+Культура
+Разведка
+Building upkeep
+
+Политика
+Общество
+Наука
+Армия
+
+Вести переговоры
+Объявите войну!
+
+Вы уверены, что Вы хотите объявить войну {0}?
+
+Add...
+Remove
+Refuse
+Discuss
+Propose
+
+Specify the amount
+
+Вы выбрали 0 противников. Шариться одному по этому лесу скучно. Повторить выбор?
+
+Крошечный
+Маленький
+Средний
+Большой
+Огромный
+
+Малый
+Средний
+Большой
+
+// selection state
+
+Выберите цель бомбометания
+Выберите цель
+Выберите цель исследования
+Выберите цель
+Выберите цель для атаки
+
+{0} turn before growth
+{0} turns before growth
+
+// intelligence form
+контрразведка
+Детали
+контакт
+Общее
+Шпионы
+Совещание
+
+// user  input
+Новый город
+Переименовать город
+Введите название города.
+{0} построил {1}. Пожалуйста, выберите его следующее строительство.
+{0} is about to build a settler, doing so will destroy the city. Please confirm what to build.
+Принять
+к городу
+Знания
+Новоя конструкция
+Новая технология
+Вы открыли {0}, выберите Ваше следующее исследование.
+Вы открыли {0}. Вы достигли вершины знаний.
+Название метки
+Введите название для метки.
+Метки скрыты, вы можете изменить это в меню настроек.
+
+// tranport
+Выгрузить юнит
+Выберите юнит для выгрузки.
+Выгрузить
+Погрузить юнит на корабль
+Выберите корабль для погрузки.
+Загрузиться
+
+// negociation
+Treaties
+Give
+Demand
+Threaten to...
+
+Politic
+Economic
+Embargo on
+War on
+Break alliance
+Vote
+
+City
+Techno
+Contact
+Money
+Money per turn (20 turns)
+Map
+Region
+Resource
+
+Ancient {0}
+
+Politic: {0}
+Economic: {0}
+
+// Threaten to {0}
+Threaten to declare war
+Threaten to embargo
+Threaten to break alliance
+
+Break alliance with {0}
+Embargo on {0}
+Declare war to {0}
+Give city: {0}
+Give region: ancient {0}
+Give technology: {0}
+Give contact with {0}
+Give {0} gold
+Give {0}% from revenu for {1} turns
+Give {0} g for {1} t
+Resource: {0}
+
+// GiveMaps
+Give world map
+Give territory map
+
+Vote: {0}
+
+Please enter the wanted amount, maximun at {0} gold.
+Please enter the wanted amount, maximun at {0} gold per turn.
+
+Negociating with {0}
+{0} refuses this offer and propose this...
+{0} refuses this offer and is not interested by what you have to offer.
+{0} accepts your offer.
+{0} refuses to trade with you.
+Do you accept to trade with {0}?
+
+Join city
+Sell for {0}
+Upgrade to {0}
+
+// science tree
+Исследование
+Unavailable
+Found
+Unknown
+Исследуемый
+Исследование
+
+// custom nation
+Nation name
+Import city list from
+Color
+Red
+Green
+Blue
+Description
+
+Save game...
+Do you want to save your game before you leave?
+Error
+Unrecongnised save version: {0:F3}
+
+Build
+Buy
+More...
+Rename
+Evacuate
+Cancel evacuation
+Set as capital
+Evacuating...
+
+Slavery
+You just aquired {0} slaves from {1}.
+
+// encyclopedia
+Units
+Civilizations
+Terrains
+Technologies
+Governements
+Economies
+Resources
+Tutorial
+Buildings
+Small wonders
+Wonders
+Miscellaneous
+
+Needed technology: {0}
+Food modificator: {0}%
+Production modificator: {0}%
+Trade modificator: {0}%
+
+Oppressive
+Non-oppressive
+Surrender on conquer
+Resist invaders
+Can be chosen by players
+Unavailable to players
+
+Communism
+Capitalism
+Support slavery
+Doesn't support slavery
+
+Can be researched
+Has to be discovered on map or by trade
+Need technologies: {0}
+Allow technologies: {0}
+Does not lead to any new technologies
+
+Moving difficulty: {0}
+Defense modificator: {0}%
+Food: {0}
+Production: {0}
+Trade: {0}
+Irrigation food bonus: {0}
+Mine production bonus: {0}
+Road trade bonus: {0}
+Railroad trade bonus: {0}
+
+Needs {0} to be seen
+Food bonus: {0}
+Production bonus: {0}
+Trade bonus: {0}
+
+Cost: {0}
+Attack: {0}
+Defense: {0}
+Move: {0}
+Can be entrenched
+Sync in high sea
+Resists high sea nivigation
+Speciality: {0}
+Transport capacity: {0} units
+Is stealth to radar
+Sight: {0}
+Range: {0}
+Rendered obselete by: {0}
+
+Leaders: {0}
+
+// tutorial info
+Just started
+You begin with a single settler which is usually on a good city site. The best thing to do is to order your unit to build your capital right after closing this window, to do so use: Unit >> Build >> City. However, if you decide to move your settler, you will have to end the turn by pressing "Turn" before being able to build something or move the unit again.    You can later retreive these tips within the encyclopedia: ? >> Ecyclopedia >> Tutorial.
+First city
+You just ordered the settler to build your capital, you now have to choose a name for it, its construction orders and maybe the position of the labor forces. But you're lucky, a name will be suggested according to your nation, and all the other choices will be set by default in your city at the ideal settings, you are better to leave them as they are for now.
+Discovering technologies
+Since you have built the first settlement for your nation you will now aquire the first technology "Sedentary life". You know have to choose what your scientists (or at this point, the wisers of your cavemen) will research, technologies give you more options on how to control your nation and interact with foreign countries, they also allow you to build new units and buildings. You can have more informations on each technology in the encyclopedia and the science window.
+Second settler
+You just built your second settler, you can use this unit to explore the continent (after selecting the unit tap on an adjacent case to move, don't forget to press "Turn"), build different case improvements (like roads to speed up unit movements, mine to boost the production of the case or irrigation to generate more food), or even better build a new city! (Usually, a distance of 3 cases between your cities is enough, you can also use Unit >> Action >> Suggest a site... if you need help) 
+
+Loading game...
+Saving game...
+Loading scenario...
+Saving scenario...
+New file...
+New file
+Please enter the file name.
+Empty.
+Delete
+Delete file
+Are you sure you want to delete "{0}"?
+
+{0} BC
+{0} AD
+
+Scenario editor mode
+Activate scenario editor
+Are you sure?
+World
+Case
+Units on case
+City on case
+Players
+Relations
+Deals
+Save as...
+Load...
+Save scenario as...
+
+You destroyed {0} of {1}
+{0} of {1} has been killed by {2} of {3}
+You have been been killed by {0} of {1}
+
+Your empire has been destroyed, you lost.
