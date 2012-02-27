@@ -134,4 +134,42 @@ namespace DecimalInternetClock
         #endregion
 
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T">data type</typeparam>
+    /// <typeparam name="I">indexer type</typeparam>
+    public class IndexMe<T, I>
+    {
+        public IndexMe()
+        {
+
+        }
+        public IndexMe(Func<I,IndexMe<T, I>,T> myFunc, T baseData_in)
+        {
+            myGetfunc = myFunc;
+            BaseData = baseData_in;
+        }
+
+        public T BaseData {get; set;}
+        Func<I,IndexMe<T, I>,T>  myGetfunc;
+
+        public T this[I index]
+        {
+            get { return myGetfunc(index, this); }
+            set {  }
+        }
+    }
+
+    public class Father
+    {
+        IndexMe<byte, int> Son = new IndexMe<byte, int>(new Func<int, IndexMe<byte, int>, byte>((i, Son) => { return (byte)((Son.BaseData >> i) & 0x1); }), 6);
+
+        public byte this[int index]
+        {
+            get { return Son[index]; }
+            set { /* set the specified index to value here */ }
+        }
+    }
 }
