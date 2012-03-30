@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIndexer", "FileIndexer\FileIndexer.csproj", "{2E878E72-0953-48FA-A435-CFBB32B27ECD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E878E72-0953-48FA-A435-CFBB32B27ECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E878E72-0953-48FA-A435-CFBB32B27ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E878E72-0953-48FA-A435-CFBB32B27ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E878E72-0953-48FA-A435-CFBB32B27ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
