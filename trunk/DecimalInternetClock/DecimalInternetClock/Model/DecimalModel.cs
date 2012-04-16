@@ -138,38 +138,53 @@ namespace DecimalInternetClock
     /// <summary>
     /// 
     /// </summary>
-    /// <typeparam name="T">data type</typeparam>
+    /// <typeparam name="D">data type</typeparam>
     /// <typeparam name="I">indexer type</typeparam>
-    public class IndexMe<T, I>
+    /// <typeparam name="R">return type</typeparam>
+    public class IndexMe<D, I, R>
     {
         public IndexMe()
         {
-
+            BaseData = (D)(object)0;
+            myGetfunc = new Func<I, IndexMe<D, I, R>, R>((index, data) => { return (R)Convert.ChangeType(data.BaseData, typeof(R)); });
         }
-        public IndexMe(Func<I,IndexMe<T, I>,T> myFunc, T baseData_in)
+        public IndexMe(Func<I,IndexMe<D, I, R>,R> myFunc, D baseData_in)
         {
             myGetfunc = myFunc;
             BaseData = baseData_in;
         }
 
-        public T BaseData {get; set;}
-        Func<I,IndexMe<T, I>,T>  myGetfunc;
+        public D BaseData {get; set;}
+        Func<I,IndexMe<D, I, R>,R>  myGetfunc;
 
-        public T this[I index]
+        public R this[I index]
         {
             get { return myGetfunc(index, this); }
             set {  }
         }
     }
 
-    public class Father
+    public class IndexMeUnitTester
     {
-        IndexMe<byte, int> Son = new IndexMe<byte, int>(new Func<int, IndexMe<byte, int>, byte>((i, Son) => { return (byte)((Son.BaseData >> i) & 0x1); }), 6);
-
-        public byte this[int index]
+        protected static int _LengthOfByteInBits = 8;
+        protected static int _ByteMask = 0xFF;
+        protected static int _BitMask = 0x1;
+        
+        public IndexMeUnitTester()
         {
-            get { return Son[index]; }
-            set { /* set the specified index to value here */ }
+        Func<int, IndexMe<byte, int, bool>, bool> flagFunc= new Func<int, IndexMe<byte, int, bool>, bool>((i, Son) => { return ((Son.BaseData >> i) & _BitMask) != 0; });
+        IndexMe<byte, int, bool> SonFlag = new IndexMe<byte, int, bool>(flagFunc, 6);
+        Func<int, IndexMe<byte, int, bool>, bool> lesserFunc = new Func<int, IndexMe<byte, int, bool>, bool>((i, son) => { return son.BaseData <= i; });
+        IndexMe<byte, int, bool> SonLesser = new IndexMe<byte, int, bool>(lesserFunc, 2);
+
+        IndexMe<int, int, byte> SonPart = new IndexMe<int, int, byte>(new Func<int, IndexMe<int, int, byte>, byte>((index, item) => { return (byte)((item.BaseData >> (index * _LengthOfByteInBits)) & _ByteMask); }), 4);
+        IndexMe<int, int, IndexMe<byte, int, bool>> SonSandwich = 
+            new IndexMe<int,int,IndexMe<byte,int,bool>>(
+                new Func<int,IndexMe<int,int,IndexMe<byte,int,bool>>,IndexMe<byte,int,bool>>(
+                    (index, item) => 
+                    {
+                        return new IndexMe<byte, int, bool>(flagFunc, (byte)((item.BaseData >> (index * _LengthOfByteInBits)) & _ByteMask)); 
+                    }),7);
         }
     }
 }
