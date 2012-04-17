@@ -13,8 +13,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <cp:ColorPickerControl Grid.ColumnSpan="2" x:Name="colorPicker" Padding="1"></cp:ColorPickerControl>
-        <Button Grid.Row="1"  IsDefault="True" Click="OK_Button_Click" Padding="1">OK</Button>
-        <Button Grid.Row="1" Grid.Column="1" IsCancel="True" Padding="1">Cancel</Button>
+        <cp:ColorPickerControl Grid.ColumnSpan="2" x:Name="colorPicker" Margin="3" Padding="1"></cp:ColorPickerControl>
+        <Button Grid.Row="1"  IsDefault="True" Click="OK_Button_Click" Margin="3" Padding="1">OK</Button>
+        <Button Grid.Row="1" Grid.Column="1" IsCancel="True" Margin="3" Padding="1">Cancel</Button>
     </Grid>
 </Window>
