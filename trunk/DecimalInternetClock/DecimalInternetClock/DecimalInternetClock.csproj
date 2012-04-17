@@ -108,6 +108,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HotKeys\ActivatorHotkey.cs" />
+    <Compile Include="HotKeys\HotKeyFeatureExtension.cs" />
+    <Compile Include="HotKeys\ResizerHotKey.cs" />
     <Compile Include="Model\BinaryModel.cs" />
     <Compile Include="Model\DecimalModel.cs" />
     <Compile Include="Model\IDecimalClock.cs" />
@@ -149,6 +152,7 @@
       <DependentUpon>SimpleSurfaceTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\3DTest\Utility.cs" />
+    <Compile Include="WinampRemote\Winamp.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
