@@ -40,6 +40,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -66,6 +67,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\BinaryClock\BinaryClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +103,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Options\Options.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Options\OptionsControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -108,9 +121,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HotKeys\ActivatorHotkey.cs" />
-    <Compile Include="HotKeys\HotKeyFeatureExtension.cs" />
-    <Compile Include="HotKeys\ResizerHotKey.cs" />
+    <Compile Include="HotKeys\ActivatorHotkey.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HotKeys\HotKeyFeatureExtension.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HotKeys\ResizerHotKey.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\BinaryModel.cs" />
     <Compile Include="Model\DecimalModel.cs" />
     <Compile Include="Model\IDecimalClock.cs" />
@@ -152,6 +171,15 @@
       <DependentUpon>SimpleSurfaceTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\3DTest\Utility.cs" />
+    <Compile Include="Views\Options\NamedValues\NamedValueList.cs" />
+    <Compile Include="Views\Options\NamedValues\NamedValuePair.cs" />
+    <Compile Include="Views\Options\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Options\OptionsControl.xaml.cs">
+      <DependentUpon>OptionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Options\OptionsRow.cs" />
     <Compile Include="WinampRemote\Winamp.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,6 +202,10 @@
     <ProjectReference Include="..\ColorPicker\ColorPicker.csproj">
       <Project>{827F8C33-8118-48C7-AB3C-4864298396AD}</Project>
       <Name>ColorPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagedWinapi\ManagedWinapi.csproj">
+      <Project>{FBD3EC1E-47E2-4D2D-81C9-D6506125A09A}</Project>
+      <Name>ManagedWinapi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

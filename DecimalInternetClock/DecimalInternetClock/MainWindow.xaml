@@ -5,9 +5,9 @@
     xmlns:colorPicker="clr-namespace:ColorPicker;assembly=ColorPicker"
     xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
     Title="DecimalInternetClock"
-        x:Name="this" WindowStyle="None" AllowsTransparency="True" 
+        x:Name="this" WindowStyle="None" AllowsTransparency="True"
         Icon="Resources\Blank.png"
-        FontFamily="Aurabesh">
+        FontFamily="01 Digitall">
     <!--BUG: nem működik az ikon itt-->
     <Window.Resources>
         <prop:Settings x:Key="Settings" x:Name="Set"/>
@@ -168,8 +168,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="20" MinHeight="20"/>
         </Grid.RowDefinitions>
 
@@ -206,7 +206,7 @@
             <Viewbox HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Image Source="Blank.png"/>
             </Viewbox>
-            <TextBlock TextAlignment="Center" 
+            <TextBlock TextAlignment="Center"
                    TextElement.FontSize="12" VerticalAlignment="Center" Background="Transparent">
             <TextBlock.Text>
                 <Binding ElementName="this" Path="Title" Mode="OneWay"/>
@@ -218,7 +218,7 @@
         </Grid>
 
         <!--Window Content-->
-        <my:DecimalClock Grid.Row="1" Background="Transparent">
+        <my:DecimalClock Grid.Row="1" Background="Transparent" >
             <my:DecimalClock.DecimalTime>
                 <Binding ElementName="this" Path="DecimalTime" Mode="OneWay"></Binding>
             </my:DecimalClock.DecimalTime>
@@ -240,12 +240,12 @@
                 <Binding ElementName="this" Path="Transparency"/>
             </my:BinaryClock.Transparency>-->
         </my:BinaryClock>
-        <my:BinaryRing Grid.Row="3" 
-                       HorizontalAlignment="Stretch" 
+        <my:BinaryRing Grid.Row="3"
+                       HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch">
             <my:BinaryRing.DecimalTime>
-                <Binding ElementName="this" 
-                         Path="DecimalTime" 
+                <Binding ElementName="this"
+                         Path="DecimalTime"
                          Mode="OneWay"/>
             </my:BinaryRing.DecimalTime>
             <!--<my:BinaryRing.Foreground>
@@ -257,14 +257,14 @@
             </my:BinaryRing.Foreground>-->
         </my:BinaryRing>
         <TextBox Name="textBox"
-                 Background="#01000000" 
-                 Grid.Row="4" 
-                 Margin="2" 
-                 TextWrapping="Wrap" 
-                 VerticalScrollBarVisibility="Auto" 
-                 AcceptsReturn="True" 
+                 Background="#01000000"
+                 Grid.Row="4"
+                 Margin="2"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 AcceptsReturn="True"
                  BorderBrush="Transparent"
-                 
+
                  >
             <!--<TextBox.BorderBrush>
                 <Binding ElementName="this" Path="Foreground"/>

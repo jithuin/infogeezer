@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="DecimalInternetClock.Options.OptionsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:omc="clr-namespace:DecimalInternetClock"
+             xmlns:gui="clr-namespace:DecimalInternetClock.Options"
+             xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
+             Height="300" Width="300"
+             x:Name="thisOptionsControl"
+             >
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.ColumnSpan="3" >
+            <TabItem Header="Calibration Parameters">
+                <gui:NamedValueListControl x:Name="nvlCalibParams"/>
+            </TabItem>
+            <TabItem Header="UI Parameters" >
+                <gui:NamedValueListControl x:Name="nvlUiProg" />
+            </TabItem>
+            <TabItem Header="Basic Settings">
+                <gui:NamedValueListControl x:Name="nvlSettings" />
+            </TabItem>
+        </TabControl>
+        <Button x:Name="btOK"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                MinWidth="100"
+                Margin="5"
+                IsDefault="True"
+                Command="omc:WorkflowCommands.AcknowledgeOptions"
+                Click="btApply_Click"
+                >OK</Button>
+        <Button x:Name="btApply"
+                Grid.Row="1" Grid.Column="1"
+                HorizontalAlignment="Center"
+                MinWidth="100"
+                Margin="5"
+                IsDefault="True"
+                Click="btApply_Click"
+                >Apply</Button>
+        <Button x:Name="btCancel"
+                Grid.Row="1" Grid.Column="2"
+                HorizontalAlignment="Center"
+                MinWidth="100"
+                Margin="5"
+                IsCancel="True">Cancel</Button>
+    </Grid>
+</UserControl>
