@@ -133,13 +133,13 @@ namespace DecimalInternetClock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsDecimalClockVisible {
+        [global::System.Configuration.DefaultSettingValueAttribute("Visible")]
+        public global::System.Windows.Visibility DecimalClockVisibility {
             get {
-                return ((bool)(this["IsDecimalClockVisible"]));
+                return ((global::System.Windows.Visibility)(this["DecimalClockVisibility"]));
             }
             set {
-                this["IsDecimalClockVisible"] = value;
+                this["DecimalClockVisibility"] = value;
             }
         }
         

@@ -5,6 +5,7 @@
              xmlns:opt="clr-namespace:DecimalInternetClock.Options"
              xmlns:nvp="clr-namespace:DecimalInternetClock.NamedValues"
              xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
+             xmlns:ccom="clr-namespace:DecimalInternetClock.CustomCommands"
              Height="300" Width="300"
              x:Name="thisOptionsControl"
              >
@@ -22,12 +23,12 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TabControl Grid.ColumnSpan="3" >
-            <TabItem Header="Calibration Parameters">
+            <!--<TabItem Header="Calibration Parameters">
                 <nvp:NamedValueListControl x:Name="nvlCalibParams"/>
             </TabItem>
             <TabItem Header="UI Parameters" >
                 <nvp:NamedValueListControl x:Name="nvlUiProg" />
-            </TabItem>
+            </TabItem>-->
             <TabItem Header="Basic Settings">
                 <nvp:NamedValueListControl x:Name="nvlSettings" />
             </TabItem>
@@ -38,7 +39,7 @@
                 MinWidth="100"
                 Margin="5"
                 IsDefault="True"
-                Command="omc:WorkflowCommands.AcknowledgeOptions"
+                Command="ccom:CustomCommands.AcknowledgeOptions"
                 Click="btApply_Click"
                 >OK</Button>
         <Button x:Name="btApply"

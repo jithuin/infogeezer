@@ -4,13 +4,18 @@
     xmlns:my="clr-namespace:DecimalInternetClock"
     xmlns:colorPicker="clr-namespace:ColorPicker;assembly=ColorPicker"
     xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
+        xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
     Title="DecimalInternetClock"
         x:Name="this" WindowStyle="None" AllowsTransparency="True"
         Icon="Resources\Blank.png"
-        FontFamily="01 Digitall">
+        FontFamily="01 Digitall"
+        DataContext="{Binding Source={x:Static prop:Settings.Default}}"
+        Topmost="{Binding Path=AlwaysOnTop}"
+        ShowInTaskbar="{Binding Path=ShowInTaskBar}">
     <!--BUG: nem működik az ikon itt-->
     <Window.Resources>
         <prop:Settings x:Key="Settings" x:Name="Set"/>
+        <vc:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
     <Window.Style>
         <Style TargetType="{x:Type Window}">
@@ -18,148 +23,21 @@
             <Style.Triggers>
                 <DataTrigger Value="False">
                     <DataTrigger.Binding>
-                        <Binding Source="{x:Static prop:Settings.Default}" Path="CanResize" />
+                        <Binding Path="CanResize" />
                     </DataTrigger.Binding>
                     <Setter Property="ResizeMode" Value="CanResize" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
     </Window.Style>
-    <Window.Topmost>
-        <Binding Source="{x:Static prop:Settings.Default}" Path="AlwaysOnTop" />
-    </Window.Topmost>
-    <Window.ShowInTaskbar>
-        <Binding Source="{x:Static prop:Settings.Default}" Path="ShowInTaskBar">
-
-        </Binding>
-    </Window.ShowInTaskbar>
-    <!--<Window.BindingGroup>
-        <BindingGroup Name="{x:Null}" NotifyOnValidationError="False" />
-    </Window.BindingGroup>-->
     <Window.ContextMenu>
 
         <ContextMenu Name="contextMenu">
-            <MenuItem Header="Close" Click="ExitMenuItem_Click"></MenuItem>
+            <MenuItem Header="Close" Click="ExitMenuItem_Click" />
             <MenuItem Header="Set Foreground" Click="ForeColor_Click" />
             <MenuItem Header="Set Background" Click="BackColor_Click" />
-            <MenuItem >
-                <MenuItem.Header>
-                    <CheckBox>
-                        <CheckBox.Content>
-                            AlwaysOnTop
-                        </CheckBox.Content>
-                        <CheckBox.IsChecked>
-                            <Binding Source="{x:Static prop:Settings.Default}" Path="AlwaysOnTop" Mode="TwoWay"/>
-                        </CheckBox.IsChecked>
-                    </CheckBox>
-                    <!--<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="0">Always On Top</TextBlock>
-                        <TextBlock Text="x" VerticalAlignment="Center" Margin="0,0,10,0">
-                            <TextBlock.Visibility>
-                                <Binding ElementName="this" Path="AlwaysOnTop" Mode="OneWay">
-                                    <Binding.Converter>
-                                        <my:BooleanToVisibilityConverter/>
-                                    </Binding.Converter>
-                                </Binding>
-                            </TextBlock.Visibility>
-                        </TextBlock>
+            <MenuItem Header="Options" Name="miOption" Click="miOption_Click" />
 
-                    </Grid>-->
-                </MenuItem.Header>
-            </MenuItem>
-            <MenuItem >
-                <MenuItem.Header>
-                    <CheckBox>
-                        <CheckBox.Content>
-                            ShowInTaskbar
-                        </CheckBox.Content>
-                        <CheckBox.IsChecked>
-                            <Binding Source="{x:Static prop:Settings.Default}" Path="ShowInTaskBar" Mode="TwoWay"/>
-                        </CheckBox.IsChecked>
-                    </CheckBox>
-                    <!--<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="0">ShowInTaskbar</TextBlock>
-                        <TextBlock Text="x" VerticalAlignment="Center" Margin="0,0,10,0">
-                            <TextBlock.Visibility>
-                                <Binding ElementName="this" Path="ShowInTaskbar" Mode="OneWay">
-                                    <Binding.Converter>
-                                        <my:BooleanToVisibilityConverter/>
-                                    </Binding.Converter>
-                                </Binding>
-                            </TextBlock.Visibility>
-                        </TextBlock>
-
-                    </Grid>-->
-                </MenuItem.Header>
-            </MenuItem>
-            <!--<MenuItem Click="ShowWindowHeader_MenuItem_Click">-->
-            <MenuItem>
-                <MenuItem.Header>
-                    <CheckBox Name="ShowWindowHeader_CheckBox">
-                        <CheckBox.Content>
-                            ShowWindowHeader
-                        </CheckBox.Content>
-                        <CheckBox.IsChecked>
-                            <Binding Source="{x:Static prop:Settings.Default}" Path="ShowWindowHeader" Mode="TwoWay"/>
-                        </CheckBox.IsChecked>
-                    </CheckBox>
-                    <!--<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0">ShowWindowHeader</TextBlock>
-                        <TextBlock Text="x" VerticalAlignment="Center" Margin="0,0,10,0">
-                            <TextBlock.Visibility>
-                                <Binding ElementName="this" Path="ShowWindowHeader" Mode="OneWay">
-                                    <Binding.Converter>
-                                        <my:BooleanToVisibilityConverter/>
-                                    </Binding.Converter>
-                                </Binding>
-                            </TextBlock.Visibility>
-                        </TextBlock>
-
-                    </Grid>-->
-                </MenuItem.Header>
-            </MenuItem>
-            <MenuItem Name="CanResize_CheckBox">
-                <MenuItem.Header>
-                    <CheckBox>
-                        <CheckBox.Content>
-                            CanResize
-                        </CheckBox.Content>
-                        <CheckBox.IsChecked>
-
-                            <Binding Source="{x:Static prop:Settings.Default}" Path="CanResize" Mode="TwoWay"/>
-                        </CheckBox.IsChecked>
-                    </CheckBox>
-                    <!--<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0">CanResize</TextBlock>
-                        <TextBlock Text="x" VerticalAlignment="Center" Margin="0,0,10,0">
-                            <TextBlock.Visibility>
-                                <Binding ElementName="this" Path="CanResize" Mode="OneWay">
-                                    <Binding.Converter>
-                                        <my:BooleanToVisibilityConverter/>
-                                    </Binding.Converter>
-                                </Binding>
-                            </TextBlock.Visibility>
-                        </TextBlock>
-
-                    </Grid>-->
-                </MenuItem.Header>
-            </MenuItem>
         </ContextMenu>
     </Window.ContextMenu>
 
@@ -174,14 +52,13 @@
         </Grid.RowDefinitions>
 
         <!--Window Header-->
-        <Grid MinHeight="30" Height="30" MaxHeight="50">
+        <Grid MinHeight="30" Height="30" MaxHeight="50" >
             <Grid.Style>
                 <Style>
                     <Style.Triggers>
                         <DataTrigger Value="False">
                             <DataTrigger.Binding>
-                                <Binding ElementName="ShowWindowHeader_CheckBox" Path="IsChecked">
-                                </Binding>
+                                <Binding Path="ShowWindowHeader"/>
                             </DataTrigger.Binding>
                             <Setter Property="Grid.Visibility" Value="Collapsed"/>
                         </DataTrigger>
@@ -218,7 +95,9 @@
         </Grid>
 
         <!--Window Content-->
-        <my:DecimalClock Grid.Row="1" Background="Transparent" >
+        <my:DecimalClock Grid.Row="1" Background="Transparent"
+                         Visibility="{Binding Path=DecimalClockVisibility}">
+
             <my:DecimalClock.DecimalTime>
                 <Binding ElementName="this" Path="DecimalTime" Mode="OneWay"></Binding>
             </my:DecimalClock.DecimalTime>
@@ -229,7 +108,8 @@
                 <Binding ElementName="this" Path="Transparency"/>
             </my:DecimalClock.Transparency>-->
         </my:DecimalClock>
-        <my:BinaryClock Grid.Row="2" Background="Transparent">
+        <my:BinaryClock Grid.Row="2" Background="Transparent"
+                        Visibility="{Binding Path=IsBinaryClockVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
             <my:BinaryClock.DecimalTime>
                 <Binding ElementName="this" Path="DecimalTime" Mode="OneWay"></Binding>
             </my:BinaryClock.DecimalTime>
@@ -240,7 +120,8 @@
                 <Binding ElementName="this" Path="Transparency"/>
             </my:BinaryClock.Transparency>-->
         </my:BinaryClock>
-        <my:BinaryRing Grid.Row="3"
+        <my:BinaryRing Visibility="{Binding Path=IsBinaryRingVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                       Grid.Row="3"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch">
             <my:BinaryRing.DecimalTime>
@@ -273,7 +154,7 @@
                 <Binding ElementName="this" Path="Foreground"/>
             </TextBox.Foreground>
             <TextBox.Text>
-                <Binding Source="{x:Static prop:Settings.Default}" Path="Text" Mode="OneTime"/>
+                <Binding Path="Text" Mode="OneTime"/>
             </TextBox.Text>
         </TextBox>
     </Grid>

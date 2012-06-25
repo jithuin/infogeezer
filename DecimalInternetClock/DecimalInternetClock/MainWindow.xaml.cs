@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Timers;
 using ColorPicker;
 using DecimalInternetClock.Properties;
-using System.Windows.Markup;
-
 
 namespace DecimalInternetClock
 {
@@ -32,19 +31,17 @@ namespace DecimalInternetClock
             SetValue(HeightProperty, Settings.Default.WindowSize.Height);
             SetValue(LeftProperty, Settings.Default.WindowPosition.X);
             SetValue(TopProperty, Settings.Default.WindowPosition.Y);
-            
+
             InitializeComponent();
-            
 
             NameScope.SetNameScope(contextMenu, this);
 
             _timer.AutoReset = true;
             _timer.Elapsed += new ElapsedEventHandler(_timer_Elapsed);
             _timer.Start();
-            
         }
 
-        void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        private void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             DateTime dt = DateTime.Now;
             double ret = 0;
@@ -56,8 +53,8 @@ namespace DecimalInternetClock
             ret *= 1000;
             this.Dispatcher.Invoke(new Action(() => { this.DecimalTime = ret; }));
         }
-        Timer _timer = new Timer(50);
 
+        Timer _timer = new Timer(50);
 
         public double DecimalTime
         {
@@ -68,7 +65,6 @@ namespace DecimalInternetClock
         // Using a DependencyProperty as the backing store for DecimalTime.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DecimalTimeProperty =
             DependencyProperty.Register("DecimalTime", typeof(double), typeof(MainWindow), new UIPropertyMetadata(0.0));
-
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -95,6 +91,7 @@ namespace DecimalInternetClock
                 this.Foreground = new SolidColorBrush(cpd.SelectedColor);
             }
         }
+
         private void BackColor_Click(object sender, RoutedEventArgs e)
         {
             ColorPickerDialog cpd = new ColorPickerDialog(((SolidColorBrush)Background).Color);
@@ -116,7 +113,6 @@ namespace DecimalInternetClock
             e.Handled = true;
         }
 
-
         #region INameScope Members
 
         Dictionary<string, object> items = new Dictionary<string, object>();
@@ -136,68 +132,12 @@ namespace DecimalInternetClock
             items.Remove(name);
         }
 
-        #endregion
+        #endregion INameScope Members
 
+        private void miOption_Click(object sender, RoutedEventArgs e)
+        {
+            Options.Options ow = new Options.Options();
+            ow.Show();
+        }
     }
-    [ValueConversion(typeof(bool), typeof(Visibility))]
-    public class BooleanToVisibilityConverter : IValueConverter
-    {
-
-        #region IValueConverter Members
-
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            if ((bool)value)
-                return Visibility.Visible;
-            else
-                return Visibility.Collapsed;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-    }
-
-    [ValueConversion(typeof(bool), typeof(ResizeMode))]
-    public class BooleanToResizeModeConverter : IValueConverter
-    {
-
-        #region IValueConverter Members
-
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            if ((bool)value)
-                return ResizeMode.CanResizeWithGrip;
-            else
-                return ResizeMode.NoResize;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-    }
-
-    public class DebugConverter : IValueConverter
-    {
-        #region IValueConverter Members
-
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            return value;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            return value;
-        }
-
-        #endregion
-    }
-
 }
