@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="UD2_Optic_Module_Calibration.GUI.NamedValueListControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gui="clr-namespace:UD2_Optic_Module_Calibration.GUI"
+             xmlns:omc="clr-namespace:UD2_Optic_Module_Calibration"
+    Height="300" Width="300"
+             x:Name="thisKeyValueList">
+    <UserControl.Resources>
+        <omc:DebugValueConverter x:Key="DebugConverter"/>
+        <gui:IntRangeValueConverter x:Key="IntRangeValueConverter"/>
+        <gui:FloatRangeValueConverter x:Key="FloatRangeValueConverter"/>
+
+        <Style x:Key="DataRowStyle"  TargetType="{x:Type gui:OptionsRow}">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="Background" Value="#7FCFCFCF"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        </Style>
+        <DataTemplate x:Key="StringTemplate">
+            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+                            Header="{Binding Path=Name}"
+                            >
+                <TextBox Margin="3" Grid.Column="1" Text="{Binding Path=Value}"/>
+            </gui:OptionsRow>
+        </DataTemplate>
+        <DataTemplate x:Key="IntRangeTemplate">
+            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+                            Header="{Binding Path=Name}">
+                <!--<TextBox Margin="3" Grid.Column="1"
+                             Text="{Binding Path=Value, Converter={StaticResource IntRangeValueConverter}}"/>-->
+                <gui:DecimalTextBox Value="{Binding Path=Value, Mode=TwoWay}"></gui:DecimalTextBox>
+            </gui:OptionsRow>
+        </DataTemplate>
+        <DataTemplate x:Key="RemissionTemplate">
+            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+                            Header="{Binding Path=Name}">
+                <TextBox Margin="3" Grid.Column="1"
+                             Text="{Binding Path=Value, Converter={StaticResource RemissionDivisionConverter}}"/>
+            </gui:OptionsRow>
+        </DataTemplate>
+        <DataTemplate x:Key="FloatRangeTemplate">
+            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+                            Header="{Binding Path=Name}">
+                <TextBox Margin="3" Grid.Column="1"
+                             Text="{Binding Path=Value, Converter={StaticResource FloatRangeValueConverter}}"/>
+            </gui:OptionsRow>
+        </DataTemplate>
+        <DataTemplate x:Key="SetTemplate">
+            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+                            Header="{Binding Path=Name}">
+                <gui:EnumComboBox Margin="3" Grid.Column="1" Value="{Binding Path=Value, Mode=TwoWay}"/>
+            </gui:OptionsRow>
+        </DataTemplate>
+        <DataTemplate x:Key="BoolTemplate">
+            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+                            Header="{Binding Path=Name}">
+                <CheckBox Margin="3" Grid.Column="1"
+                              IsChecked="{Binding Path=Value, Mode=TwoWay}" />
+            </gui:OptionsRow>
+        </DataTemplate>
+        <DataTemplate x:Key="ReadonlyTemplate">
+            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+                            Header="{Binding Path=Name}">
+                <TextBlock Margin="3" Grid.Column="1" Text="{Binding Path=Value}"/>
+            </gui:OptionsRow>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Grid.IsSharedSizeScope="True">
+        <ListBox x:Name="lstbList"  HorizontalAlignment="Stretch" Grid.ColumnSpan="3">
+
+            <ListBox.ItemsSource>
+                <Binding >
+                    <Binding.RelativeSource>
+                        <RelativeSource Mode="FindAncestor" AncestorType="UserControl"/>
+                    </Binding.RelativeSource>
+                    <Binding.Path>
+                        <PropertyPath>
+                            Items
+                        </PropertyPath>
+                    </Binding.Path>
+                </Binding>
+            </ListBox.ItemsSource>
+            <ListBox.ItemTemplateSelector>
+                <gui:DataClassTemplateSelector StringDataTemplate="{StaticResource StringTemplate}"
+                                               SetDataTemplate="{StaticResource SetTemplate}"
+                                               IntRangeDataTemplate="{StaticResource IntRangeTemplate}"
+                                               DoubleRangeDataTemplate="{StaticResource FloatRangeTemplate}"
+                                               ReadonlyTemplate="{StaticResource ReadonlyTemplate}"
+                                               BoolDataTemplate="{StaticResource BoolTemplate}"
+                                               RemissionTemplate="{StaticResource RemissionTemplate}">
+                </gui:DataClassTemplateSelector>
+            </ListBox.ItemTemplateSelector>
+        </ListBox>
+    </Grid>
+</UserControl>

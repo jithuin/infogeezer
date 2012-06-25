@@ -1,0 +1,16 @@
+﻿<Window x:Class="DecimalInternetClock.Options.Options"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:omc="clr-namespace:DecimalInternetClock"
+        xmlns:opt="clr-namespace:DecimalInternetClock.Options"
+        xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
+        Title="Options"
+        x:Name="this">
+    <Window.CommandBindings>
+        <CommandBinding Command="omc:WorkflowCommands.AcknowledgeOptions"
+                        Executed="CommandAcknowledgeOptions_Executed"/>
+    </Window.CommandBindings>
+    <Grid>
+        <opt:OptionsControl/>
+    </Grid>
+</Window>
