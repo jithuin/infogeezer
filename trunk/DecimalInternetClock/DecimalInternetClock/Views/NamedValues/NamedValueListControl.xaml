@@ -1,16 +1,18 @@
 ﻿<UserControl x:Class="DecimalInternetClock.NamedValues.NamedValueListControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gui="clr-namespace:DecimalInternetClock.NamedValues"
+             xmlns:nvp="clr-namespace:DecimalInternetClock.NamedValues"
              xmlns:opt="clr-namespace:DecimalInternetClock.Options"
+             xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
+             xmlns:cc="clr-namespace:DecimalInternetClock.CustomControls"
     Height="300" Width="300"
              x:Name="thisKeyValueList">
     <UserControl.Resources>
 
-        <gui:IntRangeValueConverter x:Key="IntRangeValueConverter"/>
-        <gui:FloatRangeValueConverter x:Key="FloatRangeValueConverter"/>
+        <vc:IntRangeValueConverter x:Key="IntRangeValueConverter"/>
+        <vc:FloatRangeValueConverter x:Key="FloatRangeValueConverter"/>
 
-        <Style x:Key="DataRowStyle"  TargetType="{x:Type gui:OptionsRow}">
+        <Style x:Key="DataRowStyle"  TargetType="{x:Type opt:OptionsRow}">
             <Setter Property="Margin" Value="0"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="Black"/>
@@ -30,7 +32,7 @@
                             Header="{Binding Path=Name}">
                 <!--<TextBox Margin="3" Grid.Column="1"
                              Text="{Binding Path=Value, Converter={StaticResource IntRangeValueConverter}}"/>-->
-                <gui:DecimalTextBox Value="{Binding Path=Value, Mode=TwoWay}"></gui:DecimalTextBox>
+                <cc:DecimalTextBox Value="{Binding Path=Value, Mode=TwoWay}"></cc:DecimalTextBox>
             </opt:OptionsRow>
         </DataTemplate>
         <DataTemplate x:Key="RemissionTemplate">
@@ -50,7 +52,7 @@
         <DataTemplate x:Key="SetTemplate">
             <opt:OptionsRow Style="{StaticResource DataRowStyle}"
                             Header="{Binding Path=Name}">
-                <gui:EnumComboBox Margin="3" Grid.Column="1" Value="{Binding Path=Value, Mode=TwoWay}"/>
+                <cc:EnumComboBox Margin="3" Grid.Column="1" Value="{Binding Path=Value, Mode=TwoWay}"/>
             </opt:OptionsRow>
         </DataTemplate>
         <DataTemplate x:Key="BoolTemplate">
@@ -84,14 +86,14 @@
                 </Binding>
             </ListBox.ItemsSource>
             <ListBox.ItemTemplateSelector>
-                <gui:DataClassTemplateSelector StringDataTemplate="{StaticResource StringTemplate}"
+                <nvp:DataClassTemplateSelector StringDataTemplate="{StaticResource StringTemplate}"
                                                SetDataTemplate="{StaticResource SetTemplate}"
                                                IntRangeDataTemplate="{StaticResource IntRangeTemplate}"
                                                DoubleRangeDataTemplate="{StaticResource FloatRangeTemplate}"
                                                ReadonlyTemplate="{StaticResource ReadonlyTemplate}"
                                                BoolDataTemplate="{StaticResource BoolTemplate}"
                                                RemissionTemplate="{StaticResource RemissionTemplate}">
-                </gui:DataClassTemplateSelector>
+                </nvp:DataClassTemplateSelector>
             </ListBox.ItemTemplateSelector>
         </ListBox>
     </Grid>

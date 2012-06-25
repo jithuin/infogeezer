@@ -129,6 +129,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCommands\CustomCommands.cs" />
     <Compile Include="CustomControls\DecimalTextBox.cs" />
     <Compile Include="CustomControls\EnumComboBox.xaml.cs">
       <DependentUpon>EnumComboBox.xaml</DependentUpon>
@@ -147,6 +148,9 @@
     <Compile Include="Model\DecimalModel.cs" />
     <Compile Include="Model\IDecimalClock.cs" />
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
+    <Compile Include="ValueConverters\BooleanConverters.cs" />
+    <Compile Include="ValueConverters\DebugConverter.cs" />
+    <Compile Include="ValueConverters\RangeValueConverters.cs" />
     <Compile Include="Views\BinaryClock\BinaryClock.xaml.cs">
       <DependentUpon>BinaryClock.xaml</DependentUpon>
     </Compile>
@@ -156,7 +160,7 @@
     <Compile Include="Views\BinaryRing\BinaryRingSegment.xaml.cs">
       <DependentUpon>BinaryRingSegment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Converters\HexaConverters.cs" />
+    <Compile Include="ValueConverters\HexaConverters.cs" />
     <Compile Include="Views\DecimalClock\DecimalClock.xaml.cs">
       <DependentUpon>DecimalClock.xaml</DependentUpon>
     </Compile>
@@ -225,6 +229,9 @@
       <Project>{FBD3EC1E-47E2-4D2D-81C9-D6506125A09A}</Project>
       <Name>ManagedWinapi</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

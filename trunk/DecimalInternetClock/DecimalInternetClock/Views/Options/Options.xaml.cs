@@ -16,7 +16,7 @@ namespace DecimalInternetClock.Options
 
         private void CommandAcknowledgeOptions_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            this.DialogResult = true;
+            //this.DialogResult = true;
             this.Close();
         }
     }

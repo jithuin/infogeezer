@@ -4,10 +4,11 @@
         xmlns:omc="clr-namespace:DecimalInternetClock"
         xmlns:opt="clr-namespace:DecimalInternetClock.Options"
         xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
+        xmlns:ccom="clr-namespace:DecimalInternetClock.CustomCommands"
         Title="Options"
         x:Name="this">
     <Window.CommandBindings>
-        <CommandBinding Command="omc:WorkflowCommands.AcknowledgeOptions"
+        <CommandBinding Command="ccom:CustomCommands.AcknowledgeOptions"
                         Executed="CommandAcknowledgeOptions_Executed"/>
     </Window.CommandBindings>
     <Grid>

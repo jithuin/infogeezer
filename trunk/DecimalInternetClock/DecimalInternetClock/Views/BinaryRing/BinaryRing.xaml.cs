@@ -34,34 +34,4 @@ namespace DecimalInternetClock
         public static readonly DependencyProperty DecimalTimeProperty =
             DependencyProperty.Register("DecimalTime", typeof(double), typeof(BinaryRing), new UIPropertyMetadata(0.0));
     }
-    public class HexaStringConverter : IValueConverter
-    {
-        #region IValueConverter Members
-
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            double? _decimalTime = value as double?;
-            if (_decimalTime != null)
-            {
-                double temp = _decimalTime.Value / 1000.0;
-                List<int> _Time = new List<int>(4);
-                for (int i = 0; i < 4; i++)
-                {
-                    temp *= 16;
-                    _Time.Add((int)temp % 16);
-                }
-                return String.Format("{0:X}:{1:X}{2:X}.{3:X}", _Time[0], _Time[1], _Time[2], _Time[3]);
-            }
-            else
-                return String.Empty;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-    }
-
 }
