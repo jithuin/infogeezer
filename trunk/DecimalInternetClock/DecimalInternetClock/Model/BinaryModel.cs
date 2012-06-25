@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.ComponentModel;
 
 namespace DecimalInternetClock
 {
     public class BinaryModel : IDecimalClock, INotifyPropertyChanged
     {
-
         #region IDecimalClock Members
 
         public DateTime Now
@@ -23,17 +22,16 @@ namespace DecimalInternetClock
             }
         }
 
-        #endregion
+        #endregion IDecimalClock Members
 
         #region INotifyPropertyChanged Members
 
-        void OnBasePropertyChanged()
+        private void OnBasePropertyChanged()
         {
             //UNDONE
         }
 
-
-        void OnPropertyChanged(String propName_in)
+        private void OnPropertyChanged(String propName_in)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName_in));
@@ -41,9 +39,6 @@ namespace DecimalInternetClock
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        #endregion
-
-
-        
+        #endregion INotifyPropertyChanged Members
     }
 }
