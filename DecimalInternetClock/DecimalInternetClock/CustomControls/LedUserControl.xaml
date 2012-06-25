@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="DecimalInternetClock.LedUserControl"
+﻿<UserControl x:Class="DecimalInternetClock.CustomControls.LedUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:my="clr-namespace:DecimalInternetClock"
+    xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
+             xmlns:cc="clr-namespace:DecimalInternetClock.CustomControls"
     Height="300" Width="300" Name="this" >
     <UserControl.Style>
-        <Style TargetType="{x:Type my:LedUserControl}">
+        <Style TargetType="{x:Type cc:LedUserControl}">
             <Setter Property="Visibility" Value="Hidden"></Setter>
             <Style.Triggers>
                 <Trigger Property="LedState" Value="true">
@@ -21,7 +22,7 @@
                         <GradientStop.Color>
                             <Binding ElementName="this" Path="Foreground" Mode="OneWay" ConverterParameter="200">
                                 <Binding.Converter>
-                                    <my:BrushColorConverter></my:BrushColorConverter>
+                                    <vc:BrushColorConverter/>
                                 </Binding.Converter>
                             </Binding>
 
@@ -31,7 +32,7 @@
                         <GradientStop.Color>
                             <Binding ElementName="this" Path="Foreground" Mode="OneWay" ConverterParameter="64">
                                 <Binding.Converter>
-                                    <my:BrushColorConverter></my:BrushColorConverter>
+                                    <vc:BrushColorConverter/>
                                 </Binding.Converter>
                             </Binding>
                         </GradientStop.Color>
@@ -41,4 +42,3 @@
         </Ellipse>
     </Viewbox>
 </UserControl>
- 

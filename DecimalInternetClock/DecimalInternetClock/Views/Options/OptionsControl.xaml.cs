@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
+using DecimalInternetClock.Helpers;
 using DecimalInternetClock.NamedValues;
 using DecimalInternetClock.Properties;
 
@@ -42,8 +43,8 @@ namespace DecimalInternetClock.Options
             SettingsVisualBinding = new Dictionary<NamedValueListControl, ApplicationSettingsBase>()
                     {
                         {this.nvlSettings,Settings.Default},
-                        {this.nvlCalibParams,CalibParams.Default},
-                        {this.nvlUiProg,UiProg.Default},
+                        //{this.nvlCalibParams,CalibParams.Default},
+                        //{this.nvlUiProg,UiProg.Default},
                     };
         }
 

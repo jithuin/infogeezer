@@ -7,10 +7,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
-using e77.MeasureBase;
-using e77.Ud2.UnitTesting;
+using DecimalInternetClock.Helpers;
+using DecimalInternetClock.NamedValues;
 
-namespace UD2_Optic_Module_Calibration.GUI
+namespace DecimalInternetClock.NamedValues
 {
     /// <summary>
     /// Interaction logic for KeyValueList.xaml

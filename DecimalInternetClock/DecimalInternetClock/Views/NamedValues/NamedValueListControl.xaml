@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="UD2_Optic_Module_Calibration.GUI.NamedValueListControl"
+﻿<UserControl x:Class="DecimalInternetClock.NamedValues.NamedValueListControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gui="clr-namespace:UD2_Optic_Module_Calibration.GUI"
-             xmlns:omc="clr-namespace:UD2_Optic_Module_Calibration"
+             xmlns:gui="clr-namespace:DecimalInternetClock.NamedValues"
+             xmlns:opt="clr-namespace:DecimalInternetClock.Options"
     Height="300" Width="300"
              x:Name="thisKeyValueList">
     <UserControl.Resources>
-        <omc:DebugValueConverter x:Key="DebugConverter"/>
+
         <gui:IntRangeValueConverter x:Key="IntRangeValueConverter"/>
         <gui:FloatRangeValueConverter x:Key="FloatRangeValueConverter"/>
 
@@ -19,52 +19,52 @@
             <Setter Property="SnapsToDevicePixels" Value="True"/>
         </Style>
         <DataTemplate x:Key="StringTemplate">
-            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
                             Header="{Binding Path=Name}"
                             >
                 <TextBox Margin="3" Grid.Column="1" Text="{Binding Path=Value}"/>
-            </gui:OptionsRow>
+            </opt:OptionsRow>
         </DataTemplate>
         <DataTemplate x:Key="IntRangeTemplate">
-            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
                             Header="{Binding Path=Name}">
                 <!--<TextBox Margin="3" Grid.Column="1"
                              Text="{Binding Path=Value, Converter={StaticResource IntRangeValueConverter}}"/>-->
                 <gui:DecimalTextBox Value="{Binding Path=Value, Mode=TwoWay}"></gui:DecimalTextBox>
-            </gui:OptionsRow>
+            </opt:OptionsRow>
         </DataTemplate>
         <DataTemplate x:Key="RemissionTemplate">
-            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
                             Header="{Binding Path=Name}">
                 <TextBox Margin="3" Grid.Column="1"
                              Text="{Binding Path=Value, Converter={StaticResource RemissionDivisionConverter}}"/>
-            </gui:OptionsRow>
+            </opt:OptionsRow>
         </DataTemplate>
         <DataTemplate x:Key="FloatRangeTemplate">
-            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
                             Header="{Binding Path=Name}">
                 <TextBox Margin="3" Grid.Column="1"
                              Text="{Binding Path=Value, Converter={StaticResource FloatRangeValueConverter}}"/>
-            </gui:OptionsRow>
+            </opt:OptionsRow>
         </DataTemplate>
         <DataTemplate x:Key="SetTemplate">
-            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
                             Header="{Binding Path=Name}">
                 <gui:EnumComboBox Margin="3" Grid.Column="1" Value="{Binding Path=Value, Mode=TwoWay}"/>
-            </gui:OptionsRow>
+            </opt:OptionsRow>
         </DataTemplate>
         <DataTemplate x:Key="BoolTemplate">
-            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
                             Header="{Binding Path=Name}">
                 <CheckBox Margin="3" Grid.Column="1"
                               IsChecked="{Binding Path=Value, Mode=TwoWay}" />
-            </gui:OptionsRow>
+            </opt:OptionsRow>
         </DataTemplate>
         <DataTemplate x:Key="ReadonlyTemplate">
-            <gui:OptionsRow Style="{StaticResource DataRowStyle}"
+            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
                             Header="{Binding Path=Name}">
                 <TextBlock Margin="3" Grid.Column="1" Text="{Binding Path=Value}"/>
-            </gui:OptionsRow>
+            </opt:OptionsRow>
         </DataTemplate>
     </UserControl.Resources>
 

@@ -67,6 +67,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CustomControls\EnumComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\NamedValues\NamedValueListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Options\Options.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -121,6 +129,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControls\DecimalTextBox.cs" />
+    <Compile Include="CustomControls\EnumComboBox.xaml.cs">
+      <DependentUpon>EnumComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -133,6 +146,7 @@
     <Compile Include="Model\BinaryModel.cs" />
     <Compile Include="Model\DecimalModel.cs" />
     <Compile Include="Model\IDecimalClock.cs" />
+    <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="Views\BinaryClock\BinaryClock.xaml.cs">
       <DependentUpon>BinaryClock.xaml</DependentUpon>
     </Compile>
@@ -171,8 +185,12 @@
       <DependentUpon>SimpleSurfaceTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\3DTest\Utility.cs" />
-    <Compile Include="Views\Options\NamedValues\NamedValueList.cs" />
-    <Compile Include="Views\Options\NamedValues\NamedValuePair.cs" />
+    <Compile Include="Helpers\GuiHelper.cs" />
+    <Compile Include="Views\NamedValues\NamedValueList.cs" />
+    <Compile Include="Views\NamedValues\NamedValueListControl.xaml.cs">
+      <DependentUpon>NamedValueListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NamedValues\NamedValuePair.cs" />
     <Compile Include="Views\Options\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>

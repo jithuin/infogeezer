@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:omc="clr-namespace:DecimalInternetClock"
-             xmlns:gui="clr-namespace:DecimalInternetClock.Options"
+             xmlns:opt="clr-namespace:DecimalInternetClock.Options"
+             xmlns:nvp="clr-namespace:DecimalInternetClock.NamedValues"
              xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
              Height="300" Width="300"
              x:Name="thisOptionsControl"
@@ -22,13 +23,13 @@
         </Grid.RowDefinitions>
         <TabControl Grid.ColumnSpan="3" >
             <TabItem Header="Calibration Parameters">
-                <gui:NamedValueListControl x:Name="nvlCalibParams"/>
+                <nvp:NamedValueListControl x:Name="nvlCalibParams"/>
             </TabItem>
             <TabItem Header="UI Parameters" >
-                <gui:NamedValueListControl x:Name="nvlUiProg" />
+                <nvp:NamedValueListControl x:Name="nvlUiProg" />
             </TabItem>
             <TabItem Header="Basic Settings">
-                <gui:NamedValueListControl x:Name="nvlSettings" />
+                <nvp:NamedValueListControl x:Name="nvlSettings" />
             </TabItem>
         </TabControl>
         <Button x:Name="btOK"
