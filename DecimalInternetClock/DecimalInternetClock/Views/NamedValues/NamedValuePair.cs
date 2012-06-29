@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DecimalInternetClock.NamedValues
 {
-    public class NamedValuePair<N, V>
+    public class KeyValuePairClass<N, V>
     {
         #region Fields and Properties
 
@@ -41,14 +41,42 @@ namespace DecimalInternetClock.NamedValues
 
         #region Constructors
 
-        public NamedValuePair()
+        public KeyValuePairClass()
         { }
 
-        public NamedValuePair(N name_in, V value_in)
+        public KeyValuePairClass(N name_in, V value_in)
         {
             Name = name_in;
             Value = value_in;
         }
+
+        public KeyValuePairClass(N name_in, V value_in, bool isReadonly_in)
+            : this(name_in, value_in)
+        {
+            IsReadonly = isReadonly_in;
+        }
+
+        #endregion Constructors
+
+        #region Overrides
+
+        public override string ToString()
+        {
+            return String.Format("{0}: {1}", Name, Value);
+        }
+
+        #endregion Overrides
+    }
+
+    public class NamedValuePair : KeyValuePairClass<string, object>
+    {
+        #region Constructors
+
+        public NamedValuePair() : base() { ;}
+
+        public NamedValuePair(string name_in, object value_in) : base(name_in, value_in) { ;}
+
+        public NamedValuePair(string name_in, object value_in, bool isReadonly_in) : base(name_in, value_in, isReadonly_in) { ;}
 
         #endregion Constructors
     }

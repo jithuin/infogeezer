@@ -55,6 +55,7 @@
                 HorizontalAlignment="Center"
                 MinWidth="100"
                 Margin="5"
+                Command="ccom:CustomCommands.AcknowledgeOptions"
                 IsCancel="True">Cancel</Button>
     </Grid>
 </UserControl>

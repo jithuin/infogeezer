@@ -139,5 +139,11 @@ namespace DecimalInternetClock
             Options.Options ow = new Options.Options();
             ow.Show();
         }
+
+        private void miTouchTest_Click(object sender, RoutedEventArgs e)
+        {
+            TouchTest tt = new TouchTest();
+            tt.Show();
+        }
     }
 }

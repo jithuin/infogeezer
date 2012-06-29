@@ -8,8 +8,8 @@
     Title="DecimalInternetClock"
         x:Name="this" WindowStyle="None" AllowsTransparency="True"
         Icon="Resources\Blank.png"
-        FontFamily="01 Digitall"
         DataContext="{Binding Source={x:Static prop:Settings.Default}}"
+        FontFamily="{Binding Path=DisplayFontFamily}"
         Topmost="{Binding Path=AlwaysOnTop}"
         ShowInTaskbar="{Binding Path=ShowInTaskBar}">
     <!--BUG: nem működik az ikon itt-->
@@ -37,7 +37,7 @@
             <MenuItem Header="Set Foreground" Click="ForeColor_Click" />
             <MenuItem Header="Set Background" Click="BackColor_Click" />
             <MenuItem Header="Options" Name="miOption" Click="miOption_Click" />
-
+            <MenuItem Header="Touch Test" Name="miTouchTest" Click="miTouchTest_Click"/>
         </ContextMenu>
     </Window.ContextMenu>
 
@@ -47,7 +47,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="20" MinHeight="20"/>
         </Grid.RowDefinitions>
 
@@ -157,5 +158,6 @@
                 <Binding Path="Text" Mode="OneTime"/>
             </TextBox.Text>
         </TextBox>
+
     </Grid>
 </Window>

@@ -20,15 +20,15 @@ namespace DecimalInternetClock.Options
     {
         private Dictionary<NamedValueListControl, ApplicationSettingsBase> SettingsVisualBinding;
 
-        public ObservableCollection<NamedValuePair<string, object>> ItemsUiProg
+        public NamedValueList ItemsUiProg
         {
-            get { return (ObservableCollection<NamedValuePair<string, object>>)GetValue(ItemsUiProgProperty); }
+            get { return (NamedValueList)GetValue(ItemsUiProgProperty); }
             set { SetValue(ItemsUiProgProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ItemsUiProg.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ItemsUiProgProperty =
-            DependencyProperty.Register("ItemsUiProg", typeof(ObservableCollection<NamedValuePair<string, object>>), typeof(OptionsControl), new UIPropertyMetadata(new ObservableCollection<NamedValuePair<string, object>>()));
+            DependencyProperty.Register("ItemsUiProg", typeof(NamedValueList), typeof(OptionsControl), new UIPropertyMetadata(new NamedValueList()));
 
         public OptionsControl()
         {
@@ -56,11 +56,8 @@ namespace DecimalInternetClock.Options
                 ApplicationSettingsBase settingsDefaultInstance = binding.Value;
                 visual.Items.Clear();
                 foreach (SettingsPropertyValue item in settingsDefaultInstance.PropertyValues)
-                {
-                    NamedValuePair<string, object> nvp = new NamedValuePair<string, object>(item.Name, item.PropertyValue);
-                    nvp.IsReadonly = item.Property.Attributes.ContainsKey(typeof(ApplicationScopedSettingAttribute));
-                    visual.Items.Add(nvp);
-                }
+                    visual.Items.Add(new NamedValuePair(item.Name, item.PropertyValue,
+                        item.Property.Attributes.ContainsKey(typeof(ApplicationScopedSettingAttribute)))); //if the setting is application scope than it cannot be modified by the user
             }
         }
 
@@ -70,7 +67,7 @@ namespace DecimalInternetClock.Options
             {
                 NamedValueListControl visual = binding.Key;
                 ApplicationSettingsBase settingsDefaultInstance = binding.Value;
-                foreach (NamedValuePair<string, object> item in visual.Items)
+                foreach (NamedValuePair item in visual.Items)
                     settingsDefaultInstance[item.Name] = item.Value;
             }
         }
