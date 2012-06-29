@@ -5,14 +5,14 @@
              xmlns:opt="clr-namespace:DecimalInternetClock.Options"
              xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
              xmlns:cc="clr-namespace:DecimalInternetClock.CustomControls"
-    Height="300" Width="300"
+             Height="300" Width="300"
              x:Name="thisKeyValueList">
     <UserControl.Resources>
 
         <vc:IntRangeValueConverter x:Key="IntRangeValueConverter"/>
         <vc:FloatRangeValueConverter x:Key="FloatRangeValueConverter"/>
 
-        <Style x:Key="DataRowStyle"  TargetType="{x:Type opt:OptionsRow}">
+        <Style x:Key="DataRowStyle" TargetType="{x:Type opt:OptionsRow}">
             <Setter Property="Margin" Value="0"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="Black"/>
@@ -21,80 +21,99 @@
             <Setter Property="SnapsToDevicePixels" Value="True"/>
         </Style>
         <DataTemplate x:Key="StringTemplate">
-            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
-                            Header="{Binding Path=Name}"
-                            >
-                <TextBox Margin="3" Grid.Column="1" Text="{Binding Path=Value}"/>
-            </opt:OptionsRow>
+            <TextBox Margin="3"
+                         Text="{Binding Path=Value}"
+                         HorizontalAlignment="Stretch"
+                         TextWrapping="Wrap"/>
         </DataTemplate>
         <DataTemplate x:Key="IntRangeTemplate">
-            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
-                            Header="{Binding Path=Name}">
-                <!--<TextBox Margin="3" Grid.Column="1"
-                             Text="{Binding Path=Value, Converter={StaticResource IntRangeValueConverter}}"/>-->
-                <cc:DecimalTextBox Value="{Binding Path=Value, Mode=TwoWay}"></cc:DecimalTextBox>
-            </opt:OptionsRow>
+            <cc:DecimalTextBox Margin="3"
+                                    Value="{Binding Path=Value, Mode=TwoWay}"
+                                    HorizontalAlignment="Stretch"/>
         </DataTemplate>
         <DataTemplate x:Key="RemissionTemplate">
-            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
-                            Header="{Binding Path=Name}">
-                <TextBox Margin="3" Grid.Column="1"
-                             Text="{Binding Path=Value, Converter={StaticResource RemissionDivisionConverter}}"/>
-            </opt:OptionsRow>
+            <TextBox Margin="3"
+                         Text="{Binding Path=Value, Converter={StaticResource RemissionDivisionConverter}}"
+                         HorizontalAlignment="Stretch"/>
         </DataTemplate>
         <DataTemplate x:Key="FloatRangeTemplate">
-            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
-                            Header="{Binding Path=Name}">
-                <TextBox Margin="3" Grid.Column="1"
-                             Text="{Binding Path=Value, Converter={StaticResource FloatRangeValueConverter}}"/>
-            </opt:OptionsRow>
+            <TextBox Margin="3"
+                         Text="{Binding Path=Value, Converter={StaticResource FloatRangeValueConverter}}"
+                         HorizontalAlignment="Stretch"/>
         </DataTemplate>
         <DataTemplate x:Key="SetTemplate">
-            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
-                            Header="{Binding Path=Name}">
-                <cc:EnumComboBox Margin="3" Grid.Column="1" Value="{Binding Path=Value, Mode=TwoWay}"/>
-            </opt:OptionsRow>
+            <cc:EnumComboBox Margin="3"
+                                  Value="{Binding Path=Value, Mode=TwoWay}"
+                                  HorizontalAlignment="Stretch"/>
         </DataTemplate>
         <DataTemplate x:Key="BoolTemplate">
-            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
-                            Header="{Binding Path=Name}">
-                <CheckBox Margin="3" Grid.Column="1"
-                              IsChecked="{Binding Path=Value, Mode=TwoWay}" />
-            </opt:OptionsRow>
+            <CheckBox Margin="6"
+                          IsChecked="{Binding Path=Value, Mode=TwoWay}"
+                          HorizontalAlignment="Center"/>
         </DataTemplate>
         <DataTemplate x:Key="ReadonlyTemplate">
-            <opt:OptionsRow Style="{StaticResource DataRowStyle}"
-                            Header="{Binding Path=Name}">
-                <TextBlock Margin="3" Grid.Column="1" Text="{Binding Path=Value}"/>
-            </opt:OptionsRow>
+            <TextBlock Margin="6"
+                           Text="{Binding Path=Value}"
+                           HorizontalAlignment="Stretch"
+                           TextWrapping="Wrap"/>
+        </DataTemplate>
+        <DataTemplate x:Key="FontTemplate">
+            <cc:FontComboBox SelectedFontFamily="{Binding Path=Value, Mode=TwoWay}"/>
         </DataTemplate>
     </UserControl.Resources>
 
     <Grid Grid.IsSharedSizeScope="True">
-        <ListBox x:Name="lstbList"  HorizontalAlignment="Stretch" Grid.ColumnSpan="3">
 
-            <ListBox.ItemsSource>
-                <Binding >
-                    <Binding.RelativeSource>
-                        <RelativeSource Mode="FindAncestor" AncestorType="UserControl"/>
-                    </Binding.RelativeSource>
-                    <Binding.Path>
-                        <PropertyPath>
-                            Items
-                        </PropertyPath>
-                    </Binding.Path>
-                </Binding>
-            </ListBox.ItemsSource>
+        <ListView x:Name="lvKeyValue" ItemsSource="{Binding ElementName=thisKeyValueList, Path=Items}" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+                <GridView>
+                    <!--<GridViewColumn Header="Name" DisplayMemberBinding="Name"/>-->
+                    <GridViewColumn >
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Name="chName" Click="chName_Click" Content="Name"/>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="3" Grid.Column="1" Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Value" Width="200">
+                        <GridViewColumn.CellTemplateSelector>
+                            <nvp:DataClassTemplateSelector StringDataTemplate="{StaticResource StringTemplate}"
+                                                           SetDataTemplate="{StaticResource SetTemplate}"
+                                                           IntRangeDataTemplate="{StaticResource IntRangeTemplate}"
+                                                           DoubleRangeDataTemplate="{StaticResource FloatRangeTemplate}"
+                                                           ReadonlyTemplate="{StaticResource ReadonlyTemplate}"
+                                                           BoolDataTemplate="{StaticResource BoolTemplate}"
+                                                           RemissionTemplate="{StaticResource RemissionTemplate}">
+                            </nvp:DataClassTemplateSelector>
+                        </GridViewColumn.CellTemplateSelector>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!--<ListBox Grid.Row="1" x:Name="lstbList"  HorizontalAlignment="Stretch" Grid.ColumnSpan="3"
+                 ItemsSource="{Binding ElementName=thisKeyValueList, Path=Items}">
             <ListBox.ItemTemplateSelector>
-                <nvp:DataClassTemplateSelector StringDataTemplate="{StaticResource StringTemplate}"
+                <gui:DataClassTemplateSelector StringDataTemplate="{StaticResource StringTemplate}"
                                                SetDataTemplate="{StaticResource SetTemplate}"
                                                IntRangeDataTemplate="{StaticResource IntRangeTemplate}"
                                                DoubleRangeDataTemplate="{StaticResource FloatRangeTemplate}"
                                                ReadonlyTemplate="{StaticResource ReadonlyTemplate}"
                                                BoolDataTemplate="{StaticResource BoolTemplate}"
                                                RemissionTemplate="{StaticResource RemissionTemplate}">
-                </nvp:DataClassTemplateSelector>
+                </gui:DataClassTemplateSelector>
             </ListBox.ItemTemplateSelector>
-        </ListBox>
+        </ListBox>-->
     </Grid>
 </UserControl>

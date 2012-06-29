@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Markup;
 using DecimalInternetClock.Helpers;
 using DecimalInternetClock.NamedValues;
+using FontDialogSample;
 
 namespace DecimalInternetClock.NamedValues
 {
@@ -45,6 +46,27 @@ namespace DecimalInternetClock.NamedValues
         {
             return String.Format("{0}", this.Name);
         }
+
+        ListSortDirection? _dir = null;
+
+        private void chName_Click(object sender, RoutedEventArgs e)
+        {
+            if (_dir == ListSortDirection.Ascending)
+                _dir = ListSortDirection.Descending;
+            else if (_dir == ListSortDirection.Descending)
+                _dir = null;
+            else if (_dir == null)
+                _dir = ListSortDirection.Ascending;
+
+            ICollectionView dataView = CollectionViewSource.GetDefaultView(lvKeyValue.ItemsSource);
+            dataView.SortDescriptions.Clear();
+            if (_dir.HasValue)
+            {
+                SortDescription sd = new SortDescription("Name", _dir.Value);
+                dataView.SortDescriptions.Add(sd);
+                dataView.Refresh();
+            }
+        }
     }
 
     public class TypedDataTemplate : DataTemplate
@@ -79,9 +101,11 @@ namespace DecimalInternetClock.NamedValues
 
         public DataTemplate ReadonlyTemplate { get; set; }
 
+        public DataTemplate FontTemplate { get; set; }
+
         public override DataTemplate SelectTemplate(object item_in, DependencyObject container)
         {
-            NamedValuePair<string, object> item = item_in as NamedValuePair<string, object>;
+            NamedValuePair item = item_in as NamedValuePair;
 
             if (item != null)
             {
@@ -100,6 +124,8 @@ namespace DecimalInternetClock.NamedValues
                     return DoubleRangeDataTemplate;
                 if (value is bool)
                     return BoolDataTemplate;
+                if (value is System.Drawing.Font)
+                    return FontTemplate;
                 if (value != null)
                     if (value.GetType().IsEnum)
                         return SetDataTemplate;
@@ -108,5 +134,112 @@ namespace DecimalInternetClock.NamedValues
             }
             return ReadonlyTemplate;
         }
+    }
+
+    public class RangeValueConverter : MarkupExtension, IValueConverter, INotifyPropertyChanged
+    {
+        #region IValueConverter Members
+
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            if (value != null)
+                return value.ToString();
+            else
+                return "-- (nem áll rendelkezésre adat)";
+        }
+
+        public virtual object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotSupportedException();
+        }
+
+        #endregion IValueConverter Members
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(String propName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+
+        #endregion INotifyPropertyChanged Members
+
+        public override object ProvideValue(IServiceProvider serviceProvider)
+        {
+            return this;
+        }
+    }
+
+    public class IntRangeValueConverter : RangeValueConverter
+    {
+        public override object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            int ret;
+            if (int.TryParse((String)value, out ret))
+                return ret;
+            else
+                throw new ArgumentException();
+        }
+    }
+
+    public class FloatRangeValueConverter : RangeValueConverter
+    {
+        public override object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            float ret;
+            if (float.TryParse((String)value, out ret))
+                return ret;
+            else
+                throw new ArgumentException();
+        }
+    }
+
+    public class RemissionDivisionConverter : DependencyObject, IValueConverter
+    {
+        #region Properties
+        //private int _divider = 1;
+        //public int Divider
+        //{
+        //    get { return _divider; }
+        //    set
+        //    {
+        //        if (_divider != value)
+        //        {
+        //            _divider = value;
+        //            OnPropertyChanged("Divider");
+        //        }
+        //    }
+        //}
+
+        public int Divider
+        {
+            get { return (int)GetValue(DividerProperty); }
+            set { SetValue(DividerProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Divider.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DividerProperty =
+            DependencyProperty.Register("Divider", typeof(int), typeof(RemissionDivisionConverter), new UIPropertyMetadata(1));
+
+        #endregion Properties
+
+        #region IValueConverter Members
+
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return ((int)value) / Divider;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return (int.Parse((string)value) * Divider);
+        }
+
+        #endregion IValueConverter Members
     }
 }

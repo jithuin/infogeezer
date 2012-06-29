@@ -166,5 +166,17 @@ namespace DecimalInternetClock.Properties {
                 this["IsBinaryRingVisible"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Aurabesh, 8.25pt")]
+        public global::System.Drawing.Font DisplayFont {
+            get {
+                return ((global::System.Drawing.Font)(this["DisplayFont"]));
+            }
+            set {
+                this["DisplayFont"] = value;
+            }
+        }
     }
 }

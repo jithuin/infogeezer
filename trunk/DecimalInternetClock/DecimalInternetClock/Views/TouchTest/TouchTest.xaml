@@ -1,0 +1,45 @@
+﻿<Window x:Class="DecimalInternetClock.TouchTest"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="TouchTest" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="cProbe" MinHeight="50" MinWidth="100" Background="Black"
+                Stylus.IsFlicksEnabled="True"
+                Stylus.IsPressAndHoldEnabled="True"
+                Stylus.IsTapFeedbackEnabled="True"
+                Stylus.IsTouchFeedbackEnabled="True"
+
+                Stylus.StylusButtonDown="cProbe_StylusButtonDown"
+                Stylus.StylusButtonUp="cProbe_StylusButtonUp"
+                Stylus.StylusDown="cProbe_StylusDown"
+                Stylus.StylusEnter="cProbe_StylusEnter"
+                Stylus.StylusInAirMove="cProbe_StylusInAirMove"
+                Stylus.StylusInRange="cProbe_StylusInRange"
+                Stylus.StylusLeave="cProbe_StylusLeave"
+                Stylus.StylusMove="cProbe_StylusMove"
+                Stylus.StylusOutOfRange="cProbe_StylusOutOfRange"
+                Stylus.StylusSystemGesture="cProbe_StylusSystemGesture"
+                Stylus.StylusUp="cProbe_StylusUp"
+
+                Mouse.MouseDown="cProbe_MouseDown"
+                Mouse.MouseEnter="cProbe_MouseEnter"
+                Mouse.MouseLeave="cProbe_MouseLeave"
+                Mouse.MouseMove="cProbe_MouseMove"
+                Mouse.MouseUp="cProbe_MouseUp"
+                Mouse.MouseWheel="cProbe_MouseWheel"
+
+                ScrollBar.Scroll="cProbe_Scroll"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                ScrollViewer.IsDeferredScrollingEnabled="True"
+                ScrollViewer.ScrollChanged="cProbe_ScrollChanged"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <TextBox  Grid.Row="1" TextWrapping="Wrap" x:Name="tbFeedBack"
+                  HorizontalScrollBarVisibility="Visible"
+                  VerticalScrollBarVisibility="Visible" />
+    </Grid>
+</Window>

@@ -71,6 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="CustomControls\FontComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\TouchTest\TouchTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -133,6 +141,9 @@
     <Compile Include="CustomControls\DecimalTextBox.cs" />
     <Compile Include="CustomControls\EnumComboBox.xaml.cs">
       <DependentUpon>EnumComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\FontComboBox.xaml.cs">
+      <DependentUpon>FontComboBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
@@ -202,6 +213,9 @@
       <DependentUpon>OptionsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Options\OptionsRow.cs" />
+    <Compile Include="Views\TouchTest\TouchTest.xaml.cs">
+      <DependentUpon>TouchTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinampRemote\Winamp.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -224,6 +238,10 @@
     <ProjectReference Include="..\ColorPicker\ColorPicker.csproj">
       <Project>{827F8C33-8118-48C7-AB3C-4864298396AD}</Project>
       <Name>ColorPicker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FontDialogSample\FontDialogSample.csproj">
+      <Project>{BA5113A3-EA25-4BA3-96E1-7FB10D9201F0}</Project>
+      <Name>FontDialogSample</Name>
     </ProjectReference>
     <ProjectReference Include="..\ManagedWinapi\ManagedWinapi.csproj">
       <Project>{FBD3EC1E-47E2-4D2D-81C9-D6506125A09A}</Project>

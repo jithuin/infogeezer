@@ -6,19 +6,34 @@ using System.Text;
 
 namespace DecimalInternetClock.NamedValues
 {
-    public class NamedValueList : ObservableCollection<NamedValuePair<string, object>>
+    public class NamedValueList : ObservableCollection<NamedValuePair>
     {
         public NamedValueList() : base() { ;}
 
         public void Add(string name_in, object value_in)
         {
-            this.Add(new NamedValuePair<string, object>(name_in, value_in));
+            this.Add(new NamedValuePair(name_in, value_in));
         }
 
-        public void AddRange(IEnumerable<NamedValuePair<string, object>> other)
+        public void AddRange(IEnumerable<NamedValuePair> other)
         {
-            foreach (NamedValuePair<string, object> nvp in other)
+            foreach (NamedValuePair nvp in other)
                 this.Add(nvp);
+        }
+
+        public void RemoveAnyByName(string name_in)
+        {
+            List<NamedValuePair> toBeRemoved = new List<NamedValuePair>();
+            foreach (NamedValuePair nvp in this)
+            {
+                if (name_in == nvp.Name)
+                    toBeRemoved.Add(nvp);
+            }
+
+            foreach (NamedValuePair nvp in toBeRemoved)
+            {
+                this.Remove(nvp);
+            }
         }
 
         public void ModifyRange(IList<object> other)
@@ -28,7 +43,7 @@ namespace DecimalInternetClock.NamedValues
 
             for (int i = 0; i < this.Count; i++)
             {
-                NamedValuePair<string, object> nvp = this[i];
+                NamedValuePair nvp = this[i];
                 bool isReadonly = nvp.IsReadonly; //HACK: the invoke result must be written back into the list
                 nvp.IsReadonly = false;
                 nvp.Value = other[i];
@@ -40,7 +55,7 @@ namespace DecimalInternetClock.NamedValues
         {
             get
             {
-                foreach (NamedValuePair<string, object> item in this)
+                foreach (NamedValuePair item in this)
                 {
                     if (item.Name == index)
                         return item.Value;
@@ -49,7 +64,7 @@ namespace DecimalInternetClock.NamedValues
             }
             set
             {
-                foreach (NamedValuePair<string, object> item in this)
+                foreach (NamedValuePair item in this)
                 {
                     if (item.Name == index)
                         item.Value = value;
