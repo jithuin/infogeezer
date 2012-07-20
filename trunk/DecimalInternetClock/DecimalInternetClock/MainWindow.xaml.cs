@@ -25,20 +25,27 @@ namespace DecimalInternetClock
     {
         public MainWindow()
         {
+            LoadSettings();
+            InitializeComponent();
+            NameScope.SetNameScope(contextMenu, this);
+            InitTimer();
+        }
+
+        private void InitTimer()
+        {
+            _timer.AutoReset = true;
+            _timer.Elapsed += new ElapsedEventHandler(_timer_Elapsed);
+            _timer.Start();
+        }
+
+        private void LoadSettings()
+        {
             SetValue(ForegroundProperty, Settings.Default.Foreground);
             SetValue(BackgroundProperty, Settings.Default.Background);
             SetValue(WidthProperty, Settings.Default.WindowSize.Width);
             SetValue(HeightProperty, Settings.Default.WindowSize.Height);
             SetValue(LeftProperty, Settings.Default.WindowPosition.X);
             SetValue(TopProperty, Settings.Default.WindowPosition.Y);
-
-            InitializeComponent();
-
-            NameScope.SetNameScope(contextMenu, this);
-
-            _timer.AutoReset = true;
-            _timer.Elapsed += new ElapsedEventHandler(_timer_Elapsed);
-            _timer.Start();
         }
 
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)

@@ -79,19 +79,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\BinaryClock\BinaryClock.xaml">
+    <Page Include="Clocks\View\BinaryClock\BinaryClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BinaryRing\BinaryRing.xaml">
+    <Page Include="Clocks\View\BinaryRing\BinaryRing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BinaryRing\BinaryRingSegment.xaml">
+    <Page Include="Clocks\View\BinaryRing\BinaryRingSegment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DecimalClock\DecimalClock.xaml">
+    <Page Include="Clocks\View\DecimalClock\DecimalClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,27 +103,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\BinaryClock\BinaryClockSegment.xaml">
+    <Page Include="Clocks\View\BinaryClock\BinaryClockSegment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\3DTest\SimpleSurfaceTest.xaml">
+    <Page Include="CustomViews\3DTest\SimpleSurfaceTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NamedValues\NamedValueListControl.xaml">
+    <Page Include="CustomViews\NamedValues\NamedValueListControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Options\Options.xaml">
+    <Page Include="CustomViews\Options\Options.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Options\OptionsControl.xaml">
+    <Page Include="CustomViews\Options\OptionsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\TouchTest\TouchTest.xaml">
+    <Page Include="CustomViews\TouchTest\TouchTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -155,24 +155,25 @@
     <Compile Include="HotKeys\ResizerHotKey.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Model\BinaryModel.cs" />
-    <Compile Include="Model\DecimalModel.cs" />
-    <Compile Include="Model\IDecimalClock.cs" />
+    <Compile Include="Clocks\Model\BinaryModel.cs" />
+    <Compile Include="Clocks\Model\DecimalModel.cs" />
+    <Compile Include="Clocks\Model\IDecimalClock.cs" />
+    <Compile Include="HotKeys\Vector2D.cs" />
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="ValueConverters\BooleanConverters.cs" />
     <Compile Include="ValueConverters\DebugConverter.cs" />
     <Compile Include="ValueConverters\RangeValueConverters.cs" />
-    <Compile Include="Views\BinaryClock\BinaryClock.xaml.cs">
+    <Compile Include="Clocks\View\BinaryClock\BinaryClock.xaml.cs">
       <DependentUpon>BinaryClock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BinaryRing\BinaryRing.xaml.cs">
+    <Compile Include="Clocks\View\BinaryRing\BinaryRing.xaml.cs">
       <DependentUpon>BinaryRing.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BinaryRing\BinaryRingSegment.xaml.cs">
+    <Compile Include="Clocks\View\BinaryRing\BinaryRingSegment.xaml.cs">
       <DependentUpon>BinaryRingSegment.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverters\HexaConverters.cs" />
-    <Compile Include="Views\DecimalClock\DecimalClock.xaml.cs">
+    <Compile Include="Clocks\View\DecimalClock\DecimalClock.xaml.cs">
       <DependentUpon>DecimalClock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -191,29 +192,29 @@
     <Compile Include="CustomControls\LedUserControl.xaml.cs">
       <DependentUpon>LedUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BinaryClock\BinaryClockSegment.xaml.cs">
+    <Compile Include="Clocks\View\BinaryClock\BinaryClockSegment.xaml.cs">
       <DependentUpon>BinaryClockSegment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\3DTest\ParametricSurface.cs" />
-    <Compile Include="Views\3DTest\SimpleSurface.cs" />
-    <Compile Include="Views\3DTest\SimpleSurfaceTest.xaml.cs">
+    <Compile Include="CustomViews\3DTest\ParametricSurface.cs" />
+    <Compile Include="CustomViews\3DTest\SimpleSurface.cs" />
+    <Compile Include="CustomViews\3DTest\SimpleSurfaceTest.xaml.cs">
       <DependentUpon>SimpleSurfaceTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\3DTest\Utility.cs" />
+    <Compile Include="CustomViews\3DTest\Utility.cs" />
     <Compile Include="Helpers\GuiHelper.cs" />
-    <Compile Include="Views\NamedValues\NamedValueList.cs" />
-    <Compile Include="Views\NamedValues\NamedValueListControl.xaml.cs">
+    <Compile Include="CustomViews\NamedValues\NamedValueList.cs" />
+    <Compile Include="CustomViews\NamedValues\NamedValueListControl.xaml.cs">
       <DependentUpon>NamedValueListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NamedValues\NamedValuePair.cs" />
-    <Compile Include="Views\Options\Options.xaml.cs">
+    <Compile Include="CustomViews\NamedValues\NamedValuePair.cs" />
+    <Compile Include="CustomViews\Options\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Options\OptionsControl.xaml.cs">
+    <Compile Include="CustomViews\Options\OptionsControl.xaml.cs">
       <DependentUpon>OptionsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Options\OptionsRow.cs" />
-    <Compile Include="Views\TouchTest\TouchTest.xaml.cs">
+    <Compile Include="CustomViews\Options\OptionsRow.cs" />
+    <Compile Include="CustomViews\TouchTest\TouchTest.xaml.cs">
       <DependentUpon>TouchTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinampRemote\Winamp.cs" />
@@ -249,7 +250,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Converters\" />
+    <Folder Include="CustomViews\Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
