@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="DecimalInternetClock.DecimalClock"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:DecimalInternetClock"             
+    Name="this" >
+    <Grid>
+        <Viewbox Grid.Row="0" Stretch="UniformToFill">
+            <TextBlock x:Name="tbClock">
+                <TextBlock.Text>
+                    <Binding ElementName="this" Path="DecimalTime" Mode="OneWay">
+                        <Binding.Converter>
+                            <my:DoubleValueConverter></my:DoubleValueConverter>
+                        </Binding.Converter>
+                    </Binding>
+                </TextBlock.Text>
+            </TextBlock>
+        </Viewbox>
+    </Grid>
+</UserControl>
