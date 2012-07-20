@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ManagedWinapi;
-using System.Windows.Forms;
 using System.Windows;
+using System.Windows.Forms;
+using ManagedWinapi;
 
-namespace pInvokeTester.HotKeys
+namespace DecimalInternetClock.HotKeys
 {
     public abstract class HotKeyFeatureExtension : Hotkey
     {
@@ -16,6 +16,7 @@ namespace pInvokeTester.HotKeys
         {
             this.HotkeyPressed += new EventHandler(HotKeyFeatureExtension_HotkeyPressed);
         }
+
         public HotKeyFeatureExtension(Window window_in, KeyModifiers mod_in, Keys key_in)
             : this()
         {
@@ -30,6 +31,7 @@ namespace pInvokeTester.HotKeys
             this.KeyCode = key_in;
             this.Enabled = true;
         }
+
         private void SetKeyModifiers(KeyModifiers mod_in)
         {
             Alt = (mod_in & KeyModifiers.Alt) != 0;
