@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomViews\NamedValues\ClassEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,6 +149,10 @@
     <Compile Include="CustomControls\FontComboBox.xaml.cs">
       <DependentUpon>FontComboBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomViews\NamedValues\ClassEditorWindow.xaml.cs">
+      <DependentUpon>ClassEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
       <SubType>Component</SubType>

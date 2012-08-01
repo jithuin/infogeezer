@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
+using DecimalInternetClock.CustomViews;
 using DecimalInternetClock.Helpers;
 using DecimalInternetClock.NamedValues;
 using FontDialogSample;
@@ -67,6 +68,13 @@ namespace DecimalInternetClock.NamedValues
                 dataView.Refresh();
             }
         }
+
+        private void ClassEditor_Click(object sender, RoutedEventArgs e)
+        {
+            ClassEditorWindow cew = new ClassEditorWindow();
+            cew.Item = ((Button)sender).Tag;
+            cew.Show();
+        }
     }
 
     public class TypedDataTemplate : DataTemplate
@@ -103,6 +111,8 @@ namespace DecimalInternetClock.NamedValues
 
         public DataTemplate FontTemplate { get; set; }
 
+        public DataTemplate ClassTemplate { get; set; }
+
         public override DataTemplate SelectTemplate(object item_in, DependencyObject container)
         {
             NamedValuePair item = item_in as NamedValuePair;
@@ -124,11 +134,15 @@ namespace DecimalInternetClock.NamedValues
                     return DoubleRangeDataTemplate;
                 if (value is bool)
                     return BoolDataTemplate;
-                if (value is System.Drawing.Font)
-                    return FontTemplate;
+                //if (value is System.Drawing.Font)
+                //    return FontTemplate;
                 if (value != null)
                     if (value.GetType().IsEnum)
                         return SetDataTemplate;
+                    else if (value.GetType().IsClass && !value.GetType().IsAbstract)
+                        return ClassTemplate;
+                    else if (value.GetType().GetProperties().Count() > 0) // TODO_HL: 1 Remove from Release !!!
+                        return ClassTemplate;
                     else if (value.IsIntegerType())
                         return IntRangeDataTemplate;
             }
