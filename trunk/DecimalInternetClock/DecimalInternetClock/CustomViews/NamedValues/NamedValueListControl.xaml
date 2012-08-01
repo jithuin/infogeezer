@@ -36,6 +36,23 @@
                          Text="{Binding Path=Value, Converter={StaticResource RemissionDivisionConverter}}"
                          HorizontalAlignment="Stretch"/>
         </DataTemplate>
+        <DataTemplate x:Key="ClassTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="3"
+                           Text="{Binding Path=Value}"
+                           HorizontalAlignment="Stretch"/>
+                <Button Grid.Column="1"
+                        Tag="{Binding Path=Value}"
+                        Content="..."
+                        Click="ClassEditor_Click"
+                        Width="Auto"/>
+            </Grid>
+
+        </DataTemplate>
         <DataTemplate x:Key="FloatRangeTemplate">
             <TextBox Margin="3"
                          Text="{Binding Path=Value, Converter={StaticResource FloatRangeValueConverter}}"
@@ -95,7 +112,8 @@
                                                            DoubleRangeDataTemplate="{StaticResource FloatRangeTemplate}"
                                                            ReadonlyTemplate="{StaticResource ReadonlyTemplate}"
                                                            BoolDataTemplate="{StaticResource BoolTemplate}"
-                                                           RemissionTemplate="{StaticResource RemissionTemplate}">
+                                                           RemissionTemplate="{StaticResource RemissionTemplate}"
+                                                           ClassTemplate="{StaticResource ClassTemplate}">
                             </nvp:DataClassTemplateSelector>
                         </GridViewColumn.CellTemplateSelector>
                     </GridViewColumn>
