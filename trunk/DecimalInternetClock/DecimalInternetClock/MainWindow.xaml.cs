@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Timers;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ColorPicker;
+using DecimalInternetClock.Clocks;
 using DecimalInternetClock.Properties;
 
 namespace DecimalInternetClock
@@ -21,22 +23,27 @@ namespace DecimalInternetClock
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window, INameScope
+    public partial class MainWindow : Window, INameScope, INotifyPropertyChanged
     {
+        #region Properties
+
+        public DecimalTimer DecimalTime { get; set; }
+
+        #endregion Properties
+
+        #region Constructor
+
         public MainWindow()
         {
-            LoadSettings();
+            DecimalTime = new DecimalTimer();
             InitializeComponent();
+            LoadSettings();
             NameScope.SetNameScope(contextMenu, this);
-            InitTimer();
         }
 
-        private void InitTimer()
-        {
-            _timer.AutoReset = true;
-            _timer.Elapsed += new ElapsedEventHandler(_timer_Elapsed);
-            _timer.Start();
-        }
+        #endregion Constructor
+
+        #region Settings
 
         private void LoadSettings()
         {
@@ -46,32 +53,22 @@ namespace DecimalInternetClock
             SetValue(HeightProperty, Settings.Default.WindowSize.Height);
             SetValue(LeftProperty, Settings.Default.WindowPosition.X);
             SetValue(TopProperty, Settings.Default.WindowPosition.Y);
+            this.textBox.Text = Settings.Default.Text;
         }
 
-        private void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        private void SaveSettings()
         {
-            DateTime dt = DateTime.Now;
-            double ret = 0;
-            ret += (double)dt.Millisecond / 1000.0;
-            ret += (double)dt.Second;
-            ret += (double)dt.Minute * 60.0;
-            ret += (double)dt.Hour * 3600.0;
-            ret /= 86400; //60*60*24
-            ret *= 1000;
-            this.Dispatcher.Invoke(new Action(() => { this.DecimalTime = ret; }));
+            Settings.Default.Foreground = (SolidColorBrush)this.Foreground;
+            Settings.Default.Background = (SolidColorBrush)this.Background;
+
+            Settings.Default.WindowSize = new Size(this.ActualWidth, this.ActualHeight);
+            Settings.Default.WindowPosition = new Point(this.Left, this.Top);
+            Settings.Default.Text = this.textBox.Text;
         }
 
-        Timer _timer = new Timer(50);
+        #endregion Settings
 
-        public double DecimalTime
-        {
-            get { return (double)GetValue(DecimalTimeProperty); }
-            set { SetValue(DecimalTimeProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for DecimalTime.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty DecimalTimeProperty =
-            DependencyProperty.Register("DecimalTime", typeof(double), typeof(MainWindow), new UIPropertyMetadata(0.0));
+        #region Event Handlers
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -80,12 +77,7 @@ namespace DecimalInternetClock
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Settings.Default.Foreground = (SolidColorBrush)this.Foreground;
-            Settings.Default.Background = (SolidColorBrush)this.Background;
-
-            Settings.Default.WindowSize = new Size(this.ActualWidth, this.ActualHeight);
-            Settings.Default.WindowPosition = new Point(this.Left, this.Top);
-            Settings.Default.Text = this.textBox.Text;
+            SaveSettings();
             Settings.Default.Save();
             Application.Current.Shutdown();
         }
@@ -108,17 +100,19 @@ namespace DecimalInternetClock
             }
         }
 
-        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        private void miOption_Click(object sender, RoutedEventArgs e)
         {
-            e.Handled = true;
-            this.ExitMenuItem_Click(sender, e);
+            Options.Options ow = new Options.Options();
+            ow.Show();
         }
 
-        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void miTouchTest_Click(object sender, RoutedEventArgs e)
         {
-            e.CanExecute = true;
-            e.Handled = true;
+            TouchTest tt = new TouchTest();
+            tt.Show();
         }
+
+        #endregion Event Handlers
 
         #region INameScope Members
 
@@ -141,16 +135,18 @@ namespace DecimalInternetClock
 
         #endregion INameScope Members
 
-        private void miOption_Click(object sender, RoutedEventArgs e)
+        #region INotifyPropertyChanged Members
+
+        public void OnPropertyChanged(String propName)
         {
-            Options.Options ow = new Options.Options();
-            ow.Show();
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
         }
 
-        private void miTouchTest_Click(object sender, RoutedEventArgs e)
-        {
-            TouchTest tt = new TouchTest();
-            tt.Show();
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertyChanged Members
     }
 }

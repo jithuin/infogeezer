@@ -41,5 +41,13 @@
     <Setting Name="DisplayFont" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Aurabesh, 8.25pt</Value>
     </Setting>
+    <Setting Name="IntList" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;this&lt;/string&gt;
+  &lt;string&gt;that&lt;/string&gt;
+  &lt;string&gt;other than that&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
