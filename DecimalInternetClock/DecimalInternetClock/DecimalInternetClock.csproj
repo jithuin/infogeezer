@@ -141,6 +141,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clocks\Model\DecimalTimer.cs">
+    </Compile>
     <Compile Include="CustomCommands\CustomCommands.cs" />
     <Compile Include="CustomControls\DecimalTextBox.cs" />
     <Compile Include="CustomControls\EnumComboBox.xaml.cs">

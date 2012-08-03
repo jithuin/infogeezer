@@ -8,7 +8,6 @@ namespace DecimalInternetClock.Options
     /// </summary>
     public partial class Options : Window
     {
-
         public Options()
         {
             InitializeComponent();
@@ -16,7 +15,6 @@ namespace DecimalInternetClock.Options
 
         private void CommandAcknowledgeOptions_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            //this.DialogResult = true;
             this.Close();
         }
     }

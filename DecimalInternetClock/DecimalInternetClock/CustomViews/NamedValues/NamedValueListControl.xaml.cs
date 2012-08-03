@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -93,6 +94,10 @@ namespace DecimalInternetClock.NamedValues
         /// </summary>
         public DataTemplate SetDataTemplate { get; set; }
 
+        public DataTemplate EnumTemplate { get; set; }
+
+        public DataTemplate FlagTemplate { get; set; }
+
         /// <summary>
         /// Korlátos egész típus
         /// </summary>
@@ -113,10 +118,14 @@ namespace DecimalInternetClock.NamedValues
 
         public DataTemplate ClassTemplate { get; set; }
 
+        public DataTemplate ListTemplate { get; set; }
+
+        public DataTemplate DictionaryTemplate { get; set; }
+
         public override DataTemplate SelectTemplate(object item_in, DependencyObject container)
         {
             NamedValuePair item = item_in as NamedValuePair;
-
+            DataTemplate dataTemplate;
             if (item != null)
             {
                 if (item.Name == "position")
@@ -124,29 +133,60 @@ namespace DecimalInternetClock.NamedValues
 
                 if (item.IsReadonly)
                     return ReadonlyTemplate;
-                Object value = item.Value;
 
-                if (value is String)
-                    return StringDataTemplate;
-
-                //IntRangeDataTemplate.Resources.Values. IntRangeDataTemplate.Resources.OfType<RangeValueConverter>().SingleOrDefault();
-                if (value is double || value is float)
-                    return DoubleRangeDataTemplate;
-                if (value is bool)
-                    return BoolDataTemplate;
-                //if (value is System.Drawing.Font)
-                //    return FontTemplate;
-                if (value != null)
-                    if (value.GetType().IsEnum)
-                        return SetDataTemplate;
-                    else if (value.GetType().IsClass && !value.GetType().IsAbstract)
-                        return ClassTemplate;
-                    else if (value.GetType().GetProperties().Count() > 0) // TODO_HL: 1 Remove from Release !!!
-                        return ClassTemplate;
-                    else if (value.IsIntegerType())
-                        return IntRangeDataTemplate;
+                dataTemplate = SelectTemplateFromValue(item.Value);
             }
+            else
+            {
+                dataTemplate = SelectTemplateFromValue(item);
+            }
+
+            if (dataTemplate != null)
+                return dataTemplate;
+
             return ReadonlyTemplate;
+        }
+
+        private DataTemplate SelectTemplateFromValue(Object value)
+        {
+            if (value is String)
+                return StringDataTemplate;
+
+            //IntRangeDataTemplate.Resources.Values. IntRangeDataTemplate.Resources.OfType<RangeValueConverter>().SingleOrDefault();
+            if (value is double || value is float)
+                return DoubleRangeDataTemplate;
+            if (value is bool)
+                return BoolDataTemplate;
+            //if (value is System.Drawing.Font)
+            //    return FontTemplate;
+            if (value != null)
+            {
+                Type valueType = value.GetType();
+                DataTemplate dt = SelectTemplateFromType(valueType);
+                if (dt != null)
+                    return dt;
+                if (value.IsIntegerType())
+                    return IntRangeDataTemplate;
+            }
+            return null;
+        }
+
+        private DataTemplate SelectTemplateFromType(Type valueType)
+        {
+            if (valueType.IsEnum) // Enum types
+                if (valueType.GetCustomAttributes(typeof(FlagsAttribute), true).Any()) // Flag types
+                    return FlagTemplate;
+                else
+                    return EnumTemplate;
+            else if (valueType.GetInterfaces().Any(new Func<Type, bool>((iface) => { return iface == typeof(IList); }))) // List types
+                return ListTemplate;
+            else if (valueType.GetInterfaces().Any(new Func<Type, bool>((iface) => { return iface == typeof(IDictionary); })))
+                return DictionaryTemplate;
+            else if (valueType.IsClass && !valueType.IsAbstract) // Class types
+                return ClassTemplate;
+            else if (valueType.GetProperties().Count() > 0) // HACK_HL: to identify structs as well (Remove from Release !!!)
+                return ClassTemplate;
+            return null;
         }
     }
 
