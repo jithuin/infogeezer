@@ -16,11 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontDialogSample", "FontDialogSample\FontDialogSample.csproj", "{BA5113A3-EA25-4BA3-96E1-7FB10D9201F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedWinapi", "ManagedWinapi\ManagedWinapi.csproj", "{FBD3EC1E-47E2-4D2D-81C9-D6506125A09A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C} = {B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ManagedWinapiNativeHelper", "ManagedWinapiNativeHelper\ManagedWinapiNativeHelper.vcproj", "{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IncomingFeatures", "IncomingFeatures", "{0E9E520B-52B3-4BB9-9AFA-F27E381558DB}"
 EndProject
@@ -108,16 +103,6 @@ Global
 		{FBD3EC1E-47E2-4D2D-81C9-D6506125A09A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{FBD3EC1E-47E2-4D2D-81C9-D6506125A09A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{FBD3EC1E-47E2-4D2D-81C9-D6506125A09A}.Release|Win32.ActiveCfg = Release|Any CPU
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Debug|Win32.Build.0 = Debug|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Release|Any CPU.ActiveCfg = Release|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Release|Win32.ActiveCfg = Release|Win32
-		{B23C95E9-F3E6-4B0B-A3F1-711F0EDDD35C}.Release|Win32.Build.0 = Release|Win32
 		{BA3201ED-9FDD-44E5-AA16-5A14526BB908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA3201ED-9FDD-44E5-AA16-5A14526BB908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA3201ED-9FDD-44E5-AA16-5A14526BB908}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
