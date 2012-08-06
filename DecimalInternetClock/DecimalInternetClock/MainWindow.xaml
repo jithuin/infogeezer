@@ -14,9 +14,15 @@
         ShowInTaskbar="{Binding Path=ShowInTaskBar}">
     <!--BUG: nem működik az ikon itt-->
     <Window.Resources>
-        <prop:Settings x:Key="Settings" x:Name="Set"/>
-        <vc:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary
+                      Source="Resources/Styles/ScrollViewer.xaml">
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
+
     <Window.Style>
         <Style TargetType="{x:Type Window}">
             <Setter Property="ResizeMode" Value="CanResizeWithGrip"></Setter>
@@ -42,37 +48,18 @@
     </Window.ContextMenu>
 
     <Grid Name="windowContent" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="Auto"/>-->
+
             <RowDefinition Height="20" MinHeight="20"/>
         </Grid.RowDefinitions>
-
         <!--Window Header-->
-        <Grid MinHeight="30" Height="30" MaxHeight="50" >
-            <Grid.Style>
-                <Style>
-                    <Style.Triggers>
-                        <DataTrigger Value="False">
-                            <DataTrigger.Binding>
-                                <Binding Path="ShowWindowHeader"/>
-                            </DataTrigger.Binding>
-                            <Setter Property="Grid.Visibility" Value="Collapsed"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Grid.Style>
-            <!--<Grid.Visibility>
-                <Binding ElementName="this" Path="ShowWindowHeader" Mode="OneWay">
-                    <Binding.Converter>
-                        <my:BooleanToVisibilityConverter/>
-                    </Binding.Converter>
-                </Binding>
-            </Grid.Visibility>-->
+        <Grid MinHeight="30" Height="30" MaxHeight="50" Visibility="{Binding WindowHeaderVisibility}">
             <Border>
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -82,7 +69,7 @@
                 </Border.Background>
             </Border>
             <Viewbox HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Image Source="Blank.png"/>
+                <!--<Image Source="Blank.png"/>-->
             </Viewbox>
             <TextBlock TextAlignment="Center"
                    TextElement.FontSize="12" VerticalAlignment="Center" Background="Transparent">
@@ -94,51 +81,58 @@
                 <TextBlock Margin="5">X</TextBlock>
             </Button>
         </Grid>
-
         <!--Window Content-->
-        <my:DecimalClock Grid.Row="1" Background="Transparent"
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto"
+                      Style="{StaticResource ScrollViewerStyle}"
+                      >
+            <StackPanel Orientation="Vertical"
+                        MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+                        >
+                <my:DecimalClock Grid.Row="1" Background="Transparent"
                          Visibility="{Binding Path=DecimalClockVisibility}">
 
-            <my:DecimalClock.DecimalTime>
-                <Binding ElementName="this" Path="DecimalTime.Time" Mode="OneWay"></Binding>
-            </my:DecimalClock.DecimalTime>
-            <!--<my:DecimalClock.ForeColor>
+                    <my:DecimalClock.DecimalTime>
+                        <Binding ElementName="this" Path="DecimalTime.Time" Mode="OneWay"></Binding>
+                    </my:DecimalClock.DecimalTime>
+                    <!--<my:DecimalClock.ForeColor>
                 <Binding ElementName="this" Path="ForeColor"/>
             </my:DecimalClock.ForeColor>
             <my:DecimalClock.Transparency>
                 <Binding ElementName="this" Path="Transparency"/>
             </my:DecimalClock.Transparency>-->
-        </my:DecimalClock>
-        <my:BinaryClock Grid.Row="2" Background="Transparent"
-                        Visibility="{Binding Path=IsBinaryClockVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <my:BinaryClock.DecimalTime>
-                <Binding ElementName="this" Path="DecimalTime.Time" Mode="OneWay"></Binding>
-            </my:BinaryClock.DecimalTime>
-            <!--<my:BinaryClock.ForeColor>
+                </my:DecimalClock>
+                <my:BinaryClock Grid.Row="2" Background="Transparent"
+                        Visibility="{Binding Path=BinaryClockVisibility}">
+                    <my:BinaryClock.DecimalTime>
+                        <Binding ElementName="this" Path="DecimalTime.Time" Mode="OneWay"></Binding>
+                    </my:BinaryClock.DecimalTime>
+                    <!--<my:BinaryClock.ForeColor>
                 <Binding ElementName="this" Path="ForeColor"/>
             </my:BinaryClock.ForeColor>
             <my:BinaryClock.Transparency>
                 <Binding ElementName="this" Path="Transparency"/>
             </my:BinaryClock.Transparency>-->
-        </my:BinaryClock>
-        <my:BinaryRing Visibility="{Binding Path=IsBinaryRingVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                </my:BinaryClock>
+                <my:BinaryRing Visibility="{Binding Path=BinaryRingVisibility}"
                        Grid.Row="3"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch">
-            <my:BinaryRing.DecimalTime>
-                <Binding ElementName="this"
+                    <my:BinaryRing.DecimalTime>
+                        <Binding ElementName="this"
                          Path="DecimalTime.Time"
                          Mode="OneWay"/>
-            </my:BinaryRing.DecimalTime>
-            <!--<my:BinaryRing.Foreground>
+                    </my:BinaryRing.DecimalTime>
+                    <!--<my:BinaryRing.Foreground>
                 <SolidColorBrush>
                     <SolidColorBrush.Color>
                         <Binding ElementName="this" Path="ForeColor"/>
                     </SolidColorBrush.Color>
                 </SolidColorBrush>
             </my:BinaryRing.Foreground>-->
-        </my:BinaryRing>
-        <TextBox Name="textBox"
+                </my:BinaryRing>
+
+                <TextBox Name="textBox"
                  Background="#01000000"
                  Grid.Row="4"
                  Margin="2"
@@ -146,18 +140,19 @@
                  VerticalScrollBarVisibility="Auto"
                  AcceptsReturn="True"
                  BorderBrush="Transparent"
-
+                 Visibility="{Binding Path=TextBoxVisibility}"
                  >
-            <!--<TextBox.BorderBrush>
+                    <!--<TextBox.BorderBrush>
                 <Binding ElementName="this" Path="Foreground"/>
             </TextBox.BorderBrush>-->
-            <TextBox.Foreground>
-                <Binding ElementName="this" Path="Foreground"/>
-            </TextBox.Foreground>
-            <!--<TextBox.Text>
+                    <TextBox.Foreground>
+                        <Binding ElementName="this" Path="Foreground"/>
+                    </TextBox.Foreground>
+                    <!--<TextBox.Text>
                 <Binding Path="Text" Mode="TwoWay"/>
             </TextBox.Text>-->
-        </TextBox>
-
+                </TextBox>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -20,8 +20,8 @@
     <Setting Name="ShowInTaskBar" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ShowWindowHeader" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="WindowHeaderVisibility" Type="System.Windows.Visibility" Scope="User">
+      <Value Profile="(Default)">Visible</Value>
     </Setting>
     <Setting Name="CanResize" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -32,11 +32,11 @@
     <Setting Name="DecimalClockVisibility" Type="System.Windows.Visibility" Scope="User">
       <Value Profile="(Default)">Visible</Value>
     </Setting>
-    <Setting Name="IsBinaryClockVisible" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="BinaryClockVisibility" Type="System.Windows.Visibility" Scope="User">
+      <Value Profile="(Default)">Visible</Value>
     </Setting>
-    <Setting Name="IsBinaryRingVisible" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="BinaryRingVisibility" Type="System.Windows.Visibility" Scope="User">
+      <Value Profile="(Default)">Visible</Value>
     </Setting>
     <Setting Name="DisplayFont" Type="System.Drawing.Font" Scope="User">
       <Value Profile="(Default)">Aurabesh, 8.25pt</Value>
@@ -48,6 +48,9 @@
   &lt;string&gt;that&lt;/string&gt;
   &lt;string&gt;other than that&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="TextBoxVisibility" Type="System.Windows.Visibility" Scope="User">
+      <Value Profile="(Default)">Visible</Value>
     </Setting>
   </Settings>
 </SettingsFile>
