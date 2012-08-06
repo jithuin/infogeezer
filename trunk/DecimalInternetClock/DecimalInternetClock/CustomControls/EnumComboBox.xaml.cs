@@ -47,6 +47,7 @@ namespace DecimalInternetClock.CustomControls
                 {
                     cbEnum.Items.Add(item);
                 }
+                cbEnum.SelectedIndex = cbEnum.Items.IndexOf(e.NewValue);
             }
         }
 

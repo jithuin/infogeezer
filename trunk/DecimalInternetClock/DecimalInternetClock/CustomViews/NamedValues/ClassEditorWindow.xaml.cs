@@ -73,7 +73,7 @@ namespace DecimalInternetClock.CustomViews
             foreach (MemberInfo member in p.GetType().GetProperties())
             {
                 PropertyInfo pi = (PropertyInfo)member;
-                namedValueList.Add(new NamedValuePair(member.Name, pi.GetValue(p, null), pi.CanWrite));
+                namedValueList.Add(new NamedValuePair(member.Name, pi.GetValue(p, null), !pi.CanWrite));
             }
             // public fields
             foreach (MemberInfo member in p.GetType().GetFields())

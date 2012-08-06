@@ -97,13 +97,13 @@ namespace DecimalInternetClock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowWindowHeader {
+        [global::System.Configuration.DefaultSettingValueAttribute("Visible")]
+        public global::System.Windows.Visibility WindowHeaderVisibility {
             get {
-                return ((bool)(this["ShowWindowHeader"]));
+                return ((global::System.Windows.Visibility)(this["WindowHeaderVisibility"]));
             }
             set {
-                this["ShowWindowHeader"] = value;
+                this["WindowHeaderVisibility"] = value;
             }
         }
         
@@ -145,25 +145,25 @@ namespace DecimalInternetClock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsBinaryClockVisible {
+        [global::System.Configuration.DefaultSettingValueAttribute("Visible")]
+        public global::System.Windows.Visibility BinaryClockVisibility {
             get {
-                return ((bool)(this["IsBinaryClockVisible"]));
+                return ((global::System.Windows.Visibility)(this["BinaryClockVisibility"]));
             }
             set {
-                this["IsBinaryClockVisible"] = value;
+                this["BinaryClockVisibility"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool IsBinaryRingVisible {
+        [global::System.Configuration.DefaultSettingValueAttribute("Visible")]
+        public global::System.Windows.Visibility BinaryRingVisibility {
             get {
-                return ((bool)(this["IsBinaryRingVisible"]));
+                return ((global::System.Windows.Visibility)(this["BinaryRingVisibility"]));
             }
             set {
-                this["IsBinaryRingVisible"] = value;
+                this["BinaryRingVisibility"] = value;
             }
         }
         
@@ -193,6 +193,18 @@ namespace DecimalInternetClock.Properties {
             }
             set {
                 this["IntList"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Visible")]
+        public global::System.Windows.Visibility TextBoxVisibility {
+            get {
+                return ((global::System.Windows.Visibility)(this["TextBoxVisibility"]));
+            }
+            set {
+                this["TextBoxVisibility"] = value;
             }
         }
     }

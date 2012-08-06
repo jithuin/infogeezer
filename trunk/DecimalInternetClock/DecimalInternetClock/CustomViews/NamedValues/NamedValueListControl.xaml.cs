@@ -128,8 +128,8 @@ namespace DecimalInternetClock.NamedValues
             DataTemplate dataTemplate;
             if (item != null)
             {
-                if (item.Name == "position")
-                    return IntRangeDataTemplate;
+                //if (item.Name == "position")
+                //    return IntRangeDataTemplate;
 
                 if (item.IsReadonly)
                     return ReadonlyTemplate;

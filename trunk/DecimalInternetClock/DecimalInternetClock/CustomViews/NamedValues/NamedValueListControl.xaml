@@ -63,7 +63,7 @@
                          Text="{Binding Path=Value, Converter={StaticResource FloatRangeValueConverter}}"
                          HorizontalAlignment="Stretch"/>
         </DataTemplate>
-        <DataTemplate x:Key="SetTemplate">
+        <DataTemplate x:Key="EnumTemplate">
             <cc:EnumComboBox Margin="3"
                                   Value="{Binding Path=Value, Mode=TwoWay}"
                                   HorizontalAlignment="Stretch"/>
@@ -84,14 +84,14 @@
         </DataTemplate>
         <nvp:DataClassTemplateSelector x:Key="DataClassTemplateSelector"
                                        StringDataTemplate="{StaticResource StringTemplate}"
-                                       SetDataTemplate="{StaticResource SetTemplate}"
                                        IntRangeDataTemplate="{StaticResource IntRangeTemplate}"
                                        DoubleRangeDataTemplate="{StaticResource FloatRangeTemplate}"
                                        ReadonlyTemplate="{StaticResource ReadonlyTemplate}"
                                        BoolDataTemplate="{StaticResource BoolTemplate}"
                                        RemissionTemplate="{StaticResource RemissionTemplate}"
                                        ClassTemplate="{StaticResource ClassTemplate}"
-                                       ListTemplate="{StaticResource ListTemplate}">
+                                       ListTemplate="{StaticResource ListTemplate}"
+                                       EnumTemplate="{StaticResource EnumTemplate}">
         </nvp:DataClassTemplateSelector>
     </UserControl.Resources>
 
