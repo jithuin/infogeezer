@@ -22,7 +22,9 @@ namespace DecimalInternetClock
         {
             ResizerHotKey hk = new ResizerHotKey(KeyModifiers.Alt | KeyModifiers.Ctrl, System.Windows.Forms.Keys.Left);
             List<ResizeState> _resizeStates = new List<ResizeState>();
-            _resizeStates.Add(new ResizeState(new Vector2D(0.0, 0.0), new Vector2D(0.5, 0.5)));
+            _resizeStates.Add(new ResizeState(new Vector2D(0.0, 0.0), new Vector2D(0.5, 1)));
+            _resizeStates.Add(new ResizeState(new Vector2D(0.0, 0.0), new Vector2D(0.3, 1)));
+            _resizeStates.Add(new ResizeState(new Vector2D(0.0, 0.0), new Vector2D(0.2, 1)));
             hk.ResizeStates = _resizeStates;
         }
     }
