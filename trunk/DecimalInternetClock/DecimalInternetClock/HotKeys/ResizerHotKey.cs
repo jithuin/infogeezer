@@ -20,6 +20,8 @@ namespace DecimalInternetClock.HotKeys
 
         public List<ResizeState> ResizeStates;
         protected int _statePointer = 0;
+        protected SystemWindow _currentWindow = null;
+        protected System.Windows.Forms.FormWindowState _curWindowFormerState;
 
         protected override void HotKeyFeatureExtension_HotkeyPressed(object sender, EventArgs e)
         {
@@ -28,11 +30,34 @@ namespace DecimalInternetClock.HotKeys
                 System.Windows.Forms.MessageBox.Show("There are no window state connected to this hotkey!");
                 return;
             }
+            if (_currentWindow != SystemWindow.ForegroundWindow)
+                ChangeCurrentWindow();
+            if (SystemWindow.ForegroundWindow.WindowState != System.Windows.Forms.FormWindowState.Normal)
+                SystemWindow.ForegroundWindow.WindowState = System.Windows.Forms.FormWindowState.Normal;
+
             SystemWindow.ForegroundWindow.Location = (System.Drawing.Point)ResizeStates[_statePointer].Location;
             SystemWindow.ForegroundWindow.Size = (System.Drawing.Size)ResizeStates[_statePointer].Size;
 
             if (_statePointer + 1 + 1 > ResizeStates.Count)
+            {
                 _statePointer = 0;
+                _currentWindow.WindowState = _curWindowFormerState;
+            }
+            else
+                _statePointer++;
+        }
+
+        private void ChangeCurrentWindow()
+        {
+            if (_currentWindow != null)
+            {
+                ResizeStates.RemoveAt(ResizeStates.Count - 1);// remove last
+            }
+            _currentWindow = SystemWindow.ForegroundWindow;
+            ResizeStates.Add(new ResizeState(
+                (Vector2D)_currentWindow.Location, (Vector2D)_currentWindow.Size));//add current window's
+            _curWindowFormerState = _currentWindow.WindowState;
+            _statePointer = 0;
         }
     }
 
