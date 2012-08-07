@@ -157,8 +157,8 @@ namespace DecimalInternetClock.NamedValues
                 return DoubleRangeDataTemplate;
             if (value is bool)
                 return BoolDataTemplate;
-            //if (value is System.Drawing.Font)
-            //    return FontTemplate;
+            if (value is System.Windows.Media.FontFamily)
+                return FontTemplate;
             if (value != null)
             {
                 Type valueType = value.GetType();

@@ -91,7 +91,8 @@
                                        RemissionTemplate="{StaticResource RemissionTemplate}"
                                        ClassTemplate="{StaticResource ClassTemplate}"
                                        ListTemplate="{StaticResource ListTemplate}"
-                                       EnumTemplate="{StaticResource EnumTemplate}">
+                                       EnumTemplate="{StaticResource EnumTemplate}"
+                                       FontTemplate="{StaticResource FontTemplate}">
         </nvp:DataClassTemplateSelector>
     </UserControl.Resources>
 
