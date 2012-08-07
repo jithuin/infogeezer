@@ -52,8 +52,8 @@ namespace DecimalInternetClock.HotKeys
 
         public static explicit operator Vector2D(System.Drawing.Size size_in)
         {
-            return new Vector2D(size_in.Width / SystemWindow.DesktopWindow.Size.Width,
-                                size_in.Height / SystemWindow.DesktopWindow.Size.Height);
+            return new Vector2D((double) size_in.Width / SystemWindow.DesktopWindow.Size.Width,
+                                (double) size_in.Height / SystemWindow.DesktopWindow.Size.Height);
         }
 
         public static explicit operator System.Drawing.Size(Vector2D vector_in)
@@ -84,8 +84,8 @@ namespace DecimalInternetClock.HotKeys
 
         public static explicit operator Vector2D(System.Drawing.Point point_in)
         {
-            return new Vector2D(point_in.X / SystemWindow.DesktopWindow.Size.Width,
-                                point_in.Y / SystemWindow.DesktopWindow.Size.Height);
+            return new Vector2D((double)point_in.X / SystemWindow.DesktopWindow.Size.Width,
+                                (double)point_in.Y / SystemWindow.DesktopWindow.Size.Height);
         }
 
         public static explicit operator System.Drawing.Point(Vector2D vector_in)
