@@ -169,13 +169,13 @@ namespace DecimalInternetClock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Aurabesh, 8.25pt")]
-        public global::System.Drawing.Font DisplayFont {
+        [global::System.Configuration.DefaultSettingValueAttribute("Aurabesh")]
+        public global::System.Windows.Media.FontFamily DisplayFontFamily {
             get {
-                return ((global::System.Drawing.Font)(this["DisplayFont"]));
+                return ((global::System.Windows.Media.FontFamily)(this["DisplayFontFamily"]));
             }
             set {
-                this["DisplayFont"] = value;
+                this["DisplayFontFamily"] = value;
             }
         }
         

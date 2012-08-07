@@ -38,8 +38,8 @@
     <Setting Name="BinaryRingVisibility" Type="System.Windows.Visibility" Scope="User">
       <Value Profile="(Default)">Visible</Value>
     </Setting>
-    <Setting Name="DisplayFont" Type="System.Drawing.Font" Scope="User">
-      <Value Profile="(Default)">Aurabesh, 8.25pt</Value>
+    <Setting Name="DisplayFontFamily" Type="System.Windows.Media.FontFamily" Scope="User">
+      <Value Profile="(Default)">Aurabesh</Value>
     </Setting>
     <Setting Name="IntList" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
