@@ -33,8 +33,7 @@ namespace DecimalInternetClock.HotKeys
                 System.Windows.Forms.MessageBox.Show("There are no window state connected to this hotkey!");
                 return;
             }
-            if (_currentWindow != SystemWindow.ForegroundWindow)
-                ChangeCurrentWindow();
+            ChangeCurrentWindow();
             if (SystemWindow.ForegroundWindow.WindowState != System.Windows.Forms.FormWindowState.Normal)
                 SystemWindow.ForegroundWindow.WindowState = System.Windows.Forms.FormWindowState.Normal;
 
@@ -89,19 +88,33 @@ namespace DecimalInternetClock.HotKeys
             return scale.Transform(absoluteSize_in.ToVector());
         }
 
-        private void ChangeCurrentWindow()
+        public void ChangeCurrentWindow()
         {
-            if (_currentWindow != null)
+            if (_currentWindow != SystemWindow.ForegroundWindow)
             {
-                ResizeStates.RemoveAt(ResizeStates.Count - 1);// remove last (resize state of the former window )
+                if (_currentWindow != null)
+                {
+                    ResizeStates.RemoveAt(ResizeStates.Count - 1);// remove last (resize state of the former window )
+                }
+                _currentWindow = SystemWindow.ForegroundWindow;
+                Screen screen = Screen.FromPoint(_currentWindow.Location);
+                ResizeStates.Add(new ResizerState(
+                    ScaleVectorFromLocation(screen.WorkingArea, _currentWindow.Location),
+                    ScaleVectorFromSize(screen.WorkingArea.Size, _currentWindow.Size)));//add resize state of the current window
+                _curWindowFormerState = _currentWindow.WindowState;
+                _statePointer = 0;
+                OnCurrentWindowChanged();
             }
-            _currentWindow = SystemWindow.ForegroundWindow;
-            Screen screen = Screen.FromPoint(_currentWindow.Location);
-            ResizeStates.Add(new ResizerState(
-                ScaleVectorFromLocation(screen.WorkingArea, _currentWindow.Location),
-                ScaleVectorFromSize(screen.WorkingArea.Size, _currentWindow.Size)));//add resize state of the current window
-            _curWindowFormerState = _currentWindow.WindowState;
-            _statePointer = 0;
+        }
+
+        public event EventHandler CurrentWindowChanged;
+
+        protected void OnCurrentWindowChanged()
+        {
+            if (CurrentWindowChanged != null)
+            {
+                CurrentWindowChanged.Invoke(this, new EventArgs());
+            }
         }
     }
 }
