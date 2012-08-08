@@ -168,6 +168,7 @@
     <Compile Include="Helpers\VectorHelper.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
     </Compile>
+    <Compile Include="HotKeys\DefaultResizeHotkeyList.cs" />
     <Compile Include="HotKeys\HotKeyFeatureExtension.cs">
     </Compile>
     <Compile Include="HotKeys\ResizerHotKey.cs">
