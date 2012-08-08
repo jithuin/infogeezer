@@ -8,22 +8,16 @@ using ManagedWinapi;
 
 namespace DecimalInternetClock.HotKeys
 {
-    [Flags()]
-    public enum KeyModifiers
-    {
-        Alt = 0x0001,
-        Ctrl = 0x0010,
-        Shift = 0x0100,
-        Win = 0x1000,
-    }
-
     public class ActivatorHotkey : HotKeyFeatureExtension
     {
+        protected Window _win;
+
         public ActivatorHotkey() { }
 
-        public ActivatorHotkey(Window window_in, KeyModifiers mod_in, Keys key_in)
-            : base(window_in, mod_in, key_in)
+        public ActivatorHotkey(Window window_in, FKeyModifiers mod_in, Keys key_in)
+            : base(mod_in, key_in)
         {
+            _win = window_in;
             _win.Deactivated += new EventHandler(Window1_Deactivated);
         }
 

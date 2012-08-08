@@ -20,11 +20,14 @@ namespace DecimalInternetClock
 
         private void InitWinSplitFeatures()
         {
-            ResizerHotKey hk = new ResizerHotKey(KeyModifiers.Alt | KeyModifiers.Ctrl, System.Windows.Forms.Keys.Left);
-            List<ResizeState> _resizeStates = new List<ResizeState>();
-            _resizeStates.Add(new ResizeState(new Vector2D(0.0, 0.0), new Vector2D(0.5, 1)));
-            _resizeStates.Add(new ResizeState(new Vector2D(0.0, 0.0), new Vector2D(0.3, 1)));
-            _resizeStates.Add(new ResizeState(new Vector2D(0.0, 0.0), new Vector2D(0.2, 1)));
+            ResizerHotKey hk = new ResizerHotKey();
+            hk.Add(FKeyModifiers.Alt | FKeyModifiers.Ctrl, System.Windows.Forms.Keys.Left);
+            hk.Add(FKeyModifiers.Alt | FKeyModifiers.Ctrl, System.Windows.Forms.Keys.NumPad4);
+
+            List<ResizerState> _resizeStates = new List<ResizerState>();
+            _resizeStates.Add(new ResizerState(new Vector(0.0, 0.0), new Vector(0.5, 1)));
+            _resizeStates.Add(new ResizerState(new Vector(0.0, 0.0), new Vector(0.3, 1)));
+            _resizeStates.Add(new ResizerState(new Vector(0.0, 0.0), new Vector(0.2, 1)));
             hk.ResizeStates = _resizeStates;
         }
     }

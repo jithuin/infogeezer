@@ -164,19 +164,18 @@
     </Compile>
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
+    <Compile Include="Helpers\HotKeyHelper.cs" />
+    <Compile Include="Helpers\VectorHelper.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="HotKeys\HotKeyFeatureExtension.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="HotKeys\ResizerHotKey.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Clocks\Model\BinaryModel.cs" />
     <Compile Include="Clocks\Model\DecimalModel.cs" />
     <Compile Include="Clocks\Model\IDecimalClock.cs" />
-    <Compile Include="HotKeys\Vector2D.cs" />
+    <Compile Include="HotKeys\ResizerState.cs" />
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="ValueConverters\BooleanConverters.cs" />
     <Compile Include="ValueConverters\DebugConverter.cs" />
