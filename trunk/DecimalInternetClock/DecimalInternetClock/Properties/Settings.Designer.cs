@@ -207,5 +207,17 @@ namespace DecimalInternetClock.Properties {
                 this["TextBoxVisibility"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        public float ScrollBarThickness {
+            get {
+                return ((float)(this["ScrollBarThickness"]));
+            }
+            set {
+                this["ScrollBarThickness"] = value;
+            }
+        }
     }
 }
