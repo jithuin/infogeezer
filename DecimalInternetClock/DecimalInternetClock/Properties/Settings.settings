@@ -55,5 +55,8 @@
     <Setting Name="ScrollBarThickness" Type="System.Single" Scope="User">
       <Value Profile="(Default)">12</Value>
     </Setting>
+    <Setting Name="Setting" Type="ManagedWinapi.Windows.SystemWindow" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

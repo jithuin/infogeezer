@@ -219,5 +219,16 @@ namespace DecimalInternetClock.Properties {
                 this["ScrollBarThickness"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::ManagedWinapi.Windows.EventDispatchingNativeWindow Setting {
+            get {
+                return ((global::ManagedWinapi.Windows.EventDispatchingNativeWindow)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
+            }
+        }
     }
 }
