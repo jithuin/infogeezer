@@ -165,6 +165,7 @@
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
     <Compile Include="Helpers\HotKeyHelper.cs" />
+    <Compile Include="Helpers\ResizeHotkeyListHelper.cs" />
     <Compile Include="Helpers\VectorHelper.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
     </Compile>
@@ -177,6 +178,7 @@
     <Compile Include="Clocks\Model\DecimalModel.cs" />
     <Compile Include="Clocks\Model\IDecimalClock.cs" />
     <Compile Include="HotKeys\ResizerState.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="ValueConverters\BooleanConverters.cs" />
     <Compile Include="ValueConverters\DebugConverter.cs" />
