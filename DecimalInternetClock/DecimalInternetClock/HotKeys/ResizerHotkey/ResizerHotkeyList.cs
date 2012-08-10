@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace DecimalInternetClock.HotKeys
 {
+    [Serializable]
     public class ResizerHotkeyList : IList<ResizerHotKey>
     {
         protected List<ResizerHotKey> _rhkList = null;
@@ -31,6 +34,12 @@ namespace DecimalInternetClock.HotKeys
         {
             foreach (ResizerHotKey rhk in this)
                 rhk.ChangeCurrentWindow();
+        }
+
+        public void AddRange(IEnumerable<ResizerHotKey> _rhkList)
+        {
+            foreach (ResizerHotKey rhk in _rhkList)
+                this.Add(rhk);
         }
 
         #region IList<ResizerHotKey> Members
@@ -73,7 +82,7 @@ namespace DecimalInternetClock.HotKeys
 
         #region ICollection<ResizerHotKey> Members
 
-        public new void Add(ResizerHotKey item)
+        public void Add(ResizerHotKey item)
         {
             item.CurrentWindowChanged += new EventHandler(hk_CurrentWindowChanged);
             _rhkList.Add(item);

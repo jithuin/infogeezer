@@ -6,6 +6,7 @@ using System.Windows;
 
 namespace DecimalInternetClock.HotKeys
 {
+    [Serializable]
     public class ResizerHotkeyState
     {
         public ResizerHotkeyState()

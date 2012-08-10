@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -10,6 +11,8 @@ namespace DecimalInternetClock.Helpers
 {
     public static class ResizeHotkeyListHelper
     {
+        #region Set to Default
+
         private enum EWinPosVert
         {
             Top,
@@ -82,7 +85,6 @@ namespace DecimalInternetClock.Helpers
                 foreach (Keys key in _posCommandKey[wp])
                     hk.Add(_defaultModifiers, key);
 
-                hk.ResizeStates = new List<ResizerHotkeyState>();
                 foreach (double portion in _portions)
                     hk.ResizeStates.Add(CreateResizeState(wp, portion));
 
@@ -157,5 +159,26 @@ namespace DecimalInternetClock.Helpers
 
             return new ResizerHotkeyState(location, size);
         }
+
+        #endregion Set to Default
+
+        #region Open options
+        private static String OptionsFilePath = ".\\Options\\probe.bin";
+
+        public static void Init(this ResizerHotkeyList rhkList_in)
+        {
+            FileInfo fi = new FileInfo(OptionsFilePath);
+            if (fi.Exists)
+                rhkList_in.BinDeserializeThisFrom(OptionsFilePath);
+            else
+                rhkList_in.SetToDefault();
+        }
+
+        public static void Save(this ResizerHotkeyList rhkList_in)
+        {
+            rhkList_in.BinSerializeThisTo(OptionsFilePath);
+        }
+
+        #endregion Open options
     }
 }

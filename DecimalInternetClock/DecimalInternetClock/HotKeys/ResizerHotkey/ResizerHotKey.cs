@@ -11,20 +11,41 @@ using ManagedWinapi.Windows;
 
 namespace DecimalInternetClock.HotKeys
 {
+    [Serializable]
     public class ResizerHotKey : HotKeyFeatureExtension
     {
-        public ResizerHotKey() : base() { }
+        #region Properties and Fields
 
-        public ResizerHotKey(FKeyModifiers mod_in, Keys key_in)
+        public List<ResizerHotkeyState> ResizeStates { get; set; }
 
-            : base(mod_in, key_in)
-        { }
-
-        public List<ResizerHotkeyState> ResizeStates;
         protected int _statePointer = 0;
+
+        [NonSerialized]
         protected SystemWindow _currentWindow = null;
 
+        [NonSerialized]
         protected System.Windows.Forms.FormWindowState _curWindowFormerState;
+
+        #endregion Properties and Fields
+
+        #region Constructors and Initializations
+
+        public ResizerHotKey()
+            : base()
+        { Init(); }
+
+        public ResizerHotKey(FKeyModifiers mod_in, Keys key_in)
+            : base(mod_in, key_in)
+        { Init(); }
+
+        protected void Init()
+        {
+            ResizeStates = new List<ResizerHotkeyState>();
+        }
+
+        #endregion Constructors and Initializations
+
+        #region Methods
 
         protected override void HotKeyFeatureExtension_HotkeyPressed(object sender, EventArgs e)
         {
@@ -107,6 +128,10 @@ namespace DecimalInternetClock.HotKeys
             }
         }
 
+        #endregion Methods
+
+        #region Events
+
         public event EventHandler CurrentWindowChanged;
 
         protected void OnCurrentWindowChanged()
@@ -116,5 +141,7 @@ namespace DecimalInternetClock.HotKeys
                 CurrentWindowChanged.Invoke(this, new EventArgs());
             }
         }
+
+        #endregion Events
     }
 }
