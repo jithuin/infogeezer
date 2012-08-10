@@ -169,16 +169,15 @@
     <Compile Include="Helpers\VectorHelper.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
     </Compile>
-    <Compile Include="HotKeys\DefaultResizeHotkeyList.cs" />
+    <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyList.cs" />
     <Compile Include="HotKeys\HotKeyFeatureExtension.cs">
     </Compile>
-    <Compile Include="HotKeys\ResizerHotKey.cs">
+    <Compile Include="HotKeys\ResizerHotkey\ResizerHotKey.cs">
     </Compile>
     <Compile Include="Clocks\Model\BinaryModel.cs" />
     <Compile Include="Clocks\Model\DecimalModel.cs" />
     <Compile Include="Clocks\Model\IDecimalClock.cs" />
-    <Compile Include="HotKeys\ResizerState.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyState.cs" />
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="ValueConverters\BooleanConverters.cs" />
     <Compile Include="ValueConverters\DebugConverter.cs" />
