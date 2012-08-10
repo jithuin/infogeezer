@@ -6,15 +6,15 @@ using System.Windows;
 
 namespace DecimalInternetClock.HotKeys
 {
-    public class ResizerState
+    public class ResizerHotkeyState
     {
-        public ResizerState()
+        public ResizerHotkeyState()
         {
             Location = new Vector();
             Size = new Vector();
         }
 
-        public ResizerState(Vector location_in, Vector size_in)
+        public ResizerHotkeyState(Vector location_in, Vector size_in)
         {
             Location = location_in;
             Size = size_in;

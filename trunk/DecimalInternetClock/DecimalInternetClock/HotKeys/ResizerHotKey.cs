@@ -20,7 +20,7 @@ namespace DecimalInternetClock.HotKeys
             : base(mod_in, key_in)
         { }
 
-        public List<ResizerState> ResizeStates;
+        public List<ResizerHotkeyState> ResizeStates;
         protected int _statePointer = 0;
         protected SystemWindow _currentWindow = null;
 
@@ -98,7 +98,7 @@ namespace DecimalInternetClock.HotKeys
                 }
                 _currentWindow = SystemWindow.ForegroundWindow;
                 Screen screen = Screen.FromPoint(_currentWindow.Location);
-                ResizeStates.Add(new ResizerState(
+                ResizeStates.Add(new ResizerHotkeyState(
                     ScaleVectorFromLocation(screen.WorkingArea, _currentWindow.Location),
                     ScaleVectorFromSize(screen.WorkingArea.Size, _currentWindow.Size)));//add resize state of the current window
                 _curWindowFormerState = _currentWindow.WindowState;
