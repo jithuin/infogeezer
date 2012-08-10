@@ -6,23 +6,23 @@ using System.Text;
 
 namespace DecimalInternetClock.HotKeys
 {
-    public class ResizeHotkeyList : IList<ResizerHotKey>
+    public class ResizerHotkeyList : IList<ResizerHotKey>
     {
         protected List<ResizerHotKey> _rhkList = null;
 
-        protected static ResizeHotkeyList _instance = null;
+        protected static ResizerHotkeyList _instance = null;
 
-        public static ResizeHotkeyList Instance
+        public static ResizerHotkeyList Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = new ResizeHotkeyList();
+                    _instance = new ResizerHotkeyList();
                 return _instance;
             }
         }
 
-        protected ResizeHotkeyList()
+        protected ResizerHotkeyList()
         {
             _rhkList = new List<ResizerHotKey>();
         }

@@ -72,7 +72,7 @@ namespace DecimalInternetClock.Helpers
         {
         }
 
-        public static void SetToDefault(this ResizeHotkeyList rhkList)
+        public static void SetToDefault(this ResizerHotkeyList rhkList)
         {
             rhkList.Clear();
 
@@ -82,7 +82,7 @@ namespace DecimalInternetClock.Helpers
                 foreach (Keys key in _posCommandKey[wp])
                     hk.Add(_defaultModifiers, key);
 
-                hk.ResizeStates = new List<ResizerState>();
+                hk.ResizeStates = new List<ResizerHotkeyState>();
                 foreach (double portion in _portions)
                     hk.ResizeStates.Add(CreateResizeState(wp, portion));
 
@@ -90,7 +90,7 @@ namespace DecimalInternetClock.Helpers
             }
         }
 
-        static private ResizerState CreateResizeState(WinPos wp, double portion)
+        static private ResizerHotkeyState CreateResizeState(WinPos wp, double portion)
         {
             Vector location = new Vector();
             Vector size = new Vector();
@@ -155,7 +155,7 @@ namespace DecimalInternetClock.Helpers
             }
             #endregion Location calculation
 
-            return new ResizerState(location, size);
+            return new ResizerHotkeyState(location, size);
         }
     }
 }

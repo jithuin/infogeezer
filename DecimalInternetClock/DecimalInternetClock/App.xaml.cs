@@ -16,7 +16,7 @@ namespace DecimalInternetClock
     {
         public App()
         {
-            ResizeHotkeyList.Instance.SetToDefault();
+            ResizerHotkeyList.Instance.SetToDefault();
         }
     }
 }
