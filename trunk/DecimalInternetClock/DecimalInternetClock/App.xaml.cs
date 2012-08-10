@@ -14,9 +14,17 @@ namespace DecimalInternetClock
     /// </summary>
     public partial class App : Application
     {
+        String probeFileName = ".\\Options\\probe.bin";
+
         public App()
         {
             ResizerHotkeyList.Instance.SetToDefault();
+            //ResizerHotkeyList.Instance.BinSerializeThisTo(probeFileName);
+            //ResizerHotkeyList.Instance.Clear();
+            //ResizerHotkeyList.Instance.BinDeserializeThisFrom(probeFileName);
+            //ResizerHotkeyList.Instance.SerializeThisTo(probeFileName);
+            //ResizerHotkeyList.Instance.Clear();
+            //ResizerHotkeyList.Instance.DeserializeThisFrom(probeFileName);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,12 @@ namespace DecimalInternetClock.HotKeys
         Win = 0x1000,
     }
 
-    public abstract class HotKeyFeatureExtension : IList<Hotkey>
+    [Serializable]
+    public abstract class HotKeyFeatureExtension : IList<HotkeyProxy>, IList
     {
         #region Properties and Fields
 
-        protected List<Hotkey> _hotkeyList;
+        protected List<HotkeyProxy> _hotkeyList;
 
         #endregion Properties and Fields
 
@@ -30,7 +32,7 @@ namespace DecimalInternetClock.HotKeys
 
         public HotKeyFeatureExtension()
         {
-            _hotkeyList = new List<Hotkey>();
+            _hotkeyList = new List<HotkeyProxy>();
         }
 
         public HotKeyFeatureExtension(FKeyModifiers mod_in, Keys key_in)
@@ -47,7 +49,7 @@ namespace DecimalInternetClock.HotKeys
 
         public void Add(FKeyModifiers mod_in, Keys key_in)
         {
-            Hotkey hotkey = new Hotkey();
+            HotkeyProxy hotkey = new HotkeyProxy();
             hotkey.ModifyHotKey(mod_in, key_in);
             this.Add(hotkey);
         }
@@ -56,14 +58,14 @@ namespace DecimalInternetClock.HotKeys
 
         #region Interface implementations
 
-        #region IList<Hotkey> Members
+        #region IList<HotkeyProxy> Members
 
-        public int IndexOf(Hotkey item)
+        public int IndexOf(HotkeyProxy item)
         {
             return _hotkeyList.IndexOf(item);
         }
 
-        public void Insert(int index, Hotkey item)
+        public void Insert(int index, HotkeyProxy item)
         {
             item.HotkeyPressed += new EventHandler(HotKeyFeatureExtension_HotkeyPressed);
             _hotkeyList.Insert(index, item);
@@ -75,7 +77,7 @@ namespace DecimalInternetClock.HotKeys
             _hotkeyList.RemoveAt(index);
         }
 
-        public Hotkey this[int index]
+        public HotkeyProxy this[int index]
         {
             get
             {
@@ -92,11 +94,11 @@ namespace DecimalInternetClock.HotKeys
             }
         }
 
-        #endregion IList<Hotkey> Members
+        #endregion IList<HotkeyProxy> Members
 
-        #region ICollection<Hotkey> Members
+        #region ICollection<HotkeyProxy> Members
 
-        public void Add(Hotkey item)
+        public void Add(HotkeyProxy item)
         {
             item.HotkeyPressed += new EventHandler(HotKeyFeatureExtension_HotkeyPressed);
             _hotkeyList.Add(item);
@@ -104,18 +106,18 @@ namespace DecimalInternetClock.HotKeys
 
         public void Clear()
         {
-            foreach (Hotkey hk in _hotkeyList)
+            foreach (HotkeyProxy hk in _hotkeyList)
                 hk.HotkeyPressed -= new EventHandler(HotKeyFeatureExtension_HotkeyPressed);
 
             _hotkeyList.Clear();
         }
 
-        public bool Contains(Hotkey item)
+        public bool Contains(HotkeyProxy item)
         {
             return _hotkeyList.Contains(item);
         }
 
-        public void CopyTo(Hotkey[] array, int arrayIndex)
+        public void CopyTo(HotkeyProxy[] array, int arrayIndex)
         {
             _hotkeyList.CopyTo(array, arrayIndex);
         }
@@ -130,7 +132,7 @@ namespace DecimalInternetClock.HotKeys
             get { return false; }
         }
 
-        public bool Remove(Hotkey item)
+        public bool Remove(HotkeyProxy item)
         {
             if (_hotkeyList.Remove(item))
             {
@@ -141,16 +143,16 @@ namespace DecimalInternetClock.HotKeys
                 return false;
         }
 
-        #endregion ICollection<Hotkey> Members
+        #endregion ICollection<HotkeyProxy> Members
 
-        #region IEnumerable<Hotkey> Members
+        #region IEnumerable<HotkeyProxy> Members
 
-        public IEnumerator<Hotkey> GetEnumerator()
+        public IEnumerator<HotkeyProxy> GetEnumerator()
         {
             return _hotkeyList.GetEnumerator();
         }
 
-        #endregion IEnumerable<Hotkey> Members
+        #endregion IEnumerable<HotkeyProxy> Members
 
         #region IEnumerable Members
 
@@ -162,5 +164,88 @@ namespace DecimalInternetClock.HotKeys
         #endregion IEnumerable Members
 
         #endregion Interface implementations
+
+        #region IList Members
+
+        public int Add(object value)
+        {
+            this.Add((HotkeyProxy)value);
+            return this.Count - 1;
+        }
+
+        public bool Contains(object value)
+        {
+            return this.Contains((HotkeyProxy)value);
+        }
+
+        public int IndexOf(object value)
+        {
+            return this.IndexOf((HotkeyProxy)value);
+        }
+
+        public void Insert(int index, object value)
+        {
+            this.Insert(index, (HotkeyProxy)value);
+        }
+
+        public bool IsFixedSize
+        {
+            get { return false; }
+        }
+
+        public void Remove(object value)
+        {
+            this.Remove((HotkeyProxy)value);
+        }
+
+        object IList.this[int index]
+        {
+            get
+            {
+                return this[index];
+            }
+            set
+            {
+                this[index] = (HotkeyProxy)value;
+            }
+        }
+
+        #endregion IList Members
+
+        #region ICollection Members
+
+        public void CopyTo(Array array, int index)
+        {
+            this.CopyTo(array.Cast<HotkeyProxy>().ToArray(), index);
+        }
+
+        public bool IsSynchronized
+        {
+            get { return false; }
+        }
+
+        public object SyncRoot
+        {
+            get { return null; }
+        }
+
+        #endregion ICollection Members
+    }
+
+    public class HotKeyStore : List<Hotkey>
+    {
+        protected HotKeyStore() { }
+
+        protected HotKeyStore _instance;
+
+        public HotKeyStore Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new HotKeyStore();
+                return _instance;
+            }
+        }
     }
 }
