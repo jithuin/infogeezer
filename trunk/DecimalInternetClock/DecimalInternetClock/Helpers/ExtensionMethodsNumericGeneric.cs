@@ -169,5 +169,133 @@ namespace DecimalInternetClock.Helpers
         {
             return IntegerValueTypesDictionary.ContainsKey(value.GetType());
         }
+
+        public static bool TryParse(this Type t, string s, out object res)
+        {
+            switch (IntegerValueTypesDictionary[t])
+            {
+                case ENumericValueTypes._Byte:
+                    {
+                        bool ret;
+                        byte result;
+                        ret = byte.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._SByte:
+                    {
+                        bool ret;
+                        sbyte result;
+                        ret = sbyte.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._Int16:
+                    {
+                        bool ret;
+                        short result;
+                        ret = short.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._Int32:
+                    {
+                        bool ret;
+                        int result;
+                        ret = int.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._Int64:
+                    {
+                        bool ret;
+                        long result;
+                        ret = long.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._UInt16:
+                    {
+                        bool ret;
+                        ushort result;
+                        ret = ushort.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._UInt32:
+                    {
+                        bool ret;
+                        uint result;
+                        ret = uint.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._UInt64:
+                    {
+                        bool ret;
+                        ulong result;
+                        ret = ulong.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._Single:
+                    {
+                        bool ret;
+                        float result;
+                        ret = float.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._Double:
+                    {
+                        bool ret;
+                        double result;
+                        ret = double.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                case ENumericValueTypes._Char:
+                    {
+                        bool ret;
+                        char result;
+                        ret = char.TryParse(s, out result);
+                        res = result;
+                        return ret;
+                    }
+                default:
+                    throw new NotSupportedException();
+            }
+        }
+
+        public static object Parse(this Type t, string s)
+        {
+            switch (IntegerValueTypesDictionary[t])
+            {
+                case ENumericValueTypes._Byte:
+                    return byte.Parse(s);
+                case ENumericValueTypes._SByte:
+                    return sbyte.Parse(s);
+                case ENumericValueTypes._Int16:
+                    return short.Parse(s);
+                case ENumericValueTypes._Int32:
+                    return int.Parse(s);
+                case ENumericValueTypes._Int64:
+                    return long.Parse(s);
+                case ENumericValueTypes._UInt16:
+                    return ushort.Parse(s);
+                case ENumericValueTypes._UInt32:
+                    return uint.Parse(s);
+                case ENumericValueTypes._UInt64:
+                    return ulong.Parse(s);
+                case ENumericValueTypes._Single:
+                    return float.Parse(s);
+                case ENumericValueTypes._Double:
+                    return double.Parse(s);
+                case ENumericValueTypes._Char:
+                    return char.Parse(s);
+                default:
+                    throw new NotSupportedException();
+            }
+        }
     }
 }

@@ -80,6 +80,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MachineIdentifiers.cs" />
+    <Compile Include="MouseHelper.cs" />
     <Compile Include="ProcessMemoryChunk.cs" />
     <Compile Include="ShortcutBox.cs">
       <SubType>Component</SubType>

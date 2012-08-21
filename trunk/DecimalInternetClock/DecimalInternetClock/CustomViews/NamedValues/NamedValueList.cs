@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -13,6 +14,11 @@ namespace DecimalInternetClock.NamedValues
         public void Add(string name_in, object value_in)
         {
             this.Add(new NamedValuePair(name_in, value_in));
+        }
+
+        public void Add(string name_in, object value_in, bool isReadonly_in)
+        {
+            this.Add(new NamedValuePair(name_in, value_in, isReadonly_in));
         }
 
         public void AddRange(IEnumerable<NamedValuePair> other)
@@ -67,10 +73,45 @@ namespace DecimalInternetClock.NamedValues
                 foreach (NamedValuePair item in this)
                 {
                     if (item.Name == index)
+                    {
                         item.Value = value;
+                        return;
+                    }
                 }
                 throw new KeyNotFoundException();
             }
         }
+
+        protected override void OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+                foreach (NamedValuePair nvp in e.NewItems)
+                    nvp.PropertyChanged += new PropertyChangedEventHandler(nvp_PropertyChanged);
+
+            if (e.OldItems != null)
+                foreach (NamedValuePair nvp in e.OldItems)
+                    nvp.PropertyChanged -= new PropertyChangedEventHandler(nvp_PropertyChanged);
+
+            base.OnCollectionChanged(e);
+        }
+
+        private void nvp_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged(((NamedValuePair)sender).Name);
+        }
+
+        #region INotifyPropertyChanged Members
+
+        public void OnPropertyChanged(String propName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertyChanged Members
     }
 }

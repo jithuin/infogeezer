@@ -85,7 +85,7 @@
         <ScrollViewer Grid.Row="1"
                       VerticalScrollBarVisibility="Auto"
                       Style="{StaticResource ScrollViewerStyle}"
-                      >
+                      x:Name="_scrollViewer">
             <StackPanel Orientation="Vertical"
                         MouseLeftButtonDown="Grid_MouseLeftButtonDown"
                         >
@@ -115,14 +115,19 @@
             </my:BinaryClock.Transparency>-->
                 </my:BinaryClock>
                 <my:BinaryRing Visibility="{Binding Path=BinaryRingVisibility}"
-                       Grid.Row="3"
-                       HorizontalAlignment="Stretch"
-                       VerticalAlignment="Stretch">
+                               Grid.Row="3"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               RenderTransformOrigin="0.5 0.5"
+                               x:Name="_bRing">
                     <my:BinaryRing.DecimalTime>
                         <Binding ElementName="this"
                          Path="DecimalTime.Time"
                          Mode="OneWay"/>
                     </my:BinaryRing.DecimalTime>
+                    <my:BinaryRing.RenderTransform>
+                    <RotateTransform Angle="{Binding ElementName=this, Path=RotateAngle}"></RotateTransform>
+                        </my:BinaryRing.RenderTransform>
                     <!--<my:BinaryRing.Foreground>
                 <SolidColorBrush>
                     <SolidColorBrush.Color>
