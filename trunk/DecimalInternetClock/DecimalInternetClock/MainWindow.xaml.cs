@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ColorPicker;
 using DecimalInternetClock.Clocks;
+using DecimalInternetClock.Helpers;
 using DecimalInternetClock.Properties;
 using ManagedWinapi;
 using Windows7.Multitouch;
@@ -34,7 +35,23 @@ namespace DecimalInternetClock
 
         private Windows7.Multitouch.GestureHandler _gestureHandler;
 
-        public double RotateAngle { get; set; }
+        protected double _rotateAngle;
+
+        public double RotateAngle
+        {
+            get
+            {
+                return _rotateAngle;
+            }
+            set
+            {
+                if (_rotateAngle != value)
+                {
+                    _rotateAngle = value;
+                    OnPropertyChanged("RotateAngle");
+                }
+            }
+        }
 
         #endregion Properties
 
@@ -106,7 +123,7 @@ namespace DecimalInternetClock
         private void ProcessPan(object sender, GestureEventArgs args)
         {
             //_translate.X += args.PanTranslation.Width;
-            _scrollViewer.ScrollToVerticalOffset(_scrollViewer.VerticalOffset + args.PanTranslation.Height);
+            _scrollViewer.ScrollToVerticalOffset(_scrollViewer.VerticalOffset - args.PanTranslation.Height);
             //_translate.Y += args.PanTranslation.Height;
         }
 
@@ -117,7 +134,10 @@ namespace DecimalInternetClock
 
         private void ProcessRollOver(object sender, GestureEventArgs args)
         {
-            MouseHelper.RightClick();
+            Vector currentMousePoint = (Vector)Mouse.GetPosition(this);
+            Vector currentStylusPoint = args.Location.ToVector();
+            Vector diff = currentStylusPoint - currentMousePoint;
+            MouseHelper.RightClick(diff.ToPoint());
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

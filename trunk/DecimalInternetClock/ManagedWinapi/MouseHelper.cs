@@ -34,6 +34,11 @@ namespace ManagedWinapi
             MouseHelper.InjectMouseEvent(flags, (uint)0, (uint)0, (uint)0, UIntPtr.Zero);
         }
 
+        public static void InjectMouseEvent(MouseEventFlagValues flags, System.Drawing.Point relativePoint_in)
+        {
+            MouseHelper.InjectMouseEvent(flags, (uint)relativePoint_in.X, (uint)relativePoint_in.Y, (uint)0, UIntPtr.Zero);
+        }
+
         public static void RightClick()
         {
             InjectMouseEvent(MouseEventFlagValues.RIGHTDOWN);
@@ -44,6 +49,13 @@ namespace ManagedWinapi
         [DllImport("user32.dll")]
         private static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData,
            UIntPtr dwExtraInfo);
+
+        public static void RightClick(System.Drawing.Point relativePoint_in)
+        {
+            InjectMouseEvent(MouseEventFlagValues.RIGHTDOWN, relativePoint_in);
+            InjectMouseEvent(MouseEventFlagValues.RIGHTUP);
+            Thread.Sleep(100);
+        }
     }
 
     [Flags]
