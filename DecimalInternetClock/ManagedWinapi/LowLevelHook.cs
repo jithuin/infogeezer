@@ -1,8 +1,8 @@
 using System;
-using ManagedWinapi.Windows;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 using System.Text;
+using System.Windows.Forms;
+using ManagedWinapi.Windows;
 
 namespace ManagedWinapi.Hooks
 {
@@ -158,7 +158,7 @@ namespace ManagedWinapi.Hooks
            [Out, MarshalAs(UnmanagedType.LPWStr, SizeConst = 64)] StringBuilder pwszBuff, int cchBuff,
            uint wFlags);
 
-        #endregion
+        #endregion PInvoke Declarations
     }
 
     /// <summary>
@@ -166,7 +166,6 @@ namespace ManagedWinapi.Hooks
     /// </summary>
     public class LowLevelMouseHook : Hook
     {
-
         /// <summary>
         /// Called when a mouse action has been intercepted.
         /// </summary>
@@ -236,7 +235,7 @@ namespace ManagedWinapi.Hooks
             public IntPtr dwExtraInfo;
         }
 
-        #endregion
+        #endregion PInvoke Declarations
     }
 
     /// <summary>
@@ -371,7 +370,6 @@ namespace ManagedWinapi.Hooks
             }
         }
 
-
         /// <summary>
         /// Replays this event.
         /// </summary>
@@ -379,23 +377,10 @@ namespace ManagedWinapi.Hooks
         {
             Cursor.Position = Point;
             if (MouseEventFlags != 0)
-                KeyboardKey.InjectMouseEvent(MouseEventFlags, 0, 0, (uint)mouseData >> 16, new UIntPtr((ulong)ExtraInfo.ToInt64()));
+                MouseHelper.InjectMouseEvent(MouseEventFlags, 0, 0, (uint)mouseData >> 16, new UIntPtr((ulong)ExtraInfo.ToInt64()));
         }
 
         #region PInvoke Declarations
-        [Flags]
-        private enum MouseEventFlagValues
-        {
-            LEFTDOWN = 0x00000002,
-            LEFTUP = 0x00000004,
-            MIDDLEDOWN = 0x00000020,
-            MIDDLEUP = 0x00000040,
-            MOVE = 0x00000001,
-            RIGHTDOWN = 0x00000008,
-            RIGHTUP = 0x00000010,
-            WHEEL = 0x00000800,
-            HWHEEL = 0x00001000
-        }
 
         const int WM_MOUSEMOVE = 0x200;
         const int WM_LBUTTONDOWN = 0x201;
@@ -409,7 +394,7 @@ namespace ManagedWinapi.Hooks
         const int WM_MBUTTONDBLCLK = 0x209;
         const int WM_MOUSEWHEEL = 0x20A;
         const int WM_MOUSEHWHEEL = 0x020E;
-        #endregion
+        #endregion PInvoke Declarations
     }
 
     /// <summary>
@@ -480,6 +465,6 @@ namespace ManagedWinapi.Hooks
             WM_KEYUP = 0x101,
             WM_SYSKEYDOWN = 0x104,
             WM_SYSKEYUP = 0x105;
-        #endregion
+        #endregion PInvoke Declarations
     }
 }

@@ -275,6 +275,14 @@
       <Project>{FBD3EC1E-47E2-4D2D-81C9-D6506125A09A}</Project>
       <Name>ManagedWinapi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Win7RC_MT\Mutitouch\Windows7.Multitouch.WPF\Windows7.Multitouch.WPF.csproj">
+      <Project>{F42D6367-B340-4CE4-9AB7-43EEF3692FF4}</Project>
+      <Name>Windows7.Multitouch.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Win7RC_MT\Mutitouch\Windows7.Multitouch\Windows7.Multitouch.csproj">
+      <Project>{BA3201ED-9FDD-44E5-AA16-5A14526BB908}</Project>
+      <Name>Windows7.Multitouch</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomViews\Converters\" />

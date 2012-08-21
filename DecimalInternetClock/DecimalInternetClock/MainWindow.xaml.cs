@@ -17,6 +17,9 @@ using System.Windows.Shapes;
 using ColorPicker;
 using DecimalInternetClock.Clocks;
 using DecimalInternetClock.Properties;
+using ManagedWinapi;
+using Windows7.Multitouch;
+using Windows7.Multitouch.WPF;
 
 namespace DecimalInternetClock
 {
@@ -29,6 +32,10 @@ namespace DecimalInternetClock
 
         public DecimalTimer DecimalTime { get; set; }
 
+        private Windows7.Multitouch.GestureHandler _gestureHandler;
+
+        public double RotateAngle { get; set; }
+
         #endregion Properties
 
         #region Constructor
@@ -38,7 +45,33 @@ namespace DecimalInternetClock
             DecimalTime = new DecimalTimer();
             InitializeComponent();
             LoadSettings();
+            InitGesture();
             NameScope.SetNameScope(contextMenu, this);
+        }
+
+        private void InitGesture()
+        {
+            if (Windows7.Multitouch.TouchHandler.DigitizerCapabilities.IsMultiTouchReady)
+            {
+                _gestureHandler = Factory.CreateGestureHandler(this);
+
+                _gestureHandler.Pan += ProcessPan;
+                _gestureHandler.PanBegin += ProcessPan;
+                _gestureHandler.PanEnd += ProcessPan;
+
+                _gestureHandler.Rotate += ProcessRotate;
+                _gestureHandler.RotateBegin += ProcessRotate;
+                _gestureHandler.RotateEnd += ProcessRotate;
+
+                _gestureHandler.PressAndTap += ProcessRollOver;
+
+                RotateAngle = 0.0;
+                //_gestureHandler.TwoFingerTap += ProcessTwoFingerTap;
+
+                //_gestureHandler.Zoom += ProcessZoom;
+                //_gestureHandler.ZoomBegin += ProcessZoom;
+                //_gestureHandler.ZoomEnd += ProcessZoom;
+            }
         }
 
         #endregion Constructor
@@ -69,6 +102,23 @@ namespace DecimalInternetClock
         #endregion Settings
 
         #region Event Handlers
+
+        private void ProcessPan(object sender, GestureEventArgs args)
+        {
+            //_translate.X += args.PanTranslation.Width;
+            _scrollViewer.ScrollToVerticalOffset(_scrollViewer.VerticalOffset + args.PanTranslation.Height);
+            //_translate.Y += args.PanTranslation.Height;
+        }
+
+        private void ProcessRotate(object sender, GestureEventArgs args)
+        {
+            RotateAngle -= args.RotateAngle * 180 / Math.PI;
+        }
+
+        private void ProcessRollOver(object sender, GestureEventArgs args)
+        {
+            MouseHelper.RightClick();
+        }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

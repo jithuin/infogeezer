@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace DecimalInternetClock.NamedValues
 {
-    public class KeyValuePairClass<N, V>
+    public class KeyValuePairClass<N, V> : INotifyPropertyChanged
     {
         #region Fields and Properties
 
@@ -16,7 +17,14 @@ namespace DecimalInternetClock.NamedValues
         public N Name
         {
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                if (!value.Equals(_name))
+                {
+                    _name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
         }
 
         public V Value
@@ -25,7 +33,21 @@ namespace DecimalInternetClock.NamedValues
             set
             {
                 if (!IsReadonly)
+                {
+                    if (value == null)
+                    {
+                        if (_value == null)
+                            return;
+                    }
+                    else
+                    {
+                        if (value.Equals(_value))
+                            return;
+                    }
+
                     _value = value;
+                    OnPropertyChanged("Value");
+                }
                 else
                     new AccessViolationException(String.Format("The '{0}' named value is readonly thus cannot be modified", Name));
             }
@@ -57,6 +79,24 @@ namespace DecimalInternetClock.NamedValues
         }
 
         #endregion Constructors
+
+        #region Interface implementations
+
+        #region INotifyPropertyChanged Members
+
+        public void OnPropertyChanged(String propName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion INotifyPropertyChanged Members
+
+        #endregion Interface implementations
 
         #region Overrides
 
