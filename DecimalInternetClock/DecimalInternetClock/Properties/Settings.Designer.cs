@@ -109,13 +109,13 @@ namespace DecimalInternetClock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool CanResize {
+        [global::System.Configuration.DefaultSettingValueAttribute("CanResize")]
+        public global::System.Windows.ResizeMode ResizeMode {
             get {
-                return ((bool)(this["CanResize"]));
+                return ((global::System.Windows.ResizeMode)(this["ResizeMode"]));
             }
             set {
-                this["CanResize"] = value;
+                this["ResizeMode"] = value;
             }
         }
         
@@ -222,9 +222,9 @@ namespace DecimalInternetClock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::ManagedWinapi.Windows.EventDispatchingNativeWindow Setting {
+        public global::ManagedWinapi.Windows.SystemWindow Setting {
             get {
-                return ((global::ManagedWinapi.Windows.EventDispatchingNativeWindow)(this["Setting"]));
+                return ((global::ManagedWinapi.Windows.SystemWindow)(this["Setting"]));
             }
             set {
                 this["Setting"] = value;

@@ -52,9 +52,13 @@ namespace ManagedWinapi
 
         public static void RightClick(System.Drawing.Point absolutePoint_in)
         {
-            InjectMouseEvent(MouseEventFlagValues.ABSOLUTE, absolutePoint_in);
-            Thread.Sleep(100);
+            Move(absolutePoint_in);
             RightClick();
+        }
+
+        public static void Move(System.Drawing.Point absolutePoint_in)
+        {
+            System.Windows.Forms.Cursor.Position = absolutePoint_in;
         }
     }
 
