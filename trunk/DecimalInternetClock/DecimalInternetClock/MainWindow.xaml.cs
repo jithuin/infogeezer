@@ -21,6 +21,7 @@ using DecimalInternetClock.Properties;
 using ManagedWinapi;
 using Windows7.Multitouch;
 using Windows7.Multitouch.WPF;
+using ManagedWinapi.Windows;
 
 namespace DecimalInternetClock
 {
@@ -134,10 +135,14 @@ namespace DecimalInternetClock
 
         private void ProcessRollOver(object sender, GestureEventArgs args)
         {
-            Vector currentMousePoint = (Vector)Mouse.GetPosition(this);
-            Vector currentStylusPoint = args.Location.ToVector();
-            Vector diff = currentStylusPoint - currentMousePoint;
-            MouseHelper.RightClick(diff.ToPoint());
+                Vector currentMousePoint = (Vector)Mouse.GetPosition();
+                
+                Vector currentStylusPoint = args.Location.ToVector();
+                Vector diff = currentStylusPoint - currentMousePoint;
+            MouseHelper.RightClick(new System.Drawing.Point(
+                (int)((double)args.Location.X / SystemWindow.DesktopWindow.Size.Width * UInt16.MaxValue)
+                , (int)((double)args.Location.Y / SystemWindow.DesktopWindow.Size.Height * UInt16.MaxValue)
+                ));
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
