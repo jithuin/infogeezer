@@ -11,7 +11,9 @@
         DataContext="{Binding Source={x:Static prop:Settings.Default}}"
         FontFamily="{Binding Path=DisplayFontFamily}"
         Topmost="{Binding Path=AlwaysOnTop}"
-        ShowInTaskbar="{Binding Path=ShowInTaskBar}">
+        ShowInTaskbar="{Binding Path=ShowInTaskBar}"
+        ResizeMode="{Binding Path=ResizeMode}"
+        Style="{DynamicResource WindowStyle}">
     <!--BUG: nem működik az ikon itt-->
     <Window.Resources>
         <ResourceDictionary>
@@ -19,23 +21,13 @@
                 <ResourceDictionary
                       Source="Resources/Styles/ScrollViewer.xaml">
                 </ResourceDictionary>
+                <ResourceDictionary
+                      Source="Resources/Styles/Window.xaml">
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
-    <Window.Style>
-        <Style TargetType="{x:Type Window}">
-            <Setter Property="ResizeMode" Value="CanResizeWithGrip"></Setter>
-            <Style.Triggers>
-                <DataTrigger Value="False">
-                    <DataTrigger.Binding>
-                        <Binding Path="CanResize" />
-                    </DataTrigger.Binding>
-                    <Setter Property="ResizeMode" Value="CanResize" />
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Style>
     <Window.ContextMenu>
 
         <ContextMenu Name="contextMenu">
@@ -126,8 +118,8 @@
                          Mode="OneWay"/>
                     </my:BinaryRing.DecimalTime>
                     <my:BinaryRing.RenderTransform>
-                    <RotateTransform Angle="{Binding ElementName=this, Path=RotateAngle}"></RotateTransform>
-                        </my:BinaryRing.RenderTransform>
+                        <RotateTransform Angle="{Binding ElementName=this, Path=RotateAngle}"></RotateTransform>
+                    </my:BinaryRing.RenderTransform>
                     <!--<my:BinaryRing.Foreground>
                 <SolidColorBrush>
                     <SolidColorBrush.Color>
@@ -157,6 +149,7 @@
                 <Binding Path="Text" Mode="TwoWay"/>
             </TextBox.Text>-->
                 </TextBox>
+
             </StackPanel>
         </ScrollViewer>
     </Grid>

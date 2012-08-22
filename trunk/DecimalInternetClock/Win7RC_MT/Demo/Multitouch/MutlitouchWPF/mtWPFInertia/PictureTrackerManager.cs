@@ -7,18 +7,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
-using System.Windows.Media;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace mtWPFInertia
 {
     /// <summary>
     /// Managing the manipulation of multiple pictures in the same time
     /// </summary>
-    class PictureTrackerManager
+    internal class PictureTrackerManager
     {
-        //Cache for re-use of picture trackers 
+        //Cache for re-use of picture trackers
         private readonly Stack<PictureTracker> _pictureTrackers = new Stack<PictureTracker>();
 
         //Map between touch ids and picture trackers
