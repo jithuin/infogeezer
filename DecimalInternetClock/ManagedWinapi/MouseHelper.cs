@@ -50,11 +50,11 @@ namespace ManagedWinapi
         private static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData,
            UIntPtr dwExtraInfo);
 
-        public static void RightClick(System.Drawing.Point relativePoint_in)
+        public static void RightClick(System.Drawing.Point absolutePoint_in)
         {
-            InjectMouseEvent(MouseEventFlagValues.RIGHTDOWN, relativePoint_in);
-            InjectMouseEvent(MouseEventFlagValues.RIGHTUP);
+            InjectMouseEvent(MouseEventFlagValues.ABSOLUTE, absolutePoint_in);
             Thread.Sleep(100);
+            RightClick();
         }
     }
 
@@ -69,6 +69,9 @@ namespace ManagedWinapi
         RIGHTDOWN = 0x00000008,
         RIGHTUP = 0x00000010,
         WHEEL = 0x00000800,
-        HWHEEL = 0x00001000
+        HWHEEL = 0x00001000,
+        XDOWN = 0x0080,
+        XUP = 0x0100,
+        ABSOLUTE = 0x8000,
     }
 }
