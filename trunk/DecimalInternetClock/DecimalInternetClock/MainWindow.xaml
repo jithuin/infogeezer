@@ -110,16 +110,14 @@
                                Grid.Row="3"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
-                               RenderTransformOrigin="0.5 0.5"
+                              
                                x:Name="_bRing">
                     <my:BinaryRing.DecimalTime>
                         <Binding ElementName="this"
                          Path="DecimalTime.Time"
                          Mode="OneWay"/>
                     </my:BinaryRing.DecimalTime>
-                    <my:BinaryRing.RenderTransform>
-                        <RotateTransform Angle="{Binding ElementName=this, Path=RotateAngle}"></RotateTransform>
-                    </my:BinaryRing.RenderTransform>
+               
                     <!--<my:BinaryRing.Foreground>
                 <SolidColorBrush>
                     <SolidColorBrush.Color>
@@ -128,8 +126,13 @@
                 </SolidColorBrush>
             </my:BinaryRing.Foreground>-->
                 </my:BinaryRing>
-
-                <TextBox Name="textBox"
+                <my:BinaryRing DecimalTime="{Binding ElementName=this,
+                         Path=DecimalTime.Time,
+                         Mode=OneWay}"
+                               HorizontalAlignment="Stretch"/>
+                  
+                
+                    <TextBox Name="textBox"
                  Background="#01000000"
                  Grid.Row="4"
                  Margin="2"

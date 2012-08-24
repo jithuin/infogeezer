@@ -4,7 +4,11 @@
              xmlns:my="clr-namespace:DecimalInternetClock"
              xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
              x:Name="this"
-             >
+             RenderTransformOrigin="0.5 0.5">
+    
+    <UserControl.RenderTransform>
+            <RotateTransform Angle="{Binding ElementName=this, Path=RotateAngle}" ></RotateTransform>
+    </UserControl.RenderTransform>
     <Viewbox>
         <Grid Height="175" Width="175">
             <my:BinaryRingSegment HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">

@@ -11,18 +11,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DecimalInternetClock.Touch;
 
 namespace DecimalInternetClock
 {
     /// <summary>
     /// Interaction logic for BinaryRing.xaml
     /// </summary>
-    public partial class BinaryRing : UserControl
+    public partial class BinaryRing : UserControl, IRotateable
     {
         public BinaryRing()
         {
             InitializeComponent();
         }
+
+
+
+        public double RotateAngle
+        {
+            get { return (double)GetValue(RotateAngleProperty); }
+            set { SetValue(RotateAngleProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for RotateAngle.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RotateAngleProperty =
+            DependencyProperty.Register("RotateAngle", typeof(double), typeof(BinaryRing), new UIPropertyMetadata(0.0));
+
+
 
         public double DecimalTime
         {
