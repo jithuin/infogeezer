@@ -22,6 +22,7 @@ using ManagedWinapi;
 using ManagedWinapi.Windows;
 using Windows7.Multitouch;
 using Windows7.Multitouch.WPF;
+using DecimalInternetClock.Touch;
 
 namespace DecimalInternetClock
 {
@@ -36,24 +37,7 @@ namespace DecimalInternetClock
 
         private Windows7.Multitouch.GestureHandler _gestureHandler;
 
-        protected double _rotateAngle;
-
-        public double RotateAngle
-        {
-            get
-            {
-                return _rotateAngle;
-            }
-            set
-            {
-                if (_rotateAngle != value)
-                {
-                    _rotateAngle = value;
-                    OnPropertyChanged("RotateAngle");
-                }
-            }
-        }
-
+        protected IRotateable _currentRotateableVisual;
         #endregion Properties
 
         #region Constructor
@@ -78,12 +62,11 @@ namespace DecimalInternetClock
                 _gestureHandler.PanEnd += ProcessPan;
 
                 _gestureHandler.Rotate += ProcessRotate;
-                _gestureHandler.RotateBegin += ProcessRotate;
+                _gestureHandler.RotateBegin += ProcessRotateBegin;
                 _gestureHandler.RotateEnd += ProcessRotate;
 
                 _gestureHandler.PressAndTap += ProcessRollOver;
 
-                RotateAngle = 0.0;
                 //_gestureHandler.TwoFingerTap += ProcessTwoFingerTap;
 
                 //_gestureHandler.Zoom += ProcessZoom;
@@ -128,9 +111,29 @@ namespace DecimalInternetClock
             //_translate.Y += args.PanTranslation.Height;
         }
 
+        private void ProcessRotateBegin(object sender, GestureEventArgs args)
+        {
+            VisualTreeHelper.HitTest(this,
+                //null
+                (hittestDepObj) =>
+                {
+                    _currentRotateableVisual = hittestDepObj as IRotateable;
+                    return _currentRotateableVisual != null ? HitTestFilterBehavior.Stop : HitTestFilterBehavior.ContinueSkipSelf;
+                }
+                ,
+                (r) => { return HitTestResultBehavior.Continue;}
+                //(result) => 
+                //{ _currentRotateableVisual = result.VisualHit as IRotateable; 
+                //    return _currentRotateableVisual!= null? HitTestResultBehavior.Stop: HitTestResultBehavior.Continue;}
+                ,
+                new PointHitTestParameters((Point)args.Center.ToVector()));
+            ProcessRotate(sender, args);
+        }
+
         private void ProcessRotate(object sender, GestureEventArgs args)
         {
-            RotateAngle -= args.RotateAngle * 180 / Math.PI;
+            if(_currentRotateableVisual!= null)
+                _currentRotateableVisual.RotateAngle -= args.RotateAngle * 180 / Math.PI;
         }
 
         private void ProcessRollOver(object sender, GestureEventArgs args)
