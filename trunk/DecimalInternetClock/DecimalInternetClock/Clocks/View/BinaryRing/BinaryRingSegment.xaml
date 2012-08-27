@@ -120,12 +120,12 @@
                 </DrawingBrush.Drawing>
             </DrawingBrush>
         </Grid.OpacityMask>
-        <Grid.RenderTransform>
+        <!--<Grid.RenderTransform>
             <TransformGroup>
             <RotateTransform Angle="180"/>
                 <ScaleTransform ScaleY="-1"/>
                 </TransformGroup>
-        </Grid.RenderTransform>
+        </Grid.RenderTransform>-->
     </Grid>
 
 </UserControl>
