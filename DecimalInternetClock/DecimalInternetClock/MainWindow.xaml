@@ -39,7 +39,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <Grid Name="windowContent" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid Name="windowContent" >
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -79,9 +79,10 @@
                       Style="{StaticResource ScrollViewerStyle}"
                       x:Name="_scrollViewer">
             <StackPanel Orientation="Vertical"
-                        MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+                     
                         >
                 <my:DecimalClock Grid.Row="1" Background="Transparent"
+                                 MouseLeftButtonDown="Grid_MouseLeftButtonDown"
                          Visibility="{Binding Path=DecimalClockVisibility}">
 
                     <my:DecimalClock.DecimalTime>
