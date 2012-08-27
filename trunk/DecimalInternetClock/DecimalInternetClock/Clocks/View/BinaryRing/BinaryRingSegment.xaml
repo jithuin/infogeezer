@@ -3,10 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      xmlns:my="clr-namespace:DecimalInternetClock"
              xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
+             RenderTransformOrigin="0.5,0.5"
+             MouseLeftButtonDown="this_MouseLeftButtonDown"
+             MouseMove="this_MouseMove"
+             MouseLeftButtonUp="this_MouseLeftButtonDown"
     x:Name="this">
-    <!--<UserControl.RenderTransform>
+    <UserControl.RenderTransform>
         <RotateTransform Angle="{Binding ElementName=this, Path=RotateAngle}"></RotateTransform>
-    </UserControl.RenderTransform>-->
+    </UserControl.RenderTransform>
     <!--<Viewbox Stretch="Uniform">-->
     <Grid RenderTransformOrigin="0.5,0.5">
         <Grid.ColumnDefinitions>

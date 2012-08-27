@@ -26,7 +26,7 @@ namespace ManagedWinapi
         {
             InjectMouseEvent(MouseEventFlagValues.LEFTDOWN);
             InjectMouseEvent(MouseEventFlagValues.LEFTUP);
-            Thread.Sleep(100);
+            Thread.Sleep(10);
         }
 
         public static void InjectMouseEvent(MouseEventFlagValues flags)
@@ -43,7 +43,7 @@ namespace ManagedWinapi
         {
             InjectMouseEvent(MouseEventFlagValues.RIGHTDOWN);
             InjectMouseEvent(MouseEventFlagValues.RIGHTUP);
-            Thread.Sleep(100);
+            Thread.Sleep(10);
         }
 
         [DllImport("user32.dll")]

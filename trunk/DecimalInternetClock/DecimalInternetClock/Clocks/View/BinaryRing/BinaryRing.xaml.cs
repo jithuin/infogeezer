@@ -18,7 +18,7 @@ namespace DecimalInternetClock
     /// <summary>
     /// Interaction logic for BinaryRing.xaml
     /// </summary>
-    public partial class BinaryRing : UserControl, IRotateable
+    public partial class BinaryRing : UserControl//, IRotateable
     {
         public BinaryRing()
         {
