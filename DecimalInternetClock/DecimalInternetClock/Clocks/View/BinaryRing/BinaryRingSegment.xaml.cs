@@ -24,6 +24,7 @@ namespace DecimalInternetClock
         {
             InitializeComponent();
         }
+
         public int HexTime
         {
             get { return (int)GetValue(HexTimeProperty); }
@@ -33,7 +34,6 @@ namespace DecimalInternetClock
         // Using a DependencyProperty as the backing store for HexTime.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty HexTimeProperty =
             DependencyProperty.Register("HexTime", typeof(int), typeof(BinaryRingSegment), new UIPropertyMetadata(0));
-
 
         public double RotateAngle
         {
@@ -50,7 +50,8 @@ namespace DecimalInternetClock
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 _isRotationEnabled = true;
-                _rotationStartPoint = e.GetPosition(this);
+                _rotationStartPoint = this.PointToScreen(e.GetPosition(this));
+                _rotationStartAngle = this.RotateAngle;
                 _transformControl = this;
                 e.MouseDevice.Capture(this, CaptureMode.SubTree);
                 e.Handled = true;
@@ -65,22 +66,26 @@ namespace DecimalInternetClock
                     e.Handled = true;
                 }
             }
-            
         }
+
         UserControl _transformControl = null;
         bool _isRotationEnabled = false;
+        double _rotationStartAngle = 0.0;
         Point _rotationStartPoint;
+        Point _rotationCurrentPoint;
+        Point _centerPoint;
+
         private void this_MouseMove(object sender, MouseEventArgs e)
         {
             if (_isRotationEnabled && _transformControl == this)
             {
-                Point rotationCurrentPoint = e.GetPosition(this);
-                Point centerPoint = new Point(this.ActualWidth / 2, this.ActualHeight / 2);
-                this.RotateAngle = Vector.AngleBetween(rotationCurrentPoint - centerPoint, _rotationStartPoint - centerPoint);
-                e.Handled = true;
+                _rotationCurrentPoint = this.PointToScreen(e.GetPosition(this));
 
+                _centerPoint = this.PointToScreen(new Point(this.ActualWidth / 2, this.ActualHeight / 2));
+                double angle = Vector.AngleBetween(_rotationStartPoint - _centerPoint, _rotationCurrentPoint - _centerPoint);
+                this.RotateAngle = angle + _rotationStartAngle;
+                e.Handled = true;
             }
         }
-
     }
 }

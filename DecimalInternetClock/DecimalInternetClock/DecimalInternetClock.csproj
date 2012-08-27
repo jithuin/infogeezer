@@ -188,6 +188,7 @@
     <Compile Include="Clocks\Model\DecimalModel.cs" />
     <Compile Include="Clocks\Model\IDecimalClock.cs" />
     <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyState.cs" />
+    <Compile Include="Touch\IRotateable.cs" />
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="ValueConverters\BooleanConverters.cs" />
     <Compile Include="ValueConverters\DebugConverter.cs" />
