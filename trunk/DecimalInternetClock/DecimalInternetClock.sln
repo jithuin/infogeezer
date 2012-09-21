@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mtWPFManipulation", "Win7RC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mtWPFScratchPad", "Win7RC_MT\Demo\Multitouch\MutlitouchWPF\mtWPFScratchPad\mtWPFScratchPad.csproj", "{9A4F04AD-D0BB-4423-82DF-B1D3163F5C2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkRichTextWindow", "LinkRichTextWindow\LinkRichTextWindow.csproj", "{2A6D4560-0844-44DB-855A-2915F5E25404}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +153,16 @@ Global
 		{9A4F04AD-D0BB-4423-82DF-B1D3163F5C2B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9A4F04AD-D0BB-4423-82DF-B1D3163F5C2B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9A4F04AD-D0BB-4423-82DF-B1D3163F5C2B}.Release|Win32.ActiveCfg = Release|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2A6D4560-0844-44DB-855A-2915F5E25404}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
