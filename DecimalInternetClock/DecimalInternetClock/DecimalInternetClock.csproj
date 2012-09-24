@@ -199,6 +199,7 @@
     <Compile Include="HotKeys\ActivatorHotkey.cs">
     </Compile>
     <Compile Include="HotKeys\HotkeyProxy.cs" />
+    <Compile Include="HotKeys\IHotkey.cs" />
     <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyList.cs" />
     <Compile Include="HotKeys\HotKeyFeatureExtension.cs">
     </Compile>
