@@ -10,7 +10,7 @@ namespace DecimalInternetClock.Helpers
 {
     public static class HotKeyHelper
     {
-        public static void ModifyHotKey(this IHotkey hotkey_in, FKeyModifiers mod_in, Keys key_in)
+        public static void ModifyHotKey(this Hotkey hotkey_in, FKeyModifiers mod_in, Keys key_in)
         {
             hotkey_in.Enabled = false;
             hotkey_in.SetKeyModifiers(mod_in);
@@ -18,7 +18,7 @@ namespace DecimalInternetClock.Helpers
             hotkey_in.Enabled = true;
         }
 
-        private static void SetKeyModifiers(this IHotkey hotkey_in, FKeyModifiers mod_in)
+        private static void SetKeyModifiers(this Hotkey hotkey_in, FKeyModifiers mod_in)
         {
             hotkey_in.Alt = (mod_in & FKeyModifiers.Alt) != 0;
             hotkey_in.Ctrl = (mod_in & FKeyModifiers.Ctrl) != 0;

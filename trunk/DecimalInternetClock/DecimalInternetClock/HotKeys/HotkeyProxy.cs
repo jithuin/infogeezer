@@ -7,7 +7,7 @@ using ManagedWinapi;
 namespace DecimalInternetClock.HotKeys
 {
     [Serializable]
-    public class HotkeyProxy : IHotkey
+    public class HotkeyProxy
     {
         [NonSerialized]
         protected Hotkey _hotkey;
@@ -17,7 +17,7 @@ namespace DecimalInternetClock.HotKeys
             _hotkey = new Hotkey();
         }
 
-        #region IHotkey Members
+        #region Properties
 
         public bool Alt
         {
@@ -52,18 +52,6 @@ namespace DecimalInternetClock.HotKeys
             set
             {
                 _hotkey.Enabled = value;
-            }
-        }
-
-        public event EventHandler HotkeyPressed
-        {
-            add
-            {
-                _hotkey.HotkeyPressed += value;
-            }
-            remove
-            {
-                _hotkey.HotkeyPressed -= value;
             }
         }
 
@@ -103,6 +91,18 @@ namespace DecimalInternetClock.HotKeys
             }
         }
 
-        #endregion IHotkey Members
+        #endregion Properties
+
+        public event EventHandler HotkeyPressed
+        {
+            add
+            {
+                _hotkey.HotkeyPressed += value;
+            }
+            remove
+            {
+                _hotkey.HotkeyPressed -= value;
+            }
+        }
     }
 }
