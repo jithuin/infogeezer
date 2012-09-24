@@ -65,7 +65,7 @@ namespace LinkRichTextWindow
                     }
                     sb.AppendLine();
                 }
-                _tb.Text = sb.ToString();
+                //_tb.Text = sb.ToString();
             }
         }
 
@@ -101,6 +101,15 @@ namespace LinkRichTextWindow
                 fs.Flush();
                 fs.Close();
             }
+        }
+
+        private void _rtb_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            //_rtb.Document.PageWidth = _rtb.ActualWidth - 25; // -scrollbar.Width
+            _rtb.Document.Blocks.Max(new Func<Block, decimal>((block) =>
+            {
+                return block is Table ? 10 : 0;
+            }));
         }
     }
 }

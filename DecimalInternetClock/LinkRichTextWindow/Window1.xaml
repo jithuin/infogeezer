@@ -9,18 +9,24 @@
             </Paragraph>
         </FlowDocument>
     </Window.Resources>
-    <ListBox>
 
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>-->
-        <TextBox MinWidth="200" HorizontalAlignment="Stretch" x:Name="_tb" IsReadOnly="False" TextWrapping="Wrap" Text="{Binding ElementName=rtb, Path=Text}">
+        <!--<TextBox MinWidth="200" HorizontalAlignment="Stretch" x:Name="_tb" IsReadOnly="False" TextWrapping="Wrap" Text="{Binding ElementName=rtb, Path=Text}">
 
-        </TextBox>
+        </TextBox>-->
 
-        <RichTextBox Hyperlink.RequestNavigate="Hyperlink_RequestNavigate"  MinWidth="200" HorizontalAlignment="Stretch" x:Name="_rtb" IsDocumentEnabled="True" Grid.Row="1" IsReadOnly="False">
+        <RichTextBox  Hyperlink.RequestNavigate="Hyperlink_RequestNavigate"
+                      VerticalAlignment="Stretch"
+                      HorizontalAlignment="Stretch"
+                      Width="Auto"
+                      Height="Auto"
+                      VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Visible"
+                      MinWidth="200"
+                      SizeChanged="_rtb_SizeChanged"
+                      x:Name="_rtb"
+                      IsDocumentEnabled="True"
+                      Grid.Row="1"
+                      IsReadOnly="False">
             <FlowDocument>
                 <Paragraph>
                     <Hyperlink NavigateUri="http://www.google.com"
@@ -31,87 +37,5 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <!--<RichTextBox x:Name="_rtb_Load" MinWidth="200" HorizontalAlignment="Stretch" Grid.Row="2" IsDocumentEnabled="True">
-            <FlowDocument>
-                <Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                         xml:space="preserve"
-                         TextAlignment="Left"
-                         LineHeight="Auto"
-                         IsHyphenationEnabled="False"
-                         xml:lang="en-us"
-                         FlowDirection="LeftToRight"
-                         NumberSubstitution.CultureSource="Text"
-                         NumberSubstitution.Substitution="AsCulture"
-                         FontFamily="Tahoma"
-                         FontStyle="Normal"
-                         FontWeight="Normal"
-                         FontStretch="Normal"
-                         FontSize="11"
-                         Foreground="#FF000000"
-                         Typography.StandardLigatures="True"
-                         Typography.ContextualLigatures="True"
-                         Typography.DiscretionaryLigatures="False"
-                         Typography.HistoricalLigatures="False"
-                         Typography.AnnotationAlternates="0"
-                         Typography.ContextualAlternates="True"
-                         Typography.HistoricalForms="False"
-                         Typography.Kerning="True"
-                         Typography.CapitalSpacing="False"
-                         Typography.CaseSensitiveForms="False"
-                         Typography.StylisticSet1="False"
-                         Typography.StylisticSet2="False"
-                         Typography.StylisticSet3="False"
-                         Typography.StylisticSet4="False"
-                         Typography.StylisticSet5="False"
-                         Typography.StylisticSet6="False"
-                         Typography.StylisticSet7="False"
-                         Typography.StylisticSet8="False"
-                         Typography.StylisticSet9="False"
-                         Typography.StylisticSet10="False"
-                         Typography.StylisticSet11="False"
-                         Typography.StylisticSet12="False"
-                         Typography.StylisticSet13="False"
-                         Typography.StylisticSet14="False"
-                         Typography.StylisticSet15="False"
-                         Typography.StylisticSet16="False"
-                         Typography.StylisticSet17="False"
-                         Typography.StylisticSet18="False"
-                         Typography.StylisticSet19="False"
-                         Typography.StylisticSet20="False"
-                         Typography.Fraction="Normal"
-                         Typography.SlashedZero="False"
-                         Typography.MathematicalGreek="False"
-                         Typography.EastAsianExpertForms="False"
-                         Typography.Variants="Normal"
-                         Typography.Capitals="Normal"
-                         Typography.NumeralStyle="Normal"
-                         Typography.NumeralAlignment="Normal"
-                         Typography.EastAsianWidths="Normal"
-                         Typography.EastAsianLanguage="Normal"
-                         Typography.StandardSwashes="0"
-                         Typography.ContextualSwashes="0"
-                         Typography.StylisticAlternates="0">
-                    <Paragraph>
-                        <Hyperlink Foreground="#FF0000FF"
-                                   NavigateUri="http://www.google.com/"
-                                   TextDecorations="Underline">
-                            <Run>Google</Run>
-                        </Hyperlink>
-                        <Run> </Run>
-                        <Hyperlink Foreground="#FF0000FF"
-                                   NavigateUri="notes://77d1/C12577460047930B/616BA41B62705458882572F0007FCB9B/B1CDDF0028533798C1257A7D00394794"
-                                   TextDecorations="Underline">
-                            <Run>Notes</Run>
-                        </Hyperlink>
-                    </Paragraph>
-                </Section>
-            </FlowDocument>
-        </RichTextBox>
-        <FlowDocumentScrollViewer HorizontalAlignment="Stretch" x:Name="_fdsv" Grid.Row="3">
-            <FlowDocument>
-                <Section xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve" TextAlignment="Left" LineHeight="Auto" IsHyphenationEnabled="False" xml:lang="en-us" FlowDirection="LeftToRight" NumberSubstitution.CultureSource="Text" NumberSubstitution.Substitution="AsCulture" FontFamily="Tahoma" FontStyle="Normal" FontWeight="Normal" FontStretch="Normal" FontSize="11" Foreground="#FF000000" Typography.StandardLigatures="True" Typography.ContextualLigatures="True" Typography.DiscretionaryLigatures="False" Typography.HistoricalLigatures="False" Typography.AnnotationAlternates="0" Typography.ContextualAlternates="True" Typography.HistoricalForms="False" Typography.Kerning="True" Typography.CapitalSpacing="False" Typography.CaseSensitiveForms="False" Typography.StylisticSet1="False" Typography.StylisticSet2="False" Typography.StylisticSet3="False" Typography.StylisticSet4="False" Typography.StylisticSet5="False" Typography.StylisticSet6="False" Typography.StylisticSet7="False" Typography.StylisticSet8="False" Typography.StylisticSet9="False" Typography.StylisticSet10="False" Typography.StylisticSet11="False" Typography.StylisticSet12="False" Typography.StylisticSet13="False" Typography.StylisticSet14="False" Typography.StylisticSet15="False" Typography.StylisticSet16="False" Typography.StylisticSet17="False" Typography.StylisticSet18="False" Typography.StylisticSet19="False" Typography.StylisticSet20="False" Typography.Fraction="Normal" Typography.SlashedZero="False" Typography.MathematicalGreek="False" Typography.EastAsianExpertForms="False" Typography.Variants="Normal" Typography.Capitals="Normal" Typography.NumeralStyle="Normal" Typography.NumeralAlignment="Normal" Typography.EastAsianWidths="Normal" Typography.EastAsianLanguage="Normal" Typography.StandardSwashes="0" Typography.ContextualSwashes="0" Typography.StylisticAlternates="0"><Paragraph><Hyperlink Foreground="#FF0000FF" NavigateUri="http://www.google.com/" TextDecorations="Underline"><Run>Google</Run></Hyperlink><Run> </Run><Hyperlink Foreground="#FF0000FF" NavigateUri="notes://77d1/C12577460047930B/616BA41B62705458882572F0007FCB9B/B1CDDF0028533798C1257A7D00394794" TextDecorations="Underline"><Run>Notes</Run></Hyperlink></Paragraph></Section>
 
-            </FlowDocument>
-        </FlowDocumentScrollViewer>-->
-    </ListBox>
 </Window>
