@@ -1,0 +1,5 @@
+ManagedWinapi - http://sourceforge.net/projects/mwinapi/ - LGPL v2
+Win7 MultiTouch - http://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=WindowsTouch&DownloadId=5038 - MSPL, 
+	Only binary can be distr.
+FastJSON - http://fastjson.codeplex.com/license - GPL v2
+ColorPicker - http://www.codeproject.com/Articles/229442/WPF-Color-Picker-VS2010-Style - CPOL (http://www.codeproject.com/info/cpol10.aspx)

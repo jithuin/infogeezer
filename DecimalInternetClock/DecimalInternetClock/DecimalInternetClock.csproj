@@ -193,13 +193,13 @@
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
     <Compile Include="Helpers\HotKeyHelper.cs" />
+    <Compile Include="Helpers\MouseHelper.cs" />
     <Compile Include="Helpers\ResizeHotkeyListHelper.cs" />
     <Compile Include="Helpers\SerializerHelper.cs" />
     <Compile Include="Helpers\VectorHelper.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
     </Compile>
     <Compile Include="HotKeys\HotkeyProxy.cs" />
-    <Compile Include="HotKeys\IHotkey.cs" />
     <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyList.cs" />
     <Compile Include="HotKeys\HotKeyFeatureExtension.cs">
     </Compile>

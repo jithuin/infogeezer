@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Forms;
 using DecimalInternetClock.HotKeys;
+using ManagedWinapi;
+using Forms = System.Windows.Forms;
 
 namespace DecimalInternetClock.Helpers
 {
@@ -52,23 +51,23 @@ namespace DecimalInternetClock.Helpers
 
         static FKeyModifiers _defaultModifiers = FKeyModifiers.Alt | FKeyModifiers.Ctrl;
 
-        static Dictionary<WinPos, List<Keys>> _posCommandKey = new Dictionary<WinPos, List<Keys>>()
+        static Dictionary<WinPos, List<Forms.Keys>> _posCommandKey = new Dictionary<WinPos, List<Forms.Keys>>()
         {
-            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Total), new List<Keys>(){Keys.Left}},
-            //{new WinPos(EWinPosHoriz.Middle, EWinPosVert.Total), new List<Keys>(){Keys.Left, Keys.NumPad4}},
-            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Total), new List<Keys>(){Keys.Right}},
-            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Top), new List<Keys>(){Keys.NumPad7}},
-            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Top), new List<Keys>(){Keys.NumPad8}},
-            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Top), new List<Keys>(){Keys.NumPad9}},
-            {new WinPos(EWinPosHoriz.Total, EWinPosVert.Top), new List<Keys>(){Keys.Up}},
-            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Bottom), new List<Keys>(){Keys.NumPad1}},
-            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Bottom), new List<Keys>(){Keys.NumPad2}},
-            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Bottom), new List<Keys>(){Keys.NumPad3}},
-            {new WinPos(EWinPosHoriz.Total, EWinPosVert.Bottom), new List<Keys>(){Keys.Down}},
-            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Centre), new List<Keys>(){Keys.NumPad4}},
-            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Centre), new List<Keys>(){Keys.NumPad5}},
-            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Centre), new List<Keys>(){Keys.NumPad6}},
-            //{new WinPos(EWinPosHoriz.Total, EWinPosVert.Centre), new List<Keys>(){Keys.Left, Keys.NumPad4}},
+            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Total), new List<Forms.Keys>(){Forms.Keys.Left}},
+            //{new WinPos(EWinPosHoriz.Middle, EWinPosVert.Total), new List<Forms.Keys>(){Forms.Keys.Left, Forms.Keys.NumPad4}},
+            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Total), new List<Forms.Keys>(){Forms.Keys.Right}},
+            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Top), new List<Forms.Keys>(){Forms.Keys.NumPad7}},
+            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Top), new List<Forms.Keys>(){Forms.Keys.NumPad8}},
+            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Top), new List<Forms.Keys>(){Forms.Keys.NumPad9}},
+            {new WinPos(EWinPosHoriz.Total, EWinPosVert.Top), new List<Forms.Keys>(){Forms.Keys.Up}},
+            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad1}},
+            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad2}},
+            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad3}},
+            {new WinPos(EWinPosHoriz.Total, EWinPosVert.Bottom), new List<Forms.Keys>(){Forms.Keys.Down}},
+            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Centre), new List<Forms.Keys>(){Forms.Keys.NumPad4}},
+            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Centre), new List<Forms.Keys>(){Forms.Keys.NumPad5}},
+            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Centre), new List<Forms.Keys>(){Forms.Keys.NumPad6}},
+            //{new WinPos(EWinPosHoriz.Total, EWinPosVert.Centre), new List<Forms.Keys>(){Forms.Keys.Left, Forms.Keys.NumPad4}},
         };
 
         static ResizeHotkeyListHelper()
@@ -82,13 +81,29 @@ namespace DecimalInternetClock.Helpers
             foreach (WinPos wp in _posCommandKey.Keys)
             {
                 ResizerHotKey hk = new ResizerHotKey();
-                foreach (Keys key in _posCommandKey[wp])
-                    hk.Add(_defaultModifiers, key);
+                foreach (Forms.Keys key in _posCommandKey[wp])
+                {
+                    try
+                    {
+                        hk.Add(_defaultModifiers, key);
+                    }
+                    catch (HotkeyAlreadyInUseException ex)
+                    {
+                        Application.Current.Dispatcher.BeginInvoke(new Action(delegate()
+                        {
+                            System.Windows.Forms.MessageBox.Show(String.Format("Couldn't register: \"{0} + {1}\" hotkey. It won't work", _defaultModifiers, key));
+                        }
+                        ));
+                    }
+                }
 
-                foreach (double portion in _portions)
-                    hk.ResizeStates.Add(CreateResizeState(wp, portion));
+                if (hk.Count != 0)
+                {
+                    foreach (double portion in _portions)
+                        hk.ResizeStates.Add(CreateResizeState(wp, portion));
 
-                rhkList.Add(hk);
+                    rhkList.Add(hk);
+                }
             }
         }
 

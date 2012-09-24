@@ -20,11 +20,11 @@ namespace DecimalInternetClock.HotKeys
     }
 
     [Serializable]
-    public abstract class HotKeyFeatureExtension : IList<HotkeyProxy>, IList
+    public abstract class HotKeyFeatureExtension : IList<Hotkey>, IList
     {
         #region Properties and Fields
 
-        protected List<HotkeyProxy> _hotkeyList;
+        protected List<Hotkey> _hotkeyList;
 
         #endregion Properties and Fields
 
@@ -32,7 +32,7 @@ namespace DecimalInternetClock.HotKeys
 
         public HotKeyFeatureExtension()
         {
-            _hotkeyList = new List<HotkeyProxy>();
+            _hotkeyList = new List<Hotkey>();
         }
 
         public HotKeyFeatureExtension(FKeyModifiers mod_in, Keys key_in)
@@ -49,7 +49,7 @@ namespace DecimalInternetClock.HotKeys
 
         public void Add(FKeyModifiers mod_in, Keys key_in)
         {
-            HotkeyProxy hotkey = new HotkeyProxy();
+            Hotkey hotkey = new Hotkey();
             hotkey.ModifyHotKey(mod_in, key_in);
             this.Add(hotkey);
         }
@@ -58,14 +58,14 @@ namespace DecimalInternetClock.HotKeys
 
         #region Interface implementations
 
-        #region IList<HotkeyProxy> Members
+        #region IList<Hotkey> Members
 
-        public int IndexOf(HotkeyProxy item)
+        public int IndexOf(Hotkey item)
         {
             return _hotkeyList.IndexOf(item);
         }
 
-        public void Insert(int index, HotkeyProxy item)
+        public void Insert(int index, Hotkey item)
         {
             item.HotkeyPressed += new EventHandler(HotKeyFeatureExtension_HotkeyPressed);
             _hotkeyList.Insert(index, item);
@@ -77,7 +77,7 @@ namespace DecimalInternetClock.HotKeys
             _hotkeyList.RemoveAt(index);
         }
 
-        public HotkeyProxy this[int index]
+        public Hotkey this[int index]
         {
             get
             {
@@ -94,11 +94,11 @@ namespace DecimalInternetClock.HotKeys
             }
         }
 
-        #endregion IList<HotkeyProxy> Members
+        #endregion IList<Hotkey> Members
 
-        #region ICollection<HotkeyProxy> Members
+        #region ICollection<Hotkey> Members
 
-        public void Add(HotkeyProxy item)
+        public void Add(Hotkey item)
         {
             item.HotkeyPressed += new EventHandler(HotKeyFeatureExtension_HotkeyPressed);
             _hotkeyList.Add(item);
@@ -106,18 +106,18 @@ namespace DecimalInternetClock.HotKeys
 
         public void Clear()
         {
-            foreach (HotkeyProxy hk in _hotkeyList)
+            foreach (Hotkey hk in _hotkeyList)
                 hk.HotkeyPressed -= new EventHandler(HotKeyFeatureExtension_HotkeyPressed);
 
             _hotkeyList.Clear();
         }
 
-        public bool Contains(HotkeyProxy item)
+        public bool Contains(Hotkey item)
         {
             return _hotkeyList.Contains(item);
         }
 
-        public void CopyTo(HotkeyProxy[] array, int arrayIndex)
+        public void CopyTo(Hotkey[] array, int arrayIndex)
         {
             _hotkeyList.CopyTo(array, arrayIndex);
         }
@@ -132,7 +132,7 @@ namespace DecimalInternetClock.HotKeys
             get { return false; }
         }
 
-        public bool Remove(HotkeyProxy item)
+        public bool Remove(Hotkey item)
         {
             if (_hotkeyList.Remove(item))
             {
@@ -143,49 +143,38 @@ namespace DecimalInternetClock.HotKeys
                 return false;
         }
 
-        #endregion ICollection<HotkeyProxy> Members
+        #endregion ICollection<Hotkey> Members
 
-        #region IEnumerable<HotkeyProxy> Members
+        #region IEnumerable<Hotkey> Members
 
-        public IEnumerator<HotkeyProxy> GetEnumerator()
+        public IEnumerator<Hotkey> GetEnumerator()
         {
             return _hotkeyList.GetEnumerator();
         }
 
-        #endregion IEnumerable<HotkeyProxy> Members
-
-        #region IEnumerable Members
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return ((System.Collections.IEnumerable)_hotkeyList).GetEnumerator();
-        }
-
-        #endregion IEnumerable Members
-
-        #endregion Interface implementations
+        #endregion IEnumerable<Hotkey> Members
 
         #region IList Members
 
         public int Add(object value)
         {
-            this.Add((HotkeyProxy)value);
+            this.Add((Hotkey)value);
             return this.Count - 1;
         }
 
         public bool Contains(object value)
         {
-            return this.Contains((HotkeyProxy)value);
+            return this.Contains((Hotkey)value);
         }
 
         public int IndexOf(object value)
         {
-            return this.IndexOf((HotkeyProxy)value);
+            return this.IndexOf((Hotkey)value);
         }
 
         public void Insert(int index, object value)
         {
-            this.Insert(index, (HotkeyProxy)value);
+            this.Insert(index, (Hotkey)value);
         }
 
         public bool IsFixedSize
@@ -195,7 +184,7 @@ namespace DecimalInternetClock.HotKeys
 
         public void Remove(object value)
         {
-            this.Remove((HotkeyProxy)value);
+            this.Remove((Hotkey)value);
         }
 
         object IList.this[int index]
@@ -206,7 +195,7 @@ namespace DecimalInternetClock.HotKeys
             }
             set
             {
-                this[index] = (HotkeyProxy)value;
+                this[index] = (Hotkey)value;
             }
         }
 
@@ -216,7 +205,7 @@ namespace DecimalInternetClock.HotKeys
 
         public void CopyTo(Array array, int index)
         {
-            this.CopyTo(array.Cast<HotkeyProxy>().ToArray(), index);
+            this.CopyTo(array.Cast<Hotkey>().ToArray(), index);
         }
 
         public bool IsSynchronized
@@ -230,6 +219,17 @@ namespace DecimalInternetClock.HotKeys
         }
 
         #endregion ICollection Members
+
+        #region IEnumerable Members
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return ((System.Collections.IEnumerable)_hotkeyList).GetEnumerator();
+        }
+
+        #endregion IEnumerable Members
+
+        #endregion Interface implementations
     }
 
     public class HotKeyStore : List<Hotkey>
