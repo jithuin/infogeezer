@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F42D6367-B340-4CE4-9AB7-43EEF3692FF4}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -66,12 +66,6 @@
   <ItemGroup>
     <Compile Include="WPFWindowWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Windows7.Multitouch\Windows7.Multitouch.csproj">
-      <Project>{BA3201ED-9FDD-44E5-AA16-5A14526BB908}</Project>
-      <Name>Windows7.Multitouch</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
