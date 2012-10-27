@@ -6,6 +6,7 @@
              xmlns:nvp="clr-namespace:DecimalInternetClock.NamedValues"
              xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
              xmlns:ccom="clr-namespace:DecimalInternetClock.CustomCommands"
+             xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit.PropertyGrid;assembly=WPFToolkit.Extended"
              Height="300" Width="300"
              x:Name="thisOptionsControl"
              >
@@ -22,17 +23,18 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TabControl Grid.ColumnSpan="3" >
-            <!--<TabItem Header="Calibration Parameters">
+        <xctk:PropertyGrid Grid.ColumnSpan="3" SelectedObject="{Binding Source={x:Static prop:Settings.Default}}"/>
+        <!--<TabControl Grid.ColumnSpan="3" >
+            <TabItem Header="Calibration Parameters">
                 <nvp:NamedValueListControl x:Name="nvlCalibParams"/>
             </TabItem>
             <TabItem Header="UI Parameters" >
                 <nvp:NamedValueListControl x:Name="nvlUiProg" />
-            </TabItem>-->
+            </TabItem>
             <TabItem Header="Basic Settings">
                 <nvp:NamedValueListControl x:Name="nvlSettings" />
             </TabItem>
-        </TabControl>
+        </TabControl>-->
         <Button x:Name="btOK"
                 Grid.Row="1"
                 HorizontalAlignment="Center"

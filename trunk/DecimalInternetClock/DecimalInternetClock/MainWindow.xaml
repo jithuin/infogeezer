@@ -51,7 +51,7 @@
             <RowDefinition Height="20" MinHeight="20"/>
         </Grid.RowDefinitions>
         <!--Window Header-->
-        <Grid MinHeight="30" Height="30" MaxHeight="50" Visibility="{Binding WindowHeaderVisibility}">
+        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown" MinHeight="30" Height="30" MaxHeight="50" Visibility="{Binding WindowHeaderVisibility}">
             <Border>
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -79,7 +79,7 @@
                       Style="{StaticResource ScrollViewerStyle}"
                       x:Name="_scrollViewer">
             <StackPanel Orientation="Vertical"
-                     
+
                         >
                 <my:DecimalClock Grid.Row="1" Background="Transparent"
                                  MouseLeftButtonDown="Grid_MouseLeftButtonDown"
@@ -95,7 +95,7 @@
                 <Binding ElementName="this" Path="Transparency"/>
             </my:DecimalClock.Transparency>-->
                 </my:DecimalClock>
-                <my:BinaryClock Grid.Row="2" Background="Transparent"
+                <my:BinaryClock MouseLeftButtonDown="Grid_MouseLeftButtonDown" Grid.Row="2" Background="Transparent"
                         Visibility="{Binding Path=BinaryClockVisibility}">
                     <my:BinaryClock.DecimalTime>
                         <Binding ElementName="this" Path="DecimalTime.Time" Mode="OneWay"></Binding>
@@ -111,14 +111,14 @@
                                Grid.Row="3"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Stretch"
-                              
+
                                x:Name="_bRing">
                     <my:BinaryRing.DecimalTime>
                         <Binding ElementName="this"
                          Path="DecimalTime.Time"
                          Mode="OneWay"/>
                     </my:BinaryRing.DecimalTime>
-               
+
                     <!--<my:BinaryRing.Foreground>
                 <SolidColorBrush>
                     <SolidColorBrush.Color>
@@ -127,12 +127,11 @@
                 </SolidColorBrush>
             </my:BinaryRing.Foreground>-->
                 </my:BinaryRing>
-                <my:BinaryRing DecimalTime="{Binding ElementName=this,
+                <!--<my:BinaryRing DecimalTime="{Binding ElementName=this,
                          Path=DecimalTime.Time,
                          Mode=OneWay}"
-                               HorizontalAlignment="Stretch"/>
-                  
-                
+                               HorizontalAlignment="Stretch"/>-->
+
                     <TextBox Name="textBox"
                  Background="#01000000"
                  Grid.Row="4"

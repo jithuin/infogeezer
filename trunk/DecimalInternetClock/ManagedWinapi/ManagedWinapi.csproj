@@ -70,7 +70,6 @@
     <Compile Include="Hook.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="IHotkey.cs" />
     <Compile Include="InputBlocker.cs" />
     <Compile Include="JournalHook.cs">
       <SubType>Component</SubType>
