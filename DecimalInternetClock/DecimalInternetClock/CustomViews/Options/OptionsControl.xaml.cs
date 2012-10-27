@@ -42,7 +42,7 @@ namespace DecimalInternetClock.Options
         {
             SettingsVisualBinding = new Dictionary<NamedValueListControl, ApplicationSettingsBase>()
                     {
-                        {this.nvlSettings,Settings.Default},
+                        //{this.nvlSettings,Settings.Default},
                         //{this.nvlCalibParams,CalibParams.Default},
                         //{this.nvlUiProg,UiProg.Default},
                     };

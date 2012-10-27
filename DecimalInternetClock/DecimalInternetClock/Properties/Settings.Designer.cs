@@ -109,7 +109,7 @@ namespace DecimalInternetClock.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("CanResize")]
+        [global::System.Configuration.DefaultSettingValueAttribute("CanResizeWithGrip")]
         public global::System.Windows.ResizeMode ResizeMode {
             get {
                 return ((global::System.Windows.ResizeMode)(this["ResizeMode"]));

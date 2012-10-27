@@ -24,7 +24,7 @@
       <Value Profile="(Default)">Visible</Value>
     </Setting>
     <Setting Name="ResizeMode" Type="System.Windows.ResizeMode" Scope="User">
-      <Value Profile="(Default)">CanResize</Value>
+      <Value Profile="(Default)">CanResizeWithGrip</Value>
     </Setting>
     <Setting Name="Text" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
