@@ -52,7 +52,7 @@
                             <GeometryDrawing.Brush>
                                 <SolidColorBrush>
                                     <SolidColorBrush.Color>
-                                        <Binding ElementName="this" Path="HexTime" Mode="OneWay" ConverterParameter="0">
+                                        <Binding ElementName="this" Path="HexTime" Mode="OneWay" ConverterParameter="3">
                                             <Binding.Converter>
                                                 <vc:IntToColorValueConverter/>
                                             </Binding.Converter>
@@ -70,7 +70,7 @@
                             <GeometryDrawing.Brush>
                                 <SolidColorBrush>
                                     <SolidColorBrush.Color>
-                                        <Binding ElementName="this" Path="HexTime" Mode="OneWay" ConverterParameter="1">
+                                        <Binding ElementName="this" Path="HexTime" Mode="OneWay" ConverterParameter="2">
                                             <Binding.Converter>
                                                 <vc:IntToColorValueConverter/>
                                             </Binding.Converter>
@@ -88,7 +88,7 @@
                             <GeometryDrawing.Brush>
                                 <SolidColorBrush>
                                     <SolidColorBrush.Color>
-                                        <Binding ElementName="this" Path="HexTime" Mode="OneWay" ConverterParameter="2">
+                                        <Binding ElementName="this" Path="HexTime" Mode="OneWay" ConverterParameter="1">
                                             <Binding.Converter>
                                                 <vc:IntToColorValueConverter/>
                                             </Binding.Converter>
@@ -106,7 +106,7 @@
                             <GeometryDrawing.Brush>
                                 <SolidColorBrush>
                                     <SolidColorBrush.Color>
-                                        <Binding ElementName="this" Path="HexTime" Mode="OneWay" ConverterParameter="3">
+                                        <Binding ElementName="this" Path="HexTime" Mode="OneWay" ConverterParameter="0">
                                             <Binding.Converter>
                                                 <vc:IntToColorValueConverter/>
                                             </Binding.Converter>
