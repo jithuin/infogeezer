@@ -177,6 +177,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Clocks\Model\DecimalTimer.cs">
     </Compile>
     <Compile Include="CustomCommands\CustomCommands.cs" />
@@ -190,6 +191,8 @@
     <Compile Include="CustomViews\NamedValues\ClassEditorWindow.xaml.cs">
       <DependentUpon>ClassEditorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DesignPatterns\Singleton\AbstractSingleton.cs" />
+    <Compile Include="DesignPatterns\Singleton\ISingleton.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
     <Compile Include="Helpers\HotKeyHelper.cs" />
@@ -212,6 +215,7 @@
     <Compile Include="Touch\IRotateable.cs" />
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="ValueConverters\BooleanConverters.cs" />
+    <Compile Include="ValueConverters\ConverterFactory.cs" />
     <Compile Include="ValueConverters\DebugConverter.cs" />
     <Compile Include="ValueConverters\RangeValueConverters.cs" />
     <Compile Include="Clocks\View\BinaryClock\BinaryClock.xaml.cs">

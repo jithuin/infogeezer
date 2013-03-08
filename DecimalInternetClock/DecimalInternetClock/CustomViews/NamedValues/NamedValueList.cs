@@ -100,18 +100,9 @@ namespace DecimalInternetClock.NamedValues
             OnPropertyChanged(((NamedValuePair)sender).Name);
         }
 
-        #region INotifyPropertyChanged Members
-
         public void OnPropertyChanged(String propName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            }
+            OnPropertyChanged(new PropertyChangedEventArgs(propName));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion INotifyPropertyChanged Members
     }
 }
