@@ -1,11 +1,257 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.ComponentModel;
 
 namespace DecimalInternetClock
 {
+    public abstract class ClockBase
+    {
+        protected Dictionary<int, long> _listOfBases = new Dictionary<int, long>();
+        protected long _decimalTime = 0;
+
+        public long DecimalTime
+        {
+            get
+            {
+                return _decimalTime;
+            }
+            set
+            {
+                _decimalTime = value;
+            }
+        }
+
+        public virtual DateTime Now
+        {
+            set
+            {
+                _decimalTime = OrdinaryClockModel.GetDecimalTime(value);
+            }
+        }
+
+        public ClockBase()
+        {
+            InitClockUnits();
+        }
+
+        public ClockBase(long time_in)
+        {
+            _decimalTime = time_in;
+        }
+
+        protected long GetGeneratorAtIndex(int generatorIndex_in)
+        {
+            return _listOfBases.Aggregate((long)1, new Func<long, KeyValuePair<int, long>, long>((seed, kvp) => kvp.Key > generatorIndex_in ? seed * kvp.Value : seed));
+        }
+
+        protected abstract void InitClockUnits();
+
+        public long this[int index]
+        {
+            get
+            {
+                double ret = _decimalTime;
+                ret /= GetGeneratorAtIndex(index);
+                ret %= _listOfBases[index];
+
+                return (long)ret;
+            }
+            set
+            {
+                _decimalTime = _decimalTime - this[index] + value * GetGeneratorAtIndex(index);
+            }
+        }
+    }
+
+    public abstract class ClockBase<E> : ClockBase
+        where E : struct, IConvertible, IComparable
+    {
+        public ClockBase()
+        {
+        }
+
+        public ClockBase(long time_in)
+            : base(time_in)
+        {
+        }
+
+        protected void AddBase(E lowerUnit_in, long base_in)
+        {
+            _listOfBases.Add(lowerUnit_in.ToInt32(null), base_in);
+        }
+
+        public long this[E index]
+        {
+            get { return base[index.ToInt32(null)]; }
+            set { base[index.ToInt32(null)] = value; }
+        }
+    }
+
+    public class DecimalClockModel : ClockBase<DecimalClockModel.EUnits>
+    {
+        public enum EUnits
+        {
+            Hour,
+            Minute,
+            Second,
+            MilliSecond
+        }
+
+        public DecimalClockModel(long time_in)
+            : base(time_in)
+        {
+        }
+
+        public DecimalClockModel()
+        {
+        }
+
+        protected override void InitClockUnits()
+        {
+            AddBase(EUnits.Hour, 10);
+            AddBase(EUnits.Minute, 100);
+            AddBase(EUnits.Second, 100);
+            AddBase(EUnits.MilliSecond, 1000);
+        }
+    }
+
+    public class OrdinaryClockModel : ClockBase<OrdinaryClockModel.EUnits>
+    {
+        public OrdinaryClockModel(DateTime dateTime_in)
+            : this()
+        {
+            _decimalTime = GetDecimalTime(dateTime_in);
+        }
+
+        private static OrdinaryClockModel _convertClock = new OrdinaryClockModel(); // for performance issue
+
+        public static long GetDecimalTime(DateTime dateTime_in)
+        {
+            _convertClock[EUnits.Hour] = dateTime_in.Hour;
+            _convertClock[EUnits.Minute] = dateTime_in.Minute;
+            _convertClock[EUnits.Second] = dateTime_in.Second;
+            _convertClock[EUnits.MilliSecond] = dateTime_in.Millisecond;
+            return _convertClock._decimalTime;
+        }
+
+        public enum EUnits
+        {
+            Hour,
+            Minute,
+            Second,
+            MilliSecond
+        }
+
+        public OrdinaryClockModel()
+        {
+        }
+
+        protected override void InitClockUnits()
+        {
+            AddBase(EUnits.Hour, 24);
+            AddBase(EUnits.Minute, 60);
+            AddBase(EUnits.Second, 60);
+            AddBase(EUnits.MilliSecond, 1000);
+        }
+    }
+
+    public class HexDigitModel : ClockBase<HexDigitModel.EUnits>
+    {
+        public enum EUnits
+        {
+            First,
+            Second,
+            Third,
+            Fourth
+        }
+
+        public HexDigitModel(long time_in) : base(time_in) { ;}
+
+        public HexDigitModel()
+        {
+        }
+
+        protected override void InitClockUnits()
+        {
+            AddBase(EUnits.First, 2);
+            AddBase(EUnits.Second, 2);
+            AddBase(EUnits.Third, 2);
+            AddBase(EUnits.Fourth, 2);
+        }
+    }
+
+    public class HexTextClockModel : ClockBase<HexTextClockModel.EUnits>
+    {
+        public enum EUnits
+        {
+            Hour,
+            Minute,
+            Second
+        }
+
+        public HexTextClockModel()
+        {
+        }
+
+        protected override void InitClockUnits()
+        {
+            AddBase(EUnits.Hour, 16);
+            AddBase(EUnits.Minute, 256);
+            AddBase(EUnits.Second, 16);
+        }
+    }
+
+    public class HexDigitClockModel : ClockBase<HexDigitClockModel.EUnits>
+    {
+        public enum EUnits
+        {
+            Hour,
+            MinuteHi,
+            MinuteLow,
+            Second
+        }
+
+        public HexDigitClockModel()
+        {
+        }
+
+        //public new HexDigitModel this[EUnits index]
+        //{
+        //    get { return new HexDigitModel(base[index]); }
+        //    set { base[index] = value.DecimalTime; }
+        //}
+
+        protected override void InitClockUnits()
+        {
+            AddBase(EUnits.Hour, 16);
+            AddBase(EUnits.MinuteHi, 16);
+            AddBase(EUnits.MinuteLow, 16);
+            AddBase(EUnits.Second, 16);
+        }
+    }
+
+    public class ClockTester
+    {
+        public ClockTester()
+        {
+            DecimalClockModel dcm = new DecimalClockModel();
+            OrdinaryClockModel ocm = new OrdinaryClockModel();
+            HexDigitClockModel hdcm = new HexDigitClockModel();
+
+            dcm.Now = DateTime.Now;
+            ocm.Now = DateTime.Now;
+            hdcm.Now = DateTime.Now;
+
+            long res = hdcm[HexDigitClockModel.EUnits.Hour];
+            res = dcm[DecimalClockModel.EUnits.Hour];
+            res = ocm[OrdinaryClockModel.EUnits.Hour];
+        }
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------------------------
+
     public class DecimalModel : IDecimalClock
     {
         #region IDecimalClock Members
@@ -17,7 +263,6 @@ namespace DecimalInternetClock
             {
                 DateTime _date = DateTime.Now;
                 return new DateTime(_date.Year, _date.Month, _date.Day, Hour, Minute, Second, MilliSecond);
-                
             }
             set
             {
@@ -32,6 +277,7 @@ namespace DecimalInternetClock
                 }
             }
         }
+
         private int Hour
         {
             get
@@ -39,6 +285,7 @@ namespace DecimalInternetClock
                 return (int)(_decimalTime * 24.0) % 24;
             }
         }
+
         private int Minute
         {
             get
@@ -46,6 +293,7 @@ namespace DecimalInternetClock
                 return (int)(_decimalTime * 24.0 * 60.0) % 60;
             }
         }
+
         private int Second
         {
             get
@@ -53,6 +301,7 @@ namespace DecimalInternetClock
                 return (int)(_decimalTime * 24.0 * 60.0 * 60.0) % 60;
             }
         }
+
         private int MilliSecond
         {
             get
@@ -76,6 +325,7 @@ namespace DecimalInternetClock
                 }
             }
         }
+
         public int DecimalHour
         {
             get
@@ -87,6 +337,7 @@ namespace DecimalInternetClock
                 throw new NotImplementedException("DecimalHour private set");
             }
         }
+
         public int DecimalMin
         {
             get
@@ -98,6 +349,7 @@ namespace DecimalInternetClock
                 throw new NotImplementedException("DecimalMin private set");
             }
         }
+
         public int DecimalSecond
         {
             get
@@ -109,11 +361,12 @@ namespace DecimalInternetClock
                 throw new NotImplementedException("DecimalSecond private set");
             }
         }
-        #endregion
+
+        #endregion IDecimalClock Members
 
         #region INotifyPropertyChanged Members
 
-        void OnBasePropertyChanged()
+        private void OnBasePropertyChanged()
         {
             OnPropertyChanged("Now");
             OnPropertyChanged("DecimalTime");
@@ -122,8 +375,7 @@ namespace DecimalInternetClock
             OnPropertyChanged("DecimalSecond");
         }
 
-
-        void OnPropertyChanged(String propName_in)
+        private void OnPropertyChanged(String propName_in)
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propName_in));
@@ -131,12 +383,11 @@ namespace DecimalInternetClock
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        #endregion
-
+        #endregion INotifyPropertyChanged Members
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <typeparam name="D">data type</typeparam>
     /// <typeparam name="I">indexer type</typeparam>
@@ -148,19 +399,21 @@ namespace DecimalInternetClock
             BaseData = (D)(object)0;
             myGetfunc = new Func<I, IndexMe<D, I, R>, R>((index, data) => { return (R)Convert.ChangeType(data.BaseData, typeof(R)); });
         }
-        public IndexMe(Func<I,IndexMe<D, I, R>,R> myFunc, D baseData_in)
+
+        public IndexMe(Func<I, IndexMe<D, I, R>, R> myFunc, D baseData_in)
         {
             myGetfunc = myFunc;
             BaseData = baseData_in;
         }
 
-        public D BaseData {get; set;}
-        Func<I,IndexMe<D, I, R>,R>  myGetfunc;
+        public D BaseData { get; set; }
+
+        Func<I, IndexMe<D, I, R>, R> myGetfunc;
 
         public R this[I index]
         {
             get { return myGetfunc(index, this); }
-            set {  }
+            set { }
         }
     }
 
@@ -169,22 +422,22 @@ namespace DecimalInternetClock
         protected static int _LengthOfByteInBits = 8;
         protected static int _ByteMask = 0xFF;
         protected static int _BitMask = 0x1;
-        
+
         public IndexMeUnitTester()
         {
-        Func<int, IndexMe<byte, int, bool>, bool> flagFunc= new Func<int, IndexMe<byte, int, bool>, bool>((i, Son) => { return ((Son.BaseData >> i) & _BitMask) != 0; });
-        IndexMe<byte, int, bool> SonFlag = new IndexMe<byte, int, bool>(flagFunc, 6);
-        Func<int, IndexMe<byte, int, bool>, bool> lesserFunc = new Func<int, IndexMe<byte, int, bool>, bool>((i, son) => { return son.BaseData <= i; });
-        IndexMe<byte, int, bool> SonLesser = new IndexMe<byte, int, bool>(lesserFunc, 2);
+            Func<int, IndexMe<byte, int, bool>, bool> flagFunc = new Func<int, IndexMe<byte, int, bool>, bool>((i, Son) => { return ((Son.BaseData >> i) & _BitMask) != 0; });
+            IndexMe<byte, int, bool> SonFlag = new IndexMe<byte, int, bool>(flagFunc, 6);
+            Func<int, IndexMe<byte, int, bool>, bool> lesserFunc = new Func<int, IndexMe<byte, int, bool>, bool>((i, son) => { return son.BaseData <= i; });
+            IndexMe<byte, int, bool> SonLesser = new IndexMe<byte, int, bool>(lesserFunc, 2);
 
-        IndexMe<int, int, byte> SonPart = new IndexMe<int, int, byte>(new Func<int, IndexMe<int, int, byte>, byte>((index, item) => { return (byte)((item.BaseData >> (index * _LengthOfByteInBits)) & _ByteMask); }), 4);
-        IndexMe<int, int, IndexMe<byte, int, bool>> SonSandwich = 
-            new IndexMe<int,int,IndexMe<byte,int,bool>>(
-                new Func<int,IndexMe<int,int,IndexMe<byte,int,bool>>,IndexMe<byte,int,bool>>(
-                    (index, item) => 
-                    {
-                        return new IndexMe<byte, int, bool>(flagFunc, (byte)((item.BaseData >> (index * _LengthOfByteInBits)) & _ByteMask)); 
-                    }),7);
+            IndexMe<int, int, byte> SonPart = new IndexMe<int, int, byte>(new Func<int, IndexMe<int, int, byte>, byte>((index, item) => { return (byte)((item.BaseData >> (index * _LengthOfByteInBits)) & _ByteMask); }), 4);
+            IndexMe<int, int, IndexMe<byte, int, bool>> SonSandwich =
+                new IndexMe<int, int, IndexMe<byte, int, bool>>(
+                    new Func<int, IndexMe<int, int, IndexMe<byte, int, bool>>, IndexMe<byte, int, bool>>(
+                        (index, item) =>
+                        {
+                            return new IndexMe<byte, int, bool>(flagFunc, (byte)((item.BaseData >> (index * _LengthOfByteInBits)) & _ByteMask));
+                        }), 7);
         }
     }
 }

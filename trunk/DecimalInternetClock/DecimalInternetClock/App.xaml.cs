@@ -18,6 +18,7 @@ namespace DecimalInternetClock
 
         public App()
         {
+            new ClockTester();
             ResizerHotkeyList.Instance.SetToDefault();
             //ResizerHotkeyList.Instance.BinSerializeThisTo(probeFileName);
             //ResizerHotkeyList.Instance.Clear();
