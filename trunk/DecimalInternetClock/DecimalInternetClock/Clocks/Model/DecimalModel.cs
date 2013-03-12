@@ -8,26 +8,26 @@ namespace DecimalInternetClock
 {
     public abstract class ClockBase
     {
-        protected Dictionary<int, long> _listOfBases = new Dictionary<int, long>();
-        protected long _decimalTime = 0;
+        protected Dictionary<int, double> _listOfBases = new Dictionary<int, double>();
+        protected double _time = 0;
 
-        public long DecimalTime
-        {
-            get
-            {
-                return _decimalTime;
-            }
-            set
-            {
-                _decimalTime = value;
-            }
-        }
+        //public double Time
+        //{
+        //    get
+        //    {
+        //        return _time;
+        //    }
+        //    set
+        //    {
+        //        _time = value;
+        //    }
+        //}
 
         public virtual DateTime Now
         {
             set
             {
-                _decimalTime = OrdinaryClockModel.GetDecimalTime(value);
+                _time = OrdinaryClockModel.GetTime(value);
             }
         }
 
@@ -36,14 +36,14 @@ namespace DecimalInternetClock
             InitClockUnits();
         }
 
-        public ClockBase(long time_in)
+        public ClockBase(double time_in)
         {
-            _decimalTime = time_in;
+            _time = time_in;
         }
 
-        protected long GetGeneratorAtIndex(int generatorIndex_in)
+        protected double GetGeneratorAtIndex(int generatorIndex_in)
         {
-            return _listOfBases.Aggregate((long)1, new Func<long, KeyValuePair<int, long>, long>((seed, kvp) => kvp.Key > generatorIndex_in ? seed * kvp.Value : seed));
+            return _listOfBases.Aggregate((double)1, new Func<double, KeyValuePair<int, double>, double>((seed, kvp) => kvp.Key <= generatorIndex_in ? seed * kvp.Value : seed));
         }
 
         protected abstract void InitClockUnits();
@@ -52,15 +52,15 @@ namespace DecimalInternetClock
         {
             get
             {
-                double ret = _decimalTime;
-                ret /= GetGeneratorAtIndex(index);
+                double ret = _time;
+                ret *= GetGeneratorAtIndex(index);
                 ret %= _listOfBases[index];
 
                 return (long)ret;
             }
             set
             {
-                _decimalTime = _decimalTime - this[index] + value * GetGeneratorAtIndex(index);
+                _time = _time + (value - this[index]) / GetGeneratorAtIndex(index);// TODO: Update
             }
         }
     }
@@ -72,7 +72,7 @@ namespace DecimalInternetClock
         {
         }
 
-        public ClockBase(long time_in)
+        public ClockBase(double time_in)
             : base(time_in)
         {
         }
@@ -122,19 +122,10 @@ namespace DecimalInternetClock
         public OrdinaryClockModel(DateTime dateTime_in)
             : this()
         {
-            _decimalTime = GetDecimalTime(dateTime_in);
+            _time = GetTime(dateTime_in);
         }
 
         private static OrdinaryClockModel _convertClock = new OrdinaryClockModel(); // for performance issue
-
-        public static long GetDecimalTime(DateTime dateTime_in)
-        {
-            _convertClock[EUnits.Hour] = dateTime_in.Hour;
-            _convertClock[EUnits.Minute] = dateTime_in.Minute;
-            _convertClock[EUnits.Second] = dateTime_in.Second;
-            _convertClock[EUnits.MilliSecond] = dateTime_in.Millisecond;
-            return _convertClock._decimalTime;
-        }
 
         public enum EUnits
         {
@@ -155,6 +146,15 @@ namespace DecimalInternetClock
             AddBase(EUnits.Second, 60);
             AddBase(EUnits.MilliSecond, 1000);
         }
+
+        internal static double GetTime(DateTime dateTime_in)
+        {
+            _convertClock[EUnits.Hour] = dateTime_in.Hour;
+            _convertClock[EUnits.Minute] = dateTime_in.Minute;
+            _convertClock[EUnits.Second] = dateTime_in.Second;
+            _convertClock[EUnits.MilliSecond] = dateTime_in.Millisecond;
+            return _convertClock._time;
+        }
     }
 
     public class HexDigitModel : ClockBase<HexDigitModel.EUnits>
@@ -165,6 +165,20 @@ namespace DecimalInternetClock
             Second,
             Third,
             Fourth
+        }
+
+        public const int cMaxValue = 16;
+
+        public new long Now
+        {
+            get
+            {
+                return (long)(_time * cMaxValue);
+            }
+            set
+            {
+                _time = ((value % cMaxValue) / (double)cMaxValue);
+            }
         }
 
         public HexDigitModel(long time_in) : base(time_in) { ;}
@@ -179,6 +193,13 @@ namespace DecimalInternetClock
             AddBase(EUnits.Second, 2);
             AddBase(EUnits.Third, 2);
             AddBase(EUnits.Fourth, 2);
+        }
+
+        public new bool this[HexDigitModel.EUnits index]
+        {
+            get { return base[index] == 1; }
+
+            set { base[index] = value ? 1 : 0; }
         }
     }
 
