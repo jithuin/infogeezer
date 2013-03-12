@@ -180,6 +180,8 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Clocks\Model\DecimalTimer.cs">
     </Compile>
+    <Compile Include="Clocks\ViewModel\BinaryHexDigitClockViewModel.cs" />
+    <Compile Include="Clocks\ViewModel\BinaryHexDigitViewModel.cs" />
     <Compile Include="CustomCommands\CustomCommands.cs" />
     <Compile Include="CustomControls\DecimalTextBox.cs" />
     <Compile Include="CustomControls\EnumComboBox.xaml.cs">
