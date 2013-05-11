@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Windows;
 using DecimalInternetClock.HotKeys;
 using ManagedWinapi;
@@ -77,6 +78,8 @@ namespace DecimalInternetClock.Helpers
         public static void SetToDefault(this ResizerHotkeyList rhkList)
         {
             rhkList.Clear();
+            bool isError = false;
+            StringBuilder sbError = new StringBuilder();
 
             foreach (WinPos wp in _posCommandKey.Keys)
             {
@@ -89,11 +92,8 @@ namespace DecimalInternetClock.Helpers
                     }
                     catch (HotkeyAlreadyInUseException ex)
                     {
-                        Application.Current.Dispatcher.BeginInvoke(new Action(delegate()
-                        {
-                            System.Windows.Forms.MessageBox.Show(String.Format("Couldn't register: \"{0} + {1}\" hotkey. It won't work", _defaultModifiers, key));
-                        }
-                        ));
+                        sbError.AppendFormat("Couldn't register: \"{0} + {1}\" hotkey. It won't work\r\n", _defaultModifiers, key);
+                        isError = true;
                     }
                 }
 
@@ -103,6 +103,15 @@ namespace DecimalInternetClock.Helpers
                         hk.ResizeStates.Add(CreateResizeState(wp, portion));
 
                     rhkList.Add(hk);
+                }
+
+                if (isError)
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(delegate()
+                    {
+                        System.Windows.Forms.MessageBox.Show(sbError.ToString());
+                    }
+                        ));
                 }
             }
         }
