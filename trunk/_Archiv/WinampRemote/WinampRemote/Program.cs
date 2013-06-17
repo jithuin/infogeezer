@@ -1,34 +1,74 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
 
 namespace WinampRemote
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            /*/
+            Winamp.DoCommand(Winamp.Command.NextTrackButton);
+            /*/
             foreach (String s in args)
             {
                 Winamp.DoCommand(s);
             }
+            //*/
         }
     }
+
     public class Winamp
     {
+        private static int[] GetWinampHandle()
+        {
+            Process[] processes = Process.GetProcessesByName("winamp"); //http://www.mycsharpcorner.com/Post.aspx?postID=32
+            List<int> ret = new List<int>();
+
+            if (processes != null && processes.Count() > 0)
+            {
+                if (!processes[0].MainWindowTitle.ToLower().Contains("winamp"))
+                {
+                    listOfWindowHndls.Clear();
+                    foreach (Process p in processes)
+                        foreach (ProcessThread pt in p.Threads)
+                        {
+                            EnumThreadWindows((uint)pt.Id, new EnumThreadDelegate(Winamp.HandleWindow), IntPtr.Zero);
+                        }
+
+                    ret.AddRange(listOfWindowHndls.Where((kvp) => kvp.Value.ToLower().Contains("winamp")).Select((kvp) => (int)kvp.Key));
+                }
+                else
+                {
+                    ret.Add(processes[0].MainWindowHandle.ToInt32());
+                }
+            }
+            else
+            {
+                StartWinamp();
+                Thread.Sleep(3000);
+                ret.AddRange(GetWinampHandle());
+            }
+            return ret.ToArray();
+        }
+
+        #region WinAPI and WinampAPI
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <see cref="http://msdn.microsoft.com/en-us/library/windows/desktop/ms647591%28v=vs.85%29.aspx"/>
-        static readonly uint WM_COMMAND = 0x0111; 
+        static readonly uint WM_COMMAND = 0x0111;
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <see cref="// http://forums.winamp.com/showthread.php?threadid=180297"/>
-        enum Command : long 
+        public enum Command : long
         {
             Previous_track_button = 40044,
             NextTrackButton = 40048,
@@ -84,23 +124,7 @@ namespace WinampRemote
             OpensAutoLoadSavePreset = 40176,
             OpensDeletePresetDialog = 40178,
             OpensDeleteAnAutoLoadPresetDialog = 40180
-
         };
-        static int? GetWinampHandle()
-        {
-            Process[] processes = Process.GetProcessesByName("winamp"); //http://www.mycsharpcorner.com/Post.aspx?postID=32
-            //if (processes.Count() > 0)
-            //{
-            //    StartWinamp();
-            //    processes = Process.GetProcessesByName("winamp");
-            //}
-            if (processes != null && processes.Count() > 0)
-            {
-                IntPtr handle = processes[0].MainWindowHandle;
-                return handle.ToInt32();
-            }
-                else return null;
-        }
 
         /// <summary>
         /// Send Message
@@ -112,13 +136,76 @@ namespace WinampRemote
         /// <returns></returns>
         /// <see cref="http://social.msdn.microsoft.com/Forums/en-US/winforms/thread/94e500c8-6d1b-43bf-9c04-9823597525bf/"/>
         [DllImport("user32.dll")]
-        static extern int SendMessage( int hWnd, uint Msg, long wParam, long lParam);
+        private static extern int SendMessage(int hWnd, uint Msg, long wParam, long lParam);
+
+        private enum GetWindow_Cmd : uint
+        {
+            GW_HWNDFIRST = 0,
+            GW_HWNDLAST = 1,
+            GW_HWNDNEXT = 2,
+            GW_HWNDPREV = 3,
+            GW_OWNER = 4,
+            GW_CHILD = 5,
+            GW_ENABLEDPOPUP = 6
+        }
 
         /// <summary>
-        /// 
+        ///
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="lpString"></param>
+        /// <param name="nMaxCount"></param>
+        /// <returns></returns>
+        /// <see cref="http://msdn.microsoft.com/en-us/library/windows/desktop/ms633520%28v=vs.85%29.aspx"/>
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        internal static extern int GetWindowText(IntPtr hWnd, [Out, MarshalAs(UnmanagedType.LPTStr)] StringBuilder lpString, int nMaxCount);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="dwThreadId"></param>
+        /// <param name="lpfn"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
+        /// <see cref="http://msdn.microsoft.com/en-us/library/ms633495%28v=vs.85%29.aspx"/>
+        [DllImport("user32.dll")]
+        private static extern bool EnumThreadWindows(uint dwThreadId, EnumThreadDelegate lpfn, IntPtr lParam);
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
+        /// <see cref="http://msdn.microsoft.com/en-us/library/ms633496%28v=vs.85%29.aspx"/>
+        public delegate bool EnumThreadDelegate(IntPtr hWnd, IntPtr lParam);
+        #endregion WinAPI and WinampAPI
+
+        /// <summary>
+        /// Static callback function for EnumThreadWindows function.
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="lParam"></param>
+        /// <returns></returns>
+        /// <see cref="http://msdn.microsoft.com/en-us/library/ms633496%28v=vs.85%29.aspx"/>
+        public static bool HandleWindow(IntPtr hWnd, IntPtr lParam)
+        {
+            StringBuilder windowTitle = new StringBuilder();
+            GetWindowText(hWnd, windowTitle, int.MaxValue);
+            listOfWindowHndls.Add(hWnd, windowTitle.ToString());
+            return true;
+        }
+
+        /// <summary>
+        /// List of the handles of the window of a winamp proc populated by the HandleWindow callback function
+        /// </summary>
+        static Dictionary<IntPtr, String> listOfWindowHndls = new Dictionary<IntPtr, String>();
+
+        /// <summary>
+        ///
         /// </summary>
         /// <see cref="http://msdn.microsoft.com/en-us/library/ccf1tfx0%28v=VS.90%29.aspx"/>
-        static void StartWinamp()
+        private static void StartWinamp()
         {
             Process myProcess = new Process();
 
@@ -129,8 +216,8 @@ namespace WinampRemote
                 myProcess.StartInfo.FileName = "c:\\Program Files\\Winamp\\winamp.exe";
                 //myProcess.StartInfo.CreateNoWindow = true;
                 myProcess.Start();
-                // This code assumes the process you are starting will terminate itself. 
-                // Given that is is started without a window so you cannot terminate it 
+                // This code assumes the process you are starting will terminate itself.
+                // Given that is is started without a window so you cannot terminate it
                 // on the desktop, it must terminate itself or you can do it programmatically
                 // from this application using the Kill method.
             }
@@ -140,12 +227,13 @@ namespace WinampRemote
             }
         }
 
-        static void DoCommand(Command com)
+        public static void DoCommand(Command com)
         {
-            int? handle = GetWinampHandle();
-            if (handle.HasValue)
-                SendMessage(handle.Value, WM_COMMAND, (long)com, 0);
+            int[] handles = GetWinampHandle();
+            SendMessage(handles.Last(), WM_COMMAND, (long)com, 0); // HACK handles.Last() - foreach didn't work well (it sent 2 messages)
+            // first() of "[0]" didnt work well (in some ocations it didnt got the message)
         }
+
         public static void DoCommand(String com)
         {
             DoCommand(InjectionCommands[com]);
