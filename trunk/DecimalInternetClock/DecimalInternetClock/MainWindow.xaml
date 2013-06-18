@@ -35,7 +35,7 @@
             <MenuItem Header="Set Foreground" Click="ForeColor_Click" />
             <MenuItem Header="Set Background" Click="BackColor_Click" />
             <MenuItem Header="Options" Name="miOption" Click="miOption_Click" />
-            <MenuItem Header="Touch Test" Name="miTouchTest" Click="miTouchTest_Click"/>
+            <MenuItem Header="Touch Test" Name="miTouchTest" Click="miTouchTest_Click" />
         </ContextMenu>
     </Window.ContextMenu>
 
