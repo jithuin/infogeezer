@@ -218,6 +218,7 @@
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="ValueConverters\BooleanConverters.cs" />
     <Compile Include="ValueConverters\ConverterFactory.cs" />
+    <Compile Include="ValueConverters\DateTimeConverter.cs" />
     <Compile Include="ValueConverters\DebugConverter.cs" />
     <Compile Include="ValueConverters\RangeValueConverters.cs" />
     <Compile Include="Clocks\View\BinaryClock\BinaryClock.xaml.cs">
