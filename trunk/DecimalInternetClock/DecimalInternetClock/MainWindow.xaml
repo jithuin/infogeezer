@@ -5,6 +5,7 @@
     xmlns:colorPicker="clr-namespace:ColorPicker;assembly=ColorPicker"
     xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
         xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
+        xmlns:vw="clr-namespace:DecimalInternetClock.Clocks.View"
     Title="DecimalInternetClock"
         x:Name="this" WindowStyle="None" AllowsTransparency="True"
         Icon="Resources\Blank.png"
@@ -132,7 +133,7 @@
                          Mode=OneWay}"
                                HorizontalAlignment="Stretch"/>-->
 
-                    <TextBox Name="textBox"
+                <TextBox Name="textBox"
                  Background="#01000000"
                  Grid.Row="4"
                  Margin="2"
@@ -152,7 +153,12 @@
                 <Binding Path="Text" Mode="TwoWay"/>
             </TextBox.Text>-->
                 </TextBox>
+                <vw:BinaryHexDigitClockView DataContext="{Binding ElementName=this, Path=HexClock}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            >
 
+                </vw:BinaryHexDigitClockView>
             </StackPanel>
         </ScrollViewer>
     </Grid>

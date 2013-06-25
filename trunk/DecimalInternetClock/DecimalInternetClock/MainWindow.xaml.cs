@@ -18,11 +18,11 @@ using ColorPicker;
 using DecimalInternetClock.Clocks;
 using DecimalInternetClock.Helpers;
 using DecimalInternetClock.Properties;
+using DecimalInternetClock.Touch;
 using ManagedWinapi;
 using ManagedWinapi.Windows;
 using Windows7.Multitouch;
 using Windows7.Multitouch.WPF;
-using DecimalInternetClock.Touch;
 
 namespace DecimalInternetClock
 {
@@ -38,6 +38,9 @@ namespace DecimalInternetClock
         private Windows7.Multitouch.GestureHandler _gestureHandler;
 
         protected IRotateable _currentRotateableVisual;
+
+        public BinaryHexDigitClockViewModel HexClock { get; set; }
+
         #endregion Properties
 
         #region Constructor
@@ -45,7 +48,9 @@ namespace DecimalInternetClock
         public MainWindow()
         {
             DecimalTime = new DecimalTimer();
+            HexClock = new BinaryHexDigitClockViewModel();
             InitializeComponent();
+            HexClock.UpdateNow();
             LoadSettings();
             InitGesture();
             NameScope.SetNameScope(contextMenu, this);
@@ -121,9 +126,9 @@ namespace DecimalInternetClock
                     return _currentRotateableVisual != null ? HitTestFilterBehavior.Stop : HitTestFilterBehavior.ContinueSkipSelf;
                 }
                 ,
-                (r) => { return HitTestResultBehavior.Continue;}
-                //(result) => 
-                //{ _currentRotateableVisual = result.VisualHit as IRotateable; 
+                (r) => { return HitTestResultBehavior.Continue; }
+                //(result) =>
+                //{ _currentRotateableVisual = result.VisualHit as IRotateable;
                 //    return _currentRotateableVisual!= null? HitTestResultBehavior.Stop: HitTestResultBehavior.Continue;}
                 ,
                 new PointHitTestParameters((Point)args.Center.ToVector()));
@@ -132,7 +137,7 @@ namespace DecimalInternetClock
 
         private void ProcessRotate(object sender, GestureEventArgs args)
         {
-            if(_currentRotateableVisual!= null)
+            if (_currentRotateableVisual != null)
                 _currentRotateableVisual.RotateAngle -= args.RotateAngle * 180 / Math.PI;
         }
 
