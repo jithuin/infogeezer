@@ -23,12 +23,17 @@ namespace DecimalInternetClock
         //    }
         //}
 
-        public virtual DateTime Now
+        internal virtual DateTime Now
         {
             set
             {
                 _time = OrdinaryClockModel.GetTime(value);
             }
+        }
+
+        public void UpdateNow()
+        {
+            Now = DateTime.Now;
         }
 
         public ClockBase()
@@ -169,7 +174,7 @@ namespace DecimalInternetClock
 
         public const int cMaxValue = 16;
 
-        public new long Now
+        internal new long Now
         {
             get
             {

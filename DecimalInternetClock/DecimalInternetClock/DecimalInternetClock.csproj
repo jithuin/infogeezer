@@ -87,6 +87,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Clocks\View\BinaryHexDigitClockView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Clocks\View\BinaryHexDigitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomControls\EnumComboBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -182,6 +190,12 @@
     </Compile>
     <Compile Include="Clocks\ViewModel\BinaryHexDigitClockViewModel.cs" />
     <Compile Include="Clocks\ViewModel\BinaryHexDigitViewModel.cs" />
+    <Compile Include="Clocks\View\BinaryHexDigitClockView.xaml.cs">
+      <DependentUpon>BinaryHexDigitClockView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Clocks\View\BinaryHexDigitView.xaml.cs">
+      <DependentUpon>BinaryHexDigitView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomCommands\CustomCommands.cs" />
     <Compile Include="CustomControls\DecimalTextBox.cs" />
     <Compile Include="CustomControls\EnumComboBox.xaml.cs">

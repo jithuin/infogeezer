@@ -104,15 +104,14 @@ namespace DecimalInternetClock.Helpers
 
                     rhkList.Add(hk);
                 }
-
-                if (isError)
+            }
+            if (isError)
+            {
+                Application.Current.Dispatcher.BeginInvoke(new Action(delegate()
                 {
-                    Application.Current.Dispatcher.BeginInvoke(new Action(delegate()
-                    {
-                        System.Windows.Forms.MessageBox.Show(sbError.ToString());
-                    }
-                        ));
+                    System.Windows.Forms.MessageBox.Show(sbError.ToString());
                 }
+                    ));
             }
         }
 
