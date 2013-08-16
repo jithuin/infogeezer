@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="SilverlightSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ikriv="clr-namespace:IKriv.Wpf"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+    <UserControl.Resources>
+        <ikriv:MathConverter x:Key="MathConverter" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="5" Background="MediumTurquoise">
+            <TextBlock VerticalAlignment="Center" Margin="3">Hours:</TextBlock>
+            <TextBox VerticalAlignment="Center" Margin="3" Name="Hours" Text="11" Width="35" />
+            <TextBlock VerticalAlignment="Center" Margin="3">Minutes:</TextBlock>
+            <TextBox VerticalAlignment="Center" Margin="3" Name="Minutes" Text="16" Width="35" />
+            <TextBlock VerticalAlignment="Center" Margin="3">Seconds:</TextBlock>
+            <TextBox VerticalAlignment="Center" Margin="3" Name="Seconds" Text="32" Width="35" />
+            <ToggleButton Name="RealTime" Content="Real Time" Click="RealTime_Click" Margin="10,3,3,3" Padding="5,0,5,0"/>
+        </StackPanel>
+        <Border Grid.Row="1" Background="Azure">
+            <Viewbox Stretch="Uniform">
+                <Canvas Height="100" Width="100">
+                    <Canvas.RenderTransform>
+                        <TranslateTransform X="50" Y="50" />
+                    </Canvas.RenderTransform>
+
+                    <Ellipse 
+                                Canvas.Top="-50" Canvas.Left="-50"
+                                Width="100" 
+                                Height="100" 
+                                Stroke="LightBlue" 
+                                StrokeThickness="3"
+                                >
+                        <Ellipse.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="Lavender" Offset="0.9" />
+                                <GradientStop Color="LightSteelBlue" Offset="0" />
+                            </LinearGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <!-- hub -->
+                    <Ellipse 
+                                Canvas.Top="-5" Canvas.Left="-5"
+                                Width="10" 
+                                Height="10" 
+                                Fill="Black"/>
+
+
+                    <!-- small hand (hours) -->
+                    <Line X1="0" Y1="0" X2="0" Y2="-35" Stroke="Black" StrokeThickness="4">
+                        <Line.RenderTransform>
+                            <RotateTransform Angle="{Binding Text, ElementName=Hours,Converter={StaticResource MathConverter}, ConverterParameter=x*30}" />
+                        </Line.RenderTransform>
+                    </Line>
+
+                    <!-- big hand (minutes) -->
+                    <Line X1="0" Y1="0" X2="0" Y2="-40" Stroke="Black" StrokeThickness="3">
+                        <Line.RenderTransform>
+                            <RotateTransform Angle="{Binding Text, ElementName=Minutes,Converter={StaticResource MathConverter}, ConverterParameter=x*6}" />
+                        </Line.RenderTransform>
+                    </Line>
+
+                    <!-- seconds hand -->
+                    <Line X1="0" Y1="0" X2="0" Y2="-40" Stroke="Black" StrokeThickness="1">
+                        <Line.RenderTransform>
+                            <RotateTransform Angle="{Binding Text, ElementName=Seconds,Converter={StaticResource MathConverter}, ConverterParameter=x*6}" />
+                        </Line.RenderTransform>
+                    </Line>
+                </Canvas>
+            </Viewbox>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(SolutionDir)\Project.props" />
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C7FECFCD-E6C6-4F95-BB9A-E1762B043969}</ProjectGuid>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <TargetName>NowPlaying</TargetName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(SolutionDir)\Rainmeter.props" />
+  <Import Project="$(SolutionDir)\Plugins\Plugins.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;HAVE_CONFIG_H;PluginNowPlaying_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4090;4114;4351;4786;4800;4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>.\sha2;.\taglib;.\taglib\toolkit;.\taglib\mpeg\id3v2\frames;.\taglib\ogg;.\taglib\asf;.\taglib\mp4;.\taglib\ogg\vorbis;.\taglib\ogg\flac;.\taglib\ogg\speex;.\taglib\riff;.\taglib\riff\wav;.\taglib\riff\aiff;.\taglib\flac;.\taglib\mpeg;.\taglib\mpeg\id3v1;.\taglib\mpeg\id3v2;.\taglib\mpc;.\taglib\ape;.\taglib\trueaudio;.\taglib\wavpack;.\SDKs\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Psapi.lib;WinInet.lib;comsuppwd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;HAVE_CONFIG_H;NowPlaying_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4090;4114;4351;4786;4800;4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>.\sha2;.\taglib;.\taglib\toolkit;.\taglib\mpeg\id3v2\frames;.\taglib\ogg;.\taglib\asf;.\taglib\mp4;.\taglib\ogg\vorbis;.\taglib\ogg\flac;.\taglib\ogg\speex;.\taglib\riff;.\taglib\riff\wav;.\taglib\riff\aiff;.\taglib\flac;.\taglib\mpeg;.\taglib\mpeg\id3v1;.\taglib\mpeg\id3v2;.\taglib\mpc;.\taglib\ape;.\taglib\trueaudio;.\taglib\wavpack;.\SDKs\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Psapi.lib;WinInet.lib;comsuppwd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;HAVE_CONFIG_H;PluginNowPlaying_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4090;4099;4114;4244;4267;4309;4351;4390;4530;4786;4800;4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>.\sha2;.\taglib;.\taglib\toolkit;.\taglib\mpeg\id3v2\frames;.\taglib\ogg;.\taglib\asf;.\taglib\mp4;.\taglib\ogg\vorbis;.\taglib\ogg\flac;.\taglib\ogg\speex;.\taglib\riff;.\taglib\riff\wav;.\taglib\riff\aiff;.\taglib\flac;.\taglib\mpeg;.\taglib\mpeg\id3v1;.\taglib\mpeg\id3v2;.\taglib\mpc;.\taglib\ape;.\taglib\trueaudio;.\taglib\wavpack;.\SDKs\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExceptionHandling>false</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Psapi.lib;WinInet.lib;comsuppw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;HAVE_CONFIG_H;PluginNowPlaying_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4090;4099;4114;4244;4267;4309;4351;4390;4530;4786;4800;4996</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>.\sha2;.\taglib;.\taglib\toolkit;.\taglib\mpeg\id3v2\frames;.\taglib\ogg;.\taglib\asf;.\taglib\mp4;.\taglib\ogg\vorbis;.\taglib\ogg\flac;.\taglib\ogg\speex;.\taglib\riff;.\taglib\riff\wav;.\taglib\riff\aiff;.\taglib\flac;.\taglib\mpeg;.\taglib\mpeg\id3v1;.\taglib\mpeg\id3v2;.\taglib\mpc;.\taglib\ape;.\taglib\trueaudio;.\taglib\wavpack;.\SDKs\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ExceptionHandling>false</ExceptionHandling>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Psapi.lib;WinInet.lib;comsuppw.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Cover.cpp" />
+    <ClCompile Include="Internet.cpp" />
+    <ClCompile Include="Lyrics.cpp" />
+    <ClCompile Include="NowPlaying.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerAIMP.cpp" />
+    <ClCompile Include="PlayerCAD.cpp" />
+    <ClCompile Include="PlayerITunes.cpp" />
+    <ClCompile Include="PlayerSpotify.cpp" />
+    <ClCompile Include="PlayerWinamp.cpp" />
+    <ClCompile Include="PlayerWLM.cpp" />
+    <ClCompile Include="PlayerWMP.cpp" />
+    <ClCompile Include="SDKs\iTunes\iTunesCOMInterface_i.c" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="taglib\ape\apefile.cpp" />
+    <ClCompile Include="taglib\ape\apefooter.cpp" />
+    <ClCompile Include="taglib\ape\apeitem.cpp" />
+    <ClCompile Include="taglib\ape\apeproperties.cpp" />
+    <ClCompile Include="taglib\ape\apetag.cpp" />
+    <ClCompile Include="taglib\asf\asfattribute.cpp" />
+    <ClCompile Include="taglib\asf\asffile.cpp" />
+    <ClCompile Include="taglib\asf\asfpicture.cpp" />
+    <ClCompile Include="taglib\asf\asfproperties.cpp" />
+    <ClCompile Include="taglib\asf\asftag.cpp" />
+    <ClCompile Include="taglib\audioproperties.cpp" />
+    <ClCompile Include="taglib\fileref.cpp" />
+    <ClCompile Include="taglib\flac\flacfile.cpp" />
+    <ClCompile Include="taglib\flac\flacmetadatablock.cpp" />
+    <ClCompile Include="taglib\flac\flacpicture.cpp" />
+    <ClCompile Include="taglib\flac\flacproperties.cpp" />
+    <ClCompile Include="taglib\flac\flacunknownmetadatablock.cpp" />
+    <ClCompile Include="taglib\mp4\mp4atom.cpp" />
+    <ClCompile Include="taglib\mp4\mp4coverart.cpp" />
+    <ClCompile Include="taglib\mp4\mp4file.cpp" />
+    <ClCompile Include="taglib\mp4\mp4item.cpp" />
+    <ClCompile Include="taglib\mp4\mp4properties.cpp" />
+    <ClCompile Include="taglib\mp4\mp4tag.cpp" />
+    <ClCompile Include="taglib\mpc\mpcfile.cpp" />
+    <ClCompile Include="taglib\mpc\mpcproperties.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v1\id3v1genres.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v1\id3v1tag.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\attachedpictureframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\commentsframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\generalencapsulatedobjectframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\popularimeterframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\privateframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\relativevolumeframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\textidentificationframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\uniquefileidentifierframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\unknownframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\unsynchronizedlyricsframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\frames\urllinkframe.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\id3v2extendedheader.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\id3v2footer.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\id3v2frame.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\id3v2framefactory.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\id3v2header.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\id3v2synchdata.cpp" />
+    <ClCompile Include="taglib\mpeg\id3v2\id3v2tag.cpp" />
+    <ClCompile Include="taglib\mpeg\mpegfile.cpp" />
+    <ClCompile Include="taglib\mpeg\mpegheader.cpp" />
+    <ClCompile Include="taglib\mpeg\mpegproperties.cpp" />
+    <ClCompile Include="taglib\mpeg\xingheader.cpp" />
+    <ClCompile Include="taglib\ogg\flac\oggflacfile.cpp" />
+    <ClCompile Include="taglib\ogg\oggfile.cpp" />
+    <ClCompile Include="taglib\ogg\oggpage.cpp" />
+    <ClCompile Include="taglib\ogg\oggpageheader.cpp" />
+    <ClCompile Include="taglib\ogg\vorbis\vorbisfile.cpp" />
+    <ClCompile Include="taglib\ogg\vorbis\vorbisproperties.cpp" />
+    <ClCompile Include="taglib\ogg\xiphcomment.cpp" />
+    <ClCompile Include="taglib\tag.cpp" />
+    <ClCompile Include="taglib\tagunion.cpp" />
+    <ClCompile Include="taglib\toolkit\tbytevector.cpp" />
+    <ClCompile Include="taglib\toolkit\tbytevectorlist.cpp" />
+    <ClCompile Include="taglib\toolkit\tdebug.cpp" />
+    <ClCompile Include="taglib\toolkit\tfile.cpp" />
+    <ClCompile Include="taglib\toolkit\tstring.cpp" />
+    <ClCompile Include="taglib\toolkit\tstringlist.cpp" />
+    <ClCompile Include="taglib\toolkit\unicode.cpp" />
+    <ClCompile Include="taglib\wavpack\wavpackfile.cpp" />
+    <ClCompile Include="taglib\wavpack\wavpackproperties.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cover.h" />
+    <ClInclude Include="Internet.h" />
+    <ClInclude Include="Lyrics.h" />
+    <ClInclude Include="NowPlaying.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerAIMP.h" />
+    <ClInclude Include="PlayerCAD.h" />
+    <ClInclude Include="PlayerITunes.h" />
+    <ClInclude Include="PlayerSpotify.h" />
+    <ClInclude Include="PlayerWinamp.h" />
+    <ClInclude Include="PlayerWLM.h" />
+    <ClInclude Include="PlayerWMP.h" />
+    <ClInclude Include="SDKs\AIMP\aimp2_sdk.h" />
+    <ClInclude Include="SDKs\CAD\cad_sdk.h" />
+    <ClInclude Include="SDKs\iTunes\iTunesCOMInterface.h" />
+    <ClInclude Include="SDKs\Winamp\wa_cmd.h" />
+    <ClInclude Include="SDKs\Winamp\wa_dlg.h" />
+    <ClInclude Include="SDKs\Winamp\wa_hotkeys.h" />
+    <ClInclude Include="SDKs\Winamp\wa_ipc.h" />
+    <ClInclude Include="StdAfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PluginNowPlaying.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
