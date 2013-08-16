@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(SolutionDir)\Project.props" />
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EE8EC522-8430-4B46-86A3-D943D77F9E4B}</ProjectGuid>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <TargetName>AdvancedCPU</TargetName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(SolutionDir)\Rainmeter.props" />
+  <Import Project="$(SolutionDir)\Plugins\Plugins.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;PluginAdvancedCPU_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4090;4114;4351;4786;4800;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;PluginAdvancedCPU_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4090;4114;4351;4786;4800;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;PluginAdvancedCPU_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4090;4114;4351;4786;4800;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_USRDLL;PluginAdvancedCPU_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4090;4114;4351;4786;4800;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AdvancedCPU.cpp" />
+    <ClCompile Include="..\PluginPerfMon\ObjInst.cpp" />
+    <ClCompile Include="..\PluginPerfMon\ObjList.cpp" />
+    <ClCompile Include="..\PluginPerfMon\PerfCntr.cpp" />
+    <ClCompile Include="..\PluginPerfMon\PerfObj.cpp" />
+    <ClCompile Include="..\PluginPerfMon\PerfSnap.cpp" />
+    <ClCompile Include="..\PluginPerfMon\Titledb.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\PluginPerfMon\MakePtr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PluginAdvancedCPU.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
