@@ -20,7 +20,7 @@ namespace WindowsFormsApplication5
         }
 
         private bool DragDropFlag;
-        DragEventArgs dea;
+        //DragEventArgs dea;
 
         private void textBox1_DragDrop(object sender, DragEventArgs e)
         {
@@ -210,7 +210,7 @@ namespace WindowsFormsApplication5
             this.Activate();
             this.textBox1.Focus();
             this.DragDropFlag = true;
-            dea = e;
+            //dea = e;
             if ((e.AllowedEffect & DragDropEffects.Copy) != DragDropEffects.None && this.cbEnableDrop.Checked)
                 e.Effect = DragDropEffects.Copy;
         }

@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication5", "WindowsFormsApplication5\WindowsFormsApplication5.csproj", "{C0872990-342C-4834-80D4-4766A62BFE9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragDropView", "DragDropView\DragDropView.csproj", "{A8E3F46B-67FB-4A2D-B83B-A682CEE1E08A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragDrop", "DragDrop\DragDrop.csproj", "{440C7BEA-0EED-4474-A221-B0FA4C2F09DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{C0872990-342C-4834-80D4-4766A62BFE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0872990-342C-4834-80D4-4766A62BFE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0872990-342C-4834-80D4-4766A62BFE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8E3F46B-67FB-4A2D-B83B-A682CEE1E08A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8E3F46B-67FB-4A2D-B83B-A682CEE1E08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8E3F46B-67FB-4A2D-B83B-A682CEE1E08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8E3F46B-67FB-4A2D-B83B-A682CEE1E08A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{440C7BEA-0EED-4474-A221-B0FA4C2F09DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440C7BEA-0EED-4474-A221-B0FA4C2F09DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440C7BEA-0EED-4474-A221-B0FA4C2F09DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440C7BEA-0EED-4474-A221-B0FA4C2F09DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

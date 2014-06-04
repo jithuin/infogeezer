@@ -314,6 +314,10 @@
       <Project>{827F8C33-8118-48C7-AB3C-4864298396AD}</Project>
       <Name>ColorPicker</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DragDrop\DragDrop.csproj">
+      <Project>{440C7BEA-0EED-4474-A221-B0FA4C2F09DD}</Project>
+      <Name>DragDrop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\fastJSON\fastJSON.csproj">
       <Project>{207E91B1-C9F8-4913-88E1-3549EF5F3273}</Project>
       <Name>fastJSON</Name>

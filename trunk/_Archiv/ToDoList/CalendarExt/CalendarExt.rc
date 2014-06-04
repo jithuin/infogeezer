@@ -1,0 +1,364 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "CalendarExtResource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.K.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 0,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080904b0"
+        BEGIN
+            VALUE "Comments", "Calendar Plugin for ToDoList \0"
+            VALUE "CompanyName", "http://www.codeproject.com/KB/applications/TDL_Calendar.aspx\r\nhttp://www.codeproject.com/KB/applications/todolist2.aspx\0"
+            VALUE "FileDescription", "CalendarExt DLL\0"
+            VALUE "FileVersion", "1, 0, 0, 0\0"
+            VALUE "InternalName", "CalendarExt\0"
+            VALUE "LegalCopyright", "Copyright (C) 2008\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "CalendarExt.dll\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "CalendarExt Dynamic Link Library\0"
+            VALUE "ProductVersion", "\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x809, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_TASKPREFS_DIALOG DIALOG DISCARDABLE  0, 0, 307, 191
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Calendar Display Preferences"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "&Grey",IDC_GREYCOMPLETEDTASKS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,132,125,10
+    DEFPUSHBUTTON   "OK",IDOK,192,170,50,14
+    CONTROL         "&Strikethrough",IDC_STRIKETHRUCOMPLETEDTASKS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,146,127,10
+    PUSHBUTTON      "Cancel",IDCANCEL,250,170,50,14
+    CONTROL         "Show '&Start' date",IDC_SHOWINCOMPLETESTART,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,21,128,10
+    CONTROL         "Show '&Due' date",IDC_SHOWINCOMPLETEDUE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,35,128,10
+    CONTROL         "S&how 'Start' date",IDC_SHOWCOMPLETESTART,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,73,125,10
+    CONTROL         "Sh&ow 'Due' date",IDC_SHOWCOMPLETEDUE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,87,129,10
+    CONTROL         "Sho&w 'Completion' date",IDC_SHOWCOMPLETEDONE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,101,128,10
+    GROUPBOX        "Incomplete Tasks",IDC_STATIC,7,7,141,48
+    GROUPBOX        "Completed Tasks",IDC_STATIC,7,60,141,102
+    LTEXT           "Display Completed Tasks as",IDC_DISPLAYDONETASKS_GROUP,
+                    14,119,127,9
+    LTEXT           "&Calendar cell font size:",IDC_STATIC,167,21,86,17
+    GROUPBOX        "Miscellaneous",IDC_STATIC,159,7,141,155
+    COMBOBOX        IDC_FONTSIZE,259,19,34,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_TASKPREFS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_CALENDAR MENU DISCARDABLE 
+BEGIN
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Mini-Calendar",              ID_VIEW_MINICALENDAR
+        MENUITEM "&Weekends",                   ID_VIEW_WEEKENDS
+        POPUP "&Number Of Weeks"
+        BEGIN
+            MENUITEM "&1 Week",                     ID_VIEW_NUMWEEKS_1
+            MENUITEM "&2 Weeks",                    ID_VIEW_NUMWEEKS_2
+            MENUITEM "&3 Weeks",                    ID_VIEW_NUMWEEKS_3
+            MENUITEM "&4 Weeks",                    ID_VIEW_NUMWEEKS_4
+            MENUITEM "&5 Weeks",                    ID_VIEW_NUMWEEKS_5
+            MENUITEM "&6 Weeks",                    ID_VIEW_NUMWEEKS_6
+            MENUITEM "&7 Weeks",                    ID_VIEW_NUMWEEKS_7
+            MENUITEM "&8 Weeks",                    ID_VIEW_NUMWEEKS_8
+            MENUITEM "&9 Weeks",                    ID_VIEW_NUMWEEKS_9
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Preferences...",             ID_VIEW_PREFS
+    END
+    MENUITEM "Go To &Today",                ID_GOTOTODAY
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_CALENDAR TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_BUTTON32771
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_CALENDAR            BITMAP  DISCARDABLE     "res\\toolbar1.bmp"
+IDB_MINICAL_ARROW_L     BITMAP  DISCARDABLE     "res\\minical_arrow_L.bmp"
+IDB_MINICAL_ARROW_R     BITMAP  DISCARDABLE     "res\\minical_arrow_R.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_CALENDAR            ICON    DISCARDABLE     "res\\icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_TASKPREFS_DIALOG DLGINIT
+BEGIN
+    IDC_FONTSIZE, 0x403, 2, 0
+0x0037, 
+    IDC_FONTSIZE, 0x403, 2, 0
+0x0038, 
+    IDC_FONTSIZE, 0x403, 2, 0
+0x0039, 
+    IDC_FONTSIZE, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_FONTSIZE, 0x403, 3, 0
+0x3131, "\000" 
+    IDC_FONTSIZE, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_FONTSIZE, 0x403, 3, 0
+0x3431, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_MINICALENDAR    "Show or hide the Mini-Calendar"
+    ID_VIEW_STATUSBAR       "Show or hide the Status Bar"
+    ID_VIEW_WEEKENDS        "Show or hide weekends"
+    ID_VIEW_COMPLETEDTASKS  "User Preferences"
+    ID_VIEW_NUMWEEKS_1      "Display 1 week in the Big-Calendar"
+    ID_VIEW_NUMWEEKS_2      "Display 2 weeks in the Big-Calendar"
+    ID_VIEW_NUMWEEKS_3      "Display 3 weeks in the Big-Calendar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_NUMWEEKS_4      "Display 4 weeks in the Big-Calendar"
+    ID_VIEW_NUMWEEKS_5      "Display 5 weeks in the Big-Calendar"
+    ID_VIEW_NUMWEEKS_6      "Display 6 weeks in the Big-Calendar"
+    ID_VIEW_NUMWEEKS_7      "Display 7 weeks in the Big-Calendar"
+    ID_VIEW_NUMWEEKS_8      "Display 8 weeks in the Big-Calendar"
+    ID_VIEW_NUMWEEKS_9      "Display 9 weeks in the Big-Calendar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_SB_STARTDATE         "Start: %s              "
+    ID_SB_STARTDATE_TIP     "Date the task started"
+    ID_SB_DUEDATE           "Due: %s              "
+    ID_SB_DUEDATE_TIP       "Date the task is due"
+    ID_SB_DONEDATE          "Completed: %s              "
+    ID_SB_DONEDATE_TIP      "Date the task was completed"
+    ID_SB_TIMEESTIMATE      "Time Est: %s%c "
+    ID_SB_TIMEESTIMATE_TIP  "Time estimated for this task"
+    ID_SB_TIMESPENT         "Time Spent: %s%c "
+    ID_SB_TIMESPENT_TIP     "Time spent on this task"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDR_CALENDAR            "ToDoList Calendar"
+END
+
+#endif    // English (U.K.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Australia) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENA)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_AUS
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_BUTTONS_DIALOG DIALOG DISCARDABLE  0, 0, 64, 47
+STYLE WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Today",IDC_GOTOTODAY,7,7,50,14
+    PUSHBUTTON      "&View...",IDC_PREFERENCES,7,26,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_BUTTONS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 57
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "CalendarExtResource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\CalendarExt.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (Australia) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\CalendarExt.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
