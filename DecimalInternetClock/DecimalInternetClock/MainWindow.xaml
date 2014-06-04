@@ -6,6 +6,7 @@
     xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
         xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
         xmlns:vw="clr-namespace:DecimalInternetClock.Clocks.View"
+        xmlns:dd="clr-namespace:DragDrop;assembly=DragDrop"
     Title="DecimalInternetClock"
         x:Name="this" WindowStyle="None" AllowsTransparency="True"
         Icon="Resources\Blank.png"
@@ -153,12 +154,17 @@
                 <Binding Path="Text" Mode="TwoWay"/>
             </TextBox.Text>-->
                 </TextBox>
-                <vw:BinaryHexDigitClockView DataContext="{Binding ElementName=this, Path=HexClock}"
+                <dd:NotesDragDropCustomTextBox TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"
+                                               VerticalScrollBarVisibility="Auto"
+                 AcceptsReturn="True"
+                 BorderBrush="Transparent"
+                                       Foreground="{Binding Foreground}" Background="#0400FF00"/>
+                <!--<vw:BinaryHexDigitClockView DataContext="{Binding ElementName=this, Path=HexClock}"
                                             HorizontalAlignment="Stretch"
                                             VerticalAlignment="Stretch"
                                             >
 
-                </vw:BinaryHexDigitClockView>
+                </vw:BinaryHexDigitClockView>-->
             </StackPanel>
         </ScrollViewer>
     </Grid>
