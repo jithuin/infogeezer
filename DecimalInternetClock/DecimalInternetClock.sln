@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IncomingFeatures", "IncomingFeatures", "{0E9E520B-52B3-4BB9-9AFA-F27E381558DB}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecimalInternetClock", "DecimalInternetClock\DecimalInternetClock.csproj", "{239BD0B2-A007-4538-85E4-6A98134965A0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{827F8C33-8118-48C7-AB3C-4864298396AD} = {827F8C33-8118-48C7-AB3C-4864298396AD}
@@ -13,8 +15,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIndexer", "FileIndexer\FileIndexer.csproj", "{2E878E72-0953-48FA-A435-CFBB32B27ECD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontDialogSample", "FontDialogSample\FontDialogSample.csproj", "{BA5113A3-EA25-4BA3-96E1-7FB10D9201F0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IncomingFeatures", "IncomingFeatures", "{0E9E520B-52B3-4BB9-9AFA-F27E381558DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkRichTextWindow", "LinkRichTextWindow\LinkRichTextWindow.csproj", "{2A6D4560-0844-44DB-855A-2915F5E25404}"
 EndProject
@@ -105,8 +105,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{207E91B1-C9F8-4913-88E1-3549EF5F3273} = {0E9E520B-52B3-4BB9-9AFA-F27E381558DB}
 		{2E878E72-0953-48FA-A435-CFBB32B27ECD} = {0E9E520B-52B3-4BB9-9AFA-F27E381558DB}
 		{BA5113A3-EA25-4BA3-96E1-7FB10D9201F0} = {0E9E520B-52B3-4BB9-9AFA-F27E381558DB}
-		{207E91B1-C9F8-4913-88E1-3549EF5F3273} = {0E9E520B-52B3-4BB9-9AFA-F27E381558DB}
 	EndGlobalSection
 EndGlobal
