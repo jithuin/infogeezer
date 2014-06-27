@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DecimalInternetClock.DesignPatterns.Singleton
 {
-    public abstract class AbstractSingleton
+    public abstract class AbstractSingleton 
     {
         static AbstractSingleton _instance;
 

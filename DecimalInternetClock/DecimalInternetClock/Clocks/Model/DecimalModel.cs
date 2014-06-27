@@ -70,6 +70,10 @@ namespace DecimalInternetClock
         }
     }
 
+    /// <summary>
+    ///
+    /// </summary>
+    /// <typeparam name="E">The E type must be some kind of enum type</typeparam>
     public abstract class ClockBase<E> : ClockBase
         where E : struct, IConvertible, IComparable
     {
@@ -91,6 +95,16 @@ namespace DecimalInternetClock
         {
             get { return base[index.ToInt32(null)]; }
             set { base[index.ToInt32(null)] = value; }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (E index in Enum.GetValues(typeof(E)).Cast<E>())
+            {
+                sb.AppendFormat("{0}:{1}, ", index, this[index]);
+            }
+            return sb.ToString();
         }
     }
 
@@ -186,7 +200,11 @@ namespace DecimalInternetClock
             }
         }
 
-        public HexDigitModel(long time_in) : base(time_in) { ;}
+        public HexDigitModel(long time_in)
+            : base(time_in)
+        {
+            ;
+        }
 
         public HexDigitModel()
         {
@@ -281,6 +299,7 @@ namespace DecimalInternetClock
     public class DecimalModel : IDecimalClock
     {
         #region IDecimalClock Members
+
         private double _decimalTime = 0;
 
         public DateTime Now
@@ -434,7 +453,7 @@ namespace DecimalInternetClock
 
         public D BaseData { get; set; }
 
-        Func<I, IndexMe<D, I, R>, R> myGetfunc;
+        private Func<I, IndexMe<D, I, R>, R> myGetfunc;
 
         public R this[I index]
         {
