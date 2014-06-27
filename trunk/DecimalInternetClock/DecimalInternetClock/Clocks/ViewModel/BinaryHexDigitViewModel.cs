@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using DecimalInternetClock.Helpers;
 
 namespace DecimalInternetClock
 {
     public class BinaryHexDigitViewModel : INotifyPropertyChanged
     {
-        HexDigitModel _clock;
+        private HexDigitModel _clock;
 
         public BinaryHexDigitViewModel()
         {
@@ -24,7 +25,8 @@ namespace DecimalInternetClock
             }
             set
             {
-                _clock.Now = value;
+                if (_clock.Now != value)
+                    _clock.Now = value;
                 UpdateAllSubProperties();
             }
         }
@@ -33,6 +35,14 @@ namespace DecimalInternetClock
         {
             foreach (HexDigitModel.EUnits unit in EnumHelper.GetValues<HexDigitModel.EUnits>())
                 OnPropertyChanged(unit);
+        }
+
+        public Visibility FirstVisibility
+        {
+            get
+            {
+                return First ? Visibility.Visible : Visibility.Hidden;
+            }
         }
 
         public bool First
@@ -48,6 +58,14 @@ namespace DecimalInternetClock
                     _clock[HexDigitModel.EUnits.First] = value;
                     OnPropertyChanged(HexDigitModel.EUnits.First);
                 }
+            }
+        }
+
+        public Visibility SecondVisibility
+        {
+            get
+            {
+                return Second ? Visibility.Visible : Visibility.Hidden;
             }
         }
 
@@ -67,6 +85,14 @@ namespace DecimalInternetClock
             }
         }
 
+        public Visibility ThirdVisibility
+        {
+            get
+            {
+                return Third ? Visibility.Visible : Visibility.Hidden;
+            }
+        }
+
         public bool Third
         {
             get
@@ -80,6 +106,14 @@ namespace DecimalInternetClock
                     _clock[HexDigitModel.EUnits.Third] = value;
                     OnPropertyChanged(HexDigitModel.EUnits.Third);
                 }
+            }
+        }
+
+        public Visibility FourthVisibility
+        {
+            get
+            {
+                return Fourth ? Visibility.Visible : Visibility.Hidden;
             }
         }
 
@@ -104,6 +138,7 @@ namespace DecimalInternetClock
         public void OnPropertyChanged(HexDigitModel.EUnits unit_in)
         {
             OnPropertyChanged(unit_in.ToString());
+            OnPropertyChanged(String.Format("{0}Visibility", unit_in.ToString()));
         }
 
         public void OnPropertyChanged(String propName)

@@ -10,8 +10,10 @@ namespace DecimalInternetClock
     public class BinaryHexDigitClockViewModel : INotifyPropertyChanged
     {
         #region Fields
-        HexDigitClockModel _clock;
-        Dictionary<HexDigitClockModel.EUnits, BinaryHexDigitViewModel> _subViewModels;
+
+        private HexDigitClockModel _clock;
+        private Dictionary<HexDigitClockModel.EUnits, BinaryHexDigitViewModel> _subViewModels;
+
         #endregion Fields
 
         #region Public Properties
@@ -76,12 +78,12 @@ namespace DecimalInternetClock
                 _subViewModels[unit].PropertyChanged += new PropertyChangedEventHandler(
                     (sender, e) =>
                     {
-                        foreach (HexDigitClockModel.EUnits _unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
-                            if (_subViewModels[_unit].Now != _clock[_unit])
-                            {
-                                _clock[_unit] = _subViewModels[_unit].Now;
-                                OnPropertyChanged(_unit);
-                            }
+                        //foreach (HexDigitClockModel.EUnits _unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
+                        if (_subViewModels[unit].Now != _clock[unit])
+                        {
+                            _clock[unit] = _subViewModels[unit].Now;
+                            OnPropertyChanged(unit);
+                        }
                     }
                     );
             }

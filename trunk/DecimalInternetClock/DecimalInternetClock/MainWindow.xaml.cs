@@ -33,6 +33,12 @@ namespace DecimalInternetClock
     {
         #region Properties
 
+        /// <summary>
+        /// Timer interval for clocks on the UI
+        /// </summary>
+        /// <value>50 ms</value>
+        protected int TimerInterval = 50;
+
         public DecimalTimer DecimalTime { get; set; }
 
         private Windows7.Multitouch.GestureHandler _gestureHandler;
@@ -50,10 +56,24 @@ namespace DecimalInternetClock
             DecimalTime = new DecimalTimer();
             HexClock = new BinaryHexDigitClockViewModel();
             InitializeComponent();
-            HexClock.UpdateNow();
+            InitHexTimer();
             LoadSettings();
             InitGesture();
             NameScope.SetNameScope(contextMenu, this);
+        }
+
+        private void InitHexTimer()
+        {
+            Timer hexTimer = new Timer(TimerInterval);
+            hexTimer.AutoReset = true;
+            hexTimer.Elapsed += new ElapsedEventHandler(hexTimer_Elapsed);
+
+            hexTimer.Start();
+        }
+
+        private void hexTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            HexClock.UpdateNow();
         }
 
         private void InitGesture()
@@ -192,7 +212,7 @@ namespace DecimalInternetClock
 
         #region INameScope Members
 
-        Dictionary<string, object> items = new Dictionary<string, object>();
+        private Dictionary<string, object> items = new Dictionary<string, object>();
 
         object INameScope.FindName(string name)
         {
