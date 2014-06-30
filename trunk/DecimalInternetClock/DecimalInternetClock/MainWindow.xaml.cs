@@ -56,6 +56,8 @@ namespace DecimalInternetClock
             DecimalTime = new DecimalTimer();
             HexClock = new BinaryHexDigitClockViewModel();
             InitializeComponent();
+            HexClock.Foreground = this.Foreground; // TODO: It should be bound instead
+            HexClock.StrokeThickness = 10; // TODO: it should be a designer property
             InitHexTimer();
             LoadSettings();
             InitGesture();

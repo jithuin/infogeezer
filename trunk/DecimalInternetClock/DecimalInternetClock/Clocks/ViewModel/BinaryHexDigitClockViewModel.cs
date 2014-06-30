@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
+using System.Windows;
+using System.Windows.Media;
 using DecimalInternetClock.Helpers;
 
 namespace DecimalInternetClock
@@ -18,6 +18,8 @@ namespace DecimalInternetClock
 
         #region Public Properties
 
+        public bool IsReadonly { get; set; }
+
         public DateTime Now
         {
             set
@@ -25,8 +27,11 @@ namespace DecimalInternetClock
                 _clock.Now = value;
                 foreach (HexDigitClockModel.EUnits unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
                 {
-                    _subViewModels[unit].Now = _clock[unit];
-                    OnPropertyChanged(unit);
+                    if (_subViewModels[unit].Now != _clock[unit])
+                    {
+                        _subViewModels[unit].Now = _clock[unit];
+                        OnPropertyChanged(unit);
+                    }
                 }
             }
         }
@@ -63,6 +68,76 @@ namespace DecimalInternetClock
             }
         }
 
+        public string ForegroundPropertyName = "Foreground";
+        protected Brush _foreground;
+
+        public Brush Foreground
+        {
+            get { return _foreground; }
+            set
+            {
+                if (_foreground != value)
+                {
+                    _foreground = value;
+                    foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
+                        _subViewModels[unit].Foreground = _foreground;
+                    OnPropertyChanged(ForegroundPropertyName);
+                }
+            }
+        }
+
+        public string StrokeThicknessPropertyName = "StrokeThickness";
+        protected double _strokeThickness = 1;
+
+        public double StrokeThickness
+        {
+            get { return _strokeThickness; }
+            set
+            {
+                if (_strokeThickness != value)
+                {
+                    _strokeThickness = value;
+                    foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
+                        _subViewModels[unit].StrokeThickness = _strokeThickness;
+                    OnPropertyChanged(StrokeThicknessPropertyName);
+                    foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
+                        OnPropertyChanged(String.Format("{0}Margin", unit));
+                }
+            }
+        }
+
+        public Thickness HourMargin
+        {
+            get
+            {
+                return new Thickness(0);
+            }
+        }
+
+        public Thickness MinutesHiMargin
+        {
+            get
+            {
+                return new Thickness(_strokeThickness);
+            }
+        }
+
+        public Thickness MinutesLowMargin
+        {
+            get
+            {
+                return new Thickness(_strokeThickness * 2);
+            }
+        }
+
+        public Thickness SecondMargin
+        {
+            get
+            {
+                return new Thickness(_strokeThickness * 3);
+            }
+        }
+
         #endregion Public Properties
 
         #region Constructor
@@ -70,6 +145,7 @@ namespace DecimalInternetClock
         public BinaryHexDigitClockViewModel()
         {
             _clock = new HexDigitClockModel();
+            IsReadonly = true;
             //Init Sub-View-Models
             _subViewModels = new Dictionary<HexDigitClockModel.EUnits, BinaryHexDigitViewModel>();
             foreach (HexDigitClockModel.EUnits unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
@@ -79,10 +155,10 @@ namespace DecimalInternetClock
                     (sender, e) =>
                     {
                         //foreach (HexDigitClockModel.EUnits _unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
-                        if (_subViewModels[unit].Now != _clock[unit])
+                        if (!IsReadonly && sender != this && _subViewModels[unit].Now != _clock[unit])
                         {
                             _clock[unit] = _subViewModels[unit].Now;
-                            OnPropertyChanged(unit);
+                            OnPropertyChanged(sender, unit);
                         }
                     }
                     );
@@ -95,12 +171,12 @@ namespace DecimalInternetClock
 
         //private void BinaryHexDigitClockViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         //{
-        //    foreach (HexDigitClockModel.EUnits unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
-        //        if (_subViewModels[unit].Now != _clock[unit])
-        //        {
-        //            _clock[unit] = _subViewModels[unit].Now;
-        //            OnPropertyChanged(unit);
-        //        }
+        //    //foreach (HexDigitClockModel.EUnits unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
+        //    if (_subViewModels[unit].Now != _clock[unit])
+        //    {
+        //        _clock[unit] = _subViewModels[unit].Now;
+        //        OnPropertyChanged(unit);
+        //    }
         //}
 
         public void UpdateNow()
@@ -123,6 +199,19 @@ namespace DecimalInternetClock
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propName));
             }
+        }
+
+        public void OnPropertyChanged(object sender, String propName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(sender, new PropertyChangedEventArgs(propName));
+            }
+        }
+
+        public void OnPropertyChanged(object sender, HexDigitClockModel.EUnits unit_in)
+        {
+            OnPropertyChanged(sender, unit_in.ToString());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
