@@ -4,12 +4,12 @@
              xmlns:vw="clr-namespace:DecimalInternetClock.Clocks.View">
     <Viewbox>
         <Grid Height="175" Width="175">
-            <vw:BinaryHexDigitView DataContext="{Binding Path=Hour}" Margin="0" />
-            <vw:BinaryHexDigitView DataContext="{Binding Path=Hour}" Margin="0" />
-            <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteHi}" Margin="10" />
-            <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteLow}" Margin="20" />
-            <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteLow}" Margin="20" />
-            <vw:BinaryHexDigitView DataContext="{Binding Path=Second}" Margin="30" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=Hour}" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=Hour}" Margin="{Binding Path=HourMargin}" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteHi}" Margin="{Binding Path=MinuteHiMargin}" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteLow}" Margin="{Binding Path=MinuteLowMargin}" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteLow}" Margin="{Binding Path=MinuteLowMargin}" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=Second}" Margin="{Binding Path=SecondMargin}" />
         </Grid>
     </Viewbox>
 </UserControl>

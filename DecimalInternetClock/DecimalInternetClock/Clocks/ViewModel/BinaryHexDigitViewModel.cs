@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Media;
 using DecimalInternetClock.Helpers;
 
 namespace DecimalInternetClock
@@ -26,8 +27,10 @@ namespace DecimalInternetClock
             set
             {
                 if (_clock.Now != value)
+                {
                     _clock.Now = value;
-                UpdateAllSubProperties();
+                    UpdateAllSubProperties();
+                }
             }
         }
 
@@ -130,6 +133,68 @@ namespace DecimalInternetClock
                     _clock[HexDigitModel.EUnits.Fourth] = value;
                     OnPropertyChanged(HexDigitModel.EUnits.Fourth);
                 }
+            }
+        }
+
+        public string ForegroundPropertyName = "Foreground";
+        protected Brush _foreground;
+
+        public Brush Foreground
+        {
+            get { return _foreground; }
+            set
+            {
+                if (_foreground != value)
+                {
+                    _foreground = value;
+                    OnPropertyChanged(ForegroundPropertyName);
+                }
+            }
+        }
+
+        public string StrokeThicknessPropertyName = "StrokeThickness";
+        protected double _strokeThickness;
+
+        public double StrokeThickness
+        {
+            get { return _strokeThickness; }
+            set
+            {
+                if (_strokeThickness != value)
+                {
+                    _strokeThickness = value;
+                    OnPropertyChanged(StrokeThicknessPropertyName);
+                    OnPropertyChanged(InternalMarginPropertyName);
+                }
+            }
+        }
+
+        public const string MarginPropertyName = "Margin";
+        protected Thickness _margin = new Thickness();
+
+        public Thickness Margin
+        {
+            get
+            {
+                return _margin;
+            }
+            set
+            {
+                if (_margin != value)
+                {
+                    _margin = value;
+                    OnPropertyChanged(MarginPropertyName);
+                }
+            }
+        }
+
+        public const string InternalMarginPropertyName = "InternalMargin";
+
+        public Thickness InternalMargin
+        {
+            get
+            {
+                return new Thickness(_strokeThickness);
             }
         }
 

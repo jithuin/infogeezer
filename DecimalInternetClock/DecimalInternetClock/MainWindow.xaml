@@ -76,99 +76,71 @@
             </Button>
         </Grid>
         <!--Window Content-->
-        <ScrollViewer Grid.Row="1"
-                      VerticalScrollBarVisibility="Auto"
-                      Style="{StaticResource ScrollViewerStyle}"
-                      x:Name="_scrollViewer">
+        <ScrollViewer
+            Grid.Row="1"
+            VerticalScrollBarVisibility="Auto"
+            Style="{StaticResource ScrollViewerStyle}"
+            x:Name="_scrollViewer">
             <StackPanel Orientation="Vertical">
-                <my:DecimalClock Grid.Row="1" Background="Transparent"
-                                 MouseLeftButtonDown="Grid_MouseLeftButtonDown"
-                         Visibility="{Binding Path=DecimalClockVisibility}">
-
-                    <my:DecimalClock.DecimalTime>
-                        <Binding ElementName="this" Path="DecimalTime.Time" Mode="OneWay"></Binding>
-                    </my:DecimalClock.DecimalTime>
-                    <!--<my:DecimalClock.ForeColor>
-                <Binding ElementName="this" Path="ForeColor" />
-            </my:DecimalClock.ForeColor>
-            <my:DecimalClock.Transparency>
-                <Binding ElementName="this" Path="Transparency" />
-            </my:DecimalClock.Transparency>-->
+                <my:DecimalClock
+                    Grid.Row="1"
+                    Background="Transparent"
+                    MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+                    Visibility="{Binding Path=DecimalClockVisibility}"
+                    DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}">
                 </my:DecimalClock>
-                <my:BinaryClock MouseLeftButtonDown="Grid_MouseLeftButtonDown" Grid.Row="2" Background="Transparent"
-                        Visibility="{Binding Path=BinaryClockVisibility}">
-                    <my:BinaryClock.DecimalTime>
-                        <Binding ElementName="this" Path="DecimalTime.Time" Mode="OneWay"></Binding>
-                    </my:BinaryClock.DecimalTime>
-                    <!--<my:BinaryClock.ForeColor>
-                <Binding ElementName="this" Path="ForeColor" />
-            </my:BinaryClock.ForeColor>
-            <my:BinaryClock.Transparency>
-                <Binding ElementName="this" Path="Transparency" />
-            </my:BinaryClock.Transparency>-->
+                <my:BinaryClock
+                    MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+                    Grid.Row="2"
+                    Background="Transparent"
+                    Visibility="{Binding Path=BinaryClockVisibility}"
+                    DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}">
                 </my:BinaryClock>
-                <my:BinaryRing Visibility="{Binding Path=BinaryRingVisibility}"
-                               Grid.Row="3"
-                               HorizontalAlignment="Stretch"
-                               VerticalAlignment="Stretch"
-
-                               x:Name="_bRing">
-                    <my:BinaryRing.DecimalTime>
-                        <Binding ElementName="this"
-                         Path="DecimalTime.Time"
-                         Mode="OneWay" />
-                    </my:BinaryRing.DecimalTime>
-
-                    <!--<my:BinaryRing.Foreground>
-                <SolidColorBrush>
-                    <SolidColorBrush.Color>
-                        <Binding ElementName="this" Path="ForeColor" />
-                    </SolidColorBrush.Color>
-                </SolidColorBrush>
-            </my:BinaryRing.Foreground>-->
+                <my:BinaryRing
+                    Visibility="{Binding Path=BinaryRingVisibility}"
+                    Grid.Row="3"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}"
+                    x:Name="_bRing">
                 </my:BinaryRing>
-                <!--<my:BinaryRing DecimalTime="{Binding ElementName=this,
-                         Path=DecimalTime.Time,
-                         Mode=OneWay}"
-                               HorizontalAlignment="Stretch" />-->
 
-                <TextBox Name="textBox"
-
-                 Grid.Row="4"
-                 Margin="2"
-                 TextWrapping="Wrap"
-                 VerticalScrollBarVisibility="Auto"
-                 AcceptsReturn="True"
-                 BorderBrush="Transparent"
-                 Background="#01000000"
-                 Visibility="{Binding Path=TextBoxVisibility}">
-                    <!--<TextBox.BorderBrush>
-                <Binding ElementName="this" Path="Foreground" />
-            </TextBox.BorderBrush>-->
-                    <TextBox.Foreground>
-                        <Binding ElementName="this" Path="Foreground" />
-                    </TextBox.Foreground>
-                    <!--<TextBox.Text>
-                <Binding Path="Text" Mode="TwoWay" />
-            </TextBox.Text>-->
+                <TextBox
+                    Name="textBox"
+                    Grid.Row="4"
+                    Margin="2"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    AcceptsReturn="True"
+                    BorderBrush="Transparent"
+                    Background="#01000000"
+                    Visibility="{Binding Path=TextBoxVisibility}"
+                    Foreground="{Binding ElementName=this, Path=Foreground}">
                 </TextBox>
-                <dd:NotesDragDropCustomTextBox TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"
-                                               VerticalScrollBarVisibility="Auto"
-                 AcceptsReturn="True"
-                 BorderBrush="Transparent"
-                                       Foreground="{Binding Foreground}" Background="#0400FF00" />
-                <vw:BinaryHexDigitClockView DataContext="{Binding ElementName=this, Path=HexClock}"
-                                            HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Stretch"
-                                            Background="Black">
+                <dd:NotesDragDropCustomTextBox
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Grid.Row="1"
+                    VerticalScrollBarVisibility="Auto"
+                    AcceptsReturn="True"
+                    BorderBrush="Transparent"
+                    Foreground="{Binding Foreground}"
+                    Background="#0400FF00">
+                </dd:NotesDragDropCustomTextBox>
+                <vw:BinaryHexDigitClockView
+                    DataContext="{Binding ElementName=this, Path=HexClock}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="#01000000">
                 </vw:BinaryHexDigitClockView>
                 <TextBox
                     Margin="2"
-                 TextWrapping="Wrap"
-                 VerticalScrollBarVisibility="Auto"
-                 AcceptsReturn="True"
-                 BorderBrush="Transparent"
-                 Background="#01000000"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    AcceptsReturn="True"
+                    BorderBrush="Transparent"
+                    Background="#01000000"
                     Foreground="{Binding ElementName=this, Path=Foreground}"
                     Text="{Binding ElementName=this, Path=HexClock.Second.Fourth}" />
             </StackPanel>
