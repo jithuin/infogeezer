@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ColorPicker;
 using DecimalInternetClock.Clocks;
+using DecimalInternetClock.Clocks.ViewModel;
 using DecimalInternetClock.Helpers;
 using DecimalInternetClock.Properties;
 using DecimalInternetClock.Touch;
@@ -29,7 +30,7 @@ namespace DecimalInternetClock
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window, INameScope, INotifyPropertyChanged
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         #region Properties
 
@@ -56,12 +57,13 @@ namespace DecimalInternetClock
             DecimalTime = new DecimalTimer();
             HexClock = new BinaryHexDigitClockViewModel();
             InitializeComponent();
-            HexClock.Foreground = this.Foreground; // TODO: It should be bound instead
+            //SetLocalBinding(this, ForegroundProperty, HexClock, HexClock.ForegroundPropertyName);
+            HexClock.Foreground = Settings.Default.Foreground; // TODO: It should be bound instead
             HexClock.StrokeThickness = 10; // TODO: it should be a designer property
             InitHexTimer();
             LoadSettings();
             InitGesture();
-            NameScope.SetNameScope(contextMenu, this);
+            //NameScope.SetNameScope(contextMenu, this);
         }
 
         private void InitHexTimer()
@@ -212,26 +214,26 @@ namespace DecimalInternetClock
 
         #endregion Event Handlers
 
-        #region INameScope Members
+        //#region INameScope Members
 
-        private Dictionary<string, object> items = new Dictionary<string, object>();
+        //private Dictionary<string, object> items = new Dictionary<string, object>();
 
-        object INameScope.FindName(string name)
-        {
-            return items[name];
-        }
+        //object INameScope.FindName(string name)
+        //{
+        //    return items[name];
+        //}
 
-        void INameScope.RegisterName(string name, object scopedElement)
-        {
-            items.Add(name, scopedElement);
-        }
+        //void INameScope.RegisterName(string name, object scopedElement)
+        //{
+        //    items.Add(name, scopedElement);
+        //}
 
-        void INameScope.UnregisterName(string name)
-        {
-            items.Remove(name);
-        }
+        //void INameScope.UnregisterName(string name)
+        //{
+        //    items.Remove(name);
+        //}
 
-        #endregion INameScope Members
+        //#endregion INameScope Members
 
         #region INotifyPropertyChanged Members
 
