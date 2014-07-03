@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+using DecimalInternetClock.Clocks.View;
 using DecimalInternetClock.Helpers;
+using GalaSoft.MvvmLight.Command;
 
-namespace DecimalInternetClock
+namespace DecimalInternetClock.Clocks.ViewModel
 {
     public class BinaryHexDigitViewModel : INotifyPropertyChanged
     {
@@ -16,7 +19,19 @@ namespace DecimalInternetClock
         public BinaryHexDigitViewModel()
         {
             _clock = new HexDigitModel();
+            _clock.Now = 0xf;
+            DebugCommand = new RelayCommand(() =>
+        {
+            if (this._clock != null)
+                _clock.UpdateNow();
+        });
         }
+
+        #region Properties
+
+        public BinaryHexDigitView view { get; set; }
+
+        public RelayCommand DebugCommand { get; private set; }
 
         public long Now
         {
@@ -29,16 +44,86 @@ namespace DecimalInternetClock
                 if (_clock.Now != value)
                 {
                     _clock.Now = value;
-                    UpdateAllSubProperties();
+                    foreach (HexDigitModel.EUnits unit in EnumHelper.GetValues<HexDigitModel.EUnits>())
+                        OnPropertyChanged(unit);
                 }
             }
         }
 
-        private void UpdateAllSubProperties()
+        #region Height
+
+        /// <summary>
+        /// The <see cref="Height" /> property's name.
+        /// </summary>
+        public const string HeightPropertyName = "Height";
+
+        /// <summary>
+        /// Sets and gets the ActualHeight property.
+        /// Changes to that property's value raise the PropertyChanged event.
+        /// </summary>
+        public double Height
         {
-            foreach (HexDigitModel.EUnits unit in EnumHelper.GetValues<HexDigitModel.EUnits>())
-                OnPropertyChanged(unit);
+            get { return _actualWidth; }
         }
+
+        #endregion Height
+
+        #region ActualWidth
+
+        /// <summary>
+        /// The <see cref="ActualWidth" /> property's name.
+        /// </summary>
+        public const string ActualWidthPropertyName = "ActualWidth";
+
+        private double _actualWidth = 100;
+
+        /// <summary>
+        /// Sets and gets the ActualWidth property.
+        /// Changes to that property's value raise the PropertyChanged event.
+        /// </summary>
+        public double ActualWidth
+        {
+            get
+            {
+                //if (DesignerProperties.GetIsInDesignMode(this))
+                //    return 100.0;
+                //else
+                return _actualWidth;
+            }
+            set
+            {
+                if (_actualWidth != value)
+                {
+                    _actualWidth = value;
+                    OnPropertyChanged(ActualWidthPropertyName);
+                    OnPropertyChanged(HeightPropertyName);
+                }
+            }
+        }
+
+        #endregion ActualWidth
+
+        #region PathData
+
+        /// <summary>
+        /// The <see cref="PathData" /> property's name.
+        /// </summary>
+        public const string PathDataPropertyName = "PathData";
+
+        protected const string _pathDataFormatString = "M 0,{0} A {0},{0} 0 0 1 {0},0";
+
+        /// <summary>
+        /// Sets and gets the PathData property.
+        /// Changes to that property's value raise the PropertyChanged event.
+        /// </summary>
+        public string PathData
+        {
+            get { return String.Format(_pathDataFormatString, (_actualWidth / 2).ToString(CultureInfo.InvariantCulture)); }
+        }
+
+        #endregion PathData
+
+        #region First
 
         public Visibility FirstVisibility
         {
@@ -64,6 +149,10 @@ namespace DecimalInternetClock
             }
         }
 
+        #endregion First
+
+        #region Second
+
         public Visibility SecondVisibility
         {
             get
@@ -87,6 +176,10 @@ namespace DecimalInternetClock
                 }
             }
         }
+
+        #endregion Second
+
+        #region Third
 
         public Visibility ThirdVisibility
         {
@@ -112,6 +205,10 @@ namespace DecimalInternetClock
             }
         }
 
+        #endregion Third
+
+        #region Fourth
+
         public Visibility FourthVisibility
         {
             get
@@ -136,6 +233,10 @@ namespace DecimalInternetClock
             }
         }
 
+        #endregion Fourth
+
+        #region Foreground
+
         public string ForegroundPropertyName = "Foreground";
         protected Brush _foreground;
 
@@ -152,8 +253,12 @@ namespace DecimalInternetClock
             }
         }
 
+        #endregion Foreground
+
+        #region StrokeThickness
+
         public string StrokeThicknessPropertyName = "StrokeThickness";
-        protected double _strokeThickness;
+        protected double _strokeThickness = 10;
 
         public double StrokeThickness
         {
@@ -165,12 +270,17 @@ namespace DecimalInternetClock
                     _strokeThickness = value;
                     OnPropertyChanged(StrokeThicknessPropertyName);
                     OnPropertyChanged(InternalMarginPropertyName);
+                    OnPropertyChanged(PathDataPropertyName);
                 }
             }
         }
 
+        #endregion StrokeThickness
+
+        #region Margin
+
         public const string MarginPropertyName = "Margin";
-        protected Thickness _margin = new Thickness();
+        protected Thickness _margin = new Thickness(0);
 
         public Thickness Margin
         {
@@ -188,15 +298,23 @@ namespace DecimalInternetClock
             }
         }
 
+        #endregion Margin
+
+        #region InternalMargin
+
         public const string InternalMarginPropertyName = "InternalMargin";
 
         public Thickness InternalMargin
         {
             get
             {
-                return new Thickness(_strokeThickness);
+                return new Thickness(0);
             }
         }
+
+        #endregion InternalMargin
+
+        #endregion Properties
 
         #region INotifyPropertyChanged Members
 

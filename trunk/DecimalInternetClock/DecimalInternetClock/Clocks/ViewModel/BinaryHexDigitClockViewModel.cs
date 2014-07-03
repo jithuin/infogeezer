@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Media;
 using DecimalInternetClock.Helpers;
 
-namespace DecimalInternetClock
+namespace DecimalInternetClock.Clocks.ViewModel
 {
     public class BinaryHexDigitClockViewModel : INotifyPropertyChanged
     {
@@ -98,43 +98,12 @@ namespace DecimalInternetClock
                 {
                     _strokeThickness = value;
                     foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
+                    {
                         _subViewModels[unit].StrokeThickness = _strokeThickness;
+                        _subViewModels[unit].Margin = new Thickness(_strokeThickness);
+                    }
                     OnPropertyChanged(StrokeThicknessPropertyName);
-                    foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
-                        OnPropertyChanged(String.Format("{0}Margin", unit));
                 }
-            }
-        }
-
-        public Thickness HourMargin
-        {
-            get
-            {
-                return new Thickness(0);
-            }
-        }
-
-        public Thickness MinutesHiMargin
-        {
-            get
-            {
-                return new Thickness(_strokeThickness);
-            }
-        }
-
-        public Thickness MinutesLowMargin
-        {
-            get
-            {
-                return new Thickness(_strokeThickness * 2);
-            }
-        }
-
-        public Thickness SecondMargin
-        {
-            get
-            {
-                return new Thickness(_strokeThickness * 3);
             }
         }
 
@@ -151,6 +120,7 @@ namespace DecimalInternetClock
             foreach (HexDigitClockModel.EUnits unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
             {
                 _subViewModels.Add(unit, new BinaryHexDigitViewModel());
+
                 _subViewModels[unit].PropertyChanged += new PropertyChangedEventHandler(
                     (sender, e) =>
                     {
@@ -168,16 +138,6 @@ namespace DecimalInternetClock
         #endregion Constructor
 
         #region Methods
-
-        //private void BinaryHexDigitClockViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        //{
-        //    //foreach (HexDigitClockModel.EUnits unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
-        //    if (_subViewModels[unit].Now != _clock[unit])
-        //    {
-        //        _clock[unit] = _subViewModels[unit].Now;
-        //        OnPropertyChanged(unit);
-        //    }
-        //}
 
         public void UpdateNow()
         {
