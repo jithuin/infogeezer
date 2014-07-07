@@ -4,7 +4,7 @@
       <vm:ViewModelLocator xmlns:vm="clr-namespace:DecimalInternetClock"
                            x:Key="Locator" />
   </Application.Resources>
-  
+
   In the View:
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 
@@ -43,6 +43,7 @@ namespace DecimalInternetClock.ViewModel
             ////}
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<OptionsViewModel>();
         }
 
         public MainViewModel Main
@@ -52,7 +53,15 @@ namespace DecimalInternetClock.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+
+        public OptionsViewModel Options
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<OptionsViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
