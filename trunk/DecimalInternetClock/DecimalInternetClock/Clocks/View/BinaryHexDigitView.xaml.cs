@@ -27,14 +27,13 @@ namespace DecimalInternetClock.Clocks.View
             InitializeComponent();
             if (DesignerProperties.GetIsInDesignMode(this))
             {
-                BinaryHexDigitViewModel vm = new BinaryHexDigitViewModel();
-                vm.view = this;
-                vm.StrokeThickness = 10;
-                vm.Foreground = Brushes.Black;
-                vm.ActualWidth = 100;
-                vm.Now = 0xF;
+                //BinaryHexDigitViewModel vm = new BinaryHexDigitViewModel();
+                //vm.view = this;
+                //vm.StrokeThickness = 10;
+                //vm.ActualWidth = 100;
+                (DataContext as BinaryHexDigitViewModel).Now = 0xF;
 
-                DataContext = vm;
+                //DataContext = vm;
             }
             if (DataContext != null)
                 if (!(DataContext is BinaryHexDigitViewModel))

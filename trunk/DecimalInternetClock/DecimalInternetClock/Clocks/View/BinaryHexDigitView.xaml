@@ -17,11 +17,11 @@
             <Setter Property="Data" Value="{Binding Path=PathData}" />
             <Setter Property="RenderTransformOrigin" Value="1 1" />
             <!--<Setter Property="Margin" Value="{Binding Path=InternalMargin}" />-->
-            <!--<Setter Property="Stroke" Value="{Binding Path=Foreground}" />-->
+            <Setter Property="Stroke" Value="{Binding Path=Foreground}" />
 
             <Setter Property="StrokeThickness" Value="10" />
-            <Setter Property="Data" Value="M 0,50 A 50,50 0 0 1 50,0" />
-            <Setter Property="Stroke" Value="#FF000000" />
+            <!--<Setter Property="Data" Value="M 0,50 A 50,50 0 0 1 50,0" />-->
+            <!--<Setter Property="Stroke" Value="#FF000000" />-->
         </Style>
     </UserControl.Resources>
 

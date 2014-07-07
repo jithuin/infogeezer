@@ -69,7 +69,7 @@ namespace DecimalInternetClock.Clocks.ViewModel
         }
 
         public string ForegroundPropertyName = "Foreground";
-        protected Brush _foreground;
+        protected Brush _foreground = Brushes.Black;
 
         public Brush Foreground
         {

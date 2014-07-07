@@ -1,5 +1,5 @@
 ﻿<Window
-    x:Class="DecimalInternetClock.MainWindow"
+    x:Class="DecimalInternetClock.MainView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:my="clr-namespace:DecimalInternetClock"
@@ -8,18 +8,21 @@
     xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
     xmlns:vw="clr-namespace:DecimalInternetClock.Clocks.View"
     xmlns:dd="clr-namespace:DragDrop;assembly=DragDrop"
+    xmlns:vm="clr-namespace:DecimalInternetClock.ViewModel"
     Title="DecimalInternetClock"
     x:Name="this"
     WindowStyle="None"
     AllowsTransparency="True"
     Icon="Resources\Blank.png"
-    DataContext="{Binding Source={x:Static prop:Settings.Default}}"
-    FontFamily="{Binding Path=DisplayFontFamily}"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+
+    FontFamily="{Binding Source={StaticResource Locator}, Path=Options.MainFontFamily.DisplayFontFamily}"
     Topmost="{Binding Path=AlwaysOnTop}"
     ShowInTaskbar="{Binding Path=ShowInTaskBar}"
     ResizeMode="{Binding Path=ResizeMode}"
     Style="{DynamicResource WindowStyle}">
-    <!--BUG: nem működik az ikon itt-->
+    <!--DataContext="{Binding Source={x:Static prop:Settings.Default}}"-->
+    <!--BUG: nem működik itt az ikon a Window Icon Property-n keresztül .NET 3.5 alatt-->
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -30,7 +30,7 @@ namespace DecimalInternetClock
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainView : Window, INotifyPropertyChanged
     {
         #region Properties
 
@@ -52,7 +52,7 @@ namespace DecimalInternetClock
 
         #region Constructor
 
-        public MainWindow()
+        public MainView()
         {
             DecimalTime = new DecimalTimer();
             HexClock = new BinaryHexDigitClockViewModel();
