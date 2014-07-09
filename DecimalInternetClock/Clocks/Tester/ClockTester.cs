@@ -12,13 +12,13 @@ namespace Clocks.Tester
         {
             DecimalClockModel dcm = new DecimalClockModel();
             OrdinaryClockModel ocm = new OrdinaryClockModel();
-            HexDigitClockModel hdcm = new HexDigitClockModel();
+            HexaDecimalClockModel hdcm = new HexaDecimalClockModel();
 
             dcm.Now = DateTime.Now;
             ocm.Now = DateTime.Now;
             hdcm.Now = DateTime.Now;
 
-            long res = hdcm[HexDigitClockModel.EUnits.Hour];
+            long res = hdcm[HexaDecimalClockModel.EUnits.Hour];
             res = dcm[DecimalClockModel.EUnits.Hour];
             res = ocm[OrdinaryClockModel.EUnits.Hour];
         }

@@ -45,7 +45,8 @@ namespace DecimalInternetClock.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<OptionsViewModel>();
-            SimpleIoc.Default.Register<BinaryHexDigitClockViewModel>();
+            SimpleIoc.Default.Register<HexaDecimalClockViewModel>();
+            SimpleIoc.Default.Register<DecimalClockViewModel>();
         }
 
         public static MainViewModel Main

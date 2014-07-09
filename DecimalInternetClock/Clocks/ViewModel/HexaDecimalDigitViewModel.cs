@@ -11,13 +11,13 @@ using GalaSoft.MvvmLight.Command;
 
 namespace Clocks.ViewModel
 {
-    public class BinaryHexDigitViewModel : INotifyPropertyChanged
+    public class HexaDecimalDigitViewModel : INotifyPropertyChanged
     {
-        private HexDigitModel _clock;
+        private HexaDecimalDigitModel _clock;
 
-        public BinaryHexDigitViewModel()
+        public HexaDecimalDigitViewModel()
         {
-            _clock = new HexDigitModel();
+            _clock = new HexaDecimalDigitModel();
             _clock.Now = 0xf;
             DebugCommand = new RelayCommand(() =>
             {
@@ -30,6 +30,8 @@ namespace Clocks.ViewModel
 
         public RelayCommand DebugCommand { get; private set; }
 
+        #region TimeProperties
+
         public long Now
         {
             get
@@ -41,11 +43,127 @@ namespace Clocks.ViewModel
                 if (_clock.Now != value)
                 {
                     _clock.Now = value;
-                    foreach (HexDigitModel.EUnits unit in Enum.GetValues(typeof(HexDigitModel.EUnits)))
+                    foreach (HexaDecimalDigitModel.EUnits unit in Enum.GetValues(typeof(HexaDecimalDigitModel.EUnits)))
                         OnPropertyChanged(unit);
                 }
             }
         }
+
+        #region First
+
+        public Visibility FirstVisibility
+        {
+            get
+            {
+                return First ? Visibility.Visible : Visibility.Hidden;
+            }
+        }
+
+        public bool First
+        {
+            get
+            {
+                return _clock[HexaDecimalDigitModel.EUnits.First];
+            }
+            set
+            {
+                if (_clock[HexaDecimalDigitModel.EUnits.First] != value)
+                {
+                    _clock[HexaDecimalDigitModel.EUnits.First] = value;
+                    OnPropertyChanged(HexaDecimalDigitModel.EUnits.First);
+                }
+            }
+        }
+
+        #endregion First
+
+        #region Second
+
+        public Visibility SecondVisibility
+        {
+            get
+            {
+                return Second ? Visibility.Visible : Visibility.Hidden;
+            }
+        }
+
+        public bool Second
+        {
+            get
+            {
+                return _clock[HexaDecimalDigitModel.EUnits.Second];
+            }
+            set
+            {
+                if (_clock[HexaDecimalDigitModel.EUnits.Second] != value)
+                {
+                    _clock[HexaDecimalDigitModel.EUnits.Second] = value;
+                    OnPropertyChanged(HexaDecimalDigitModel.EUnits.Second);
+                }
+            }
+        }
+
+        #endregion Second
+
+        #region Third
+
+        public Visibility ThirdVisibility
+        {
+            get
+            {
+                return Third ? Visibility.Visible : Visibility.Hidden;
+            }
+        }
+
+        public bool Third
+        {
+            get
+            {
+                return _clock[HexaDecimalDigitModel.EUnits.Third];
+            }
+            set
+            {
+                if (_clock[HexaDecimalDigitModel.EUnits.Third] != value)
+                {
+                    _clock[HexaDecimalDigitModel.EUnits.Third] = value;
+                    OnPropertyChanged(HexaDecimalDigitModel.EUnits.Third);
+                }
+            }
+        }
+
+        #endregion Third
+
+        #region Fourth
+
+        public Visibility FourthVisibility
+        {
+            get
+            {
+                return Fourth ? Visibility.Visible : Visibility.Hidden;
+            }
+        }
+
+        public bool Fourth
+        {
+            get
+            {
+                return _clock[HexaDecimalDigitModel.EUnits.Fourth];
+            }
+            set
+            {
+                if (_clock[HexaDecimalDigitModel.EUnits.Fourth] != value)
+                {
+                    _clock[HexaDecimalDigitModel.EUnits.Fourth] = value;
+                    OnPropertyChanged(HexaDecimalDigitModel.EUnits.Fourth);
+                }
+            }
+        }
+
+        #endregion Fourth
+
+        #endregion TimeProperties
+
+        #region ViewProperties
 
         #region Height
 
@@ -90,6 +208,7 @@ namespace Clocks.ViewModel
                 {
                     _actualWidth = value;
                     OnPropertyChanged(ActualWidthPropertyName);
+                    OnPropertyChanged(PathDataPropertyName);
                     OnPropertyChanged(HeightPropertyName);
                 }
             }
@@ -117,117 +236,26 @@ namespace Clocks.ViewModel
 
         #endregion PathData
 
-        #region First
+        #region StrokeThickness
 
-        public Visibility FirstVisibility
-        {
-            get
-            {
-                return First ? Visibility.Visible : Visibility.Hidden;
-            }
-        }
+        public string StrokeThicknessPropertyName = "StrokeThickness";
+        protected double _strokeThickness = 10;
 
-        public bool First
+        public double StrokeThickness
         {
-            get
-            {
-                return _clock[HexDigitModel.EUnits.First];
-            }
+            get { return _strokeThickness; }
             set
             {
-                if (_clock[HexDigitModel.EUnits.First] != value)
+                if (_strokeThickness != value)
                 {
-                    _clock[HexDigitModel.EUnits.First] = value;
-                    OnPropertyChanged(HexDigitModel.EUnits.First);
+                    _strokeThickness = value;
+                    OnPropertyChanged(StrokeThicknessPropertyName);
+                    OnPropertyChanged(PathDataPropertyName);
                 }
             }
         }
 
-        #endregion First
-
-        #region Second
-
-        public Visibility SecondVisibility
-        {
-            get
-            {
-                return Second ? Visibility.Visible : Visibility.Hidden;
-            }
-        }
-
-        public bool Second
-        {
-            get
-            {
-                return _clock[HexDigitModel.EUnits.Second];
-            }
-            set
-            {
-                if (_clock[HexDigitModel.EUnits.Second] != value)
-                {
-                    _clock[HexDigitModel.EUnits.Second] = value;
-                    OnPropertyChanged(HexDigitModel.EUnits.Second);
-                }
-            }
-        }
-
-        #endregion Second
-
-        #region Third
-
-        public Visibility ThirdVisibility
-        {
-            get
-            {
-                return Third ? Visibility.Visible : Visibility.Hidden;
-            }
-        }
-
-        public bool Third
-        {
-            get
-            {
-                return _clock[HexDigitModel.EUnits.Third];
-            }
-            set
-            {
-                if (_clock[HexDigitModel.EUnits.Third] != value)
-                {
-                    _clock[HexDigitModel.EUnits.Third] = value;
-                    OnPropertyChanged(HexDigitModel.EUnits.Third);
-                }
-            }
-        }
-
-        #endregion Third
-
-        #region Fourth
-
-        public Visibility FourthVisibility
-        {
-            get
-            {
-                return Fourth ? Visibility.Visible : Visibility.Hidden;
-            }
-        }
-
-        public bool Fourth
-        {
-            get
-            {
-                return _clock[HexDigitModel.EUnits.Fourth];
-            }
-            set
-            {
-                if (_clock[HexDigitModel.EUnits.Fourth] != value)
-                {
-                    _clock[HexDigitModel.EUnits.Fourth] = value;
-                    OnPropertyChanged(HexDigitModel.EUnits.Fourth);
-                }
-            }
-        }
-
-        #endregion Fourth
+        #endregion StrokeThickness
 
         #region Foreground
 
@@ -248,28 +276,6 @@ namespace Clocks.ViewModel
         }
 
         #endregion Foreground
-
-        #region StrokeThickness
-
-        public string StrokeThicknessPropertyName = "StrokeThickness";
-        protected double _strokeThickness = 10;
-
-        public double StrokeThickness
-        {
-            get { return _strokeThickness; }
-            set
-            {
-                if (_strokeThickness != value)
-                {
-                    _strokeThickness = value;
-                    OnPropertyChanged(StrokeThicknessPropertyName);
-
-                    OnPropertyChanged(PathDataPropertyName);
-                }
-            }
-        }
-
-        #endregion StrokeThickness
 
         #region Margin
 
@@ -294,11 +300,13 @@ namespace Clocks.ViewModel
 
         #endregion Margin
 
+        #endregion ViewProperties
+
         #endregion Properties
 
         #region INotifyPropertyChanged Members
 
-        public void OnPropertyChanged(HexDigitModel.EUnits unit_in)
+        public void OnPropertyChanged(HexaDecimalDigitModel.EUnits unit_in)
         {
             OnPropertyChanged(unit_in.ToString());
             OnPropertyChanged(String.Format("{0}Visibility", unit_in.ToString()));

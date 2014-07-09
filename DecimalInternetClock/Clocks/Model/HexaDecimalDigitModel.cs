@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Clocks.Model
 {
-    public class HexDigitModel : ClockBase<HexDigitModel.EUnits>
+    public class HexaDecimalDigitModel : ClockBase<HexaDecimalDigitModel.EUnits>
     {
         public enum EUnits
         {
@@ -29,13 +29,13 @@ namespace Clocks.Model
             }
         }
 
-        public HexDigitModel(long time_in)
+        public HexaDecimalDigitModel(long time_in)
             : base(time_in)
         {
             ;
         }
 
-        public HexDigitModel()
+        public HexaDecimalDigitModel()
         {
         }
 
@@ -47,7 +47,7 @@ namespace Clocks.Model
             AddBase(EUnits.Fourth, 2);
         }
 
-        public new bool this[HexDigitModel.EUnits index]
+        public new bool this[HexaDecimalDigitModel.EUnits index]
         {
             get { return base[index] == 1; }
 

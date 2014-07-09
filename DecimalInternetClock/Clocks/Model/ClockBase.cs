@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Helpers.Exceptions;
 
 namespace Clocks.Model
 {
@@ -78,11 +79,15 @@ namespace Clocks.Model
     {
         public ClockBase()
         {
+            if (!typeof(E).IsEnum)
+                throw new XArchitectureException();
         }
 
         public ClockBase(double time_in)
             : base(time_in)
         {
+            if (!typeof(E).IsEnum)
+                throw new XArchitectureException();
         }
 
         protected void AddBase(E lowerUnit_in, long base_in)
