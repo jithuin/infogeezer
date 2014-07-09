@@ -6,7 +6,7 @@
     xmlns:colorPicker="clr-namespace:ColorPicker;assembly=ColorPicker"
     xmlns:prop="clr-namespace:DecimalInternetClock.Properties"
     xmlns:vc="clr-namespace:DecimalInternetClock.ValueConverters"
-    xmlns:vw="clr-namespace:DecimalInternetClock.Clocks.View"
+    xmlns:vw="clr-namespace:Clocks.View;assembly=Clocks"
     xmlns:dd="clr-namespace:DragDrop;assembly=DragDrop"
     xmlns:vm="clr-namespace:DecimalInternetClock.ViewModel"
     Title="DecimalInternetClock"
@@ -15,12 +15,14 @@
     AllowsTransparency="True"
     Icon="Resources\Blank.png"
     DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
-
-    FontFamily="{Binding Source={StaticResource Locator}, Path=Options.MainFontFamily.DisplayFontFamily}"
-    Topmost="{Binding Path=AlwaysOnTop}"
-    ShowInTaskbar="{Binding Path=ShowInTaskBar}"
-    ResizeMode="{Binding Path=ResizeMode}"
-    Style="{DynamicResource WindowStyle}">
+    Foreground="{Binding Path=Settings.Foreground}"
+    FontFamily="{Binding Path=Settings.DisplayFontFamily}"
+    Topmost="{Binding Path=Settings.AlwaysOnTop}"
+    ShowInTaskbar="{Binding Path=Settings.ShowInTaskBar}"
+    ResizeMode="{Binding Path=Settings.ResizeMode}"
+    Style="{DynamicResource WindowStyle}"
+    ManipulationDelta="this_ManipulationDelta"
+    ManipulationStarted="this_ManipulationStarted">
     <!--DataContext="{Binding Source={x:Static prop:Settings.Default}}"-->
     <!--BUG: nem működik itt az ikon a Window Icon Property-n keresztül .NET 3.5 alatt-->
     <Window.Resources>
@@ -58,7 +60,7 @@
             <RowDefinition Height="20" MinHeight="20" />
         </Grid.RowDefinitions>
         <!--Window Header-->
-        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown" MinHeight="30" Height="30" MaxHeight="50" Visibility="{Binding WindowHeaderVisibility}">
+        <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown" MinHeight="30" Height="30" MaxHeight="50" Visibility="{Binding Path=Settings.WindowHeaderVisibility}">
             <Border>
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -86,24 +88,28 @@
             VerticalScrollBarVisibility="Auto"
             Style="{StaticResource ScrollViewerStyle}"
             x:Name="_scrollViewer">
-            <StackPanel Orientation="Vertical">
+            <StackPanel
+                Orientation="Vertical"
+                MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+                Background="#01000000">
                 <my:DecimalClock
                     Grid.Row="1"
                     Background="Transparent"
                     MouseLeftButtonDown="Grid_MouseLeftButtonDown"
-                    Visibility="{Binding Path=DecimalClockVisibility}"
+                    Visibility="{Binding Path=Settings.DecimalClockVisibility}"
                     DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}">
                 </my:DecimalClock>
                 <my:BinaryClock
                     MouseLeftButtonDown="Grid_MouseLeftButtonDown"
                     Grid.Row="2"
                     Background="Transparent"
-                    Visibility="{Binding Path=BinaryClockVisibility}"
+                    Visibility="{Binding Path=Settings.BinaryClockVisibility}"
                     DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}">
                 </my:BinaryClock>
                 <my:BinaryRing
-                    Visibility="{Binding Path=BinaryRingVisibility}"
+                    Visibility="{Binding Path=Settings.BinaryRingVisibility}"
                     Grid.Row="3"
+
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}"
@@ -119,7 +125,7 @@
                     AcceptsReturn="True"
                     BorderBrush="Transparent"
                     Background="#01000000"
-                    Visibility="{Binding Path=TextBoxVisibility}"
+                    Visibility="{Binding Path=Settings.TextBoxVisibility}"
                     Foreground="{Binding ElementName=this, Path=Foreground}">
                 </TextBox>
                 <dd:NotesDragDropCustomTextBox
@@ -130,24 +136,15 @@
                     VerticalScrollBarVisibility="Auto"
                     AcceptsReturn="True"
                     BorderBrush="Transparent"
-                    Foreground="{Binding Foreground}"
+                    Foreground="{Binding ElementName=this, Path=Foreground}"
                     Background="#0400FF00">
                 </dd:NotesDragDropCustomTextBox>
                 <vw:BinaryHexDigitClockView
-                    DataContext="{Binding ElementName=this, Path=HexClock}"
+
+                    DataContext="{Binding Path=HexClock}"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Background="#01000000">
+                    VerticalAlignment="Stretch">
                 </vw:BinaryHexDigitClockView>
-                <TextBox
-                    Margin="2"
-                    TextWrapping="Wrap"
-                    VerticalScrollBarVisibility="Auto"
-                    AcceptsReturn="True"
-                    BorderBrush="Transparent"
-                    Background="#01000000"
-                    Foreground="{Binding ElementName=this, Path=Foreground}"
-                    Text="{Binding ElementName=this, Path=HexClock.Second.Fourth}" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

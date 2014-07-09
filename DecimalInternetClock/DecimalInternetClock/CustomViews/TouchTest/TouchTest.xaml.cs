@@ -151,6 +151,64 @@ namespace DecimalInternetClock
         }
 
         #endregion Scroll
+
+        #region Touch
+
+        private void cProbe_TouchDown(object sender, TouchEventArgs e)
+        {
+            tbFeedBack.Text += "TouchDown\r\n";
+        }
+
+        private void cProbe_TouchEnter(object sender, TouchEventArgs e)
+        {
+            tbFeedBack.Text += "TouchEnter\r\n";
+        }
+
+        private void cProbe_TouchLeave(object sender, TouchEventArgs e)
+        {
+            tbFeedBack.Text += "TouchLeave\r\n";
+        }
+
+        private void cProbe_TouchMove(object sender, TouchEventArgs e)
+        {
+            tbFeedBack.Text += "TouchMove\r\n";
+        }
+
+        private void cProbe_TouchUp(object sender, TouchEventArgs e)
+        {
+            tbFeedBack.Text += "TouchUp\r\n";
+        }
+
+        #endregion Touch
+
+        #region Manipulation
+
+        private void cProbe_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
+        {
+            tbFeedBack.Text += "ManipulationCompleted\r\n";
+        }
+
+        private void cProbe_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
+        {
+            tbFeedBack.Text += "ManipulationDelta\r\n";
+        }
+
+        private void cProbe_ManipulationInertiaStarting(object sender, ManipulationInertiaStartingEventArgs e)
+        {
+            tbFeedBack.Text += "ManipulationInertiaStarting\r\n";
+        }
+
+        private void cProbe_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
+        {
+            tbFeedBack.Text += "ManipulationStarted\r\n";
+        }
+
+        private void cProbe_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
+        {
+            tbFeedBack.Text += "ManipulationStarting\r\n";
+        }
+
+        #endregion Manipulation
     }
 
     public static class StylusHelpers

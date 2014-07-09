@@ -64,5 +64,8 @@
     <Setting Name="Alarm" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Setting1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4758</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

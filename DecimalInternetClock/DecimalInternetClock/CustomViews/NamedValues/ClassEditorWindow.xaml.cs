@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DecimalInternetClock.Helpers;
 using DecimalInternetClock.NamedValues;
+using Helpers.WPF;
 
 namespace DecimalInternetClock.CustomViews
 {
@@ -33,7 +33,7 @@ namespace DecimalInternetClock.CustomViews
         private static void InitButtonMap()
         {
             ButtonMap = new Dictionary<string, Buttons>();
-            foreach (Buttons button in EnumHelper.GetValues<Buttons>())
+            foreach (Buttons button in Enum.GetValues(typeof(Buttons)))
             {
                 ButtonMap.Add(button.ToString(), button);
             }

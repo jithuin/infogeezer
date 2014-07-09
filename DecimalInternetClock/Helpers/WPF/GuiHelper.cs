@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 
-namespace DecimalInternetClock.Helpers
+namespace Helpers.WPF
 {
     public static class GuiHelper
     {

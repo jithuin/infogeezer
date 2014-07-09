@@ -1,34 +1,29 @@
 ﻿<UserControl
-            x:Class="DecimalInternetClock.Clocks.View.BinaryHexDigitView"
+            x:Class="Clocks.View.BinaryHexDigitView"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-            xmlns:h="clr-namespace:DecimalInternetClock.Helpers"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:vm="clr-namespace:DecimalInternetClock.Clocks.ViewModel"
+            xmlns:h="clr-namespace:Helpers.WPF;assembly=Helpers"
+            xmlns:vm="clr-namespace:Clocks.ViewModel"
             x:Name="this"
             mc:Ignorable="d"
             d:DesignWidth="100"
             d:DesignHeight="{Binding ElementName=this, Path=Width}"
-            d:DataContext="{d:DesignInstance Type=vm:BinaryHexDigitViewModel, IsDesignTimeCreatable=True}">
+            d:DataContext="{d:DesignInstance Type=vm:BinaryHexDigitViewModel, IsDesignTimeCreatable=True}"
+            Margin="{Binding Path=Margin}">
     <UserControl.Resources>
         <Style x:Key="PathStyle" x:Name="_pathStyle" TargetType="Path">
             <Setter Property="StrokeThickness" Value="{Binding Path=StrokeThickness}" />
             <Setter Property="Data" Value="{Binding Path=PathData}" />
             <Setter Property="RenderTransformOrigin" Value="1 1" />
-            <!--<Setter Property="Margin" Value="{Binding Path=InternalMargin}" />-->
-            <Setter Property="Stroke" Value="{Binding Path=Foreground}" />
-
+            <Setter Property="Stroke" Value="{Binding ElementName=this, Path=Foreground}" />
             <Setter Property="StrokeThickness" Value="10" />
-            <!--<Setter Property="Data" Value="M 0,50 A 50,50 0 0 1 50,0" />-->
-            <!--<Setter Property="Stroke" Value="#FF000000" />-->
         </Style>
     </UserControl.Resources>
 
     <Grid
-
         x:Name="_clockGrid">
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -40,6 +35,7 @@
         <Grid.RenderTransform>
             <MatrixTransform>
                 <MatrixTransform.Matrix>
+                    <!--Mirror effect over x=y line -->
                     <Matrix M11="0" M12="1" M21="1" M22="0" OffsetX="0" OffsetY="0" />
                 </MatrixTransform.Matrix>
             </MatrixTransform>
@@ -50,7 +46,7 @@
                          Target="{Binding Path=ActualWidth, Mode=OneWayToSource}" />
             </h:DataPipeCollection>
         </h:DataPiping.DataPipes>
-        <Button Command="{Binding Path=DebugCommand}" VerticalAlignment="Top" HorizontalAlignment="Right">x</Button>
+
         <Path
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
@@ -65,7 +61,6 @@
             </Path.RenderTransform>
         </Path>
         <Path
-
                 Style="{StaticResource ResourceKey=PathStyle}"
                 Visibility="{Binding Path=ThirdVisibility}">
             <Path.RenderTransform>
@@ -73,7 +68,6 @@
             </Path.RenderTransform>
         </Path>
         <Path
-
                 Style="{StaticResource ResourceKey=PathStyle}"
                 Visibility="{Binding Path=FourthVisibility}">
             <Path.RenderTransform>

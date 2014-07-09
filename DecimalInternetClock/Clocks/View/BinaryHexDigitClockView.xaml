@@ -1,19 +1,19 @@
 ﻿<UserControl
-    x:Class="DecimalInternetClock.Clocks.View.BinaryHexDigitClockView"
+    x:Class="Clocks.View.BinaryHexDigitClockView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:vw="clr-namespace:DecimalInternetClock.Clocks.View"
+    xmlns:vw="clr-namespace:Clocks.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Viewbox>
         <Grid Height="175" Width="175">
-            <!--<vw:BinaryHexDigitView DataContext="{Binding Path=Hour}" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=Hour}" />
             <vw:BinaryHexDigitView DataContext="{Binding Path=Hour}" />
             <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteHi}" />
             <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteLow}" />
-            <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteLow}" />-->
-            <vw:BinaryHexDigitView DataContext="{Binding Path=Second}" d:DataContext="{Binding Path=Second}" Margin="10" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=MinuteLow}" />
+            <vw:BinaryHexDigitView DataContext="{Binding Path=Second}" />
         </Grid>
     </Viewbox>
 </UserControl>

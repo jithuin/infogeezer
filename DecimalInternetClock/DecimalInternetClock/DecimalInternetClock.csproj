@@ -77,14 +77,6 @@
     <Reference Include="UIAutomationProvider">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="Windows7.Multitouch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dll_MultiTouch\Windows7.Multitouch.dll</HintPath>
-    </Reference>
-    <Reference Include="Windows7.Multitouch.WPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dll_MultiTouch\Windows7.Multitouch.WPF.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -110,18 +102,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Clocks\View\BinaryHexDigitClockView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Clocks\View\BinaryHexDigitView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="CustomControls\EnumComboBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -246,10 +226,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Configuration\MainConfiguration.cs" />
-    <Compile Include="Configuration\MainOptions.cs" />
-    <Compile Include="Configuration\Settings.cs" />
-    <Compile Include="Helpers\DataPipe.cs" />
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -257,14 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clocks\Model\DecimalTimer.cs">
-    </Compile>
-    <Compile Include="Clocks\ViewModel\BinaryHexDigitClockViewModel.cs" />
-    <Compile Include="Clocks\ViewModel\BinaryHexDigitViewModel.cs" />
-    <Compile Include="Clocks\View\BinaryHexDigitClockView.xaml.cs">
-      <DependentUpon>BinaryHexDigitClockView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Clocks\View\BinaryHexDigitView.xaml.cs">
-      <DependentUpon>BinaryHexDigitView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomCommands\CustomCommands.cs" />
     <Compile Include="CustomControls\DecimalTextBox.cs" />
@@ -343,7 +311,6 @@
       <DependentUpon>SimpleSurfaceTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomViews\3DTest\Utility.cs" />
-    <Compile Include="Helpers\GuiHelper.cs" />
     <Compile Include="CustomViews\NamedValues\NamedValueList.cs" />
     <Compile Include="CustomViews\NamedValues\NamedValueListControl.xaml.cs">
       <DependentUpon>NamedValueListControl.xaml</DependentUpon>
@@ -362,7 +329,6 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OptionsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="ViewModel\XArchitectureException.cs" />
     <Compile Include="WinampRemote\Winamp.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -387,6 +353,10 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Clocks\Clocks.csproj">
+      <Project>{10EE238C-4536-4866-A76A-5129E8CA3910}</Project>
+      <Name>Clocks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ColorPicker\ColorPicker.csproj">
       <Project>{827F8C33-8118-48C7-AB3C-4864298396AD}</Project>
       <Name>ColorPicker</Name>
@@ -403,8 +373,13 @@
       <Project>{BA5113A3-EA25-4BA3-96E1-7FB10D9201F0}</Project>
       <Name>FontDialogSample</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{0E1F53A2-1117-46B3-A323-698493000F6D}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Configuration\" />
     <Folder Include="CustomViews\Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

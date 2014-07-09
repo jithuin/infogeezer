@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using DecimalInternetClock.Helpers;
+using Clocks.Model;
 
-namespace DecimalInternetClock.Clocks.ViewModel
+namespace Clocks.ViewModel
 {
     public class BinaryHexDigitClockViewModel : INotifyPropertyChanged
     {
@@ -25,7 +25,7 @@ namespace DecimalInternetClock.Clocks.ViewModel
             set
             {
                 _clock.Now = value;
-                foreach (HexDigitClockModel.EUnits unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
+                foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
                 {
                     if (_subViewModels[unit].Now != _clock[unit])
                     {
@@ -100,7 +100,7 @@ namespace DecimalInternetClock.Clocks.ViewModel
                     foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
                     {
                         _subViewModels[unit].StrokeThickness = _strokeThickness;
-                        _subViewModels[unit].Margin = new Thickness(_strokeThickness);
+                        _subViewModels[unit].Margin = new Thickness(_strokeThickness * (int)unit + _strokeThickness / 2);
                     }
                     OnPropertyChanged(StrokeThicknessPropertyName);
                 }
@@ -117,7 +117,7 @@ namespace DecimalInternetClock.Clocks.ViewModel
             IsReadonly = true;
             //Init Sub-View-Models
             _subViewModels = new Dictionary<HexDigitClockModel.EUnits, BinaryHexDigitViewModel>();
-            foreach (HexDigitClockModel.EUnits unit in EnumHelper.GetValues<HexDigitClockModel.EUnits>())
+            foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
             {
                 _subViewModels.Add(unit, new BinaryHexDigitViewModel());
 

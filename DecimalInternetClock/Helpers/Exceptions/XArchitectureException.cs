@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DecimalInternetClock.ViewModel
+namespace Helpers.Exceptions
 {
     [Serializable]
     public class XArchitectureException : Exception
