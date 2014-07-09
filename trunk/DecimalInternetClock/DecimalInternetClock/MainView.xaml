@@ -92,13 +92,13 @@
                 Orientation="Vertical"
                 MouseLeftButtonDown="Grid_MouseLeftButtonDown"
                 Background="#01000000">
-                <my:DecimalClock
+                <vw:DecimalClockView
                     Grid.Row="1"
                     Background="Transparent"
-                    MouseLeftButtonDown="Grid_MouseLeftButtonDown"
-                    Visibility="{Binding Path=Settings.DecimalClockVisibility}"
-                    DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}">
-                </my:DecimalClock>
+
+                    Visibility="{Binding Source={StaticResource Locator}, Path=Main.Settings.DecimalClockVisibility}"
+                    DataContext="{Binding Path=DecClock}">
+                </vw:DecimalClockView>
                 <my:BinaryClock
                     MouseLeftButtonDown="Grid_MouseLeftButtonDown"
                     Grid.Row="2"
@@ -139,12 +139,12 @@
                     Foreground="{Binding ElementName=this, Path=Foreground}"
                     Background="#0400FF00">
                 </dd:NotesDragDropCustomTextBox>
-                <vw:BinaryHexDigitClockView
+                <vw:HexaDecimalClockView
 
                     DataContext="{Binding Path=HexClock}"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch">
-                </vw:BinaryHexDigitClockView>
+                </vw:HexaDecimalClockView>
             </StackPanel>
         </ScrollViewer>
     </Grid>

@@ -168,12 +168,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Clocks\View\DecimalClock\DecimalClock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="CustomControls\LedUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -283,9 +277,6 @@
       <DependentUpon>BinaryRingSegment.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverters\HexaConverters.cs" />
-    <Compile Include="Clocks\View\DecimalClock\DecimalClock.xaml.cs">
-      <DependentUpon>DecimalClock.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

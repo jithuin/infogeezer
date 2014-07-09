@@ -1,0 +1,23 @@
+﻿<UserControl
+    x:Class="Clocks.View.HexaDecimalClockView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vw="clr-namespace:Clocks.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Clocks.ViewModel"
+    mc:Ignorable="d"
+    d:DesignWidth="100"
+            d:DesignHeight="{Binding ElementName=this, Path=Width}"
+            d:DataContext="{d:DesignInstance Type=vm:HexaDecimalClockViewModel, IsDesignTimeCreatable=True}"
+    MinWidth="{Binding Path=MinWidth}">
+
+    <Grid d:DesignWidth="100" d:DesignHeight="100">
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=Hour}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=Hour}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteHi}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=Second}" />
+    </Grid>
+</UserControl>

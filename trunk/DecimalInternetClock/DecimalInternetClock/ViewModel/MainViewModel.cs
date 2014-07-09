@@ -46,7 +46,11 @@ namespace DecimalInternetClock.ViewModel
             HexClock.StrokeThickness = 10; // TODO: it should be a designer property
             Timer hexTimer = new Timer(TimerInterval);
             hexTimer.AutoReset = true;
-            hexTimer.Elapsed += new ElapsedEventHandler((o, e) => HexClock.UpdateNow());
+            hexTimer.Elapsed += new ElapsedEventHandler((o, e) =>
+            {
+                HexClock.UpdateNow();
+                DecClock.UpdateNow();
+            });
 
             hexTimer.Start();
 
@@ -61,11 +65,19 @@ namespace DecimalInternetClock.ViewModel
             }
         }
 
-        public BinaryHexDigitClockViewModel HexClock
+        public DecimalClockViewModel DecClock
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<BinaryHexDigitClockViewModel>();
+                return ServiceLocator.Current.GetInstance<DecimalClockViewModel>();
+            }
+        }
+
+        public HexaDecimalClockViewModel HexClock
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<HexaDecimalClockViewModel>();
             }
         }
     }

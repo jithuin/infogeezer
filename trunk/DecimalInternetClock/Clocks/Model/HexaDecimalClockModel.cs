@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Clocks.Model
 {
-    public class HexDigitClockModel : ClockBase<HexDigitClockModel.EUnits>
+    public class HexaDecimalClockModel : ClockBase<HexaDecimalClockModel.EUnits>
     {
         public enum EUnits
         {
@@ -15,7 +15,7 @@ namespace Clocks.Model
             Second
         }
 
-        public HexDigitClockModel()
+        public HexaDecimalClockModel()
         {
         }
 

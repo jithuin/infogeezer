@@ -17,9 +17,9 @@ namespace Clocks.View
     /// <summary>
     /// Interaction logic for BinaryHexDigitClockView.xaml
     /// </summary>
-    public partial class BinaryHexDigitClockView : UserControl
+    public partial class HexaDecimalClockView : UserControl
     {
-        public BinaryHexDigitClockView()
+        public HexaDecimalClockView()
         {
             InitializeComponent();
         }

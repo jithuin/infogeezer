@@ -21,19 +21,19 @@ namespace Clocks.View
     /// <summary>
     /// Interaction logic for BinaryHexDigitView.xaml
     /// </summary>
-    public partial class BinaryHexDigitView : UserControl
+    public partial class HexaDecimalDigitView : UserControl
     {
-        public BinaryHexDigitView()
+        public HexaDecimalDigitView()
         {
             InitializeComponent();
             if (ViewModelBase.IsInDesignModeStatic)
             {
-                DataContext = new BinaryHexDigitViewModel();
-                (DataContext as BinaryHexDigitViewModel).Now = 0xF;
+                DataContext = new HexaDecimalDigitViewModel();
+                (DataContext as HexaDecimalDigitViewModel).Now = 0xF;
             }
 
             if (DataContext != null)
-                if (!(DataContext is BinaryHexDigitViewModel))
+                if (!(DataContext is HexaDecimalDigitViewModel))
                     throw new XArchitectureException();
         }
     }

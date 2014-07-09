@@ -1,5 +1,5 @@
 ﻿<UserControl
-            x:Class="Clocks.View.BinaryHexDigitView"
+            x:Class="Clocks.View.HexaDecimalDigitView"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,7 +10,7 @@
             mc:Ignorable="d"
             d:DesignWidth="100"
             d:DesignHeight="{Binding ElementName=this, Path=Width}"
-            d:DataContext="{d:DesignInstance Type=vm:BinaryHexDigitViewModel, IsDesignTimeCreatable=True}"
+            d:DataContext="{d:DesignInstance Type=vm:HexaDecimalDigitViewModel, IsDesignTimeCreatable=True}"
             Margin="{Binding Path=Margin}">
     <UserControl.Resources>
         <Style x:Key="PathStyle" x:Name="_pathStyle" TargetType="Path">

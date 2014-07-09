@@ -7,12 +7,11 @@ using Clocks.Model;
 
 namespace Clocks.ViewModel
 {
-    public class BinaryHexDigitClockViewModel : INotifyPropertyChanged
+    public class HexaDecimalClockViewModel : ClockViewModelBase<HexaDecimalClockModel, HexaDecimalClockModel.EUnits>
     {
         #region Fields
 
-        private HexDigitClockModel _clock;
-        private Dictionary<HexDigitClockModel.EUnits, BinaryHexDigitViewModel> _subViewModels;
+        private Dictionary<HexaDecimalClockModel.EUnits, HexaDecimalDigitViewModel> _subViewModels;
 
         #endregion Fields
 
@@ -25,7 +24,7 @@ namespace Clocks.ViewModel
             set
             {
                 _clock.Now = value;
-                foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
+                foreach (HexaDecimalClockModel.EUnits unit in Enum.GetValues(typeof(HexaDecimalClockModel.EUnits)))
                 {
                     if (_subViewModels[unit].Now != _clock[unit])
                     {
@@ -36,35 +35,35 @@ namespace Clocks.ViewModel
             }
         }
 
-        public BinaryHexDigitViewModel Hour
+        public HexaDecimalDigitViewModel Hour
         {
             get
             {
-                return _subViewModels[HexDigitClockModel.EUnits.Hour];
+                return _subViewModels[HexaDecimalClockModel.EUnits.Hour];
             }
         }
 
-        public BinaryHexDigitViewModel MinuteHi
+        public HexaDecimalDigitViewModel MinuteHi
         {
             get
             {
-                return _subViewModels[HexDigitClockModel.EUnits.MinuteHi];
+                return _subViewModels[HexaDecimalClockModel.EUnits.MinuteHi];
             }
         }
 
-        public BinaryHexDigitViewModel MinuteLow
+        public HexaDecimalDigitViewModel MinuteLow
         {
             get
             {
-                return _subViewModels[HexDigitClockModel.EUnits.MinuteLow];
+                return _subViewModels[HexaDecimalClockModel.EUnits.MinuteLow];
             }
         }
 
-        public BinaryHexDigitViewModel Second
+        public HexaDecimalDigitViewModel Second
         {
             get
             {
-                return _subViewModels[HexDigitClockModel.EUnits.Second];
+                return _subViewModels[HexaDecimalClockModel.EUnits.Second];
             }
         }
 
@@ -79,7 +78,7 @@ namespace Clocks.ViewModel
                 if (_foreground != value)
                 {
                     _foreground = value;
-                    foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
+                    foreach (HexaDecimalClockModel.EUnits unit in Enum.GetValues(typeof(HexaDecimalClockModel.EUnits)))
                         _subViewModels[unit].Foreground = _foreground;
                     OnPropertyChanged(ForegroundPropertyName);
                 }
@@ -97,29 +96,54 @@ namespace Clocks.ViewModel
                 if (_strokeThickness != value)
                 {
                     _strokeThickness = value;
-                    foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
+                    foreach (HexaDecimalClockModel.EUnits unit in Enum.GetValues(typeof(HexaDecimalClockModel.EUnits)))
                     {
                         _subViewModels[unit].StrokeThickness = _strokeThickness;
                         _subViewModels[unit].Margin = new Thickness(_strokeThickness * (int)unit + _strokeThickness / 2);
+                        // plus half strokethickness is needed because the path somehow draws the
+                        // thick (strokethickness > 1) line half out half in the specified path.
+                        // Thus half outer part would disappear if I do not add a margin
+                        // that equals 0.5*strokethickness. And If it is added to the most outer path
+                        // than it should be added to all.
                     }
                     OnPropertyChanged(StrokeThicknessPropertyName);
+                    OnPropertyChanged(MinWidthPropertyName);
                 }
             }
         }
+
+        #region MinWidth
+
+        /// <summary>
+        /// The <see cref="MinWidth" /> property's name.
+        /// </summary>
+        public const string MinWidthPropertyName = "MinWidth";
+
+        /// <summary>
+        /// Sets and gets the MinWidth property.
+        /// Changes to that property's value raise the PropertyChanged event.
+        /// </summary>
+        public double MinWidth
+        {
+            get { return _strokeThickness * 8.5; } //4*2 line + 0.5 margin = 8.5 (see StrokeThickness set accessor for details)
+        }
+
+        #endregion MinWidth
 
         #endregion Public Properties
 
         #region Constructor
 
-        public BinaryHexDigitClockViewModel()
+        public HexaDecimalClockViewModel()
+            : base()
         {
-            _clock = new HexDigitClockModel();
             IsReadonly = true;
+            TimeStringFormat = "{0:X}:{1:X}.{2:X}..{3:X}";
             //Init Sub-View-Models
-            _subViewModels = new Dictionary<HexDigitClockModel.EUnits, BinaryHexDigitViewModel>();
-            foreach (HexDigitClockModel.EUnits unit in Enum.GetValues(typeof(HexDigitClockModel.EUnits)))
+            _subViewModels = new Dictionary<HexaDecimalClockModel.EUnits, HexaDecimalDigitViewModel>();
+            foreach (HexaDecimalClockModel.EUnits unit in Enum.GetValues(typeof(HexaDecimalClockModel.EUnits)))
             {
-                _subViewModels.Add(unit, new BinaryHexDigitViewModel());
+                _subViewModels.Add(unit, new HexaDecimalDigitViewModel());
 
                 _subViewModels[unit].PropertyChanged += new PropertyChangedEventHandler(
                     (sender, e) =>
@@ -139,7 +163,7 @@ namespace Clocks.ViewModel
 
         #region Methods
 
-        public void UpdateNow()
+        public override void UpdateNow()
         {
             Now = DateTime.Now;
         }
@@ -148,7 +172,7 @@ namespace Clocks.ViewModel
 
         #region INotifyPropertyChanged Members
 
-        public void OnPropertyChanged(HexDigitClockModel.EUnits unit_in)
+        public void OnPropertyChanged(HexaDecimalClockModel.EUnits unit_in)
         {
             OnPropertyChanged(unit_in.ToString());
         }
@@ -169,7 +193,7 @@ namespace Clocks.ViewModel
             }
         }
 
-        public void OnPropertyChanged(object sender, HexDigitClockModel.EUnits unit_in)
+        public void OnPropertyChanged(object sender, HexaDecimalClockModel.EUnits unit_in)
         {
             OnPropertyChanged(sender, unit_in.ToString());
         }
