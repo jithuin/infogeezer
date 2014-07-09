@@ -4,8 +4,8 @@
     Title="TouchTest" Height="300" Width="300">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Canvas x:Name="cProbe" MinHeight="50" MinWidth="100" Background="Black"
                 Stylus.IsFlicksEnabled="True"
@@ -25,6 +25,18 @@
                 Stylus.StylusSystemGesture="cProbe_StylusSystemGesture"
                 Stylus.StylusUp="cProbe_StylusUp"
 
+                TouchDown="cProbe_TouchDown"
+                TouchEnter="cProbe_TouchEnter"
+                TouchLeave="cProbe_TouchLeave"
+                TouchMove="cProbe_TouchMove"
+                TouchUp="cProbe_TouchUp"
+
+                ManipulationCompleted="cProbe_ManipulationCompleted"
+                ManipulationDelta="cProbe_ManipulationDelta"
+                ManipulationInertiaStarting="cProbe_ManipulationInertiaStarting"
+                ManipulationStarted="cProbe_ManipulationStarted"
+                ManipulationStarting="cProbe_ManipulationStarting"
+
                 Mouse.MouseDown="cProbe_MouseDown"
                 Mouse.MouseEnter="cProbe_MouseEnter"
                 Mouse.MouseLeave="cProbe_MouseLeave"
@@ -37,7 +49,7 @@
                 ScrollViewer.HorizontalScrollBarVisibility="Visible"
                 ScrollViewer.IsDeferredScrollingEnabled="True"
                 ScrollViewer.ScrollChanged="cProbe_ScrollChanged"
-                ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                ScrollViewer.VerticalScrollBarVisibility="Visible" />
         <TextBox  Grid.Row="1" TextWrapping="Wrap" x:Name="tbFeedBack"
                   HorizontalScrollBarVisibility="Visible"
                   VerticalScrollBarVisibility="Visible" />

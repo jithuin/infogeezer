@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DecimalInternetClock.Clocks.View
+namespace Clocks.View
 {
     /// <summary>
     /// Interaction logic for BinaryHexDigitClockView.xaml

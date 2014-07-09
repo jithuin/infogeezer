@@ -16,37 +16,27 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ColorPicker;
 using DecimalInternetClock.Clocks;
-using DecimalInternetClock.Clocks.ViewModel;
 using DecimalInternetClock.Helpers;
 using DecimalInternetClock.Properties;
 using DecimalInternetClock.Touch;
 using ManagedWinapi;
 using ManagedWinapi.Windows;
-using Windows7.Multitouch;
-using Windows7.Multitouch.WPF;
+
+//using Windows7.Multitouch;
+//using Windows7.Multitouch.WPF;
 
 namespace DecimalInternetClock
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainView : Window, INotifyPropertyChanged
+    public partial class MainView : Window
     {
         #region Properties
 
-        /// <summary>
-        /// Timer interval for clocks on the UI
-        /// </summary>
-        /// <value>50 ms</value>
-        protected int TimerInterval = 50;
-
         public DecimalTimer DecimalTime { get; set; }
 
-        private Windows7.Multitouch.GestureHandler _gestureHandler;
-
         protected IRotateable _currentRotateableVisual;
-
-        public BinaryHexDigitClockViewModel HexClock { get; set; }
 
         #endregion Properties
 
@@ -55,53 +45,10 @@ namespace DecimalInternetClock
         public MainView()
         {
             DecimalTime = new DecimalTimer();
-            HexClock = new BinaryHexDigitClockViewModel();
+
             InitializeComponent();
-            //SetLocalBinding(this, ForegroundProperty, HexClock, HexClock.ForegroundPropertyName);
-            HexClock.Foreground = Settings.Default.Foreground; // TODO: It should be bound instead
-            HexClock.StrokeThickness = 10; // TODO: it should be a designer property
-            InitHexTimer();
+
             LoadSettings();
-            InitGesture();
-            //NameScope.SetNameScope(contextMenu, this);
-        }
-
-        private void InitHexTimer()
-        {
-            Timer hexTimer = new Timer(TimerInterval);
-            hexTimer.AutoReset = true;
-            hexTimer.Elapsed += new ElapsedEventHandler(hexTimer_Elapsed);
-
-            hexTimer.Start();
-        }
-
-        private void hexTimer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            HexClock.UpdateNow();
-        }
-
-        private void InitGesture()
-        {
-            if (Windows7.Multitouch.TouchHandler.DigitizerCapabilities.IsMultiTouchReady)
-            {
-                _gestureHandler = Factory.CreateGestureHandler(this);
-
-                _gestureHandler.Pan += ProcessPan;
-                _gestureHandler.PanBegin += ProcessPan;
-                _gestureHandler.PanEnd += ProcessPan;
-
-                _gestureHandler.Rotate += ProcessRotate;
-                _gestureHandler.RotateBegin += ProcessRotateBegin;
-                _gestureHandler.RotateEnd += ProcessRotate;
-
-                _gestureHandler.PressAndTap += ProcessRollOver;
-
-                //_gestureHandler.TwoFingerTap += ProcessTwoFingerTap;
-
-                //_gestureHandler.Zoom += ProcessZoom;
-                //_gestureHandler.ZoomBegin += ProcessZoom;
-                //_gestureHandler.ZoomEnd += ProcessZoom;
-            }
         }
 
         #endregion Constructor
@@ -133,14 +80,7 @@ namespace DecimalInternetClock
 
         #region Event Handlers
 
-        private void ProcessPan(object sender, GestureEventArgs args)
-        {
-            //_translate.X += args.PanTranslation.Width;
-            _scrollViewer.ScrollToVerticalOffset(_scrollViewer.VerticalOffset - args.PanTranslation.Height);
-            //_translate.Y += args.PanTranslation.Height;
-        }
-
-        private void ProcessRotateBegin(object sender, GestureEventArgs args)
+        private void this_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
         {
             VisualTreeHelper.HitTest(this,
                 //null
@@ -155,24 +95,20 @@ namespace DecimalInternetClock
                 //{ _currentRotateableVisual = result.VisualHit as IRotateable;
                 //    return _currentRotateableVisual!= null? HitTestResultBehavior.Stop: HitTestResultBehavior.Continue;}
                 ,
-                new PointHitTestParameters((Point)args.Center.ToVector()));
-            ProcessRotate(sender, args);
+                new PointHitTestParameters(e.ManipulationOrigin));
         }
 
-        private void ProcessRotate(object sender, GestureEventArgs args)
+        private void this_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
+            _scrollViewer.ScrollToVerticalOffset(_scrollViewer.VerticalOffset - e.DeltaManipulation.Translation.Y);
             if (_currentRotateableVisual != null)
-                _currentRotateableVisual.RotateAngle -= args.RotateAngle * 180 / Math.PI;
-        }
-
-        private void ProcessRollOver(object sender, GestureEventArgs args)
-        {
-            MouseHelper.RightClick(((Vector)this.PointToScreen((Point)args.Location.ToVector())).ToPoint());
+                _currentRotateableVisual.RotateAngle -= e.DeltaManipulation.Rotation * 180 / Math.PI;
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            if (e.ButtonState != MouseButtonState.Released)
+                DragMove();
         }
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
@@ -187,7 +123,8 @@ namespace DecimalInternetClock
             ColorPickerDialog cpd = new ColorPickerDialog(((SolidColorBrush)Foreground).Color);
             if ((bool)cpd.ShowDialog())
             {
-                this.Foreground = new SolidColorBrush(cpd.SelectedColor);
+                Settings.Default.Foreground = new SolidColorBrush(cpd.SelectedColor);
+                //this.Foreground = new SolidColorBrush(cpd.SelectedColor);
             }
         }
 
@@ -213,40 +150,5 @@ namespace DecimalInternetClock
         }
 
         #endregion Event Handlers
-
-        //#region INameScope Members
-
-        //private Dictionary<string, object> items = new Dictionary<string, object>();
-
-        //object INameScope.FindName(string name)
-        //{
-        //    return items[name];
-        //}
-
-        //void INameScope.RegisterName(string name, object scopedElement)
-        //{
-        //    items.Add(name, scopedElement);
-        //}
-
-        //void INameScope.UnregisterName(string name)
-        //{
-        //    items.Remove(name);
-        //}
-
-        //#endregion INameScope Members
-
-        #region INotifyPropertyChanged Members
-
-        public void OnPropertyChanged(String propName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion INotifyPropertyChanged Members
     }
 }

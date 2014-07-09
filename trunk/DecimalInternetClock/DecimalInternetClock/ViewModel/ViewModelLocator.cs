@@ -12,6 +12,7 @@
   See http://www.galasoft.ch/mvvm
 */
 
+using Clocks.ViewModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
@@ -44,9 +45,10 @@ namespace DecimalInternetClock.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<OptionsViewModel>();
+            SimpleIoc.Default.Register<BinaryHexDigitClockViewModel>();
         }
 
-        public MainViewModel Main
+        public static MainViewModel Main
         {
             get
             {
@@ -54,7 +56,7 @@ namespace DecimalInternetClock.ViewModel
             }
         }
 
-        public OptionsViewModel Options
+        public static OptionsViewModel Options
         {
             get
             {

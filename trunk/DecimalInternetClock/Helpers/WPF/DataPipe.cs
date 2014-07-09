@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace DecimalInternetClock.Helpers
+namespace Helpers.WPF
 {
     /// <summary>
     /// Class for Binding read-only WPF properties

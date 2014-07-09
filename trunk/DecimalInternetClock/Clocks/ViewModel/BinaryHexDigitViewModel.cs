@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
-using DecimalInternetClock.Clocks.View;
-using DecimalInternetClock.Helpers;
+using Clocks.Model;
 using GalaSoft.MvvmLight.Command;
 
-namespace DecimalInternetClock.Clocks.ViewModel
+namespace Clocks.ViewModel
 {
     public class BinaryHexDigitViewModel : INotifyPropertyChanged
     {
@@ -21,15 +20,13 @@ namespace DecimalInternetClock.Clocks.ViewModel
             _clock = new HexDigitModel();
             _clock.Now = 0xf;
             DebugCommand = new RelayCommand(() =>
-        {
-            if (this._clock != null)
-                _clock.UpdateNow();
-        });
+            {
+                if (this._clock != null)
+                    _clock.UpdateNow();
+            });
         }
 
         #region Properties
-
-        public BinaryHexDigitView view { get; set; }
 
         public RelayCommand DebugCommand { get; private set; }
 
@@ -44,7 +41,7 @@ namespace DecimalInternetClock.Clocks.ViewModel
                 if (_clock.Now != value)
                 {
                     _clock.Now = value;
-                    foreach (HexDigitModel.EUnits unit in EnumHelper.GetValues<HexDigitModel.EUnits>())
+                    foreach (HexDigitModel.EUnits unit in Enum.GetValues(typeof(HexDigitModel.EUnits)))
                         OnPropertyChanged(unit);
                 }
             }
@@ -85,9 +82,6 @@ namespace DecimalInternetClock.Clocks.ViewModel
         {
             get
             {
-                //if (DesignerProperties.GetIsInDesignMode(this))
-                //    return 100.0;
-                //else
                 return _actualWidth;
             }
             set
@@ -269,7 +263,7 @@ namespace DecimalInternetClock.Clocks.ViewModel
                 {
                     _strokeThickness = value;
                     OnPropertyChanged(StrokeThicknessPropertyName);
-                    OnPropertyChanged(InternalMarginPropertyName);
+
                     OnPropertyChanged(PathDataPropertyName);
                 }
             }
@@ -299,20 +293,6 @@ namespace DecimalInternetClock.Clocks.ViewModel
         }
 
         #endregion Margin
-
-        #region InternalMargin
-
-        public const string InternalMarginPropertyName = "InternalMargin";
-
-        public Thickness InternalMargin
-        {
-            get
-            {
-                return new Thickness(0);
-            }
-        }
-
-        #endregion InternalMargin
 
         #endregion Properties
 

@@ -10,6 +10,7 @@ using System.Windows.Markup;
 using DecimalInternetClock.Helpers;
 using DecimalInternetClock.NamedValues;
 using DecimalInternetClock.Properties;
+using Helpers.WPF;
 
 namespace DecimalInternetClock.Options
 {

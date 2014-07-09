@@ -12,6 +12,7 @@ using DecimalInternetClock.CustomViews;
 using DecimalInternetClock.Helpers;
 using DecimalInternetClock.NamedValues;
 using FontDialogSample;
+using Helpers.WPF;
 
 namespace DecimalInternetClock.NamedValues
 {
@@ -49,7 +50,7 @@ namespace DecimalInternetClock.NamedValues
             return String.Format("{0}", this.Name);
         }
 
-        ListSortDirection? _dir = null;
+        private ListSortDirection? _dir = null;
 
         private void chName_Click(object sender, RoutedEventArgs e)
         {
@@ -256,6 +257,7 @@ namespace DecimalInternetClock.NamedValues
     public class RemissionDivisionConverter : DependencyObject, IValueConverter
     {
         #region Properties
+
         //private int _divider = 1;
         //public int Divider
         //{
