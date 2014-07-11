@@ -1,13 +1,31 @@
 ﻿<Window x:Class="DecimalInternetClock.TouchTest"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="TouchTest" Height="300" Width="300">
+    Title="TouchTest" Height="300" Width="300"
+        x:Name="this"
+        DataContext="{Binding ElementName=this}">
+    <Window.ContextMenu>
+        <ContextMenu>
+
+            <MenuItem Name="Clear" Click="Clear_Click" Header="Clear"></MenuItem>
+            <MenuItem Name="StylusTraceEnabled" 
+                      Header="StylusTraceEnabled"
+                      IsCheckable="True"  
+                      Checked="TraceEnabled_Click"
+                      Click="TraceEnabled_Click">StylusTraceEnabled</MenuItem>
+            <MenuItem Name="MouseTraceEnabled" Header="MouseTraceEnabled"
+                      IsCheckable="True" Checked="TraceEnabled_Click"></MenuItem>
+            <MenuItem Name="TouchTraceEnabled" Header="TouchTraceEnabled"
+                      IsCheckable="True" Click="TraceEnabled_Click"></MenuItem>
+
+        </ContextMenu>
+    </Window.ContextMenu>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Canvas x:Name="cProbe" MinHeight="50" MinWidth="100" Background="Black"
+        <Canvas x:Name="cProbe" MinHeight="150" MinWidth="100" Background="Black"
                 Stylus.IsFlicksEnabled="True"
                 Stylus.IsPressAndHoldEnabled="True"
                 Stylus.IsTapFeedbackEnabled="True"
@@ -52,6 +70,7 @@
                 ScrollViewer.VerticalScrollBarVisibility="Visible" />
         <TextBox  Grid.Row="1" TextWrapping="Wrap" x:Name="tbFeedBack"
                   HorizontalScrollBarVisibility="Visible"
-                  VerticalScrollBarVisibility="Visible" />
+                  VerticalScrollBarVisibility="Visible"
+                  Text="{Binding ElementName=this, Path=DisplayText, Mode=OneWay}" />
     </Grid>
 </Window>
