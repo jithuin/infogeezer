@@ -145,6 +145,8 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch">
                 </vw:HexaDecimalClockView>
+                <vw:HexaDecimalLedDigitView HorizontalAlignment="Stretch" DataContext="{Binding Path=HexClock.Second}">
+                </vw:HexaDecimalLedDigitView>
             </StackPanel>
         </ScrollViewer>
     </Grid>

@@ -45,9 +45,28 @@ namespace Clocks.ViewModel
                     _clock.Now = value;
                     foreach (HexaDecimalDigitModel.EUnits unit in Enum.GetValues(typeof(HexaDecimalDigitModel.EUnits)))
                         OnPropertyChanged(unit);
+                    OnPropertyChanged(NowStringPropertyName);
                 }
             }
         }
+
+        #region NowString
+
+        /// <summary>
+        /// The <see cref="NowString" /> property's name.
+        /// </summary>
+        public const string NowStringPropertyName = "NowString";
+
+        /// <summary>
+        /// Sets and gets the NowString property.
+        /// Changes to that property's value raise the PropertyChanged event.
+        /// </summary>
+        public string NowString
+        {
+            get { return String.Format("{0:X}", Now); }
+        }
+
+        #endregion NowString
 
         #region First
 
