@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Foreground" Type="System.Windows.Media.SolidColorBrush" Scope="User">
-      <Value Profile="(Default)">#FF00FF00</Value>
+      <Value Profile="(Default)">#7F00FF00</Value>
     </Setting>
     <Setting Name="Background" Type="System.Windows.Media.SolidColorBrush" Scope="User">
       <Value Profile="(Default)">#3F000000</Value>

@@ -11,7 +11,8 @@
             d:DesignWidth="100"
             d:DesignHeight="{Binding ElementName=this, Path=Width}"
             d:DataContext="{d:DesignInstance Type=vm:HexaDecimalDigitViewModel, IsDesignTimeCreatable=True}"
-            Margin="{Binding Path=Margin}">
+            Margin="{Binding Path=Margin}" 
+            Height="{Binding Height, Mode=OneWay}">
     <UserControl.Resources>
         <Style x:Key="PathStyle" x:Name="_pathStyle" TargetType="Path">
             <Setter Property="StrokeThickness" Value="{Binding Path=StrokeThickness}" />
@@ -21,6 +22,9 @@
             <Setter Property="StrokeThickness" Value="10" />
         </Style>
     </UserControl.Resources>
+	<UserControl.DataContext>
+		<vm:HexaDecimalDigitViewModel/>
+	</UserControl.DataContext>
 
     <Grid
         x:Name="_clockGrid">
