@@ -9,20 +9,26 @@
     xmlns:vw="clr-namespace:Clocks.View;assembly=Clocks"
     xmlns:dd="clr-namespace:DragDrop;assembly=DragDrop"
     xmlns:vm="clr-namespace:DecimalInternetClock.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    
     Title="DecimalInternetClock"
+    
     x:Name="this"
     WindowStyle="None"
     AllowsTransparency="True"
     Icon="Resources\Blank.png"
     DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
     Foreground="{Binding Path=Settings.Foreground}"
+    Background="{Binding Path=Settings.Background}"
     FontFamily="{Binding Path=Settings.DisplayFontFamily}"
     Topmost="{Binding Path=Settings.AlwaysOnTop}"
     ShowInTaskbar="{Binding Path=Settings.ShowInTaskBar}"
     ResizeMode="{Binding Path=Settings.ResizeMode}"
     Style="{DynamicResource WindowStyle}"
     ManipulationDelta="this_ManipulationDelta"
-    ManipulationStarted="this_ManipulationStarted">
+    ManipulationStarted="this_ManipulationStarted" d:DesignHeight="2883">
     <!--DataContext="{Binding Source={x:Static prop:Settings.Default}}"-->
     <!--BUG: nem működik itt az ikon a Window Icon Property-n keresztül .NET 3.5 alatt-->
     <Window.Resources>
@@ -48,7 +54,7 @@
         </ContextMenu>
     </Window.ContextMenu>
 
-    <Grid Name="windowContent">
+    <Grid Name="windowContent" d:DesignWidth="300" d:DesignHeight="800">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
