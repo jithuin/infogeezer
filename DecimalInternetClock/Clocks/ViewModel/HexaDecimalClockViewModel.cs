@@ -19,11 +19,20 @@ namespace Clocks.ViewModel
 
         public bool IsReadonly { get; set; }
 
+        public override string TimeString
+        {
+            get
+            {
+                return base.TimeString;
+            }
+        }
+
         public DateTime Now
         {
             set
             {
                 _clock.Now = value;
+                OnPropertyChanged(TimeStringPropertyName);
                 foreach (HexaDecimalClockModel.EUnits unit in Enum.GetValues(typeof(HexaDecimalClockModel.EUnits)))
                 {
                     if (_subViewModels[unit].Now != _clock[unit])
@@ -153,6 +162,7 @@ namespace Clocks.ViewModel
                         {
                             _clock[unit] = _subViewModels[unit].Now;
                             OnPropertyChanged(sender, unit);
+                            OnPropertyChanged(TimeStringPropertyName);
                         }
                     }
                     );
