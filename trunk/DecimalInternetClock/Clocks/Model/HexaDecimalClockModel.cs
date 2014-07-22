@@ -19,12 +19,6 @@ namespace Clocks.Model
         {
         }
 
-        //public new HexDigitModel this[EUnits index]
-        //{
-        //    get { return new HexDigitModel(base[index]); }
-        //    set { base[index] = value.DecimalTime; }
-        //}
-
         protected override void InitClockUnits()
         {
             AddBase(EUnits.Hour, 16);

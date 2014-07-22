@@ -23,7 +23,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <vw:LedUserControl Foreground="{Binding ElementName=this, Path=Foreground}" Grid.Column="1" Grid.Row="0" Visibility="{Binding Path=ForthVisibility}">
+        <vw:LedUserControl Foreground="{Binding ElementName=this, Path=Foreground}" Grid.Column="1" Grid.Row="0" Visibility="{Binding Path=FourthVisibility}">
         </vw:LedUserControl>
         <vw:LedUserControl Grid.Column="0" Grid.Row="1" Visibility="{Binding Path=ThirdVisibility}">
         </vw:LedUserControl>

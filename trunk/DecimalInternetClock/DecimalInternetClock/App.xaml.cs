@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows;
-
+using DecimalInternetClock.Helpers;
 using DecimalInternetClock.HotKeys;
 
 namespace DecimalInternetClock
@@ -18,6 +18,13 @@ namespace DecimalInternetClock
 
         public App()
         {
+            this.Exit += new ExitEventHandler(App_Exit);
+            ResizerHotkeyList.Instance.Init();
+        }
+
+        private void App_Exit(object sender, ExitEventArgs e)
+        {
+            ResizerHotkeyList.Instance.Save();
         }
     }
 }

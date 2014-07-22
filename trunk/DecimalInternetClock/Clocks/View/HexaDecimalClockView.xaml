@@ -19,5 +19,9 @@
         <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
         <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
         <vw:HexaDecimalDigitView DataContext="{Binding Path=Second}" />
+        <Viewbox>
+            <TextBlock Text="{Binding Path=TimeString}">
+            </TextBlock>
+        </Viewbox>
     </Grid>
 </UserControl>

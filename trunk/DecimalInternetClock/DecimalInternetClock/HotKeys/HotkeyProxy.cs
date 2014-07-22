@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
+using System.Xml.Serialization;
 using ManagedWinapi;
 
 namespace DecimalInternetClock.HotKeys
@@ -10,6 +12,7 @@ namespace DecimalInternetClock.HotKeys
     public class HotkeyProxy
     {
         [NonSerialized]
+        [XmlIgnore]
         protected Hotkey _hotkey;
 
         public HotkeyProxy()
@@ -103,6 +106,17 @@ namespace DecimalInternetClock.HotKeys
             {
                 _hotkey.HotkeyPressed -= value;
             }
+        }
+
+        internal void ModifyHotKey(FKeyModifiers mod_in, System.Windows.Forms.Keys key_in)
+        {
+            Enabled = false;
+            Alt = (mod_in & FKeyModifiers.Alt) != 0;
+            Ctrl = (mod_in & FKeyModifiers.Ctrl) != 0;
+            Shift = (mod_in & FKeyModifiers.Shift) != 0;
+            WindowsKey = (mod_in & FKeyModifiers.Win) != 0;
+            KeyCode = key_in;
+            Enabled = true;
         }
     }
 }
