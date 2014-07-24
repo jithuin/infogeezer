@@ -98,6 +98,9 @@
     <Compile Include="View\HexaDecimalDigitView.xaml.cs">
       <DependentUpon>HexaDecimalDigitView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\HexaDecimalLedClockView.xaml.cs">
+      <DependentUpon>HexaDecimalLedClockView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HexaDecimalLedDigitView.xaml.cs">
       <DependentUpon>HexaDecimalLedDigitView.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HexaDecimalClockView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HexaDecimalLedClockView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

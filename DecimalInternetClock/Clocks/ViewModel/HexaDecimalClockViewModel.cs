@@ -41,6 +41,7 @@ namespace Clocks.ViewModel
                         OnPropertyChanged(unit);
                     }
                 }
+                
             }
         }
 
@@ -75,6 +76,26 @@ namespace Clocks.ViewModel
                 return _subViewModels[HexaDecimalClockModel.EUnits.Second];
             }
         }
+
+        /// <summary>
+        /// The <see cref="TextMargin" /> property's name.
+        /// </summary>
+        public const string TextMarginPropertyName = "TextMargin";
+
+
+        /// <summary>
+        /// Sets and gets the TextMargin property.
+        /// Changes to that property's value raise the PropertyChanged event. 
+        /// </summary>
+        public Thickness TextMargin
+        {
+            get
+            {
+                return new Thickness(_strokeThickness * (int)HexaDecimalClockModel.NumberOfUnits + _strokeThickness / 2);
+            }
+        }
+
+        
 
         public string ForegroundPropertyName = "Foreground";
         protected Brush _foreground = Brushes.Black;
@@ -117,6 +138,7 @@ namespace Clocks.ViewModel
                     }
                     OnPropertyChanged(StrokeThicknessPropertyName);
                     OnPropertyChanged(MinWidthPropertyName);
+                    OnPropertyChanged(TextMarginPropertyName);
                 }
             }
         }
