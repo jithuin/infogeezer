@@ -220,6 +220,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyListHelper.cs" />
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -244,7 +245,6 @@
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
     <Compile Include="Helpers\MouseHelper.cs" />
-    <Compile Include="Helpers\ResizeHotkeyListHelper.cs" />
     <Compile Include="Helpers\VectorHelper.cs" />
     <Compile Include="HotKeys\ActivatorHotkey.cs">
     </Compile>

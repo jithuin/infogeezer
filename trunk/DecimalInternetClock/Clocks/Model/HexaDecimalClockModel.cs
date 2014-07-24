@@ -15,6 +15,8 @@ namespace Clocks.Model
             Second
         }
 
+        public const int NumberOfUnits = 4;
+
         public HexaDecimalClockModel()
         {
         }
