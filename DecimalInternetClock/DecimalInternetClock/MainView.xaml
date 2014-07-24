@@ -12,9 +12,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    
+
     Title="DecimalInternetClock"
-    
+
     x:Name="this"
     WindowStyle="None"
     AllowsTransparency="True"
@@ -151,8 +151,8 @@
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch">
                 </vw:HexaDecimalClockView>
-                <vw:HexaDecimalLedDigitView HorizontalAlignment="Stretch" DataContext="{Binding Path=HexClock.Second}">
-                </vw:HexaDecimalLedDigitView>
+                <vw:HexaDecimalLedClockView HorizontalAlignment="Stretch" DataContext="{Binding Path=HexClock}">
+                </vw:HexaDecimalLedClockView>
             </StackPanel>
         </ScrollViewer>
     </Grid>
