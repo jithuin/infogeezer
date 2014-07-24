@@ -32,6 +32,43 @@ namespace Clocks.View
                 RaisePropertyChanged(LedBrushPropertyName);
         }
 
+        #region LedState
+
+        public bool LedState
+        {
+            get { return (bool)GetValue(LedStateProperty); }
+            set { SetValue(LedStateProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for LedState.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LedStateProperty =
+            DependencyProperty.Register("LedState", typeof(bool), typeof(LedUserControl),
+                new UIPropertyMetadata(false,
+                    new PropertyChangedCallback((o, e) =>
+                        {
+                            if (o is LedUserControl)
+                                ((LedUserControl)o).RaisePropertyChanged(o, LedVisibilityPropertyName);
+                        })));
+
+        #endregion LedState
+
+        #region LedVisibility
+
+        /// <summary>
+        /// The <see cref="LedVisibility" /> property's name.
+        /// </summary>
+        public const string LedVisibilityPropertyName = "LedVisibility";
+
+        /// <summary>
+        /// Gets the LedVisibility property.
+        /// </summary>
+        public Visibility LedVisibility
+        {
+            get { return LedState ? Visibility.Visible : Visibility.Hidden; }
+        }
+
+        #endregion LedVisibility
+
         #region LedBrush
 
         /// <summary>
@@ -57,11 +94,16 @@ namespace Clocks.View
 
         #region INotifyPropertyChanged Members
 
-        public void RaisePropertyChanged(String propName)
+        public void RaisePropertyChanged(string propName)
+        {
+            RaisePropertyChanged(this, propName);
+        }
+
+        public void RaisePropertyChanged(object sender, string propName)
         {
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+                PropertyChanged(sender, new PropertyChangedEventArgs(propName));
             }
         }
 

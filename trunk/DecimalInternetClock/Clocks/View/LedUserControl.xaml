@@ -8,7 +8,7 @@
              x:Name="this"
              d:DesignHeight="300" d:DesignWidth="300">
     <Viewbox>
-        <Ellipse Height="30" Width="30" Margin="2" Fill="{Binding ElementName=this, Path=LedBrush}">
+        <Ellipse Height="30" Width="30" Margin="2" Fill="{Binding ElementName=this, Path=LedBrush}" Visibility="{Binding Path=LedVisibility}">
         </Ellipse>
     </Viewbox>
 </UserControl>

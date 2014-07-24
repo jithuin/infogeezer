@@ -9,73 +9,47 @@ using DecimalInternetClock.HotKeys;
 using ManagedWinapi;
 using Forms = System.Windows.Forms;
 
-namespace DecimalInternetClock.Helpers
+namespace DecimalInternetClock.HotKeys
 {
-    public static class ResizeHotkeyListHelper
+    public static class ResizerHotkeyListHelper
     {
         #region Set to Default
-
-        private enum EWinPosVert
-        {
-            Top,
-            Centre,
-            Bottom,
-            Total,
-        }
-
-        private enum EWinPosHoriz
-        {
-            Left,
-            Middle,
-            Right,
-            Total,
-        }
-
-        private class WinPos
-        {
-            public WinPos()
-            {
-            }
-
-            public WinPos(EWinPosVert vpos_in, EWinPosHoriz hpos_in)
-            {
-                HPos = hpos_in;
-                VPos = vpos_in;
-            }
-
-            public WinPos(EWinPosHoriz hpos_in, EWinPosVert vpos_in)
-                : this(vpos_in, hpos_in)
-            { }
-
-            public EWinPosHoriz HPos;
-
-            public EWinPosVert VPos;
-        }
 
         private static List<double> _portions = new List<double>() { 0.25, 1.0 / 3, 0.5, 0.75 };
 
         private static FKeyModifiers _defaultModifiers = FKeyModifiers.Alt | FKeyModifiers.Ctrl;
 
-        private static Dictionary<WinPos, List<Forms.Keys>> _posCommandKey = new Dictionary<WinPos, List<Forms.Keys>>()
+        private struct Alignment
         {
-            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Total), new List<Forms.Keys>(){Forms.Keys.Left}},
-            //{new WinPos(EWinPosHoriz.Middle, EWinPosVert.Total), new List<Forms.Keys>(){Forms.Keys.Left, Forms.Keys.NumPad4}},
-            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Total), new List<Forms.Keys>(){Forms.Keys.Right}},
-            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Top), new List<Forms.Keys>(){Forms.Keys.NumPad7}},
-            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Top), new List<Forms.Keys>(){Forms.Keys.NumPad8}},
-            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Top), new List<Forms.Keys>(){Forms.Keys.NumPad9}},
-            {new WinPos(EWinPosHoriz.Total, EWinPosVert.Top), new List<Forms.Keys>(){Forms.Keys.Up}},
-            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad1}},
-            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad2}},
-            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad3}},
-            {new WinPos(EWinPosHoriz.Total, EWinPosVert.Bottom), new List<Forms.Keys>(){Forms.Keys.Down}},
-            {new WinPos(EWinPosHoriz.Left, EWinPosVert.Centre), new List<Forms.Keys>(){Forms.Keys.NumPad4}},
-            {new WinPos(EWinPosHoriz.Middle, EWinPosVert.Centre), new List<Forms.Keys>(){Forms.Keys.NumPad5}},
-            {new WinPos(EWinPosHoriz.Right, EWinPosVert.Centre), new List<Forms.Keys>(){Forms.Keys.NumPad6}},
-            //{new WinPos(EWinPosHoriz.Total, EWinPosVert.Centre), new List<Forms.Keys>(){Forms.Keys.Left, Forms.Keys.NumPad4}},
+            public Alignment(HorizontalAlignment horizontalAlignment_in, VerticalAlignment verticalAlignment_in)
+            {
+                horizontalAlignment = horizontalAlignment_in;
+                verticalAlignment = verticalAlignment_in;
+            }
+
+            public HorizontalAlignment horizontalAlignment;
+            public VerticalAlignment verticalAlignment;
+        }
+
+        private static Dictionary<Alignment, List<Forms.Keys>> _posCommandKey = new Dictionary<Alignment, List<Forms.Keys>>()
+        {
+            {new Alignment(HorizontalAlignment.Left, VerticalAlignment.Stretch), new List<Forms.Keys>(){Forms.Keys.Left}},
+            {new Alignment(HorizontalAlignment.Right, VerticalAlignment.Stretch), new List<Forms.Keys>(){Forms.Keys.Right}},
+
+            {new Alignment(HorizontalAlignment.Left, VerticalAlignment.Top), new List<Forms.Keys>(){Forms.Keys.NumPad7}},
+            {new Alignment(HorizontalAlignment.Center, VerticalAlignment.Top), new List<Forms.Keys>(){Forms.Keys.NumPad8}},
+            {new Alignment(HorizontalAlignment.Right, VerticalAlignment.Top), new List<Forms.Keys>(){Forms.Keys.NumPad9}},
+            {new Alignment(HorizontalAlignment.Stretch, VerticalAlignment.Top), new List<Forms.Keys>(){Forms.Keys.Up}},
+            {new Alignment(HorizontalAlignment.Left, VerticalAlignment.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad1}},
+            {new Alignment(HorizontalAlignment.Center, VerticalAlignment.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad2}},
+            {new Alignment(HorizontalAlignment.Right, VerticalAlignment.Bottom), new List<Forms.Keys>(){Forms.Keys.NumPad3}},
+            {new Alignment(HorizontalAlignment.Stretch, VerticalAlignment.Bottom), new List<Forms.Keys>(){Forms.Keys.Down}},
+            {new Alignment(HorizontalAlignment.Left, VerticalAlignment.Center), new List<Forms.Keys>(){Forms.Keys.NumPad4}},
+            {new Alignment(HorizontalAlignment.Center, VerticalAlignment.Center), new List<Forms.Keys>(){Forms.Keys.NumPad5}},
+            {new Alignment(HorizontalAlignment.Right, VerticalAlignment.Center), new List<Forms.Keys>(){Forms.Keys.NumPad6}},
         };
 
-        static ResizeHotkeyListHelper()
+        static ResizerHotkeyListHelper()
         {
         }
 
@@ -85,7 +59,7 @@ namespace DecimalInternetClock.Helpers
             bool isError = false;
             StringBuilder sbError = new StringBuilder();
 
-            foreach (WinPos wp in _posCommandKey.Keys)
+            foreach (Alignment wp in _posCommandKey.Keys)
             {
                 ResizerHotKey hk = new ResizerHotKey();
                 foreach (Forms.Keys key in _posCommandKey[wp])
@@ -104,7 +78,7 @@ namespace DecimalInternetClock.Helpers
                 if (hk.Count != 0)
                 {
                     foreach (double portion in _portions)
-                        hk.ResizeStates.Add(CreateResizeState(wp, portion));
+                        hk.ResizeStates.Add(new ResizerHotkeyState(wp.horizontalAlignment, wp.verticalAlignment, portion));
 
                     rhkList.Add(hk);
                 }
@@ -114,81 +88,8 @@ namespace DecimalInternetClock.Helpers
                 Application.Current.Dispatcher.BeginInvoke(new Action(delegate()
                 {
                     System.Windows.Forms.MessageBox.Show(sbError.ToString());
-                }
-                    ));
+                }));
             }
-        }
-
-        static private ResizerHotkeyState CreateResizeState(WinPos wp, double portion)
-        {
-            Vector location = new Vector();
-            Vector size = new Vector();
-
-            #region Size calculation
-
-            if (wp.HPos == EWinPosHoriz.Total)
-                size.X = 1;
-            else
-                size.X = portion;
-            if (wp.VPos == EWinPosVert.Total)
-                size.Y = 1;
-            else
-                size.Y = portion;
-
-            #endregion Size calculation
-
-            #region Location calculation
-
-            switch (wp.HPos)
-            {
-                case EWinPosHoriz.Middle:
-                    {
-                        location.X = (1 - portion) / 2.0;
-
-                        break;
-                    }
-                case EWinPosHoriz.Right:
-                    {
-                        location.X = 1 - portion;
-
-                        break;
-                    }
-                case EWinPosHoriz.Left:
-                case EWinPosHoriz.Total:
-                default:
-                    {
-                        location.X = 0;
-
-                        break;
-                    }
-            }
-            switch (wp.VPos)
-            {
-                case EWinPosVert.Centre:
-                    {
-                        location.Y = (1 - portion) / 2.0;
-
-                        break;
-                    }
-                case EWinPosVert.Bottom:
-                    {
-                        location.Y = 1 - portion;
-
-                        break;
-                    }
-                case EWinPosVert.Top:
-                case EWinPosVert.Total:
-                default:
-                    {
-                        location.Y = 0;
-
-                        break;
-                    }
-            }
-
-            #endregion Location calculation
-
-            return new ResizerHotkeyState(location, size);
         }
 
         #endregion Set to Default
@@ -202,12 +103,24 @@ namespace DecimalInternetClock.Helpers
         {
             FileInfo BinaryOptionsFileInfo = new FileInfo(BinaryOptionsFilePath);
             FileInfo XmlOptionsFileInfo = new FileInfo(XmlOptionsFilePath);
-            if (BinaryOptionsFileInfo.Exists)
-                rhkList_in.DeserializeThisFrom(BinaryOptionsFilePath, ESerializationType.Binary);
-            else if (XmlOptionsFileInfo.Exists)
-                rhkList_in.DeserializeThisFrom(XmlOptionsFilePath, ESerializationType.Xml);
-            else
+
+            try
+            {
+                if (XmlOptionsFileInfo.Exists)
+                    rhkList_in.DeserializeThisFrom(XmlOptionsFilePath, ESerializationType.Xml);
+                else if (BinaryOptionsFileInfo.Exists)
+                    rhkList_in.DeserializeThisFrom(BinaryOptionsFilePath, ESerializationType.Binary);
+                else
+                    rhkList_in.SetToDefault();
+            }
+            catch (Exception)
+            {
+                Application.Current.Dispatcher.BeginInvoke(new Action(delegate()
+                {
+                    System.Windows.Forms.MessageBox.Show("Resizer Hotkey Init Error");
+                }));
                 rhkList_in.SetToDefault();
+            }
         }
 
         public static void Save(this ResizerHotkeyList rhkList_in)
