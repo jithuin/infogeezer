@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Helpers.Exceptions
+namespace HelpersPortable.Exceptions
 {
     [DataContract]
     public class XArchitectureException : Exception

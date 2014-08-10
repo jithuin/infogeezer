@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using Clocks.Exceptions;
 using Clocks.Model;
-using Helpers.Exceptions;
+using HelpersPortable.Exceptions;
 
 namespace Clocks.ViewModel
 {
     public class ClockViewModelBase<T, E> : INotifyPropertyChanged
         where T : ClockBase<E>, new()
-        where E : struct, IConvertible, IComparable
+        where E : struct, IComparable, IFormattable
     {
         protected T _clock;
 
@@ -35,6 +35,7 @@ namespace Clocks.ViewModel
                 for (int i = 0; i < length; i++)
                     args[i] = _clock[i];
                 return String.Format(TimeStringFormat, args);
+                
             }
         }
 
@@ -49,8 +50,8 @@ namespace Clocks.ViewModel
         /// <param name="clock_in">set the internal time representation to the given object</param>
         public ClockViewModelBase(T clock_in)
         {
-            if (!typeof(E).IsEnum)
-                throw new XArchitectureException();
+            //if (!typeof(E).IsEnum)
+            //    throw new XArchitectureException();
             _clock = clock_in;
             if (TimeStringFormat == null || TimeStringFormat == string.Empty || TimeStringFormat == "")
             {

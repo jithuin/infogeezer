@@ -8,6 +8,7 @@ using System.Windows;
 using Clocks.Model;
 using GalaSoft.MvvmLight.Command;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
 
 namespace Clocks.ViewModel
 {
@@ -74,8 +75,13 @@ namespace Clocks.ViewModel
         {
             get
             {
-                return First ? Visibility.Visible : Visibility.Hidden;
+                return BooleanToVisibility(First);
             }
+        }
+
+        private Visibility BooleanToVisibility(bool boolean_in)
+        {
+            return boolean_in ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public bool First
@@ -102,7 +108,7 @@ namespace Clocks.ViewModel
         {
             get
             {
-                return Second ? Visibility.Visible : Visibility.Hidden;
+                return BooleanToVisibility(Second); 
             }
         }
 
@@ -130,7 +136,7 @@ namespace Clocks.ViewModel
         {
             get
             {
-                return Third ? Visibility.Visible : Visibility.Hidden;
+                return BooleanToVisibility(Third);
             }
         }
 
@@ -158,7 +164,7 @@ namespace Clocks.ViewModel
         {
             get
             {
-                return Fourth ? Visibility.Visible : Visibility.Hidden;
+                return BooleanToVisibility(Fourth);
             }
         }
 
