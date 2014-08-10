@@ -148,9 +148,7 @@
       <SubType>Designer</SubType>
     </PRIResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ClockPortable\ClockPortable.csproj">
       <Project>{c70658f2-f872-4781-af0f-e0018472521a}</Project>

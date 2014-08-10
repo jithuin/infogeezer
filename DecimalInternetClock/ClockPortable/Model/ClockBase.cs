@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Helpers.Exceptions;
+using HelpersPortable.Exceptions;
 
 namespace Clocks.Model
 {
@@ -75,30 +75,39 @@ namespace Clocks.Model
     /// </summary>
     /// <typeparam name="E">The E type must be some kind of enum type</typeparam>
     public abstract class ClockBase<E> : ClockBase
-        where E : struct, IConvertible, IComparable, IFormattable
+        where E : struct, IComparable, IFormattable
     {
         public ClockBase()
         {
-            if (!typeof(E).IsEnum)
-                throw new XArchitectureException();
+            //if (!typeof(E).IsEnum)
+            //    throw new XArchitectureException();
+            TestGenericTypeEnum();
         }
 
         public ClockBase(double time_in)
             : base(time_in)
         {
-            if (!typeof(E).IsEnum)
-                throw new XArchitectureException();
+            //if (!typeof(E).IsEnum)
+            //    throw new XArchitectureException();
+            TestGenericTypeEnum();
         }
+
+        private static void TestGenericTypeEnum()
+        {
+            Enum.GetValues(typeof(E)).Cast<E>(); // HACK: Testing the E generic type if it is an Enum type
+        }
+
+
 
         protected void AddBase(E lowerUnit_in, long base_in)
         {
-            _listOfBases.Add(lowerUnit_in.ToInt32(null), base_in);
+            _listOfBases.Add(Convert.ToInt32(lowerUnit_in), base_in);
         }
 
         public long this[E index]
         {
-            get { return base[index.ToInt32(null)]; }
-            set { base[index.ToInt32(null)] = value; }
+            get { return base[Convert.ToInt32(index)]; }
+            set { base[Convert.ToInt32(index)] = value; }
         }
 
         public override string ToString()

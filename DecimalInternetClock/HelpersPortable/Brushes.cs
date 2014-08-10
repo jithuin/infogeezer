@@ -18,11 +18,9 @@ namespace HelpersPortable
 
         public static Brush GetBrushFromColor(Color index)
         {
-            
                 if (!_colorDictionary.ContainsKey(index))
                     _colorDictionary.Add(index, new SolidColorBrush(index));
                 return _colorDictionary[index];
-            
         }
 
     }
