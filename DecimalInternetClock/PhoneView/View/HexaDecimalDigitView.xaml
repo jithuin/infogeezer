@@ -9,16 +9,14 @@
     xmlns:vm="using:Clocks.ViewModel"
     xmlns:h="using:HelpersPortable.WPF"
     
-    x:Name="this"
+    x:Name="_this"
             mc:Ignorable="d"
             d:DesignWidth="100"
-            d:DesignHeight="{Binding ElementName=this, Path=Width}"
+            d:DesignHeight="{Binding ElementName=_this, Path=Width}"
             d:DataContext="{d:DesignInstance Type=vm:HexaDecimalDigitViewModel, IsDesignTimeCreatable=True}"
             Margin="{Binding Path=Margin}" 
             Height="{Binding Height, Mode=OneWay}">
-    <UserControl.DataContext>
-        <vm:HexaDecimalDigitViewModel></vm:HexaDecimalDigitViewModel>
-    </UserControl.DataContext>
+    
     <UserControl.Resources>
         <Style x:Key="PathStyle" x:Name="_pathStyle" TargetType="Path">
             <Setter Property="StrokeThickness" Value="{Binding Path=StrokeThickness}" />
@@ -31,7 +29,8 @@
     
 
     <Grid
-        x:Name="_clockGrid">
+        x:Name="_clockGrid"
+        SizeChanged="HexaDecimalDigitView_SizeChanged">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -41,20 +40,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.RenderTransform>
-            <MatrixTransform>
-                <MatrixTransform.Matrix>
-                    <!--Mirror effect over x=y line -->
-                    <Matrix M11="0" M12="1" M21="1" M22="0" OffsetX="0" OffsetY="0" />
-                </MatrixTransform.Matrix>
-            </MatrixTransform>
+            <MatrixTransform Matrix="0,1,1,0,0,0"></MatrixTransform>
         </Grid.RenderTransform>
-        <h:DataPiping.DataPipes>
-            <h:DataPipeCollection>
-                <h:DataPipe Source="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualWidth}"
-                         Target="{Binding Path=ActualWidth, Mode=OneWayToSource}" >
-                </h:DataPipe>
-            </h:DataPipeCollection>
-        </h:DataPiping.DataPipes>
 
         <Path
             VerticalAlignment="Top"

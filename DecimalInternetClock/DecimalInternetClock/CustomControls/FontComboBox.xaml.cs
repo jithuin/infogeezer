@@ -29,7 +29,11 @@ namespace DecimalInternetClock.CustomControls
 
         private void InitComboBox()
         {
-            foreach (FontFamily ff in Fonts.SystemFontFamilies)
+            List<FontFamily> ffList = new List<FontFamily>();
+            ffList.AddRange(Fonts.SystemFontFamilies);
+            ffList.Sort(new Comparison<FontFamily>((ff1,ff2)=> string.Compare(ff1.Source, ff2.Source)));
+
+            foreach (FontFamily ff in ffList)
             {
                 cbFont.Items.Add(ff);
             }
