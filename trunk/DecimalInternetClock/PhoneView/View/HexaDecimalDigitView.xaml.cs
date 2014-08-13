@@ -1,6 +1,6 @@
 ﻿using Clocks.ViewModel;
 using GalaSoft.MvvmLight;
-using Helpers.Exceptions;
+using HelpersPortable.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,9 +31,14 @@ namespace PhoneView.View
                 (DataContext as HexaDecimalDigitViewModel).Now = 0xF;
             }
 
-            if (DataContext != null)
-                if (!(DataContext is HexaDecimalDigitViewModel))
-                    throw new XArchitectureException();
+            if (DataContext != null && !(DataContext is HexaDecimalDigitViewModel))
+                throw new XArchitectureException();
+        }
+
+        private void HexaDecimalDigitView_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (e.PreviousSize.Width != e.NewSize.Width)
+                ((HexaDecimalDigitViewModel)DataContext).ActualWidth = this.ActualWidth;
         }
     }
 }

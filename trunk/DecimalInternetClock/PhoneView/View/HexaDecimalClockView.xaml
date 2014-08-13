@@ -5,11 +5,22 @@
     xmlns:local="using:PhoneView.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="400">
-    
+    xmlns:vw="using:PhoneView.View"
+    xmlns:vm="using:Clocks.ViewModel"
+   mc:Ignorable="d"
+            d:DesignWidth="100"
+            d:DesignHeight="{Binding ElementName=this, Path=Width}"
+            d:DataContext="{d:DesignInstance Type=vm:HexaDecimalClockViewModel, IsDesignTimeCreatable=True}"
+            MinWidth="{Binding Path=MinWidth}">
     <Grid>
-
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=Hour}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=Hour}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteHi}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=Second}" />
+        <Viewbox Margin="{Binding Path=TextMargin}">
+            <TextBlock Text="{Binding Path=TimeString}"></TextBlock>
+        </Viewbox>
     </Grid>
 </UserControl>

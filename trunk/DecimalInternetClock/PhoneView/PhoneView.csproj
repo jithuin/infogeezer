@@ -14,6 +14,8 @@
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{76F1466A-8B6D-4E39-A767-685A06062A39};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -113,8 +115,6 @@
       <DependentUpon>PivotPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\HexaDecimalClockView.xaml.cs">
       <DependentUpon>HexaDecimalClockView.xaml</DependentUpon>
     </Compile>
@@ -148,7 +148,6 @@
       <SubType>Designer</SubType>
     </PRIResource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ClockPortable\ClockPortable.csproj">
       <Project>{c70658f2-f872-4781-af0f-e0018472521a}</Project>
@@ -160,22 +159,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight">
-      <HintPath>..\packages\MvvmLightLibs.4.4.32.1\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.4.32.1\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight.Extras">
-      <HintPath>..\packages\MvvmLightLibs.4.4.32.1\lib\wpa81\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.4.32.1\lib\wpa81\GalaSoft.MvvmLight.Extras.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight.Platform">
-      <HintPath>..\packages\MvvmLightLibs.4.4.32.1\lib\wpa81\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.4.32.1\lib\wpa81\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\packages\MvvmLightLibs.4.4.32.1\lib\wpa81\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\packages\Portable.MvvmLightLibs.4.4.32.1\lib\wpa81\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
@@ -183,6 +183,13 @@
     <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

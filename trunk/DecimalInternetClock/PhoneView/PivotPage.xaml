@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:data="using:PhoneView.Data"
+    
+    xmlns:vw="using:PhoneView.View"
     mc:Ignorable="d"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -90,12 +92,19 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </PivotItem>
+            <PivotItem 
+                Header="Clock"
+                DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+                <vw:HexaDecimalClockView
+                    DataContext="{Binding Path=HexClock}"
+                    />
+            </PivotItem>
         </Pivot>
     </Grid>
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Uid="AddAppBarButton" x:Name="AddAppBarButton" Label="add" Icon="Add" Click="AddAppBarButton_Click" />
+            <AppBarButton x:Uid="AddAppBarButton" x:Name="AddAppBarButton" Label="add" Icon="Add"  />
             <AppBarButton x:Uid="OptionAppBarButton" x:Name="OptionsAppBarButton" Label="options" Icon="Setting" />
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="SecondaryButton1" x:Name="SecondaryButton1" Label="secondary command 1" />
