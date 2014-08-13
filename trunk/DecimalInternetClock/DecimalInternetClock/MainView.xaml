@@ -99,28 +99,26 @@
                 MouseLeftButtonDown="Grid_MouseLeftButtonDown"
                 Background="#01000000">
                 <vw:DecimalClockView
-                    Grid.Row="1"
+
                     Background="Transparent"
 
                     Visibility="{Binding Source={StaticResource Locator}, Path=Main.Settings.DecimalClockVisibility}"
                     DataContext="{Binding Path=DecClock}">
                 </vw:DecimalClockView>
-                <my:BinaryClock
-                    MouseLeftButtonDown="Grid_MouseLeftButtonDown"
-                    Grid.Row="2"
-                    Background="Transparent"
-                    Visibility="{Binding Path=Settings.BinaryClockVisibility}"
-                    DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}">
-                </my:BinaryClock>
-                <my:BinaryRing
-                    Visibility="{Binding Path=Settings.BinaryRingVisibility}"
-                    Grid.Row="3"
-
+                <vw:HexaDecimalLedClockView
+                    Visibility="{Binding Source={StaticResource Locator}, Path=Main.Settings.BinaryClockVisibility}"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    DecimalTime="{Binding ElementName=this, Path=DecimalTime.Time, Mode=OneWay}"
-                    x:Name="_bRing">
-                </my:BinaryRing>
+                    DataContext="{Binding Path=HexClock}"
+                    Foreground="{Binding ElementName=this, Path=Foreground}">
+                </vw:HexaDecimalLedClockView>
+                <vw:HexaDecimalClockView
+
+                    Visibility="{Binding Source={StaticResource Locator}, Path=Main.Settings.BinaryRingVisibility}"
+                    DataContext="{Binding Path=HexClock}"
+                    Foreground="{Binding ElementName=this, Path=Foreground}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch">
+                </vw:HexaDecimalClockView>
 
                 <TextBox
                     Name="textBox"
@@ -145,14 +143,6 @@
                     Foreground="{Binding ElementName=this, Path=Foreground}"
                     Background="#0400FF00">
                 </dd:NotesDragDropCustomTextBox>
-                <vw:HexaDecimalClockView
-
-                    DataContext="{Binding Path=HexClock}"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
-                </vw:HexaDecimalClockView>
-                <vw:HexaDecimalLedClockView HorizontalAlignment="Stretch" DataContext="{Binding Path=HexClock}">
-                </vw:HexaDecimalLedClockView>
             </StackPanel>
         </ScrollViewer>
     </Grid>

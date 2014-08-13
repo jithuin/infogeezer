@@ -57,8 +57,8 @@ namespace DecimalInternetClock
 
         private void LoadSettings()
         {
-            SetValue(ForegroundProperty, Settings.Default.Foreground);
-            SetValue(BackgroundProperty, Settings.Default.Background);
+            //SetValue(ForegroundProperty, Settings.Default.Foreground);
+            //SetValue(BackgroundProperty, Settings.Default.Background);
             SetValue(WidthProperty, Settings.Default.WindowSize.Width);
             SetValue(HeightProperty, Settings.Default.WindowSize.Height);
             SetValue(LeftProperty, Settings.Default.WindowPosition.X);
@@ -68,8 +68,8 @@ namespace DecimalInternetClock
 
         private void SaveSettings()
         {
-            Settings.Default.Foreground = (SolidColorBrush)this.Foreground;
-            Settings.Default.Background = (SolidColorBrush)this.Background;
+            //Settings.Default.Foreground = (SolidColorBrush)this.Foreground;
+            //Settings.Default.Background = (SolidColorBrush)this.Background;
 
             Settings.Default.WindowSize = new Size(this.ActualWidth, this.ActualHeight);
             Settings.Default.WindowPosition = new Point(this.Left, this.Top);
