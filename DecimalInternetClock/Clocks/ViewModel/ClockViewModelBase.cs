@@ -84,6 +84,14 @@ namespace Clocks.ViewModel
             }
         }
 
+        public void OnPropertyChanged(object sender, String propName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(sender, new PropertyChangedEventArgs(propName));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion INotifyPropertyChanged Members

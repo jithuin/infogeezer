@@ -40,11 +40,9 @@
       <HintPath>..\packages\MvvmLightLibs.4.3.31.1\lib\net40\GalaSoft.MvvmLight.Extras.WPF4.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight.WPF4, Version=4.3.31.28629, Culture=neutral, PublicKeyToken=63eb5c012e0b3c1c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MvvmLightLibs.4.3.31.1\lib\net40\GalaSoft.MvvmLight.WPF4.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -89,6 +87,8 @@
     <Compile Include="ViewModel\HexaDecimalClockViewModel.cs" />
     <Compile Include="ViewModel\HexaDecimalDigitViewModel.cs" />
     <Compile Include="ViewModel\DecimalClockViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\DecimalClockView.xaml.cs">
       <DependentUpon>DecimalClockView.xaml</DependentUpon>
     </Compile>
@@ -129,8 +129,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\HexaDecimalLedClockView.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HexaDecimalLedDigitView.xaml">
       <SubType>Designer</SubType>

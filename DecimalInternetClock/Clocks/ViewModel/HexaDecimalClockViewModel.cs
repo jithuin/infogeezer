@@ -41,7 +41,6 @@ namespace Clocks.ViewModel
                         OnPropertyChanged(unit);
                     }
                 }
-                
             }
         }
 
@@ -82,10 +81,9 @@ namespace Clocks.ViewModel
         /// </summary>
         public const string TextMarginPropertyName = "TextMargin";
 
-
         /// <summary>
         /// Sets and gets the TextMargin property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public Thickness TextMargin
         {
@@ -94,8 +92,6 @@ namespace Clocks.ViewModel
                 return new Thickness(_strokeThickness * (int)HexaDecimalClockModel.NumberOfUnits + _strokeThickness / 2);
             }
         }
-
-        
 
         public string ForegroundPropertyName = "Foreground";
         protected Brush _foreground = Brushes.Black;
@@ -209,28 +205,10 @@ namespace Clocks.ViewModel
             OnPropertyChanged(unit_in.ToString());
         }
 
-        public void OnPropertyChanged(String propName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
-            }
-        }
-
-        public void OnPropertyChanged(object sender, String propName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(sender, new PropertyChangedEventArgs(propName));
-            }
-        }
-
         public void OnPropertyChanged(object sender, HexaDecimalClockModel.EUnits unit_in)
         {
             OnPropertyChanged(sender, unit_in.ToString());
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion INotifyPropertyChanged Members
     }
