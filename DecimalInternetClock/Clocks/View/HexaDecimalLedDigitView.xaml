@@ -35,7 +35,7 @@
         </vw:LedUserControl>
         <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="1">
 
-            <TextBlock Text="{Binding Path=NowString}">
+            <TextBlock FontSize="10" Height="14" Width="14"  Text="{Binding Path=NowString}">
             </TextBlock>
         </Viewbox>
     </Grid>

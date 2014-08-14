@@ -165,7 +165,7 @@ namespace Clocks.ViewModel
             : base()
         {
             IsReadonly = true;
-            TimeStringFormat = "{0:X}:{1:X}.{2:X}..{3:X}";
+            TimeStringFormat = "{0:X}:{1:X}{2:X}.{3:X}";
             //Init Sub-View-Models
             _subViewModels = new Dictionary<HexaDecimalClockModel.EUnits, HexaDecimalDigitViewModel>();
             foreach (HexaDecimalClockModel.EUnits unit in Enum.GetValues(typeof(HexaDecimalClockModel.EUnits)))
