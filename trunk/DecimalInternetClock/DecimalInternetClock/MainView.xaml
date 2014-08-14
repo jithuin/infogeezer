@@ -59,10 +59,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <!--<RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />-->
-
             <RowDefinition Height="20" MinHeight="20" />
         </Grid.RowDefinitions>
         <!--Window Header-->
@@ -91,7 +87,7 @@
         <!--Window Content-->
         <ScrollViewer
             Grid.Row="1"
-            VerticalScrollBarVisibility="Auto"
+            VerticalScrollBarVisibility="Hidden"
             Style="{StaticResource ScrollViewerStyle}"
             x:Name="_scrollViewer">
             <StackPanel
