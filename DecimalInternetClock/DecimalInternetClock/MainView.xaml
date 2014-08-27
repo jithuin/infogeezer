@@ -139,6 +139,18 @@
                     Foreground="{Binding ElementName=this, Path=Foreground}"
                     Background="#0400FF00">
                 </dd:NotesDragDropCustomTextBox>
+                <dd:DragDropTesterCustomTextBox
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Grid.Row="1"
+                    VerticalScrollBarVisibility="Auto"
+                    AcceptsReturn="True"
+                    BorderBrush="Transparent"
+                    FontFamily="Arial"
+                    Foreground="{Binding ElementName=this, Path=Foreground}"
+                    Background="#0400FF00">
+                </dd:DragDropTesterCustomTextBox>
             </StackPanel>
         </ScrollViewer>
     </Grid>

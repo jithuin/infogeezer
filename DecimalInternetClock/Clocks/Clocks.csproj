@@ -89,6 +89,8 @@
     <Compile Include="ViewModel\HexaDecimalClockViewModel.cs" />
     <Compile Include="ViewModel\HexaDecimalDigitViewModel.cs" />
     <Compile Include="ViewModel\DecimalClockViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\DecimalClockView.xaml.cs">
       <DependentUpon>DecimalClockView.xaml</DependentUpon>
     </Compile>
