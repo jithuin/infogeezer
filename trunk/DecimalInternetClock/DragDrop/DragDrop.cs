@@ -38,17 +38,25 @@ namespace DragDrop
             if (DragDropFlag)
             {
                 String text = ""
-                    //   + "e.AllowedEffect: " + e.AllowedEffect.ToString() + "\r\n" +
-                    //   "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
-                    //   "e.Effect: " + e.Effect.ToString() + "\r\n" +
-                    //   "e.KeyState: " + e.KeyState.ToString() + "\r\n" +
-                    //   "e.X: " + e.X.ToString() + "\r\n" +
-                    //   "e.Y: " + e.Y.ToString() + "\r\n"
+                    //*/
+                    + "e.AllowedEffect: " + e.AllowedEffects.ToString() + "\r\n" +
+                    "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
+                    "e.Effect: " + e.Effects.ToString() + "\r\n" +
+                    "e.KeyState: " + e.KeyStates.ToString() + "\r\n"
+                    /*/
+                     /*
+                       + "e.AllowedEffect: " + e.AllowedEffect.ToString() + "\r\n" +
+                       "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
+                       "e.Effect: " + e.Effect.ToString() + "\r\n" +
+                       "e.KeyState: " + e.KeyState.ToString() + "\r\n" +
+                       "e.X: " + e.X.ToString() + "\r\n" +
+                       "e.Y: " + e.Y.ToString() + "\r\n"
+                    //*/
                 ;
                 IDataObject dataObject = e.Data;
                 DisplayDataObject(text, dataObject);
                 OnPropertyChanged(XmlTextPropertyName);
-                Clipboard.SetText(XmlText);
+                //Clipboard.SetText(XmlText);
             }
         }
 
@@ -58,8 +66,9 @@ namespace DragDrop
             //this.textBox1.Focus();
             DragDropFlag = true;
             //dea = e;
-            if ((e.AllowedEffects & DragDropEffects.Copy) != DragDropEffects.None)
-                e.Effects = DragDropEffects.Copy;
+            e.Effects = e.AllowedEffects & DragDropEffects.Copy;
+            //if ((e.AllowedEffects & DragDropEffects.Copy) != DragDropEffects.None)
+            //    e.Effects = DragDropEffects.Copy;
         }
 
         //public void DragLeaveWinform(object sender, EventArgs e)
@@ -79,15 +88,20 @@ namespace DragDrop
         //    DisplayDataObject("", Clipboard.GetDataObject());
         //}
 
-        StringBuilder normalText = new StringBuilder();
-        StringBuilder richText = new StringBuilder();
-        StringBuilder xmlText = new StringBuilder();
+        private StringBuilder normalText = new StringBuilder();
+        private StringBuilder richText = new StringBuilder();
+        private StringBuilder xmlText = new StringBuilder();
 
         public const string XmlTextPropertyName = "XmlText";
 
         public String XmlText
         {
             get { return xmlText.ToString(); }
+        }
+
+        public string DebugText
+        {
+            get { return normalText.ToString(); }
         }
 
         private void DisplayDataObject(String textHeader, IDataObject dataObject)
@@ -141,6 +155,7 @@ namespace DragDrop
                                             normalText.Append(format + ": " + dataString + "\r\n");
                                             richText.Append(dataString);
                                             break;
+
                                         case "Rich Text Format Without Objects":
                                         case "RTF As Text":
                                         case "System.String":
@@ -148,6 +163,7 @@ namespace DragDrop
                                         case "Text":
                                             normalText.Append(format + ": " + dataString + "\r\n");
                                             break;
+
                                         default:
 
                                             break;
