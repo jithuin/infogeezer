@@ -61,5 +61,11 @@ namespace DragDrop
             e.Handled = true;
             this.Text = _ddh.DebugText;
         }
+
+        protected override void OnDragOver(DragEventArgs e)
+        {
+            _ddh.DragEnter(this, e);
+            e.Handled = true;
+        }
     }
 }

@@ -20,7 +20,6 @@ namespace DragDrop
 
         private static bool DragDropFlag;
 
-        //DragEventArgs dea;
         protected static List<string> _denyList = new List<string>()
         {
             "EnhancedMetafile",
@@ -60,33 +59,37 @@ namespace DragDrop
             }
         }
 
+        private static List<DragDropEffects> effectPriorityList = new List<DragDropEffects>()
+        {
+            DragDropEffects.Copy,
+            DragDropEffects.Move,
+            DragDropEffects.Link
+        };
+
         public void DragEnter(object sender, DragEventArgs e)
         {
-            //this.Activate();
-            //this.textBox1.Focus();
             DragDropFlag = true;
-            //dea = e;
-            e.Effects = e.AllowedEffects & DragDropEffects.Copy;
-            //if ((e.AllowedEffects & DragDropEffects.Copy) != DragDropEffects.None)
-            //    e.Effects = DragDropEffects.Copy;
-        }
 
-        //public void DragLeaveWinform(object sender, EventArgs e)
-        //{
-        //    //this.OnDeactivate(e);
-        //    DragDropFlag = false;
-        //}
+            // choose single effect if there is only one in the allowedEffects flag
+            e.Effects = effectPriorityList.SingleOrDefault((effect) => e.AllowedEffects == effect);
+            bool multiEffect = e.Effects == DragDropEffects.None;
+
+            if (multiEffect)
+            {
+                // choose the first effect from priority if there are multiple allowedEffects
+                e.Effects = effectPriorityList.FirstOrDefault((effect) => (e.AllowedEffects & effect) != DragDropEffects.None);
+                if ((e.KeyStates & DragDropKeyStates.ShiftKey) != DragDropKeyStates.None)
+                    if ((e.KeyStates & DragDropKeyStates.ControlKey) != DragDropKeyStates.None)
+                        e.Effects = e.AllowedEffects & DragDropEffects.Link;
+                    else
+                        e.Effects = e.AllowedEffects & DragDropEffects.Move;
+            }
+        }
 
         public void DragLeave(object sender, DragEventArgs e)
         {
-            //this.OnDeactivate(e);
             DragDropFlag = false;
         }
-
-        //private void btGetClipboard_Click(object sender, EventArgs e)
-        //{
-        //    DisplayDataObject("", Clipboard.GetDataObject());
-        //}
 
         private StringBuilder normalText = new StringBuilder();
         private StringBuilder richText = new StringBuilder();
@@ -114,6 +117,11 @@ namespace DragDrop
             bool isDataPresent;
             object data;
             string dataString;
+
+            normalText.AppendLine("Formats: ");
+
+            foreach (string format in formats)
+                normalText.AppendFormat(" {0}\r\n", format);
 
             foreach (string format in formats)
             {
@@ -152,7 +160,7 @@ namespace DragDrop
                                     switch (format)
                                     {
                                         case "Rich Text Format":
-                                            normalText.Append(format + ": " + dataString + "\r\n");
+                                            //normalText.Append(format + ": " + dataString + "\r\n");
                                             richText.Append(dataString);
                                             break;
 
@@ -161,11 +169,7 @@ namespace DragDrop
                                         case "System.String":
                                         case "UnicodeText":
                                         case "Text":
-                                            normalText.Append(format + ": " + dataString + "\r\n");
-                                            break;
-
                                         default:
-
                                             break;
                                     }
                                     break;
@@ -174,11 +178,11 @@ namespace DragDrop
                         normalText.Append("\r\n");
                     }
                 }
-                catch (ExecutionEngineException ex)
-                {
-                    Forms.MessageBox.Show(String.Format("Cannot get format:{0}", format));
-                    normalText.AppendFormat("Cannot get format:{0}", format);
-                }
+                //catch (ExecutionEngineException ex)
+                //{
+                //    Forms.MessageBox.Show(String.Format("Cannot get format:{0}", format));
+                //    normalText.AppendFormat("Cannot get format:{0}", format);
+                //}
                 catch (ExternalException ex)
                 {
                     Forms.MessageBox.Show(String.Format("Cannot get format:{0}", format));
