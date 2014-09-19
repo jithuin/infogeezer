@@ -17,8 +17,13 @@ namespace DragDrop.Model.Notes
         {
             get
             {
-                return "xml";
+                return "XMLData";
             }
+        }
+
+        public override bool IsDataObjectCompatible(IDataObject object_in)
+        {
+            return base.IsDataObjectCompatible(object_in) && Data.CanXmlDeserialize<Feed>();
         }
 
         public string DataContent

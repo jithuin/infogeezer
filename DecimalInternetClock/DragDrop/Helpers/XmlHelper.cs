@@ -17,6 +17,18 @@ namespace DragDrop
             return theObject;
         }
 
+        public static bool CanXmlDeserialize<T>(this Stream stream)
+        {
+            var serializer = new System.Xml.Serialization.XmlSerializer(typeof(T));
+            return serializer.CanDeserialize(stream);
+        }
+
+        public static bool CanDeserialize(this XmlSerializer serializer, Stream stream)
+        {
+            XmlReader xr = XmlReader.Create(stream);
+            return serializer.CanDeserialize(xr);
+        }
+
         public static Stream XmlSerialize(this Stream stream, object theObject)
         {
             var serializer = new System.Xml.Serialization.XmlSerializer(theObject.GetType());
