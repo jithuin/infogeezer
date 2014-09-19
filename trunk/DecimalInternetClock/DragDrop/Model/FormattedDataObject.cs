@@ -12,20 +12,22 @@ namespace DragDrop.Model
             : base(object_in)
         {
             Format = format_in;
-            CheckDataValidity(object_in, Format);
         }
 
         public FormattedDataObject(IDataObject object_in)
             : base(object_in)
         {
             Format = DefaultFormat;
-            CheckDataValidity(object_in, Format);
         }
 
-        private void CheckDataValidity(IDataObject object_in, string format_in)
+        private bool CheckDataValidity(IDataObject object_in, string format_in)
         {
-            object_in.GetFormats().Contains(format_in);
-            object_in.GetDataPresent(format_in);
+            return object_in.GetFormats().Contains(format_in) && object_in.GetDataPresent(format_in);
+        }
+
+        public override bool IsDataObjectCompatible(IDataObject object_in)
+        {
+            return CheckDataValidity(object_in, Format);
         }
 
         public abstract string DefaultFormat
@@ -41,7 +43,7 @@ namespace DragDrop.Model
             {
                 return _format;
             }
-            protected set
+            private set
             {
                 if (_format != value)
                     _format = value;

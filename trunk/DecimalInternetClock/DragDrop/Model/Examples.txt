@@ -1,0 +1,978 @@
+-------------+
+Mozilla URL: |
+-------------+
+
+e.AllowedEffect: Link, All
+e.Data: System.IO.MemoryStream
+e.Effect: Link, All
+e.KeyState: None
+Formats: 
+ text/x-moz-url
+ FileGroupDescriptor
+ FileGroupDescriptorW
+ FileContents
+ UniformResourceLocator
+ UniformResourceLocatorW
+ text/x-moz-url-data
+ text/x-moz-url-desc
+ text/uri-list
+ text/_moz_htmlcontext
+ text/_moz_htmlinfo
+ text/html
+ HTML Format
+ Text
+ UnicodeText
+ System.String
+ DragImageBits
+ DragContext
+text/x-moz-url: System.IO.MemoryStream
+http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+How to get `Type` of subclass from base class - Stack Overflow
+FileGroupDescriptor: System.IO.MemoryStream
+?How to get `Type` of subclass from base class - Stack Overflow.URL
+FileGroupDescriptorW: System.IO.MemoryStream
+?How to get `Type` of subclass from base class - Stack Overflow.URL
+FileContents: System.IO.MemoryStream
+[InternetShortcut]
+URL=http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+
+UniformResourceLocator: System.IO.MemoryStream
+http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+UniformResourceLocatorW: System.IO.MemoryStream
+http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+text/x-moz-url-data: System.IO.MemoryStream
+http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+text/x-moz-url-desc: System.IO.MemoryStream
+How to get `Type` of subclass from base class - Stack Overflow
+text/uri-list: System.IO.MemoryStream
+http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+text/_moz_htmlcontext: System.IO.MemoryStream
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="hu"><body class="srp tbo vasq vsh" id="gsr" lang="hu"><div data-jiis="cc" id="main"><div class=" mdm" data-jiis="bp" id="cnt"><div class="mw"><div id="rcnt" style="clear:both;position:relative;zoom:1"><div class="col" style="width:0"><div style="visibility: visible;" id="center_col"><div class="med" id="res" role="main"><div data-jibp="h" data-jiis="uc" id="search"><div data-async-context="query:get%20all%20subclasses%20of%20a%20type"
+text/_moz_htmlinfo: System.IO.MemoryStream
+0,0
+text/html: System.IO.MemoryStream
+<h3 class="r"><a href="http://www.google.hu/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;ved=0CDcQFjAC&amp;url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&amp;ei=JyEcVJToKsS_ygPLnIJo&amp;usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&amp;sig2=U1h8d-1NOpjZXufa7VeC6w&amp;bvm=bv.75774317,d.bGQ" onmousedown="return rwt(this,'','','','3','AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA','U1h8d-1NOpjZXufa7VeC6w','0CDcQFjAC','','',event)">How to <e
+HTML Format: Version:0.9
+StartHTML:00000272
+EndHTML:00000931
+StartFragment:00000306
+EndFragment:00000895
+SourceURL:https://www.google.hu/search?q=get+all+subclasses+of+a+type&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:hu:official&client=firefox-a&gfe_rd=cr&ei=JyEcVPbMIsXb8geV7IGwBw
+<html><body>
+<!--StartFragment--><h3 class="r"><a href="http://www.google.hu/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;ved=0CDcQFjAC&amp;url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&amp;ei=JyEcVJToKsS_ygPLnIJo&amp;usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&amp;sig2=U1h8d-1NOpjZXufa7VeC6w&amp;bvm=bv.75774317,d.bGQ" onmousedown="return rwt(this,'','','','3','AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA','U1h8d-1NOpjZXufa7VeC6w','0CDcQFjAC','','',event)">How to <em>get</em> `<em>Type</em>` of <em>subclass</em> from base class - Stack Overflow</a></h3><!--EndFragment-->
+</body>
+</html>
+
+Text: http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+
+UnicodeText: http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+
+System.String: http://www.google.hu/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0CDcQFjAC&url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F16264144%2Fhow-to-get-type-of-subclass-from-base-class&ei=JyEcVJToKsS_ygPLnIJo&usg=AFQjCNEp329XEyV4TpLdNZ-pZKXzLPKlHA&sig2=U1h8d-1NOpjZXufa7VeC6w&bvm=bv.75774317,d.bGQ
+
+DragImageBits: System.IO.MemoryStream
+˜°?yyyy
+
+
+---------------+
+Mozilla URL 2: |
+---------------+
+
+e.AllowedEffect: Link, All
+e.Data: System.IO.MemoryStream
+e.Effect: Link, All
+e.KeyState: None
+Formats: 
+ text/x-moz-url
+ FileGroupDescriptor
+ FileGroupDescriptorW
+ FileContents
+ UniformResourceLocator
+ UniformResourceLocatorW
+ text/x-moz-url-data
+ text/x-moz-url-desc
+ text/uri-list
+ text/_moz_htmlcontext
+ text/_moz_htmlinfo
+ text/html
+ HTML Format
+ Text
+ UnicodeText
+ System.String
+ DragImageBits
+ DragContext
+text/x-moz-url: System.IO.MemoryStream
+https://www.youtube.com/watch?v=aItrMzaMxe0#
+0:00:00
+FileGroupDescriptor: System.IO.MemoryStream
+?00000.URL
+FileGroupDescriptorW: System.IO.MemoryStream
+?00000.URL
+FileContents: System.IO.MemoryStream
+[InternetShortcut]
+URL=https://www.youtube.com/watch?v=aItrMzaMxe0#
+
+UniformResourceLocator: System.IO.MemoryStream
+https://www.youtube.com/watch?v=aItrMzaMxe0#
+UniformResourceLocatorW: System.IO.MemoryStream
+https://www.youtube.com/watch?v=aItrMzaMxe0#
+text/x-moz-url-data: System.IO.MemoryStream
+https://www.youtube.com/watch?v=aItrMzaMxe0#
+text/x-moz-url-desc: System.IO.MemoryStream
+0:00:00
+text/uri-list: System.IO.MemoryStream
+https://www.youtube.com/watch?v=aItrMzaMxe0#
+text/_moz_htmlcontext: System.IO.MemoryStream
+<html class="" data-cast-api-enabled="true" lang="hu"><body dir="ltr" class="  ltr  gecko gecko-32  exp-flexwatch-720-mini   site-center-aligned site-as-giant-card appbar-hidden     not-nirvana-dogfood  not-yt-legacy-css  watch8 page-loaded" id="body"><div id="body-container"><div id="page-container"><div id="page" class="  watch      watch-non-stage-mode   clearfix"><div id="content" class="  content-alignment  
+
+"><div id="watch7-container" class=""><div id="watch7-main-container"><div id="wat
+text/_moz_htmlinfo: System.IO.MemoryStream
+0,0
+text/html: System.IO.MemoryStream
+<a href="https://www.youtube.com/watch?v=aItrMzaMxe0#" onclick="yt.www.watch.player.seekTo(0*3600+00*60+00);return false;">0:00:00</a>
+HTML Format: Version:0.9
+StartHTML:00000153
+EndHTML:00000357
+StartFragment:00000187
+EndFragment:00000321
+SourceURL:https://www.youtube.com/watch?v=aItrMzaMxe0#
+<html><body>
+<!--StartFragment--><a href="https://www.youtube.com/watch?v=aItrMzaMxe0#" onclick="yt.www.watch.player.seekTo(0*3600+00*60+00);return false;">0:00:00</a><!--EndFragment-->
+</body>
+</html>
+
+Text: https://www.youtube.com/watch?v=aItrMzaMxe0#
+
+UnicodeText: https://www.youtube.com/watch?v=aItrMzaMxe0#
+
+System.String: https://www.youtube.com/watch?v=aItrMzaMxe0#
+
+DragImageBits: System.IO.MemoryStream
+0 
+e2yyyyPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[&[?Qa
+
+-------------+
+Folder Links |
+-------------+
+
+e.AllowedEffect: Copy, Move, Link
+e.Data: System.IO.MemoryStream
+e.Effect: Copy, Move, Link
+e.KeyState: None
+Formats: 
+ Shell IDList Array
+ Shell Object Offsets
+ DragImageBits
+ DragContext
+ InShellDragLoop
+ FileDrop
+ FileNameW
+ FileName
+Shell IDList Array: System.IO.MemoryStream
+hT1$Cae MIX10-~1<i3$CÜeE:MMIX10-MVVM-SamplesD19C3E ANALYT~1,i3Cô?0EÎ>ANALYTICON
+Shell Object Offsets: System.IO.MemoryStream
+$F÷yyyiyyy?yyyoyyy
+DragImageBits: System.IO.MemoryStream
+2C??3yyyy
+InShellDragLoop: System.IO.MemoryStream
+
+FileDrop: System.String[]
+C:\Documents and Settings\lhaydu.77EL\Asztal\MIX10-MVVM-Samples
+C:\Documents and Settings\lhaydu.77EL\Asztal\ANALYTICON
+
+FileNameW: System.String[]
+C:\Documents and Settings\lhaydu.77EL\Asztal\MIX10-MVVM-Samples
+
+FileName: System.String[]
+C:\DOCUME~1\LHAYDU~1.77E\Asztal\MIX10-~1
+
+
+------------+
+Folder Link |
+------------+
+
+e.AllowedEffect: Copy, Move, Link
+e.Data: System.IO.MemoryStream
+e.Effect: Copy, Move, Link
+e.KeyState: None
+Formats: 
+ Shell IDList Array
+ Shell Object Offsets
+ DragImageBits
+ DragContext
+ InShellDragLoop
+ FileDrop
+ FileNameW
+ FileName
+Shell IDList Array: System.IO.MemoryStream
+D19C3E ANALYT~1,i3Cô?0EÎ>ANALYTICON
+Shell Object Offsets: System.IO.MemoryStream
+3Koyyyíyyy
+DragImageBits: System.IO.MemoryStream
+M6+"pyyyyƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!aƒG!a
+InShellDragLoop: System.IO.MemoryStream
+
+FileDrop: System.String[]
+C:\Documents and Settings\lhaydu.77EL\Asztal\ANALYTICON
+
+FileNameW: System.String[]
+C:\Documents and Settings\lhaydu.77EL\Asztal\ANALYTICON
+
+FileName: System.String[]
+C:\DOCUME~1\LHAYDU~1.77E\Asztal\ANALYT~1
+
+
+-------------------------+
+Mozilla Text with links  |
+-------------------------+
+
+
+e.AllowedEffect: Link, All
+e.Data: System.IO.MemoryStream
+e.Effect: Link, All
+e.KeyState: None
+Formats: 
+ text/_moz_htmlcontext
+ text/_moz_htmlinfo
+ text/html
+ HTML Format
+ Text
+ UnicodeText
+ System.String
+ DragImageBits
+ DragContext
+text/_moz_htmlcontext: System.IO.MemoryStream
+<html class="" data-cast-api-enabled="true" lang="hu"><body dir="ltr" class="  ltr  gecko gecko-32  exp-flexwatch-720-mini   site-center-aligned site-as-giant-card appbar-hidden     not-nirvana-dogfood  not-yt-legacy-css  watch8 page-loaded" id="body"><div id="body-container"><div id="page-container"><div id="page" class="  watch      watch-non-stage-mode   clearfix"><div id="content" class="  content-alignment  
+
+"><div id="watch7-container" class=""><div id="watch7-main-container"><div id="wat
+text/_moz_htmlinfo: System.IO.MemoryStream
+0,0
+text/html: System.IO.MemoryStream
+oxis<br><a href="https://www.youtube.com/watch?v=aItrMzaMxe0#" onclick="yt.www.watch.player.seekTo(0*3600+05*60+33);return false;">0:05:33</a> Godspeed<br><a href="https://www.youtube.com/watch?v=aItrMzaMxe0#" onclick="yt.www.watch.player.seekTo(0*3600+08*60+28);return false;">0:08:28</a> Aurora
+HTML Format: Version:0.9
+StartHTML:00000153
+EndHTML:00000519
+StartFragment:00000187
+EndFragment:00000483
+SourceURL:https://www.youtube.com/watch?v=aItrMzaMxe0#
+<html><body>
+<!--StartFragment-->oxis<br><a href="https://www.youtube.com/watch?v=aItrMzaMxe0#" onclick="yt.www.watch.player.seekTo(0*3600+05*60+33);return false;">0:05:33</a> Godspeed<br><a href="https://www.youtube.com/watch?v=aItrMzaMxe0#" onclick="yt.www.watch.player.seekTo(0*3600+08*60+28);return false;">0:08:28</a> Aurora<!--EndFragment-->
+</body>
+</html>
+
+Text: oxis
+0:05:33 Godspeed
+0:08:28 Aurora
+
+UnicodeText: oxis
+0:05:33 Godspeed
+0:08:28 Aurora
+
+System.String: oxis
+0:05:33 Godspeed
+0:08:28 Aurora
+
+DragImageBits: System.IO.MemoryStream
+o4UN"Iyyyy
+
+------------------------+
+------------------------+
+Text from Notepad++     |
+------------------------+
+the text was: "Valami"  |
+------------------------+
+
+
+e.AllowedEffect: Copy, Move
+e.Data: Valami
+e.Effect: Copy, Move
+e.KeyState: None
+Formats: 
+ Text
+ UnicodeText
+ System.String
+Text: Valami
+
+UnicodeText: Valami
+
+System.String: Valami
+
+--------------+
+Notes text    |
+--------------+
+
+Formats: 
+ Notes Private Data
+ Text
+ UnicodeText
+ System.String
+ Rich Text Format
+ Format-1
+Text: rchasing Department
+Phone: + 36 1 206
+
+UnicodeText: rchasing Department
+Phone: + 36 1 206
+
+System.String: rchasing Department
+Phone: + 36 1 206
+
+Rich Text Format: {\rtf1 \ansi\ansicpg1250 
+{\colortbl\red0\green0\blue0;\red255\green255\blue255;\red255\green0\blue0;\red0\green255\blue0;\red0\green0\blue255;\red255\green0\blue255;\red255\green255\blue0;\red0\green255\blue255;\red128\green0\blue0;
+\red0\green128\blue0;\red0\green0\blue128;\red128\green0\blue128;\red128\green128\blue0;\red0\green128\blue128;\red128\green128\blue128;\red192\green192\blue192;\red255\green255\blue255;\red255\green239\blue206;\red255\green255\blue194;
+\red255\green255\blue208;\red224\green255\blue191;\red224\green255\blue223;\red224\green255\blue255;\red194\green239\blue255;\red224\green241\blue255;\red224\green224\blue255;\red232\green224\blue255;\red241\green224\blue255;\red255\green224\blue255;
+\red255\green224\blue245;\red255\green224\blue230;\red255\green255\blue255;\red255\green225\blue220;\red255\green225\blue176;\red255\green255\blue127;\red241\green241\blue180;\red194\green255\blue145;\red193\green255\blue213;\red164\green255\blue255;
+\red161\green226\blue255;\red192\green225\blue255;\red191\green191\blue255;\red210\green191\blue255;\red225\green191\blue255;\red255\green193\blue253;\red255\green192\blue228;\red255\green192\blue206;\red247\green247\blue247;\red255\green192\blue182;
+\red255\green194\blue129;\red255\green255\blue53;\red241\green241\blue128;\red127\green255\blue127;\red130\green255\blue202;\red127\green255\blue255;\red130\green224\blue255;\red130\green192\blue255;\red159\green159\blue255;\red194\green159\blue255;
+\red226\green159\blue255;\red255\green159\blue255;\red255\green159\blue207;\red255\green159\blue169;\red239\green239\blue239;\red255\green159\blue159;\red255\green159\blue113;\red255\green255\blue0;\red224\green224\blue116;\red65\green255\blue50;
+\red66\green255\blue199;\red66\green255\blue255;\red0\green191\blue255;\red82\green145\blue239;\red128\green128\blue255;\red192\green130\blue255;\red224\green129\blue255;\red255\green127\blue255;\red255\green130\blue194;\red255\green130\blue160;
+\red225\green225\blue225;\red255\green128\blue128;\red255\green129\blue65;\red255\green225\blue24;\red225\green225\blue64;\red0\green255\blue0;\red0\green255\blue178;\red0\green255\blue255;\red0\green161\blue224;\red33\green129\blue255;
+\red97\green129\blue255;\red161\green96\blue255;\red192\green98\blue255;\red255\green95\blue255;\red255\green96\blue175;\red255\green96\blue136;\red210\green210\blue210;\red255\green64\blue64;\red255\green66\blue30;\red255\green191\blue24;
+\red225\green225\blue0;\red0\green225\blue0;\red0\green225\blue173;\red0\green224\blue224;\red0\green130\blue191;\red0\green128\blue255;\red65\green129\blue255;\red130\green66\blue255;\red193\green64\blue255;\red255\green66\blue249;
+\red255\green64\blue160;\red255\green64\blue112;\red192\green192\blue192;\red255\green31\blue53;\red255\green31\blue16;\red255\green129\blue0;\red191\green191\blue0;\red0\green194\blue0;\red0\green193\blue150;\red0\green193\blue194;
+\red65\green129\blue192;\red0\green98\blue225;\red65\green65\blue255;\red66\green0\blue255;\red194\green0\blue255;\red255\green34\blue255;\red245\green43\blue151;\red255\green34\blue89;\red178\green178\blue178;\red224\green31\blue37;
+\red225\green32\blue0;\red226\green98\blue0;\red161\green161\blue0;\red0\green160\blue0;\red0\green159\blue130;\red63\green128\blue128;\red0\green96\blue160;\red0\green65\blue194;\red0\green33\blue191;\red65\green0\blue194;
+\red129\green0\blue255;\red255\green0\blue255;\red255\green0\blue128;\red255\green0\blue65;\red162\green162\blue162;\red194\green0\blue0;\red255\green0\blue0;\red191\green65\blue0;\red128\green128\blue63;\red63\green128\blue63;
+\red0\green130\blue80;\red0\green96\blue98;\red0\green64\blue128;\red0\green31\blue226;\red64\green64\blue194;\red64\green0\blue162;\red96\green0\blue161;\red224\green0\blue224;\red223\green0\blue127;\red194\green0\blue65;
+\red143\green143\blue143;\red160\green0\blue0;\red225\green0\blue0;\red161\green63\blue0;\red98\green98\blue0;\red0\green96\blue0;\red0\green96\blue60;\red0\green64\blue65;\red0\green47\blue128;\red0\green0\blue255;
+\red32\green32\blue160;\red34\green0\blue161;\red64\green0\blue128;\red161\green0\blue159;\red192\green0\blue127;\red159\green0\blue15;\red128\green128\blue128;\red96\green0\blue0;\red194\green18\blue18;\red130\green66\blue0;
+\red66\green66\blue0;\red0\green66\blue0;\red0\green64\blue35;\red0\green50\blue63;\red0\green32\blue96;\red0\green32\blue194;\red34\green34\blue192;\red0\green0\blue128;\red31\green0\blue127;\red128\green0\blue128;
+\red130\green0\blue64;\red128\green0\blue0;\red95\green95\blue95;\red64\green0\blue0;\red161\green31\blue18;\red96\green66\blue0;\red33\green33\blue0;\red0\green33\blue0;\red0\green32\blue31;\red0\green32\blue65;
+\red0\green32\blue79;\red0\green0\blue224;\red0\green0\blue161;\red0\green0\blue97;\red31\green0\blue98;\red64\green0\blue95;\red98\green0\blue66;\red98\green0\blue18;\red79\green79\blue79;\red208\green177\blue161;
+\red224\green161\blue117;\red210\green176\blue106;\red192\green194\blue124;\red130\green193\blue104;\red129\green192\blue151;\red127\green194\blue188;\red113\green178\blue207;\red177\green177\blue210;\red159\green159\blue224;\red192\green161\blue224;
+\red226\green159\blue222;\red239\green145\blue235;\red226\green159\blue200;\red241\green143\blue188;\red47\green47\blue47;\red127\green96\blue79;\red161\green98\blue82;\red128\green98\blue16;\red130\green130\blue63;\red63\green98\blue31;
+\red60\green97\blue62;\red55\green96\blue94;\red16\green65\blue96;\red66\green66\blue130;\red98\green96\blue161;\red98\green65\blue129;\red96\green49\blue129;\red96\green33\blue98;\red98\green33\blue82;\red129\green63\blue98;
+\red0\green0\blue0;}\uc0 
+{\fonttbl{\f0\froman Tms Rmn;}{\f1\fswiss Helv;}{\f2\fmodern Courier;}{\f3\froman\fprq2\fcharset2 Symbol;}{\f4\fnil\fprq2\fcharset2 Wingdings;}}\sectd {\*\pnseclvl1\pndec\pnstart1 {\pntxta .}}{\*\pnseclvl2\pndec\pnstart1 {\pntxta .}}{\*\pnseclvl3\pndec\pnstart1 {\pntxta .}}{\*\pnseclvl4\pndec\pnstart1 {\pntxta .}}{\*\pnseclvl5\pndec\pnstart1 {\pntxta .}}{\*\pnseclvl6\pndec\pnstart1 {\pntxta .}}{\*\pnseclvl7\pndec\pnstart1 {\pntxta .}}{\*\pnseclvl8\pndec\pnstart1 {\pntxta .}}{\*\pnseclvl9\pndec\pnstart1 {\pntxta .}}
+\pard \ltrpar\li0 \fi0 \sl240 \slmult1 \sb0 \sa0 \itap0 \plain \f1 \fs20 \cf0 
+rchasing Department
+\par
+\pard \ltrpar\li0 \fi0 \sl240 \slmult1 \sb0 \sa0 \itap0 \plain \f1 \fs20 \cf0 
+Phone: + 36 1 206
+}
+
+
+---------------+
+Word text      |
+---------------+
+
+e.AllowedEffect: Copy, Move, Link
+e.Data: System.IO.MemoryStream
+e.Effect: Copy, Move, Link
+e.KeyState: None
+Formats: 
+ Woozle
+ Object Descriptor
+ Rich Text Format
+ HTML Format
+ Text
+ UnicodeText
+ System.String
+ EnhancedMetafile
+ System.Drawing.Imaging.Metafile
+ MetaFilePict
+ Embed Source
+ Link Source
+ Link Source Descriptor
+ ObjectLink
+Woozle: System.IO.MemoryStream
+{\rtf1\adeflang1025\ansi\ansicpg1250\uc1\adeff31507\deff0\stshfdbch31506\stshfloch31506\stshfhich31506\stshfbi31507\deflang1038\deflangfe1038\themelang1038\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f34\fbidi \froman\fcharset1\fprq2{\*\panose 02040503050406030204}Cambria Math;}
+{\f37\fbidi \fswiss\fcharset238\fprq2{\*\panose 020f0502020204030204}Calibri;}{\flomajor\f31500\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\fdbmajor\f31501\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\fhimajor\f31502\fbidi \froman\fcharset238\fprq2{\*\panose 02040503050406030204}Cambria;}
+{\fbimajor\f31503\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\flominor\f31504\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\fdbminor\f31505\fbidi \froman\fcharset238\fprq2{\*\panose 0202060305040502
+Object Descriptor: System.IO.MemoryStream
+??Luôod@K?ôg?2¬ 4vMicrosoft Office Word dokumentumDokumentum1
+Rich Text Format: {\rtf1\adeflang1025\ansi\ansicpg1250\uc1\adeff31507\deff0\stshfdbch31506\stshfloch31506\stshfhich31506\stshfbi31507\deflang1038\deflangfe1038\themelang1038\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f34\fbidi \froman\fcharset1\fprq2{\*\panose 02040503050406030204}Cambria Math;}
+{\f37\fbidi \fswiss\fcharset238\fprq2{\*\panose 020f0502020204030204}Calibri;}{\flomajor\f31500\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\fdbmajor\f31501\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\fhimajor\f31502\fbidi \froman\fcharset238\fprq2{\*\panose 02040503050406030204}Cambria;}
+{\fbimajor\f31503\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\flominor\f31504\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}
+{\fdbminor\f31505\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\fhiminor\f31506\fbidi \fswiss\fcharset238\fprq2{\*\panose 020f0502020204030204}Calibri;}
+{\fbiminor\f31507\fbidi \froman\fcharset238\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f41\fbidi \froman\fcharset0\fprq2 Times New Roman;}{\f40\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\f42\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\f43\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\f44\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\f45\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\f46\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\f47\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\f411\fbidi \fswiss\fcharset0\fprq2 Calibri;}{\f410\fbidi \fswiss\fcharset204\fprq2 Calibri Cyr;}
+{\f412\fbidi \fswiss\fcharset161\fprq2 Calibri Greek;}{\f413\fbidi \fswiss\fcharset162\fprq2 Calibri Tur;}{\f416\fbidi \fswiss\fcharset186\fprq2 Calibri Baltic;}{\flomajor\f31510\fbidi \froman\fcharset0\fprq2 Times New Roman;}
+{\flomajor\f31509\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\flomajor\f31511\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\flomajor\f31512\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}
+{\flomajor\f31513\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\flomajor\f31514\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\flomajor\f31515\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}
+{\flomajor\f31516\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\fdbmajor\f31520\fbidi \froman\fcharset0\fprq2 Times New Roman;}{\fdbmajor\f31519\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\fdbmajor\f31521\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\fdbmajor\f31522\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\fdbmajor\f31523\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}
+{\fdbmajor\f31524\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\fdbmajor\f31525\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\fdbmajor\f31526\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}
+{\fhimajor\f31530\fbidi \froman\fcharset0\fprq2 Cambria;}{\fhimajor\f31529\fbidi \froman\fcharset204\fprq2 Cambria Cyr;}{\fhimajor\f31531\fbidi \froman\fcharset161\fprq2 Cambria Greek;}{\fhimajor\f31532\fbidi \froman\fcharset162\fprq2 Cambria Tur;}
+{\fhimajor\f31535\fbidi \froman\fcharset186\fprq2 Cambria Baltic;}{\fbimajor\f31540\fbidi \froman\fcharset0\fprq2 Times New Roman;}{\fbimajor\f31539\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\fbimajor\f31541\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\fbimajor\f31542\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\fbimajor\f31543\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}
+{\fbimajor\f31544\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\fbimajor\f31545\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\fbimajor\f31546\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}
+{\flominor\f31550\fbidi \froman\fcharset0\fprq2 Times New Roman;}{\flominor\f31549\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\flominor\f31551\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}
+{\flominor\f31552\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\flominor\f31553\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\flominor\f31554\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\flominor\f31555\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\flominor\f31556\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\fdbminor\f31560\fbidi \froman\fcharset0\fprq2 Times New Roman;}
+{\fdbminor\f31559\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fdbminor\f31561\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}{\fdbminor\f31562\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}
+{\fdbminor\f31563\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fdbminor\f31564\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}{\fdbminor\f31565\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}
+{\fdbminor\f31566\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}{\fhiminor\f31570\fbidi \fswiss\fcharset0\fprq2 Calibri;}{\fhiminor\f31569\fbidi \fswiss\fcharset204\fprq2 Calibri Cyr;}
+{\fhiminor\f31571\fbidi \fswiss\fcharset161\fprq2 Calibri Greek;}{\fhiminor\f31572\fbidi \fswiss\fcharset162\fprq2 Calibri Tur;}{\fhiminor\f31575\fbidi \fswiss\fcharset186\fprq2 Calibri Baltic;}
+{\fbiminor\f31580\fbidi \froman\fcharset0\fprq2 Times New Roman;}{\fbiminor\f31579\fbidi \froman\fcharset204\fprq2 Times New Roman Cyr;}{\fbiminor\f31581\fbidi \froman\fcharset161\fprq2 Times New Roman Greek;}
+{\fbiminor\f31582\fbidi \froman\fcharset162\fprq2 Times New Roman Tur;}{\fbiminor\f31583\fbidi \froman\fcharset177\fprq2 Times New Roman (Hebrew);}{\fbiminor\f31584\fbidi \froman\fcharset178\fprq2 Times New Roman (Arabic);}
+{\fbiminor\f31585\fbidi \froman\fcharset186\fprq2 Times New Roman Baltic;}{\fbiminor\f31586\fbidi \froman\fcharset163\fprq2 Times New Roman (Vietnamese);}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;
+\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;
+\red192\green192\blue192;}{\*\defchp \f31506\fs22\lang1038\langfe1033\langfenp1033 }{\*\defpap \ql \li0\ri0\sa200\sl276\slmult1\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 }\noqfpromote {\stylesheet{
+\ql \li0\ri0\sa200\sl276\slmult1\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af31507\afs22\alang1025 \ltrch\fcs0 \f31506\fs22\lang1038\langfe1033\cgrid\langnp1038\langfenp1033 
+\snext0 \sqformat \spriority0 \styrsid6493732 Normal;}{\*\cs10 \additive \ssemihidden \sunhideused \spriority1 Default Paragraph Font;}{\*
+\ts11\tsrowd\trftsWidthB3\trpaddl108\trpaddr108\trpaddfl3\trpaddft3\trpaddfb3\trpaddfr3\trcbpat1\trcfpat1\tblind0\tblindtype3\tscellwidthfts0\tsvertalt\tsbrdrt\tsbrdrl\tsbrdrb\tsbrdrr\tsbrdrdgl\tsbrdrdgr\tsbrdrh\tsbrdrv \ql \li0\ri0\sa200\sl276\slmult1
+\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0 \rtlch\fcs1 \af31507\afs22\alang1025 \ltrch\fcs0 \fs22\lang1038\langfe1038\loch\f31506\hich\af31506\dbch\af31505\cgrid\langnp1038\langfenp1038 
+\snext11 \ssemihidden \sunhideused \sqformat Normal Table;}}{\*\rsidtbl \rsid6493732}{\mmathPr\mmathFont34\mbrkBin0\mbrkBinSub0\msmallFrac0\mdispDef1\mlMargin0\mrMargin0\mdefJc1\mwrapIndent1440\mintLim0\mnaryLim1}{\*\xmlnstbl {\xmlns1 http://schemas.micro
+soft.com/office/word/2003/wordml}}\paperw12240\paperh15840\margl1417\margr1417\margt1417\margb1417\gutter0\ltrsect 
+\deftab708\widowctrl\ftnbj\aenddoc\hyphhotz425\trackmoves1\trackformatting1\donotembedsysfont1\relyonvml0\donotembedlingdata0\grfdocevents0\validatexml1\showplaceholdtext0\ignoremixedcontent0\saveinvalidxml0
+\showxmlerrors1\noxlattoyen\expshrtn\noultrlspc\dntblnsbdb\nospaceforul\formshade\horzdoc\dgmargin\dghspace180\dgvspace180\dghorigin1701\dgvorigin1984\dghshow1\dgvshow1
+\jexpand\pgbrdrhead\pgbrdrfoot\splytwnine\ftnlytwnine\htmautsp\nolnhtadjtbl\useltbaln\alntblind\lytcalctblwd\lyttblrtgr\lnbrkrule\nobrkwrptbl\snaptogridincell\allowfieldendsel\wrppunct\asianbrkrule\rsidroot6493732
+\newtblstyruls\nogrowautofit\usenormstyforlist\noindnmbrts\felnbrelev\nocxsptable\indrlsweleven\noafcnsttbl\afelev\utinl\hwelev\spltpgpar\notcvasp\notbrkcnstfrctbl\notvatxbx\krnprsnet\cachedcolbal \nouicompat \fet0{\*\wgrffmtfilter 2450}
+\nofeaturethrottle1\ilfomacatclnup0\ltrpar \sectd \ltrsect\linex0\headery708\footery708\colsx708\endnhere\sectdefaultcl\sftnbj {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang {\pntxta .}}
+{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang {\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang {\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}
+{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang {\pntxtb (}{\pntxta )}}\pard\plain \ltrpar
+\ql \li0\ri0\sa200\sl276\slmult1\widctlpar\wrapdefault\aspalpha\aspnum\faauto\adjustright\rin0\lin0\itap0\pararsid6493732 \rtlch\fcs1 \af31507\afs22\alang1025 \ltrch\fcs0 \f31506\fs22\lang1038\langfe1033\cgrid\langnp1038\langfenp1033 {\rtlch\fcs1 
+\af31507 \ltrch\fcs0 \cf2\insrsid6493732\charrsid5638737 Valami
+\par }{\*\themedata 504b030414000600080000002100828abc13fa0000001c020000130000005b436f6e74656e745f54797065735d2e786d6cac91cb6ac3301045f785fe83d0b6d8
+72ba28a5d8cea249777d2cd20f18e4b12d6a8f843409c9df77ecb850ba082d74231062ce997b55ae8fe3a00e1893f354e9555e6885647de3a8abf4fbee29bbd7
+2a3150038327acf409935ed7d757e5ee14302999a654e99e393c18936c8f23a4dc072479697d1c81e51a3b13c07e4087e6b628ee8cf5c4489cf1c4d075f92a0b
+44d7a07a83c82f308ac7b0a0f0fbf90c2480980b58abc733615aa2d210c2e02cb04430076a7ee833dfb6ce62e3ed7e14693e8317d8cd0433bf5c60f53fea2fe7
+065bd80facb647e9e25c7fc421fd2ddb526b2e9373fed4bb902e182e97b7b461e6bfad3f010000ffff0300504b030414000600080000002100a5d6a7e7c00000
+00360100000b0000005f72656c732f2e72656c73848fcf6ac3300c87ef85bd83d17d51d2c31825762fa590432fa37d00e1287f68221bdb1bebdb4fc7060abb08
+84a4eff7a93dfeae8bf9e194e720169aaa06c3e2433fcb68e1763dbf7f82c985a4a725085b787086a37bdbb55fbc50d1a33ccd311ba548b63095120f88d94fbc
+52ae4264d1c910d24a45db3462247fa791715fd71f989e19e0364cd3f51652d73760ae8fa8c9ffb3c330cc9e4fc17faf2ce545046e37944c69e462a1a82fe353
+bd90a865aad41ed0b5b8f9d6fd010000ffff0300504b0304140006000800000021006b799616830000008a0000001c0000007468656d652f7468656d652f7468
+656d654d616e616765722e786d6c0ccc4d0ac3201040e17da17790d93763bb284562b2cbaebbf600439c1a41c7a0d29fdbd7e5e38337cedf14d59b4b0d592c9c
+070d8a65cd2e88b7f07c2ca71ba8da481cc52c6ce1c715e6e97818c9b48d13df49c873517d23d59085adb5dd20d6b52bd521ef2cdd5eb9246a3d8b4757e8d3f7
+29e245eb2b260a0238fd010000ffff0300504b03041400060008000000210072c9e97299060000501b0000160000007468656d652f7468656d652f7468656d65
+312e786d6cec594d6f1b4518be23f11f467b6f6327761a4775aad8b11b68d346b15bd4e37877bc3bcdecce6a669cd437d41e9190100571a01237841050a995b8
+94133f25500445ea5fe09d99ddf54ebc26491b4105f521f1ce3eeff7c7bc33be7ce55eccd0011192f2a4edd52fd63c44129f073409dbdead61ffc29a87a4c249
+80194f48db9b12e95dd978f79dcb785d45242608e813b98edb5ea454babeb4247d58c6f2224f4902efc65cc458c1a3089702810f816fcc96966bb5d5a518d3c4
+43098e81edcdf198fae482faf99b187b1b39f31e030989927ac16762a0591387c26083fdba46c8a9ec32810e306b7b2027e08743724f798861a9e045dbab998f
+b7b4717909af67444c2da02dd1f5cd27a3cb0882fd65235384a34268bddf685dda2af81b0053f3b85eafd7edd50b7e06807d1f2cb5ba947936fa6bf54eceb304
+b25fe779776bcd5ac3c597f8afcce9dcea743acd56a68b656a40f66b630ebf565b6d6c2e3b7803b2f8e61cbed1d9ec76571dbc0159fcea1cbe7fa9b5da70f106
+14319aeccfa17540fbfd8c7b011973b65d095f03f85a2d83cf50900d45766911639ea845b916e3bb5cf401a0810c2b9a20354dc918fb90c55d1c8f04c55a005e
+27b8f4c62ef9726e49cb42d21734556deffd144345ccf8bd7cf6ddcb674fd0d1fda747f77f3c7af0e0e8fe0f969143b58d93b04cf5e2eb4ffe7cf421fae3c957
+2f1e7e568d9765fcafdf7ff4cb4f9f5603a17c66ea3cfffcf16f4f1f3fffe2e3dfbf7d5801df147854860f694c24ba410ed11e8fc130e3155773321267a31846
+989629369350e2046b2915fc7b2a72d037a69865d171f4e810d783b705b48f2ae0d5c95d47e14124268a5648be16c50e708773d6e1a2d20bd7b4ac929b879324
+ac162e2665dc1ec60755b2bb3871e2db9ba4d037f3b4740cef46c4517397e144e190244421fd8eef135261dd1d4a1dbfee505f70c9c70adda1a88369a54b8674
+e464d38c689bc610976995cd106fc7373bb75187b32aabb7c8818b84aac0ac42f921618e1bafe289c27115cb218e59d9e1d7b18aaa941c4c855fc6f5a4824887
+8471d40b889455343705d85b0afa350c1dab32ec3b6c1abb48a1e87e15cfeb98f332728bef77231ca755d8014da232f63db90f298ad12e5755f01dee56887e86
+38e06461b86f53e284fbe46e708b868e4ab304d16f2642c7125ab5d381639afc5d3b6614fab1cd81f36bc7d0009f7ff9a822b3ded446bc097b5255256c1f6bbf
+8b70c79b6e978b80bef93d770b4f925d02693ebff1bc6db96f5baef79f6fb98beaf9b48d76d65ba1edeab9c10ec566448e174ec863cad8404d19b92ecd902c61
+9f08fab0a8e9cce9901427a63482af595f7770a1c0860609ae3ea02a1a44388501bbee6926a1cc588712a55cc2c1ce2c57f2d67818d2953d1636f581c1f60389
+d50e0fecf28a5ececf05051bb3db84e6f0990b5ad10c4e2b6ce552c614cc7e156175add4a9a5d58d6aa6d539d20a932186f3a6c162e14d1840108c2de0e55538
+9f6bd17030c18c04daef76efcdc362a2709e2192110e4816236df77c8cea264879ae989b00c89d8a18e943de095e2b496b69b6af21ed34412a8b6b2c109747ef
+75a29467f02c4aba6e8f95234bcac5c91274d8f65acde5a6877c9cb6bd319c69e16b9c42d4a59ef9300be162c857c2a6fd89c56caa7c16cd566e985b0475b8a6
+b07e9f33d8e903a9906a0bcbc8a6867995a5004bb424abff7213dc7a5e06d84c7f052d56d62019fe352dc08f6e68c9784c7c550e766945fbce3e66ad944f1411
+832838442336117b18c2af5315ec09a884ab09d311f403dca3696f9b576e73ce8aae7c7b6570761db334c259bbd5259a57b2859b3a2e74304f25f5c0b64add8d
+716737c594fc3999524ee3ff99297a3f819b82954047c0876b5c8191aed7b6c7858a3874a134a27e5fc0e0607a07640bdcc5c26b482ab84c36ff0539d0ff6dcd
+591ea6ace1c0a7f668880485fd484582905d684b26fb4e6056cff62ecb92658c4c4695d495a9557b440e081bea1eb8aaf7760f4590eaa69b646dc0e08ee79ffb
+9c55d028d4434eb9de9c1e52ecbdb606fee9c9c7163318e5f66133d0e4fe2f54acd8552dbd21cff7deb221fac56ccc6ae45501c24a5b412b2bfb5754e18c5bad
+ed5873162f3773e5208af316c3623110a570df83f41fd8ffa8f0193169ac37d421df83de8ae08706cd0cd206b2fa821d3c906e9076710483935db4c9a45959d7
+66a393f65abe599ff3a45bc83de66cadd969e27d466717c3992bcea9c5f37476e661c7d7766da1ab21b2c74b1496c6f941c604c6fca455fed5898fee42a0b7e0
+7e7fc29434c904bf29090ca3e7c0d40114bf95684837fe020000ffff0300504b0304140006000800000021000dd1909fb60000001b010000270000007468656d
+652f7468656d652f5f72656c732f7468656d654d616e616765722e786d6c2e72656c73848f4d0ac2301484f78277086f6fd3ba109126dd88d0add40384e4350d
+363f2451eced0dae2c082e8761be9969bb979dc9136332de3168aa1a083ae995719ac16db8ec8e4052164e89d93b64b060828e6f37ed1567914b284d26245228
+2e3198720e274a939cd08a54f980ae38a38f56e422a3a641c8bbd048f7757da0f19b017cc524bd62107bd5001996509affb3fd381a89672f1f165dfe514173d9
+850528a2c6cce0239baa4c04ca5bbabac4df000000ffff0300504b01022d0014000600080000002100828abc13fa0000001c0200001300000000000000000000
+000000000000005b436f6e74656e745f54797065735d2e786d6c504b01022d0014000600080000002100a5d6a7e7c0000000360100000b000000000000000000
+000000002b0100005f72656c732f2e72656c73504b01022d00140006000800000021006b799616830000008a0000001c00000000000000000000000000140200
+007468656d652f7468656d652f7468656d654d616e616765722e786d6c504b01022d001400060008000000210072c9e97299060000501b000016000000000000
+00000000000000d10200007468656d652f7468656d652f7468656d65312e786d6c504b01022d00140006000800000021000dd1909fb60000001b010000270000
+00000000000000000000009e0900007468656d652f7468656d652f5f72656c732f7468656d654d616e616765722e786d6c2e72656c73504b050600000000050005005d010000990a00000000}
+{\*\colorschememapping 3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d225554462d3822207374616e64616c6f6e653d22796573223f3e0d0a3c613a636c724d
+617020786d6c6e733a613d22687474703a2f2f736368656d61732e6f70656e786d6c666f726d6174732e6f72672f64726177696e676d6c2f323030362f6d6169
+6e22206267313d226c743122207478313d22646b3122206267323d226c743222207478323d22646b322220616363656e74313d22616363656e74312220616363
+656e74323d22616363656e74322220616363656e74333d22616363656e74332220616363656e74343d22616363656e74342220616363656e74353d22616363656e74352220616363656e74363d22616363656e74362220686c696e6b3d22686c696e6b2220666f6c486c696e6b3d22666f6c486c696e6b222f3e}
+{\*\latentstyles\lsdstimax267\lsdlockeddef0\lsdsemihiddendef1\lsdunhideuseddef1\lsdqformatdef0\lsdprioritydef99{\lsdlockedexcept \lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority0 \lsdlocked0 Normal;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority9 \lsdlocked0 heading 1;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 2;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 3;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 4;
+\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 5;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 6;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 7;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 8;\lsdqformat1 \lsdpriority9 \lsdlocked0 heading 9;
+\lsdpriority39 \lsdlocked0 toc 1;\lsdpriority39 \lsdlocked0 toc 2;\lsdpriority39 \lsdlocked0 toc 3;\lsdpriority39 \lsdlocked0 toc 4;\lsdpriority39 \lsdlocked0 toc 5;\lsdpriority39 \lsdlocked0 toc 6;\lsdpriority39 \lsdlocked0 toc 7;
+\lsdpriority39 \lsdlocked0 toc 8;\lsdpriority39 \lsdlocked0 toc 9;\lsdqformat1 \lsdpriority35 \lsdlocked0 caption;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority10 \lsdlocked0 Title;\lsdpriority1 \lsdlocked0 Default Paragraph Font;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority11 \lsdlocked0 Subtitle;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority22 \lsdlocked0 Strong;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority20 \lsdlocked0 Emphasis;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority59 \lsdlocked0 Table Grid;\lsdunhideused0 \lsdlocked0 Placeholder Text;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority1 \lsdlocked0 No Spacing;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading;\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 1;\lsdunhideused0 \lsdlocked0 Revision;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority34 \lsdlocked0 List Paragraph;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority29 \lsdlocked0 Quote;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority30 \lsdlocked0 Intense Quote;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 1;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 1;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 2;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 2;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 3;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 3;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 4;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 4;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 4;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 4;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 4;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 5;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 5;\lsdsemihidden0 \lsdunhideused0 \lsdpriority60 \lsdlocked0 Light Shading Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority61 \lsdlocked0 Light List Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority62 \lsdlocked0 Light Grid Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority63 \lsdlocked0 Medium Shading 1 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority64 \lsdlocked0 Medium Shading 2 Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority65 \lsdlocked0 Medium List 1 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority66 \lsdlocked0 Medium List 2 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority67 \lsdlocked0 Medium Grid 1 Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority68 \lsdlocked0 Medium Grid 2 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority69 \lsdlocked0 Medium Grid 3 Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority70 \lsdlocked0 Dark List Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdpriority71 \lsdlocked0 Colorful Shading Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority72 \lsdlocked0 Colorful List Accent 6;\lsdsemihidden0 \lsdunhideused0 \lsdpriority73 \lsdlocked0 Colorful Grid Accent 6;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority19 \lsdlocked0 Subtle Emphasis;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority21 \lsdlocked0 Intense Emphasis;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority31 \lsdlocked0 Subtle Reference;\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority32 \lsdlocked0 Intense Reference;
+\lsdsemihidden0 \lsdunhideused0 \lsdqformat1 \lsdpriority33 \lsdlocked0 Book Title;\lsdpriority37 \lsdlocked0 Bibliography;\lsdqformat1 \lsdpriority39 \lsdlocked0 TOC Heading;}}}
+
+HTML Format: Version:1.0
+StartHTML:0000000105
+EndHTML:0000021544
+StartFragment:0000021424
+EndFragment:0000021504
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 12">
+<meta name=Originator content="Microsoft Word 12">
+<link rel=File-List
+href="file:///C:\DOCUME~1\LHAYDU~1.77E\LOCALS~1\Temp\msohtmlclip1\01\clip_filelist.xml">
+<link rel=themeData
+href="file:///C:\DOCUME~1\LHAYDU~1.77E\LOCALS~1\Temp\msohtmlclip1\01\clip_themedata.thmx">
+<link rel=colorSchemeMapping
+href="file:///C:\DOCUME~1\LHAYDU~1.77E\LOCALS~1\Temp\msohtmlclip1\01\clip_colorschememapping.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:HyphenationZone>21</w:HyphenationZone>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>HU</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:1;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:variable;
+	mso-font-signature:0 0 0 0 0 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:238;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610611985 1073750139 0 0 159 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:Calibri;
+	mso-fareast-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+.MsoPapDefault
+	{mso-style-type:export-only;
+	margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Normál táblázat";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:0cm;
+	mso-para-margin-bottom:10.0pt;
+	mso-para-margin-left:0cm;
+	line-height:115%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1026"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=HU style='tab-interval:35.4pt'>
+<!--StartFragment-->
+
+<p class=MsoNormal><span style='color:blue'>Valami<o:p></o:p></span></p>
+
+<!--EndFragment-->
+</body>
+
+</html>
+
+
+Text: Valami
+
+UnicodeText: Valami
+
+System.String: Valami
+
+System.Drawing.Imaging.Metafile: System.Drawing.Imaging.Metafile
+
+Link Source Descriptor: System.IO.MemoryStream
+??Luôod@K?ôg?2¬ 4vMicrosoft Office Word dokumentumDokumentum1
+ObjectLink: System.IO.MemoryStream
+Word.Document.8Dokumentum1OLE_LINK1
+
+
+
+
+

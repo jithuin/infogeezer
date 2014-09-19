@@ -25,6 +25,7 @@ namespace DragDrop
             "EnhancedMetafile",
             "Notes Private Data",
             "Link Source",
+            //"DragContext",
         };
 
         public List<string> DenyList
@@ -36,23 +37,28 @@ namespace DragDrop
         {
             if (DragDropFlag)
             {
-                String text = ""
-                    //*/
-                    + "e.AllowedEffect: " + e.AllowedEffects.ToString() + "\r\n" +
-                    "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
-                    "e.Effect: " + e.Effects.ToString() + "\r\n" +
-                    "e.KeyState: " + e.KeyStates.ToString() + "\r\n"
-                    /*/
-                     /*
-                       + "e.AllowedEffect: " + e.AllowedEffect.ToString() + "\r\n" +
-                       "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
-                       "e.Effect: " + e.Effect.ToString() + "\r\n" +
-                       "e.KeyState: " + e.KeyState.ToString() + "\r\n" +
-                       "e.X: " + e.X.ToString() + "\r\n" +
-                       "e.Y: " + e.Y.ToString() + "\r\n"
-                    //*/
-                ;
                 IDataObject dataObject = e.Data;
+                String text = "";
+                try
+                {
+                    text = ""
+                        //*/
+                        + "e.AllowedEffect: " + e.AllowedEffects.ToString() + "\r\n" +
+                        "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
+                        "e.Effect: " + e.Effects.ToString() + "\r\n" +
+                        "e.KeyState: " + e.KeyStates.ToString() + "\r\n"
+                        /*/
+                         /*
+                           + "e.AllowedEffect: " + e.AllowedEffect.ToString() + "\r\n" +
+                           "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
+                           "e.Effect: " + e.Effect.ToString() + "\r\n" +
+                           "e.KeyState: " + e.KeyState.ToString() + "\r\n" +
+                           "e.X: " + e.X.ToString() + "\r\n" +
+                           "e.Y: " + e.Y.ToString() + "\r\n"
+                        //*/
+                    ;
+                }
+                catch (Exception) { ;}
                 DisplayDataObject(text, dataObject);
                 OnPropertyChanged(XmlTextPropertyName);
                 //Clipboard.SetText(XmlText);

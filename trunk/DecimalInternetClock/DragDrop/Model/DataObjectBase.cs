@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 
@@ -11,11 +12,46 @@ namespace DragDrop.Model
     /// </summary>
     public abstract class DataObjectBase : IDataObject
     {
+        private static List<DataObjectBase> _subClasses;
+
+        static DataObjectBase()
+        {
+        }
+
+        private static void GenerateDerivedObjects()
+        {
+            _subClasses = new List<DataObjectBase>();
+
+            _subClasses.AddRange(
+                typeof(DataObjectBase)
+                    .Assembly
+                    .GetTypes()
+                    .Where(type =>
+                        type.IsSubclassOf(typeof(DataObjectBase))
+                        && type.GetConstructor(new Type[] { typeof(IDataObject) }) != null)
+                    .Select(type =>
+                        (DataObjectBase)type
+                            .GetConstructor(new Type[] { typeof(IDataObject) })
+                            .Invoke(new object[] { null })));
+        }
+
         protected IDataObject _dataObject;
 
         public DataObjectBase(IDataObject dataObj_in)
         {
             _dataObject = dataObj_in;
+        }
+
+        public virtual bool IsDataObjectCompatible(IDataObject object_in)
+        {
+            return true;
+        }
+
+        public static DataObjectBase GetDataObjectWrapper(IDataObject object_in)
+        {
+            if (_subClasses == null)
+                GenerateDerivedObjects();
+            return _subClasses.Single(dataObj => dataObj.IsDataObjectCompatible(object_in));
         }
 
         public object GetData(string format, bool autoConvert)
