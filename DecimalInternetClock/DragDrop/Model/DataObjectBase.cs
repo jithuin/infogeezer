@@ -14,25 +14,34 @@ namespace DragDrop.Model
     {
         private static List<DataObjectBase> _subClasses;
 
-        static DataObjectBase()
+        private static List<DataObjectBase> SubClasses
         {
+            get
+            {
+                #region Lazy init
+
+                if (_subClasses == null)
+                    _subClasses = new List<DataObjectBase>(
+                        typeof(DataObjectBase)
+                                .Assembly
+                                .GetTypes()
+                                .Where(type =>
+                                    type.IsSubclassOf(typeof(DataObjectBase))
+                                    && !type.IsAbstract
+                                    && type.GetConstructor(new Type[] { typeof(IDataObject) }) != null)
+                                .Select(type =>
+                                    (DataObjectBase)type
+                                        .GetConstructor(new Type[] { typeof(IDataObject) })
+                                        .Invoke(new object[] { null })));
+
+                #endregion Lazy init
+
+                return _subClasses;
+            }
         }
 
-        private static void GenerateDerivedObjects()
+        static DataObjectBase()
         {
-            _subClasses = new List<DataObjectBase>();
-
-            _subClasses.AddRange(
-                typeof(DataObjectBase)
-                    .Assembly
-                    .GetTypes()
-                    .Where(type =>
-                        type.IsSubclassOf(typeof(DataObjectBase))
-                        && type.GetConstructor(new Type[] { typeof(IDataObject) }) != null)
-                    .Select(type =>
-                        (DataObjectBase)type
-                            .GetConstructor(new Type[] { typeof(IDataObject) })
-                            .Invoke(new object[] { null })));
         }
 
         protected IDataObject _dataObject;
@@ -42,6 +51,8 @@ namespace DragDrop.Model
             _dataObject = dataObj_in;
         }
 
+        public abstract string DataString { get; }
+
         public virtual bool IsDataObjectCompatible(IDataObject object_in)
         {
             return true;
@@ -49,9 +60,13 @@ namespace DragDrop.Model
 
         public static DataObjectBase GetDataObjectWrapper(IDataObject object_in)
         {
-            if (_subClasses == null)
-                GenerateDerivedObjects();
-            return _subClasses.Single(dataObj => dataObj.IsDataObjectCompatible(object_in));
+            DataObjectBase ret = SubClasses.FirstOrDefault(dataObj => dataObj.IsDataObjectCompatible(object_in));
+            if (ret != null)
+                return (DataObjectBase)ret.GetType()
+                                          .GetConstructor(new Type[] { typeof(IDataObject) })
+                                          .Invoke(new object[] { object_in });
+            else
+                return null;
         }
 
         public object GetData(string format, bool autoConvert)

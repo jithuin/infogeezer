@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Xml.Serialization;
+using DragDrop.Model;
 using DragDrop.Model.Notes;
 using Forms = System.Windows.Forms;
 
@@ -39,29 +41,40 @@ namespace DragDrop
             {
                 IDataObject dataObject = e.Data;
                 String text = "";
-                try
+
+                DataObjectBase dataWrapper = DataObjectBase.GetDataObjectWrapper(dataObject);
+                TextBox uiTb = sender as TextBox;
+                if (dataWrapper != null && uiTb != null)
                 {
-                    text = ""
-                        //*/
-                        + "e.AllowedEffect: " + e.AllowedEffects.ToString() + "\r\n" +
-                        "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
-                        "e.Effect: " + e.Effects.ToString() + "\r\n" +
-                        "e.KeyState: " + e.KeyStates.ToString() + "\r\n"
-                        /*/
-                         /*
-                           + "e.AllowedEffect: " + e.AllowedEffect.ToString() + "\r\n" +
-                           "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
-                           "e.Effect: " + e.Effect.ToString() + "\r\n" +
-                           "e.KeyState: " + e.KeyState.ToString() + "\r\n" +
-                           "e.X: " + e.X.ToString() + "\r\n" +
-                           "e.Y: " + e.Y.ToString() + "\r\n"
-                        //*/
-                    ;
+                    normalText.Append(dataWrapper.DataString);
+                    e.Handled = true;
                 }
-                catch (Exception) { ;}
-                DisplayDataObject(text, dataObject);
-                OnPropertyChanged(XmlTextPropertyName);
-                //Clipboard.SetText(XmlText);
+                else
+                {
+                    try
+                    {
+                        text = ""
+                            //*/
+                            + "e.AllowedEffect: " + e.AllowedEffects.ToString() + "\r\n" +
+                            "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
+                            "e.Effect: " + e.Effects.ToString() + "\r\n" +
+                            "e.KeyState: " + e.KeyStates.ToString() + "\r\n"
+                            /*/
+                             /*
+                               + "e.AllowedEffect: " + e.AllowedEffect.ToString() + "\r\n" +
+                               "e.Data: " + e.Data.GetData(e.Data.GetFormats()[0]).ToString() + "\r\n" +
+                               "e.Effect: " + e.Effect.ToString() + "\r\n" +
+                               "e.KeyState: " + e.KeyState.ToString() + "\r\n" +
+                               "e.X: " + e.X.ToString() + "\r\n" +
+                               "e.Y: " + e.Y.ToString() + "\r\n"
+                            //*/
+                        ;
+                    }
+                    catch (Exception) { ;}
+                    DisplayDataObject(text, dataObject);
+                    OnPropertyChanged(XmlTextPropertyName);
+                    //Clipboard.SetText(XmlText);
+                }
             }
         }
 
