@@ -110,8 +110,11 @@
     <Compile Include="DragDrop.cs" />
     <Compile Include="DragDropTesterCustomTextBox.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
+    <Compile Include="Model\BrowserLinkDataObject.cs" />
     <Compile Include="Model\DataObjectBase.cs" />
+    <Compile Include="Model\FileLinkDataObject.cs" />
     <Compile Include="Model\FormattedDataObject.cs" />
+    <Compile Include="Model\InternalLinkDataObject.cs" />
     <Compile Include="Model\Notes\Entry.cs" />
     <Compile Include="Model\Notes\Feed.cs" />
     <Compile Include="Model\Notes\NotesDataObject.cs" />

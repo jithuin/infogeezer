@@ -56,10 +56,14 @@ namespace DragDrop
 
         protected override void OnDrop(DragEventArgs e)
         {
-            //base.OnDrop(e);
             _ddh.DragDrop(this, e);
-            e.Handled = true;
-            this.Text = _ddh.DebugText;
+            if (e.Handled == false)
+                base.OnDrop(e);
+            else
+            {
+                this.Text = _ddh.DebugText;
+                e.Handled = true;
+            }
         }
 
         protected override void OnDragOver(DragEventArgs e)

@@ -23,10 +23,10 @@ namespace DragDrop.Model.Notes
 
         public override bool IsDataObjectCompatible(IDataObject object_in)
         {
-            return base.IsDataObjectCompatible(object_in) && Data.CanXmlDeserialize<Feed>();
+            return base.IsDataObjectCompatible(object_in) && new NotesDataObject(object_in).Data.CanXmlDeserialize<Feed>();
         }
 
-        public string DataContent
+        public override string DataString
         {
             get
             {
