@@ -12,6 +12,12 @@ namespace DragDrop.Model
     /// </summary>
     public abstract class DataObjectBase : IDataObject
     {
+#if DEBUG
+        private static bool _isDefaultIncluded = true;
+#else
+        private static bool _isDefaultIncluded = false;
+#endif
+
         private static List<DataObjectBase> _subClasses;
 
         private static List<DataObjectBase> SubClasses
@@ -28,6 +34,7 @@ namespace DragDrop.Model
                                 .Where(type =>
                                     type.IsSubclassOf(typeof(DataObjectBase))
                                     && !type.IsAbstract
+                                    && (_isDefaultIncluded || type != typeof(DefaultDataObject))
                                     && type.GetConstructor(new Type[] { typeof(IDataObject) }) != null)
                                 .Select(type =>
                                     (DataObjectBase)type
@@ -55,7 +62,7 @@ namespace DragDrop.Model
 
         public virtual bool IsDataObjectCompatible(IDataObject object_in)
         {
-            return true;
+            return false;
         }
 
         public static DataObjectBase GetDataObjectWrapper(IDataObject object_in)

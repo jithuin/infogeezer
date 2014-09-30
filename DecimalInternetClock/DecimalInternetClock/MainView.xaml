@@ -137,7 +137,9 @@
                     AcceptsReturn="True"
                     BorderBrush="Transparent"
                     Foreground="{Binding ElementName=this, Path=Foreground}"
-                    Background="#0400FF00">
+                    Background="#0400FF00"
+                    IsCopyingToClipboard="True"
+                    FontFamily="Arial">
                 </dd:NotesDragDropCustomTextBox>
                 <dd:DragDropTesterCustomTextBox
                     TextWrapping="Wrap"
@@ -147,9 +149,10 @@
                     VerticalScrollBarVisibility="Auto"
                     AcceptsReturn="True"
                     BorderBrush="Transparent"
-                    FontFamily="Arial"
                     Foreground="{Binding ElementName=this, Path=Foreground}"
-                    Background="#0400FF00">
+                    Background="#0400FF00"
+
+                    FontFamily="Arial">
                 </dd:DragDropTesterCustomTextBox>
             </StackPanel>
         </ScrollViewer>
