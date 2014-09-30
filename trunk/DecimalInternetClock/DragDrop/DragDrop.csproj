@@ -112,6 +112,7 @@
     <Compile Include="Helpers\XmlHelper.cs" />
     <Compile Include="Model\BrowserLinkDataObject.cs" />
     <Compile Include="Model\DataObjectBase.cs" />
+    <Compile Include="Model\DefaultDataObject.cs" />
     <Compile Include="Model\FileLinkDataObject.cs" />
     <Compile Include="Model\FormattedDataObject.cs" />
     <Compile Include="Model\InternalLinkDataObject.cs" />
@@ -119,21 +120,10 @@
     <Compile Include="Model\Notes\Feed.cs" />
     <Compile Include="Model\Notes\NotesDataObject.cs" />
     <Compile Include="NotesDragDropCustomTextBox.cs" />
-    <Compile Include="NotesDragDropTextBox.xaml.cs">
-      <DependentUpon>NotesDragDropTextBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Testing\TestFile.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="NotesDragDropTextBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

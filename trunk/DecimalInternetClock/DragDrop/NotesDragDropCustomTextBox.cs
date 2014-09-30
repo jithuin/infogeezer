@@ -64,6 +64,12 @@ namespace DragDrop
             e.Handled = true;
         }
 
+        protected override void OnDragOver(DragEventArgs e)
+        {
+            _ddh.DragOver(this, e);
+            e.Handled = true;
+        }
+
         protected override void OnDragLeave(DragEventArgs e)
         {
             //base.OnDragLeave(e);
@@ -76,8 +82,9 @@ namespace DragDrop
             //base.OnDrop(e);
             _ddh.DragDrop(this, e);
             e.Handled = true;
-            this.Text = _ddh.XmlText;
-            Clipboard.SetText(_ddh.XmlText);
+            this.Text = _ddh.DebugText;
+            if (IsCopyingToClipboard)
+                Clipboard.SetText(_ddh.DebugText);
         }
     }
 }
