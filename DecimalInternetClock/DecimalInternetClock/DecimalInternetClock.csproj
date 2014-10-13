@@ -157,24 +157,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Clocks\View\BinaryClock\BinaryClock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Clocks\View\BinaryRing\BinaryRing.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Clocks\View\BinaryRing\BinaryRingSegment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="CustomControls\LedUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,12 +166,6 @@
     <Page Include="MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Clocks\View\BinaryClock\BinaryClockSegment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -227,15 +203,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyListHelper.cs" />
     <Compile Include="MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clocks\Model\DecimalTimer.cs">
-    </Compile>
     <Compile Include="CustomCommands\CustomCommands.cs" />
     <Compile Include="CustomControls\DecimalTextBox.cs" />
     <Compile Include="CustomControls\EnumComboBox.xaml.cs">
@@ -251,20 +224,6 @@
     <Compile Include="DesignPatterns\Singleton\ISingleton.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\ExtensionMethodsNumericGeneric.cs" />
-    <Compile Include="Helpers\MouseHelper.cs" />
-    <Compile Include="Helpers\VectorHelper.cs" />
-    <Compile Include="HotKeys\ActivatorHotkey.cs">
-    </Compile>
-    <Compile Include="HotKeys\HotkeyProxy.cs" />
-    <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyList.cs" />
-    <Compile Include="HotKeys\HotKeyFeatureExtension.cs">
-    </Compile>
-    <Compile Include="HotKeys\ResizerHotkey\ResizerHotKey.cs">
-    </Compile>
-    <Compile Include="Clocks\Model\BinaryModel.cs" />
-    <Compile Include="Clocks\Model\DecimalModel.cs" />
-    <Compile Include="Clocks\Model\IDecimalClock.cs" />
-    <Compile Include="HotKeys\ResizerHotkey\ResizerHotkeyState.cs" />
     <Compile Include="Touch\IRotateable.cs" />
     <Compile Include="ValueConverters\BrushColorConverter.cs" />
     <Compile Include="ValueConverters\BooleanConverters.cs" />
@@ -272,15 +231,6 @@
     <Compile Include="ValueConverters\DateTimeConverter.cs" />
     <Compile Include="ValueConverters\DebugConverter.cs" />
     <Compile Include="ValueConverters\RangeValueConverters.cs" />
-    <Compile Include="Clocks\View\BinaryClock\BinaryClock.xaml.cs">
-      <DependentUpon>BinaryClock.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Clocks\View\BinaryRing\BinaryRing.xaml.cs">
-      <DependentUpon>BinaryRing.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Clocks\View\BinaryRing\BinaryRingSegment.xaml.cs">
-      <DependentUpon>BinaryRingSegment.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ValueConverters\HexaConverters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -297,9 +247,6 @@
     </Compile>
     <Compile Include="CustomControls\LedUserControl.xaml.cs">
       <DependentUpon>LedUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Clocks\View\BinaryClock\BinaryClockSegment.xaml.cs">
-      <DependentUpon>BinaryClockSegment.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomViews\3DTest\ParametricSurface.cs" />
     <Compile Include="CustomViews\3DTest\SimpleSurface.cs" />
@@ -368,6 +315,10 @@
     <ProjectReference Include="..\Helpers\Helpers.csproj">
       <Project>{0E1F53A2-1117-46B3-A323-698493000F6D}</Project>
       <Name>Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hotkey\Hotkey.csproj">
+      <Project>{A21103B5-E974-4DCE-9E42-F32DD355B215}</Project>
+      <Name>Hotkey</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

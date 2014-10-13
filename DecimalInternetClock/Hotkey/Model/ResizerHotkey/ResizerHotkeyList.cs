@@ -7,9 +7,10 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace DecimalInternetClock.HotKeys
+namespace HotKey
 {
     [Serializable]
+    [XmlType("ResizerHotkeyList")]
     public class ResizerHotkeyList : IList<ResizerHotKey>
     {
         protected List<ResizerHotKey> _rhkList = null;

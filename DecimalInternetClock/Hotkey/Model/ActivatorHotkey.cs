@@ -6,13 +6,15 @@ using System.Windows;
 using System.Windows.Forms;
 using ManagedWinapi;
 
-namespace DecimalInternetClock.HotKeys
+namespace HotKey
 {
     public class ActivatorHotkey : HotKeyFeatureExtension
     {
         protected Window _win;
 
-        public ActivatorHotkey() { }
+        public ActivatorHotkey()
+        {
+        }
 
         public ActivatorHotkey(Window window_in, FKeyModifiers mod_in, Keys key_in)
             : base(mod_in, key_in)
