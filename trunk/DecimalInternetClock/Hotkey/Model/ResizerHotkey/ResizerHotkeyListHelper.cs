@@ -5,11 +5,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Windows;
 using System.Xml.Serialization;
-using DecimalInternetClock.HotKeys;
+
 using ManagedWinapi;
 using Forms = System.Windows.Forms;
 
-namespace DecimalInternetClock.HotKeys
+namespace HotKey
 {
     public static class ResizerHotkeyListHelper
     {

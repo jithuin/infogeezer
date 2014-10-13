@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml.Serialization;
-using ManagedWinapi;
+using Forms = System.Windows.Forms;
 
-namespace DecimalInternetClock.HotKeys
+namespace HotKey
 {
     [Serializable]
     public class HotkeyProxy
     {
         [NonSerialized]
         [XmlIgnore]
-        protected Hotkey _hotkey;
+        protected ManagedWinapi.Hotkey _hotkey;
 
         public HotkeyProxy()
         {
-            _hotkey = new Hotkey();
+            _hotkey = new ManagedWinapi.Hotkey();
         }
 
         #region Properties
@@ -108,7 +107,7 @@ namespace DecimalInternetClock.HotKeys
             }
         }
 
-        internal void ModifyHotKey(FKeyModifiers mod_in, System.Windows.Forms.Keys key_in)
+        internal void ModifyHotKey(FKeyModifiers mod_in, Forms.Keys key_in)
         {
             Enabled = false;
             Alt = (mod_in & FKeyModifiers.Alt) != 0;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Media;
 
-namespace DecimalInternetClock.Helpers
+namespace Hotkey.Helpers
 {
     public static class VectorHelper
     {

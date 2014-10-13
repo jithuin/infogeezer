@@ -6,10 +6,9 @@ using System.Text;
 using System.Windows;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using DecimalInternetClock.Helpers;
 using ManagedWinapi;
 
-namespace DecimalInternetClock.HotKeys
+namespace HotKey
 {
     [Flags()]
     public enum FKeyModifiers
@@ -21,11 +20,26 @@ namespace DecimalInternetClock.HotKeys
     }
 
     [Serializable]
-    public abstract class HotKeyFeatureExtension : IList<HotkeyProxy>, IList
+    [XmlInclude(typeof(HotKeyFeatureExtension))]
+    public abstract class HotKeyFeatureExtension
     {
         #region Properties and Fields
 
         protected List<HotkeyProxy> _hotkeyList;
+
+        [Obsolete("This property is only for xml purposes it should be deleted")]
+        [XmlArray("hotkeyList")]
+        public List<HotkeyProxy> HotkeyList
+        {
+            get
+            {
+                return _hotkeyList;
+            }
+            set
+            {
+                _hotkeyList = value;
+            }
+        }
 
         #endregion Properties and Fields
 
@@ -188,25 +202,13 @@ namespace DecimalInternetClock.HotKeys
             this.Remove((HotkeyProxy)value);
         }
 
-        object IList.this[int index]
-        {
-            get
-            {
-                return this[index];
-            }
-            set
-            {
-                this[index] = (HotkeyProxy)value;
-            }
-        }
-
         #endregion IList Members
 
         #region ICollection Members
 
         public void CopyTo(Array array, int index)
         {
-            this.CopyTo(array.Cast<Hotkey>().ToArray(), index);
+            this.CopyTo(array.Cast<ManagedWinapi.Hotkey>().ToArray(), index);
         }
 
         public bool IsSynchronized
@@ -221,34 +223,6 @@ namespace DecimalInternetClock.HotKeys
 
         #endregion ICollection Members
 
-        #region IEnumerable Members
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return ((System.Collections.IEnumerable)_hotkeyList).GetEnumerator();
-        }
-
-        #endregion IEnumerable Members
-
         #endregion Interface implementations
-    }
-
-    public class HotKeyStore : List<Hotkey>
-    {
-        protected HotKeyStore()
-        {
-        }
-
-        protected HotKeyStore _instance;
-
-        public HotKeyStore Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new HotKeyStore();
-                return _instance;
-            }
-        }
     }
 }

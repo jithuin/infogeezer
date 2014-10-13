@@ -5,17 +5,20 @@ using System.Text;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
-using DecimalInternetClock.Helpers;
+using System.Xml.Serialization;
+using Hotkey.Helpers;
 using ManagedWinapi;
 using ManagedWinapi.Windows;
 
-namespace DecimalInternetClock.HotKeys
+namespace HotKey
 {
     [Serializable]
+    [XmlType("ResizerHotKey")]
     public class ResizerHotKey : HotKeyFeatureExtension
     {
         #region Properties and Fields
 
+        [XmlArray("HotkeyStates")]
         public List<ResizerHotkeyState> ResizeStates { get; set; }
 
         protected int _statePointer = 0;

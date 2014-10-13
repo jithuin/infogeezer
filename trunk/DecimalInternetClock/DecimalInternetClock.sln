@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecimalInternetClock", "DecimalInternetClock\DecimalInternetClock.csproj", "{239BD0B2-A007-4538-85E4-6A98134965A0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{827F8C33-8118-48C7-AB3C-4864298396AD} = {827F8C33-8118-48C7-AB3C-4864298396AD}
@@ -38,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D29D6B
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotkey", "Hotkey\Hotkey.csproj", "{A21103B5-E974-4DCE-9E42-F32DD355B215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -223,6 +223,20 @@ Global
 		{0971E4B3-4CB9-4FDF-A19E-03FDAF927BD7}.Release|x86.ActiveCfg = Release|x86
 		{0971E4B3-4CB9-4FDF-A19E-03FDAF927BD7}.Release|x86.Build.0 = Release|x86
 		{0971E4B3-4CB9-4FDF-A19E-03FDAF927BD7}.Release|x86.Deploy.0 = Release|x86
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Release|Win32.ActiveCfg = Release|Any CPU
+		{A21103B5-E974-4DCE-9E42-F32DD355B215}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Xml.Serialization;
 
-namespace DecimalInternetClock.HotKeys
+namespace HotKey
 {
     [Serializable]
     public class ResizerHotkeyState
@@ -33,6 +34,7 @@ namespace DecimalInternetClock.HotKeys
             _windowSizePortion = portion_in;
         }
 
+        [XmlIgnore]
         public bool IsExplicitlySet { get; protected set; }
 
         protected Vector _location;

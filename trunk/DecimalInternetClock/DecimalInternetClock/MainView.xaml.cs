@@ -15,7 +15,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ColorPicker;
-using DecimalInternetClock.Clocks;
 using DecimalInternetClock.Helpers;
 using DecimalInternetClock.Properties;
 using DecimalInternetClock.Touch;
@@ -34,8 +33,6 @@ namespace DecimalInternetClock
     {
         #region Properties
 
-        public DecimalTimer DecimalTime { get; set; }
-
         protected IRotateable _currentRotateableVisual;
 
         #endregion Properties
@@ -44,8 +41,6 @@ namespace DecimalInternetClock
 
         public MainView()
         {
-            DecimalTime = new DecimalTimer();
-
             InitializeComponent();
 
             LoadSettings();
