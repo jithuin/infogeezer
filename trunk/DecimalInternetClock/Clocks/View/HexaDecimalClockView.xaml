@@ -19,7 +19,7 @@
         <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
         <vw:HexaDecimalDigitView DataContext="{Binding Path=Second}" />
         <Viewbox Margin="{Binding Path=TextMargin}">
-            <TextBlock FontSize="20" Height="24" Width="130"  Text="{Binding Path=TimeString}"></TextBlock>
+            <TextBlock FontSize="20" Height="24" Width="150" Text="{Binding Path=TimeString}"></TextBlock>
         </Viewbox>
     </Grid>
 </UserControl>

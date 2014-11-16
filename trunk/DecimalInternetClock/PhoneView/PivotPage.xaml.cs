@@ -1,16 +1,20 @@
-﻿using PhoneView.Common;
+﻿using Clocks.ViewModel;
+using PhoneView.Common;
 using PhoneView.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.System.Threading;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,7 +27,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace PhoneView
 {
-    public sealed partial class PivotPage : Page
+    public sealed partial class PivotPage : Page, INotifyPropertyChanged
     {
         private const string FirstGroupName = "FirstGroup";
         private const string SecondGroupName = "SecondGroup";
@@ -91,8 +95,6 @@ namespace PhoneView
             // TODO: Save the unique state of the page here.
         }
 
-        
-
         /// <summary>
         /// Invoked when an item within a section is clicked.
         /// </summary>
@@ -122,10 +124,10 @@ namespace PhoneView
         /// The methods provided in this section are simply used to allow
         /// NavigationHelper to respond to the page's navigation methods.
         /// <para>
-        /// Page specific logic should be placed in event handlers for the  
+        /// Page specific logic should be placed in event handlers for the
         /// <see cref="NavigationHelper.LoadState"/>
         /// and <see cref="NavigationHelper.SaveState"/>.
-        /// The navigation parameter is available in the LoadState method 
+        /// The navigation parameter is available in the LoadState method
         /// in addition to page state preserved during an earlier session.
         /// </para>
         /// </summary>
@@ -141,6 +143,38 @@ namespace PhoneView
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
-        #endregion
+        #endregion NavigationHelper registration
+
+        protected int TimerInterval = 1000;
+
+        public string IsCheckedPropertyName = "IsChecked";
+
+        public bool IsChecked { get; set; }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DispatcherTimer hexTimer = new DispatcherTimer();
+            hexTimer.Tick += (sender_tick, e_tick) =>
+            {
+                _cb1.IsChecked = !_cb1.IsChecked;
+                IsChecked = !IsChecked;
+                OnPropertyChanged(IsCheckedPropertyName);
+            };
+            hexTimer.Interval = TimeSpan.FromMilliseconds(TimerInterval);
+            hexTimer.Start();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        }
+
+        private void RefreshAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModelLocator.Main.HexClock.UpdateNow();
+        }
     }
 }
