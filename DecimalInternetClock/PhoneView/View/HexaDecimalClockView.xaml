@@ -13,12 +13,12 @@
             d:DataContext="{d:DesignInstance Type=vm:HexaDecimalClockViewModel, IsDesignTimeCreatable=True}"
             MinWidth="{Binding Path=MinWidth}">
     <Grid>
-        <vw:HexaDecimalDigitView DataContext="{Binding Path=Hour}" />
+        <!--<vw:HexaDecimalDigitView DataContext="{Binding Path=Hour}" />
         <vw:HexaDecimalDigitView DataContext="{Binding Path=Hour}" />
         <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteHi}" />
         <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
         <vw:HexaDecimalDigitView DataContext="{Binding Path=MinuteLow}" />
-        <vw:HexaDecimalDigitView DataContext="{Binding Path=Second}" />
+        <vw:HexaDecimalDigitView DataContext="{Binding Path=Second}" />-->
         <Viewbox Margin="{Binding Path=TextMargin}">
             <TextBlock Text="{Binding Path=TimeString}"></TextBlock>
         </Viewbox>

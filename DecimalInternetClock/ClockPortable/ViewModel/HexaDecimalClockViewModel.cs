@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Clocks.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
-using Clocks.Model;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
@@ -20,6 +20,7 @@ namespace Clocks.ViewModel
 
         public bool IsReadonly { get; set; }
 
+        /*
         public override string TimeString
         {
             get
@@ -28,6 +29,7 @@ namespace Clocks.ViewModel
             }
         }
 
+        //*/
         public DateTime Now
         {
             set
@@ -42,7 +44,6 @@ namespace Clocks.ViewModel
                         OnPropertyChanged(unit);
                     }
                 }
-                
             }
         }
 
@@ -83,38 +84,35 @@ namespace Clocks.ViewModel
         /// </summary>
         public const string TextMarginPropertyName = "TextMargin";
 
-
         /// <summary>
         /// Sets and gets the TextMargin property.
-        /// Changes to that property's value raise the PropertyChanged event. 
+        /// Changes to that property's value raise the PropertyChanged event.
         /// </summary>
         public Thickness TextMargin
         {
             get
             {
-                return new Thickness(_strokeThickness * (int)HexaDecimalClockModel.NumberOfUnits + _strokeThickness / 2);
+                return new Thickness(_strokeThickness * (int)HexaDecimalClockModel.NumberOfUnits + _strokeThickness);
             }
         }
-
-        
 
         public string ForegroundPropertyName = "Foreground";
         protected Brush _foreground;
 
         public Brush Foreground
         {
-            get 
-            { 
+            get
+            {
                 if (_foreground == null)
                 {
-                    Windows.UI.Color color  = new Windows.UI.Color();
+                    Windows.UI.Color color = new Windows.UI.Color();
                     color.A = 0xff;
                     color.B = 0x00;
                     color.G = 0x00;
                     color.R = 0x00;
                     _foreground = new SolidColorBrush(color);
                 }
-                return _foreground; 
+                return _foreground;
             }
             set
             {

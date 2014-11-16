@@ -1,7 +1,10 @@
 using Clocks.ViewModel;
 using GalaSoft.MvvmLight;
 using Microsoft.Practices.ServiceLocation;
+using System;
 using System.Threading;
+using Windows.System.Threading;
+using Windows.UI.Xaml;
 
 namespace Clocks.ViewModel
 {
@@ -43,9 +46,10 @@ namespace Clocks.ViewModel
 
             HexClock.StrokeThickness = 10; // TODO: it should be a designer property
             bool updating = false;
-            Timer hexTimer = new Timer(
-                new TimerCallback((o) =>
+            DispatcherTimer hexTimer = new DispatcherTimer();
+            hexTimer.Tick += (sender, e) =>
                     {
+                        //HexClock.UpdateNow();
                         if (Monitor.TryEnter(HexClock))
                         {
                             try
@@ -58,10 +62,9 @@ namespace Clocks.ViewModel
                                 Monitor.Exit(HexClock);
                             }
                         }
-                    }),
-                this,
-                0,
-                TimerInterval);
+                    };
+            hexTimer.Interval = TimeSpan.FromMilliseconds(TimerInterval);
+            hexTimer.Start();
 
             #endregion HexClockInit
         }
